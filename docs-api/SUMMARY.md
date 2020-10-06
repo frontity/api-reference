@@ -1,7 +1,9 @@
 # Table of contents
 
 * [💻 CLI Commands](frontity-cli/README.md)
-  * [Create commands](frontity-cli/create-commands.md)
+  * [Create commands](frontity-cli/create-commands/README.md)
+    * [create](frontity-cli/create-commands/create.md)
+    * [create-package](frontity-cli/create-commands/create-package.md)
   * [Run commands](frontity-cli/run-commands.md)
   * [Build commands](frontity-cli/build-commands.md)
   * [Extra commands](frontity-cli/extra-commands.md)
