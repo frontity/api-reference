@@ -1,14 +1,3 @@
-# Create commands
-
-These commands will allow you to either create a Frontity project or a Frontity package
-
-* [`create`](create-commands.md#create)
-* [`create-package`](create-commands.md#create-package)
-
-{% hint style="info" %}
-Have a look at the [environment variables](https://docs.frontity.org/frontity-cli/environment-variables) page to check which ones can be used with these commands
-{% endhint %}
-
 ## `create`
 
 Creates a new Frontity project.
@@ -77,40 +66,3 @@ Run cd awesome project && npx frontity dev and have fun! 🎉
 You can find docs at https://docs.frontity.org/.
 For technical support and assistance please join our community at https://community.frontity.org/.
 ```
-
-## `create-package`
-
-The `create-package` command creates a new Frontity package in a project. Launch this command from the root of the Frontity project
-
-```text
-npx frontity create-package [package-name] [options]
-```
-
-### Arguments
-
-#### **`[package-name]`**
-
-This argument sets the _name_ of your Frontity package. The `create-package` command will create a folder named `[package-name]` under `packages`. It will also add the proper dependency in the `package.json` of your Frontity project
-
-#### **`[options]`**
-
-| Option | Description |
-| :---: | :--- |
-| `--namespace <value>` | Sets the [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package |
-| [`--no-prompt`](https://docs.frontity.org/frontity-cli/environment-variables#frontity_name) | Skips prompting the user for options. Related environment variable: [`FRONTITY_NAME`](https://docs.frontity.org/frontity-cli/environment-variables#frontity_name).|
-| `--open` | Output usage information |
-
-### Examples
-
-* Create a custom theme package named `my-custom-project`
-
-```text
->  npx frontity create-package my-custom-theme
-? Enter the namespace of the package: theme
-✔ Adding package.json.
-✔ Adding src/index.js.
-✔ Installing package my-custom-theme.
-
-New package "my-custom-theme" created.
-```
-
