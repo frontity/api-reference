@@ -1,13 +1,3 @@
-# Build commands
-
-These commands will allow you generate the code that can be used to run or analyze a Frontity project
-
-* [`build`](build-commands.md#build)
-
-{% hint style="info" %}
-Have a look at the [environment variables](https://docs.frontity.org/frontity-cli/environment-variables) page to check which ones can be used with these commands
-{% endhint %}
-
 ## `build`
 
 Builds the project for production.

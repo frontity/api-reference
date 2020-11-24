@@ -16,21 +16,21 @@ The `frontity` commands you have available are
 
 These commands will allow you to either create a Frontity project or a Frontity package
 
-* [`create`](https://docs.frontity.org/frontity-cli/create-commands#create)
-* [`create-package`](https://docs.frontity.org/frontity-cli/create-commands#create-package)
+* [`create`](https://docs.frontity.org/frontity-cli/create-commands/create)
+* [`create-package`](https://docs.frontity.org/frontity-cli/create-commands/create-package)
 
 ### Run commands
 
 These commands will allow you run a Frontity project in development or production mode
 
-* [`dev`](https://docs.frontity.org/frontity-cli/run-commands#dev)
-* [`serve`](https://docs.frontity.org/frontity-cli/run-commands#serve)
+* [`dev`](https://docs.frontity.org/frontity-cli/run-commands/dev)
+* [`serve`](https://docs.frontity.org/frontity-cli/run-commands/serve)
 
 ### Build commands
 
 These commands will allow you generate the code that can be used to run or analyze a Frontity project
 
-* [`build`](https://docs.frontity.org/frontity-cli/build-commands#build)
+* [`build`](https://docs.frontity.org/frontity-cli/build-commands/build)
 
 ### Extra commands
 
