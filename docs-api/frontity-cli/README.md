@@ -37,7 +37,9 @@ These commands will allow you generate the code that can be used to run or analy
 * [`subscribe`](https://docs.frontity.org/frontity-cli/extra-commands#subscribe)
 * [`info`](https://docs.frontity.org/frontity-cli/extra-commands#info)
 
-> You can also use `--help` with each one of these commands to get more info about them: `npx frontity dev --help`
+{% hint style="info" %}
+You can also use `--help` with each one of these commands to get more info about them: `npx frontity dev --help`
+{% endhint %}
 
 ## A typical workflow with Frontity commands
 

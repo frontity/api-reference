@@ -17,7 +17,7 @@ This argument sets the _name_ of your Frontity package. The `create-package` com
 | Option | Description |
 | :---: | :--- |
 | `--namespace <value>` | Sets the [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package |
-| [`--no-prompt`](https://docs.frontity.org/frontity-cli/environment-variables#frontity_name) | Skips prompting the user for options. Related environment variable: [`FRONTITY_NAME`](https://docs.frontity.org/frontity-cli/environment-variables#frontity_name).|
+| [`--no-prompt`](../environment-variables#frontity_name) | Skips prompting the user for options. Related environment variable: [`FRONTITY_NAME`](../environment-variables#frontity_name).|
 | `--open` | Output usage information |
 
 ### Examples

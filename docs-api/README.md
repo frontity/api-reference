@@ -6,7 +6,7 @@ Let's kick things off by providing you with a roadmap so that you can find your 
 
 ## **Frontity CLI**
 
-In the [**CLI Commands**](frontity-cli/) section you'll find info about the commands provided by the Frontity CLI (`npx frontity`) that you can use to create, run and build your Frontity projects
+In the [**CLI Commands**](frontity-cli/) section you'll find info about the commands provided by the Frontity CLI that you can use to create, run and build your Frontity projects
 
 ## **Packages**
 
