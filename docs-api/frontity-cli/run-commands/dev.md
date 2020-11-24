@@ -1,4 +1,4 @@
-## `dev`
+# `dev`
 
 Starts a development server.
 
@@ -6,9 +6,9 @@ Starts a development server.
 npx frontity dev [options]
 ```
 
-### Arguments
+## Arguments
 
-#### **`[options]`**
+### **`[options]`**
 
 | Option | Description |
 | :---: | :--- |
@@ -52,3 +52,75 @@ The webpack bundler internally will do things like..
 * Append hashes to filenames so for caching purposes
 
 Normally, you would always use the development server in development mode, but sometimes you may want to check that everything works in production mode, or check the bundle analyzer (the files at `/build/analyze`) for the production bundle.
+
+## Environment Variables
+
+The Frontity CLI allows to define some options/flags for some of the Frontity commands via environment variables.
+If some of these environment variables are detected the proper values will be set for the proper commands
+
+### `FRONTITY_DEV_TARGET`
+
+Create bundles with `es5`, `module` or `both`. Default target is `both`.
+
+If detected, and no `--target <target>` option is defined for [`dev`](https://docs.frontity.org/frontity-cli/run-commands#dev) Frontity command, this environment variable value will be applied.
+
+_Example:_
+
+```text
+FRONTITY_DEV_TARGET=module
+FRONTITY_DEV_TARGET=es
+```
+
+### `FRONTITY_DEV_PORT`
+
+Runs the server on a custom port. Default is `3000`.
+
+If detected, and no `--port <port>` option is defined for [`dev`](https://docs.frontity.org/frontity-cli/run-commands#dev) Frontity command, this environment variable value will be applied.
+
+_Example:_
+
+```text
+FRONTITY_DEV_PORT=3002
+```
+
+### `FRONTITY_DEV_HTTPS`
+
+Runs the server using https.
+
+_Example:_
+
+```text
+FRONTITY_DEV_HTTPS=true
+```
+
+### `FRONTITY_DEV_PRODUCTION`
+
+`frontity dev` by default runs the server in "development mode" \(no optimizations, uses the dev build of react, etc.\). Setting this variable makes it run in "production mode".
+
+_Example:_
+
+```text
+FRONTITY_DEV_PRODUCTION=true
+```
+
+### `FRONTITY_DEV_PUBLIC_PATH`
+
+Set the public path for static assets. Default path is `/static/`.
+
+If detected, and no `--public-path` flag is defined for [`dev`](https://docs.frontity.org/frontity-cli/run-commands#dev) Frontity command, this environment variable value will be applied.
+
+_Example:_
+
+```text
+FRONTITY_DEV_PUBLIC_PATH=/assets/
+```
+
+### `FRONTITY_DEV_DONT_OPEN_BROWSER`
+
+Don't open a browser window after the Frontity server has been started.
+
+_Example:_
+
+```text
+FRONTITY_DEV_DONT_OPEN_BROWSER=true
+```

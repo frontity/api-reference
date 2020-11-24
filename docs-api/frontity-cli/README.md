@@ -41,6 +41,8 @@ These commands will allow you generate the code that can be used to run or analy
 You can also use `--help` with each one of these commands to get more info about them: `npx frontity dev --help`
 {% endhint %}
 
+These commands can be customized by using options/flags or environment variables.
+
 ## A typical workflow with Frontity commands
 
 ### In Development
