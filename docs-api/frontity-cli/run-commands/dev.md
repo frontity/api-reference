@@ -12,12 +12,12 @@ npx frontity dev [options]
 
 | Option | Description |
 | :---: | :--- |
-| `--production` | Builds the project for production. Related environment variable: [`FRONTITY_DEV_PRODUCTION`](https://docs.frontity.org/frontity-cli/environment-variables#frontity_dev_production) |
-| `--port <port>` | Runs the server on a custom port. Default is 3000. Related environment variable: [`FRONTITY_DEV_PORT`](https://docs.frontity.org/frontity-cli/environment-variables#frontity_dev_port) |
-| `--https` | Runs the server using https. Related environment variable: [`FRONTITY_DEV_HTTPS`](https://docs.frontity.org/frontity-cli/environment-variables#frontity_dev_https) |
-| `--dont-open-browser` | Don't open a browser window with the localhost. Related environment variable: [`FRONTITY_DEV_DONT_OPEN_BROWSER`](https://docs.frontity.org/frontity-cli/environment-variables#frontity_dev_dont_open_browser) |
-| `--target <target>` | Create bundles with `es5` or `module`. Default target is `module`. Related environment variable: [`FRONTITY_DEV_TARGET`](https://docs.frontity.org/frontity-cli/environment-variables#frontity_dev_target) |
-| [`--publicPath <path>`](https://docs.frontity.org/frontity-cli/build-commands#the-publicpath-option) | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is `/static/`. Related environment variable: [`FRONTITY_DEV_PUBLIC_PATH`](https://docs.frontity.org/frontity-cli/environment-variables#frontity_dev_public_path). |
+| `--production` | Builds the project for production. Related environment variable: [`FRONTITY_DEV_PRODUCTION`](#frontity_dev_production) |
+| `--port <port>` | Runs the server on a custom port. Default is 3000. Related environment variable: [`FRONTITY_DEV_PORT`](#frontity_dev_port) |
+| `--https` | Runs the server using https. Related environment variable: [`FRONTITY_DEV_HTTPS`](#frontity_dev_https) |
+| `--dont-open-browser` | Don't open a browser window with the localhost. Related environment variable: [`FRONTITY_DEV_DONT_OPEN_BROWSER`](#frontity_dev_dont_open_browser) |
+| `--target <target>` | Create bundles with `es5` or `module`. Default target is `module`. Related environment variable: [`FRONTITY_DEV_TARGET`](#frontity_dev_target) |
+| [`--publicPath <path>`](#the-publicpath-option) | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is `/static/`. Related environment variable: [`FRONTITY_DEV_PUBLIC_PATH`](#frontity_dev_public_path). |
 | `--help` | Output usage information |
 
 **Examples**
@@ -62,7 +62,7 @@ If some of these environment variables are detected the proper values will be se
 
 Create bundles with `es5`, `module` or `both`. Default target is `both`.
 
-If detected, and no `--target <target>` option is defined for [`dev`](https://docs.frontity.org/frontity-cli/run-commands#dev) Frontity command, this environment variable value will be applied.
+If detected, and no `--target <target>` option is defined for [`dev`](#dev) Frontity command, this environment variable value will be applied.
 
 _Example:_
 
@@ -75,7 +75,7 @@ FRONTITY_DEV_TARGET=es
 
 Runs the server on a custom port. Default is `3000`.
 
-If detected, and no `--port <port>` option is defined for [`dev`](https://docs.frontity.org/frontity-cli/run-commands#dev) Frontity command, this environment variable value will be applied.
+If detected, and no `--port <port>` option is defined for [`dev`](#dev) Frontity command, this environment variable value will be applied.
 
 _Example:_
 
@@ -107,7 +107,7 @@ FRONTITY_DEV_PRODUCTION=true
 
 Set the public path for static assets. Default path is `/static/`.
 
-If detected, and no `--public-path` flag is defined for [`dev`](https://docs.frontity.org/frontity-cli/run-commands#dev) Frontity command, this environment variable value will be applied.
+If detected, and no `--public-path` flag is defined for [`dev`](#dev) Frontity command, this environment variable value will be applied.
 
 _Example:_
 
