@@ -6,33 +6,6 @@ description: API reference of Frontity and its packages.
 
 Frontity projects are built around the idea of packages that encapsulates logic that can be reused across projects. Frontity packages may be considered as the equivalent of WordPress plugins.  They're the ingredients of the final Frontity project.
 
-### Packages & Namespaces
-
-Each type of feature needed in a Frontity project is defined by a specific **Namespace** (`source`, `router`, `comments` ...). Most of Frontity packages are specific implementations of these features (these Namespaces)
-
-Because of this, we may have several packages to choose from, to add a specific feature to our Frontity project. 
-
-For example:
-
-**the `source` namespace**
-
-Represents the logic that requests data from WordPress API
-
-There's an official package (`@frontity/wp-source`) that implements this logic focused on a WordPress REST API
-
-_But there could be another package that requests data from WordPress GraphQL API (this package is still not avalable)_
-
-**the `analytics` namespace**
-
-Represents the logic to include analytics in a Frontity project 
-
-There are actually several official Frontity packages that implement this feature using different services
-
-- [`@frontity/google-analytics`](https://github.com/frontity/frontity/tree/dev/packages/google-analytics) for trackings using [Google Analytics](https://analytics.google.com/)
-- [`@frontity/google-tag-manager-analytics`](https://github.com/frontity/frontity/tree/dev/packages/google-tag-manager-analytics) for trackings using [Google Tag Manager](https://tagmanager.google.com/)
-- [`@frontity/comscore-analytics`](https://github.com/frontity/frontity/tree/dev/packages/comscore-analytics) for trackings using [Comscore](https://www.comscore.com/) 
-
-
 ## How to use Frontity packages
 
 Frontity packages are available available via [npm](https://www.npmjs.com/search?q=keywords:frontity) and they can be installed as dependencies of your Frontity project (as with any other Node project). 
@@ -47,5 +20,51 @@ You can see more info about how to create your custom package [here](#)
 
 ## Official Frontity Packages
 
-Official `frontity` packages are those created and maintained by the ...
+Official Frontity packages are those created and maintained by the [Frontity Team](https://frontity.org/about-us/). 
+
+These packages encapsulates the logic to apply the main features needed in a WordPress + React stack project (a Frontity project)
+
+{% hint style="info" %}
+The [full list of available packages](https://www.npmjs.com/search?q=keywords:frontity) include others created by the community. In this site we're going to document only the official `frontity` packages that has a public API
+{% endhint %}
+
+### Core package
+
+Package that is the core of the Frontity framework and that provides main utilities of the framework
+
+* [`frontity`](#)
+
+### Features packages
+
+#### Analytics packages
+
+A set of official Analytics Frontity packages that you can use to easily add analytics tracking in your project
+
+- [`@frontity/google-analytics`](#)
+- [`@frontity/google-tag-manager-analytics`](#) 
+- [`@frontity/comscore-analytics`](#)
+
+#### SEO package
+
+This package is designed to get automatically all the data that the REST API Head Tags plugin exposes in the REST API
+
+- [`@frontity/head-tags`](#)
+
+#### Render package 
+
+This package is in charge of converting HTML to React
+
+- [`@frontity/html2react`](#)
+
+#### Router package 
+
+This package is in charge of managing (React) routes in a Frontity project.
+
+- [`@frontity/tiny-router`](#)
+
+#### Source package 
+
+This package is in charge of getting data from Wordpress and make it accesible from React components
+
+- [`@frontity/wp-source`](#)
 
