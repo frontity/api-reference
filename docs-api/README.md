@@ -24,7 +24,7 @@ The included themes, namely Mars and TwentyTwenty, are dealt with separately fro
 
 Sometimes theres a Frontity WordPress plugin required so everything works smoothly. You'll find everything you need to know about them in the [**WordPress Plugins**](frontity-plugins/) section 
 
----
+------
 
 By the way, we'd love to hear about what you're building with Frontity. Join us in our [**Community Forum**](https://community.frontity.org) and tell us about your project. You can also ask questions and get help and support from our growing community of users and developers there.
 
