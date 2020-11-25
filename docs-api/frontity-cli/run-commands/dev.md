@@ -17,7 +17,7 @@ npx frontity dev [options]
 | `--https` | Runs the server using https. Related environment variable: [`FRONTITY_DEV_HTTPS`](#frontity_dev_https) |
 | `--dont-open-browser` | Don't open a browser window with the localhost. Related environment variable: [`FRONTITY_DEV_DONT_OPEN_BROWSER`](#frontity_dev_dont_open_browser) |
 | `--target <target>` | Create bundles with `es5` or `module`. Default target is `module`. Related environment variable: [`FRONTITY_DEV_TARGET`](#frontity_dev_target) |
-| [`--publicPath <path>`](#the-publicpath-option) | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is `/static/`. Related environment variable: [`FRONTITY_DEV_PUBLIC_PATH`](#frontity_dev_public_path). |
+| [`--publicPath <path>`](../build-commands/build.md#the-public-path-option) | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is `/static/`. Related environment variable: [`FRONTITY_DEV_PUBLIC_PATH`](#frontity_dev_public_path). |
 | `--help` | Output usage information |
 
 **Examples**
