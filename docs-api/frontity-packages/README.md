@@ -22,7 +22,7 @@ You can see more info about how to create your custom package [here](#)
 
 Official Frontity packages are those created and maintained by the [Frontity Team](https://frontity.org/about-us/). 
 
-These packages encapsulates the logic to apply the main features needed in a WordPress + React stack project (a Frontity project)
+These packages encapsulates the logic to apply the main features needed in a WordPress + React stack project managed by Frontity
 
 {% hint style="info" %}
 The [full list of available packages](https://www.npmjs.com/search?q=keywords:frontity) include others created by the community. In this site we're going to document only the official `frontity` packages that has a public API
@@ -36,6 +36,30 @@ Package that is the core of the Frontity framework and that provides main utilit
 
 ### Features packages
 
+#### Source package 
+
+This package is in charge of getting data from Wordpress and make it accesible from React components
+
+- [`@frontity/wp-source`](#)
+
+#### Router package 
+
+This package is in charge of managing (React) routes in a Frontity project.
+
+- [`@frontity/tiny-router`](#)
+
+#### Render package 
+
+This package is in charge of converting HTML to React
+
+- [`@frontity/html2react`](#)
+
+#### SEO package
+
+This package is designed to get automatically all the data that the REST API Head Tags plugin exposes in the REST API
+
+- [`@frontity/head-tags`](#)
+
 #### Analytics packages
 
 A set of official Analytics Frontity packages that you can use to easily add analytics tracking in your project
@@ -44,27 +68,14 @@ A set of official Analytics Frontity packages that you can use to easily add ana
 - [`@frontity/google-tag-manager-analytics`](#) 
 - [`@frontity/comscore-analytics`](#)
 
-#### SEO package
+### Collections packages
 
-This package is designed to get automatically all the data that the REST API Head Tags plugin exposes in the REST API
+These packages are collections or useful components or hooks that you can use in your Frontity project
 
-- [`@frontity/head-tags`](#)
 
-#### Render package 
+- [`@frontity/components`](#)
+- [`@frontity/hooks`](#) 
 
-This package is in charge of converting HTML to React
 
-- [`@frontity/html2react`](#)
 
-#### Router package 
-
-This package is in charge of managing (React) routes in a Frontity project.
-
-- [`@frontity/tiny-router`](#)
-
-#### Source package 
-
-This package is in charge of getting data from Wordpress and make it accesible from React components
-
-- [`@frontity/wp-source`](#)
 
