@@ -28,9 +28,6 @@ npx frontity serve --https --port 3002
 
 ## Environment Variables
 
-The Frontity CLI allows to define some options/flags for some of the Frontity commands via environment variables.
-If some of these environment variables are detected the proper values will be set for the proper commands
-
 ### `FRONTITY_SERVE_PORT`
 
 Runs the server on a custom port. Default is `3000`.

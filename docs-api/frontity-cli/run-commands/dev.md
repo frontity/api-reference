@@ -55,9 +55,6 @@ Normally, you would always use the development server in development mode, but s
 
 ## Environment Variables
 
-The Frontity CLI allows to define some options/flags for some of the Frontity commands via environment variables.
-If some of these environment variables are detected the proper values will be set for the proper commands
-
 ### `FRONTITY_DEV_TARGET`
 
 Create bundles with `es5`, `module` or `both`. Default target is `both`.
