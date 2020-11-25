@@ -10,7 +10,7 @@
   * [Build commands](frontity-cli/build-commands/README.md)
     * [build](frontity-cli/build-commands/build.md)
   * [Extra commands](frontity-cli/extra-commands.md)
-* [⚙ Packages](frontity-packages/README.md)
+* [🍱 Packages](frontity-packages/README.md)
   * [frontity](frontity-packages/frontity.md)
   * [@frontity/tiny-router](frontity-packages/router.md)
   * [@frontity/tiny-router](frontity-packages/router.md)
