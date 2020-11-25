@@ -1,3 +1,7 @@
+---
+description: API reference of Frontity CLI commands.
+---
+
 # 💻 Frontity CLI
 
 The Frontity command-line tool (CLI\) is the main entry point for getting up and running with a Frontity application. It provides functionality like running a development server or building your Frontity application for deployment.
