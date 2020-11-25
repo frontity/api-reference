@@ -15,7 +15,7 @@
     * [frontity](frontity-packages/core-package/frontity.md)
   * [Features packages](frontity-packages/features-packages/README.md)
     * [@frontity/wp-source](frontity-packages/features-packages/wp-source.md)
-    * [@frontity/tiny-router](frontity-packages/features-packages/tinyrouter.md)
+    * [@frontity/tiny-router](frontity-packages/features-packages/tiny-router.md)
     * [@frontity/html2react](frontity-packages/features-packages/html2react.md)
     * [@frontity/head-tags](frontity-packages/features-packages/head-tags.md)
     * [`analytics` packages](frontity-packages/features-packages/analytics/README.md)
