@@ -28,53 +28,53 @@ These packages encapsulates the logic to apply the main features needed in a Wor
 The [full list of available packages](https://www.npmjs.com/search?q=keywords:frontity) include others created by the community. In this site we're going to document only the official `frontity` packages that has a public API
 {% endhint %}
 
-### Core package
+### [Core package](core-package/README.md)
 
 Package that is the core of the Frontity framework and that provides main utilities of the framework
 
-* [`frontity`](#)
+* [`frontity`](core-package/frontity.md)
 
-### Features packages
+### [Features packages](features-packages/README.md)
 
 #### Source package 
 
 This package is in charge of getting data from Wordpress and make it accesible from React components
 
-- [`@frontity/wp-source`](#)
+- [`@frontity/wp-source`](features-packages/wp-source.md)
 
 #### Router package 
 
 This package is in charge of managing (React) routes in a Frontity project.
 
-- [`@frontity/tiny-router`](#)
+- [`@frontity/tiny-router`](features-packages/tiny-router.md)
 
 #### Render package 
 
 This package is in charge of converting HTML to React
 
-- [`@frontity/html2react`](#)
+- [`@frontity/html2react`](features-packages/html2react.md)
 
 #### SEO package
 
 This package is designed to get automatically all the data that the REST API Head Tags plugin exposes in the REST API
 
-- [`@frontity/head-tags`](#)
+- [`@frontity/head-tags`](features-packages/head-tags.md)
 
 #### Analytics packages
 
 A set of official Analytics Frontity packages that you can use to easily add analytics tracking in your project
 
-- [`@frontity/google-analytics`](#)
-- [`@frontity/google-tag-manager-analytics`](#) 
-- [`@frontity/comscore-analytics`](#)
+- [`@frontity/google-analytics`](features-packages/analytics/google-analytics.md)
+- [`@frontity/google-tag-manager-analytics`](features-packages/analytics/google-tag-manager-analytics.md) 
+- [`@frontity/comscore-analytics`](features-packages/analytics/comscore-analytics.md)
 
 ### Collections packages
 
 These packages are collections or useful components or hooks that you can use in your Frontity project
 
 
-- [`@frontity/components`](#)
-- [`@frontity/hooks`](#) 
+- [`@frontity/components`](collections-packages/components.md)
+- [`@frontity/hooks`](collections-packages/hooks.md)
 
 
 
