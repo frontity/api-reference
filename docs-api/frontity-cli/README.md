@@ -12,27 +12,27 @@ Run `npx frontity --help` for full help.
 
 The `frontity` commands you have available are:
 
-### Create commands
+### [Create commands](create-commands/README.md)
 
 These commands will allow you to either create a Frontity project or a Frontity package
 
 * [`create`](create-commands/create.md)
 * [`create-package`](create-commands/create-package.md)
 
-### Run commands
+### [Run commands](run-commands/README.md)
 
 These commands will allow you run a Frontity project in development or production mode
 
 * [`dev`](run-commands/dev.md)
 * [`serve`](run-commands/serve.md)
 
-### Build commands
+### [Build commands](build-commands/README.md)
 
 These commands will allow you generate the code that can be used to run or analyze a Frontity project
 
 * [`build`](build-commands/build.md)
 
-### Extra commands
+### [Extra commands](extra-commands.md)
 
 * [`subscribe`](extra-commands.md#subscribe)
 * [`info`](extra-commands.md#info)
