@@ -12,7 +12,7 @@ npx frontity dev [options]
 
 | Option | Description |
 | :---: | :--- |
-| `--production` | Builds the project for production. Related environment variable: [`FRONTITY_DEV_PRODUCTION`](#frontity_dev_production) |
+| [`--production`](#the-production-option) | Builds the project for production. Related environment variable: [`FRONTITY_DEV_PRODUCTION`](#frontity_dev_production) |
 | `--port <port>` | Runs the server on a custom port. Default is 3000. Related environment variable: [`FRONTITY_DEV_PORT`](#frontity_dev_port) |
 | `--https` | Runs the server using https. Related environment variable: [`FRONTITY_DEV_HTTPS`](#frontity_dev_https) |
 | `--dont-open-browser` | Don't open a browser window with the localhost. Related environment variable: [`FRONTITY_DEV_DONT_OPEN_BROWSER`](#frontity_dev_dont_open_browser) |
@@ -34,7 +34,7 @@ npx frontity dev --https --port 3002
 npx frontity dev --public-path="/assets"
 ```
 
-**The --production option**
+### The `--production` option
 
 This flag correspond to [webpack’s mode parameter](https://webpack.js.org/configuration/mode/) so it will run webpack in the production mode as described [there](https://webpack.js.org/configuration/mode/) before launching the development server.
 

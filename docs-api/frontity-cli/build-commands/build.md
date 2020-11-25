@@ -14,7 +14,7 @@ The [`frontity serve`](../run-commands/serve) command will use the files generat
 
 | Option | Description |
 | :---: | :--- |
-| `--development` | Builds the project for development. Related environment variable: [`FRONTITY_BUILD_DEVELOPMENT`](../environment-variables#frontity_build_development) |
+| [`--development`](#the-development-option) | Builds the project for development. Related environment variable: [`FRONTITY_BUILD_DEVELOPMENT`](../environment-variables#frontity_build_development) |
 | `--target <target>` | Create bundles with "es5", "module" or "both". Default target is "both".  Related environment variable: [`FRONTITY_BUILD_TARGET`](../environment-variables#frontity_build_target) |
 | [`--publicPath <path>`](build-commands.md#the-publicpath-option) | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is "/static/". Related environment variable: [`FRONTITY_BUILD_PUBLIC_PATH`](../environment-variables#frontity_build_public_path)|
 | `--help` | Output usage information |
