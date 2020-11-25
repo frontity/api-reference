@@ -10,7 +10,7 @@ Run `npx frontity --help` for full help.
 
 ## Commands
 
-The `frontity` commands you have available are
+The `frontity` commands you have available are:
 
 ### Create commands
 
@@ -41,7 +41,14 @@ These commands will allow you generate the code that can be used to run or analy
 You can also use `--help` with each one of these commands to get more info about them: `npx frontity dev --help`
 {% endhint %}
 
-These commands can be customized by using options/flags or environment variables.
+## Arguments & Environment Variables
+
+The Frontity CLI allows parametrization via arguments or environment variables to customize their execution.
+
+If some of these arguments or environment variables are detected the proper values will be set and applied in the execution of the command
+
+![](../.gitbook/assets/cli-environment-variables.png)
+
 
 ## A typical workflow with Frontity commands
 
