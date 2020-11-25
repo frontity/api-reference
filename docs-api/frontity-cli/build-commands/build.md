@@ -14,9 +14,9 @@ The [`frontity serve`](../run-commands/serve) command will use the files generat
 
 | Option | Description |
 | :---: | :--- |
-| [`--development`](#the-development-option) | Builds the project for development. Related environment variable: [`FRONTITY_BUILD_DEVELOPMENT`](../environment-variables#frontity_build_development) |
-| `--target <target>` | Create bundles with "es5", "module" or "both". Default target is "both".  Related environment variable: [`FRONTITY_BUILD_TARGET`](../environment-variables#frontity_build_target) |
-| [`--publicPath <path>`](build-commands.md#the-publicpath-option) | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is "/static/". Related environment variable: [`FRONTITY_BUILD_PUBLIC_PATH`](../environment-variables#frontity_build_public_path)|
+| [`--development`](#the-development-option) | Builds the project for development. Related environment variable: [`FRONTITY_BUILD_DEVELOPMENT`](#frontity_build_development) |
+| `--target <target>` | Create bundles with "es5", "module" or "both". Default target is "both".  Related environment variable: [`FRONTITY_BUILD_TARGET`](#frontity_build_target) |
+| [`--publicPath <path>`](#the-publicpath-option) | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is "/static/". Related environment variable: [`FRONTITY_BUILD_PUBLIC_PATH`](#frontity_build_public_path)|
 | `--help` | Output usage information |
 
 **Examples**
@@ -50,7 +50,7 @@ The [public path is included in the generated files by webpack](https://webpack.
 In case some people need to change it \(because of constrains in their site architecture\) they would need an option to do so just before generating the Frontity bundle with `npx frontity build`.
 
 {% hint style="info" %}
-This option is also available for [`dev`](../run-commands#dev) command
+This option is also available for [`dev`](../run-commands/dev.md) command
 {% endhint %}
 
 
@@ -69,7 +69,7 @@ If some of these environment variables are detected the proper values will be se
 
 Create bundles with `es5`, `module` or `both`. Default target is `both`.
 
-If detected, and no [`--public-path`](https://docs.frontity.org/frontity-cli/build-commands#the-publicpath-option) option is defined for [`build`](https://docs.frontity.org/frontity-cli/build-commands#build) Frontity command, this environment variable will be applied.
+If detected, and no `--target` option is defined for [`build`](#build) Frontity command, this environment variable will be applied.
 
 _Example:_
 
@@ -92,7 +92,7 @@ FRONTITY_BUILD_DEVELOPMENT=true
 
 Set the public path for static assets. Default path is `/static/`.
 
-If detected, and no [`--public-path`](https://docs.frontity.org/frontity-cli/build-commands#the-publicpath-option) flag is defined for [`build`](https://docs.frontity.org/frontity-cli/build-commands#build) Frontity command, this environment variable value will be applied.
+If detected, and no [`--public-path`](#the-publicpath-option) flag is defined for [`build`](#build) Frontity command, this environment variable value will be applied.
 
 _Example:_
 
