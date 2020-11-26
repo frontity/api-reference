@@ -3,25 +3,25 @@
 There is a set of official *Analytics Frontity packages* that you can use to easily add analytics tracking in your project.
 
 These packages are:
-- [`@frontity/google-analytics`](https://github.com/frontity/frontity/tree/dev/packages/google-analytics) for trackings using [Google Analytics](https://analytics.google.com/)
-- [`@frontity/google-tag-manager-analytics`](https://github.com/frontity/frontity/tree/dev/packages/google-tag-manager-analytics) for trackings using [Google Tag Manager](https://tagmanager.google.com/)
-- [`@frontity/comscore-analytics`](https://github.com/frontity/frontity/tree/dev/packages/comscore-analytics) for trackings using [Comscore](https://www.comscore.com/)
+- [`@frontity/google-analytics`](google-analytics.md) for trackings using [Google Analytics](https://analytics.google.com/)
+- [`@frontity/google-tag-manager-analytics`](google-tag-manager-analytics.md) for trackings using [Google Tag Manager](https://tagmanager.google.com/)
+- [`@frontity/comscore-analytics`](comscore-analytics.md) for trackings using [Comscore](https://www.comscore.com/)
 
 ## Installation
 
 Install the analytics package you need for your project:
 
-- [Installation instructions for `@frontity/google-analytics`](https://github.com/frontity/frontity/tree/dev/packages/google-analytics#install)
-- [Installation instructions for `@frontity/google-tag-manager-analytics`](https://github.com/frontity/frontity/tree/dev/packages/google-tag-manager-analytics#install)
-- [Installation instructions for `@frontity/comscore-analytics`](https://github.com/frontity/frontity/tree/dev/packages/comscore-analytics#install)
+- [Installation instructions for `@frontity/google-analytics`](google-analytics.md#install)
+- [Installation instructions for `@frontity/google-tag-manager-analytics`](google-tag-manager-analytics.md#install)
+- [Installation instructions for `@frontity/comscore-analytics`](comscore-analytics.md#install)
 
 ## Settings
 
 Each package will require some custom configuration to add things such as tracking IDs for the services behind. In the description of each package you'll find the details of each configuration:
 
-- [Settings for `@frontity/google-analytics`](https://github.com/frontity/frontity/tree/dev/packages/google-analytics#settings)
-- [Settings for `@frontity/google-tag-manager-analytics`](https://github.com/frontity/frontity/tree/dev/packages/google-tag-manager-analytics#settings)
-- [Settings for `@frontity/comscore-analytics`](https://github.com/frontity/frontity/tree/dev/packages/comscore-analytics#settings)
+- [Settings for `@frontity/google-analytics`](google-analytics#settings)
+- [Settings for `@frontity/google-tag-manager-analytics`](google-tag-manager-analytics#settings)
+- [Settings for `@frontity/comscore-analytics`](comscore-analytics#settings)
 
 Once we have properly installed and configured these `analytics` packages, their actions will be centralized by the `analytics` namespace.
 
@@ -171,6 +171,6 @@ This method will send the event tracking information to all the packages enabled
 
 Each package will handle the information sent through this `actions.analytics.event()` in a different way:
 
-- [How `@frontity/google-analytics` handle this event object](https://github.com/frontity/frontity/tree/dev/packages/google-analytics#actionsanalyticsevent)
-- [How `@frontity/google-tag-manager-analytics`  handle this event object](https://github.com/frontity/frontity/tree/dev/packages/google-tag-manager-analytics#actionsanalyticsevent)
-- [How `@frontity/comscore-analytics` handle this event object](https://github.com/frontity/frontity/tree/dev/packages/comscore-analytics#actionsanalyticsevent)
+- [How `@frontity/google-analytics` handle this event object](google-analytics#actionsanalyticsevent)
+- [How `@frontity/google-tag-manager-analytics`  handle this event object](google-tag-manager-analytics#actionsanalyticsevent)
+- [How `@frontity/comscore-analytics` handle this event object](comscore-analytics#actionsanalyticsevent)
