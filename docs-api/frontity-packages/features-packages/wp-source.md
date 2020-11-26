@@ -288,11 +288,11 @@ This action fetches all entities related to a `link`, i.e. the pathname of a URL
 
 ##### Parameters
 
-| Name | Type | Required | Description |
-|------|--------|---------|----------|
-| **`link`**    | `string` | `true` | Link representing a REST API endpoint or custom handler | 
-| `options` | `object` | `false` | REST API endpoint from where this post type can be fetched. |
-| `options.force` | `boolean` | - | Link representing a REST API endpoint or custom handler |
+| Name |  Property | Type | Required | Description |
+|------|--------|--------|---------|----------|
+| _**`[link]`**_    | |  `string` | `true` | Link representing a REST API endpoint or custom handler | 
+| _`[options]`_ | | `object` | `false` | REST API endpoint from where this post type can be fetched. |
+| _`[options]`_ | `force` | `boolean` | - | The entities should be fetched again. |
 
 ##### Return value
 
@@ -361,7 +361,7 @@ Returns an object that gives you info about the type of that link and related en
 
 | Name | Type | Required | Description |
 |------|--------|---------|----------|
-| **`link`**    | `string` | `true` | Link representing a REST API endpoint or custom handler | 
+| _**`[link]`**_  |  `string` | `true` | Link representing a REST API endpoint or custom handler | 
 
 ##### Return value
 
@@ -491,14 +491,16 @@ source.author[4]
 
 Set the URL to the WordPress REST API.
 
-{% hint style="info" %}
-`(link: string, options: object) => Promise`
+> `(options: object) => Promise`
 
-* **Parameters**
-  * `options: object`
-    * **`api`**: `string` URL pointing to a valid WP REST API.
-    * **`isWpCom`**: `boolean` if the WP REST route is from a WordPress.com hosted site.
-{% endhint %}
+##### Parameters
+
+| Name |  Property | Type | Required | Description | Example |
+|------|--------|--------|---------|----------|----------|
+| _`[options]`_ | | `object` | `true` | options object | |
+| _`[options]`_ | `api` |`string` | `true` | URL pointing to a valid WP REST API. | `"https://test.frontity.io/wp-json"` |
+| _`[options]`_ | `isWpCom` |`boolean` | `false` | if the WP REST route is from a WordPress.com hosted site. | `false` |
+
 
 **Example**
 
@@ -522,18 +524,24 @@ api.init({
 
 Request entity from the WordPress REST API.
 
-{% hint style="info" %}
-`(options: object) => Promise`
+> `(options: object) => Promise`
 
-* **Parameters**
-  * `options: object`
-    * **`endpoint`**: `string` Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\).
-    * **`params`**: `string` Any parameter that will be included in the query params.
-    * _`api`_: `string` _\(optional\)_ Overrides the value set with `api.set.`
-    * _`isWpCom`_: `boolean` _\(optional\)_ Overrides the value set with `api.set.`
-* **Return value**
-  * `Promise` Promise resolving to a [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object from the fetch.
-{% endhint %}
+##### Parameters
+
+| Name |  Property | Type | Required | Description | Example |
+|------|--------|--------|---------|----------|----------|
+| _`[options]`_ | | `object` | `true` | options object | |
+| _`[options]`_ | `endpoint` | `string` | - | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\). | `"posts"` |
+| _`[options]`_ | `params` | `object` | - | Any parameter that will be included in the query params. | `{ _embed: true, categories: "2,3,4" }`|
+| _`[options]`_ | `api` | `string` | - | Overrides the value set with `api.set.` | |
+| _`[options]`_ | `isWpCom` | `boolean` | - | Overrides the value set with `api.set.` | |
+
+##### Return value
+
+| Type | Description |
+|--------|-------------|
+| `Promise` | it doesn't return data but a promise that is resolved when the action is finished \(and state is updated\) |
+
 
 For more info, visit the [WP REST API reference](https://developer.wordpress.org/rest-api/reference).
 
