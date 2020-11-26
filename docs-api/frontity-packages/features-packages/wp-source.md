@@ -86,7 +86,7 @@ This option allows you to show a specific page when accessing the homepage of yo
 
 You have to configure your WordPress with the same setting.
 
-![](../.gitbook/assets/screen-shot-2019-08-30-at-13.08.35%20%283%29%20%281%29%20%282%29.png)
+![](../../.gitbook/assets/screen-shot-2019-08-30-at-13.08.35%20%283%29%20%281%29%20%282%29.png)
 
 {% hint style="warning" %}
 As this option overrides the `/` route, you should set `state.source.postsPage` as well in order to be able to access the posts archive in a different route.
@@ -98,7 +98,7 @@ This option allows you to show the posts archive when accessing a specific URL o
 
 You have to configure your WordPress with the same setting.
 
-![](../.gitbook/assets/screen-shot-2019-08-30-at-13.08.35%20%283%29%20%282%29%20%282%29.png)
+![](../../.gitbook/assets/screen-shot-2019-08-30-at-13.08.35%20%283%29%20%282%29%20%282%29.png)
 
 #### `state.source.categoryBase`
 
@@ -151,13 +151,16 @@ and then you visit a URL \(or use `actions.source.fetch`\), the query part of th
 
 This option allows you to show the Custom Post Types you create at WordPress when accessing their URLs. It is an array of objects, each object being a different CPT. It has three arguments:
 
-* `type` : Type slug. The slug you configured for your Custom Post Type. e.g. `movies`
-* `endpoint` : REST API endpoint from where this post type can be fetched. e.g. `movies`
-* `archive` \(optional\): the URL of the archive of this Custom Post Type, where all of them are listed. e.g. `/movies_archive` .
+| Name | Type   | Required | Description | Example |
+|------|--------|---------|----------|-------------|---------|
+| **`type`**    | string | true     | The slug you configured for your Custom Post Type | `movies` |
+| **`endpoint`** | string | true     | REST API endpoint from where this post type can be fetched. | `movies` | 
+| **`archive`** | string | false     | the URL of the archive of this Custom Post Type, where all of them are listed. | `/movies_archive` | 
+
 
 Differentiating `type` and `endpoint` may be confusing as they are usually the same. You can confirm you are doing it correctly going to the CPT `endpoint` :
 
-![](../.gitbook/assets/https___test_frontity_io__rest_route__wp_v2_movies%20%282%29%20%281%29%20%282%29.png)
+![](../../.gitbook/assets/https___test_frontity_io__rest_route__wp_v2_movies%20%282%29%20%281%29%20%282%29.png)
 
 So in this case, the settings would be:
 
@@ -175,14 +178,18 @@ postTypes: [
 
 Similar to `postTypes`setting, this one allows you to show the lists of posts of a Custom Taxonomies you create at WordPress when accessing their URLs. It is an array of objects, each object being a different Custom Taxonomy. It has four arguments:
 
-* `taxonomy` : Taxonomy slug. The slug you configured for your Custom Taxonomy.
-* `endpoint` : REST API endpoint from which this taxonomy can be fetched.
-* `postTypeEndpoint` \(optional\): REST API endpoint from which posts of this taxonomy can be fetched. Defaults to "posts", but **please note** that if the Custom Taxonomy is meant to load Custom Post Types instead, you have to add its endpoint here. To clarify, although optional for posts in the case of a Custom Post Type this argument is **required**.
-* `params` \(optional\): Extra params to be used while fetching the list of posts.
+
+| Name | Type | Required | Default Value | Description | Example |
+|------|--------|---------|----------|-------------|---------|
+| **`taxonomy`**    | `string` | `true` | | Taxonomy slug. The slug you configured for your Custom Taxonomy. |  |
+| **`endpoint`** | `string` | `true` | | REST API endpoint from where this post type can be fetched. |  | 
+| **`postTypeEndpoint`** | `string` | `false` | `posts` | REST API endpoint from which posts of this taxonomy can be fetched. If the Custom Taxonomy is meant to load Custom Post Types instead, you have to add its endpoint here. To clarify, although optional for posts in the case of a Custom Post Type this argument is **required**. |  | 
+| **`params`** | `object` | `false` |  | Extra params to be used while fetching the list of posts. |  | 
+
 
 Again, differentiating `taxonomy` and `endpoint`may be confusing as they usually are the same too. You can confirm you are doing it correctly by going to the Custom Taxonomy `endpoint` :
 
-![](../.gitbook/assets/https___test_frontity_io__rest_route__wp_v2_actor%20%282%29%20%281%29%20%282%29.png)
+![](../../.gitbook/assets/https___test_frontity_io__rest_route__wp_v2_actor%20%282%29%20%281%29%20%282%29.png)
 
 Note that in this case `taxonomy`and `endpoint`are different. In the next example, we will fetch CPT "movies" instead of "posts", and add some params. It would be something like this:
 
