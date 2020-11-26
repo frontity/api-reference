@@ -284,8 +284,13 @@ Read more about actions [here](../learning-frontity/actions.md)
 
 This action fetches all entities related to a `link`, i.e. the pathname of a URL in your site.
 
+{% hint style="info" %}
+`(link: string, options: object) => Promise`
+{% endhint %}
+
+
 ```
-(link: string, options: object) => Promise
+
 ```
 
 ##### Parameters
@@ -354,10 +359,12 @@ actions.source.fetch("/category/nature/", { force: true });
 ### State
 
 #### `state.source.get()`
-<small style="padding-top:-50px"><small>`(link: string) => object`</small></small>
 
 Returns an object that gives you info about the type of that link and related entities.
 
+{% hint style="info" %}
+`(link: string) => object`
+{% endhint %}
 
 ##### Parameters
 
