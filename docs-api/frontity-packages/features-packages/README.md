@@ -33,5 +33,5 @@ This package is designed to get automatically all the data that the REST API Hea
 A set of official Analytics Frontity packages that you can use to easily add analytics tracking in your project
 
 - [`@frontity/google-analytics`](analytics/google-analytics.md)
-- [`@frontity/google-tag-manager-analytics`](analytics/google-tag-manager-analytics.md) 
+- [`@frontity/google-tag-manager-analytics`](analytics/google-tag-manager-analytics.md)
 - [`@frontity/comscore-analytics`](analytics/comscore-analytics.md)
