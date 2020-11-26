@@ -19,9 +19,9 @@ Install the analytics package you need for your project:
 
 Each package will require some custom configuration to add things such as tracking IDs for the services behind. In the description of each package you'll find the details of each configuration:
 
-- [Settings for `@frontity/google-analytics`](google-analytics#settings)
-- [Settings for `@frontity/google-tag-manager-analytics`](google-tag-manager-analytics#settings)
-- [Settings for `@frontity/comscore-analytics`](comscore-analytics#settings)
+- [Settings for `@frontity/google-analytics`](google-analytics.md#settings)
+- [Settings for `@frontity/google-tag-manager-analytics`](google-tag-manager-analytics.md#settings)
+- [Settings for `@frontity/comscore-analytics`](comscore-analytics.md#settings)
 
 Once we have properly installed and configured these `analytics` packages, their actions will be centralized by the `analytics` namespace.
 
@@ -171,6 +171,6 @@ This method will send the event tracking information to all the packages enabled
 
 Each package will handle the information sent through this `actions.analytics.event()` in a different way:
 
-- [How `@frontity/google-analytics` handle this event object](google-analytics#actionsanalyticsevent)
-- [How `@frontity/google-tag-manager-analytics`  handle this event object](google-tag-manager-analytics#actionsanalyticsevent)
-- [How `@frontity/comscore-analytics` handle this event object](comscore-analytics#actionsanalyticsevent)
+- [How `@frontity/google-analytics` handle this event object](google-analytics.md#actionsanalyticsevent)
+- [How `@frontity/google-tag-manager-analytics`  handle this event object](google-tag-manager-analytics.md#actionsanalyticsevent)
+- [How `@frontity/comscore-analytics` handle this event object](comscore-analytics.md#actionsanalyticsevent)

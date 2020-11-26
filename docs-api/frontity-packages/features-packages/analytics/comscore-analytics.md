@@ -57,7 +57,7 @@ This `@frontity/comscore-analytics` package can co-exist with some other `analyt
 - `actions.analytics.pageview` will take into account settings in `state.analytics.pageviews`
 - `actions.analytics.event` will take into account settings in `state.analytics.events`
 
-> Read More info about how to use Analytic packages in the [docs](https://docs.frontity.org/api-reference-1/frontity-analytics)
+> Read more [here](README.md#how-to-use) about how to use Analytic packages 
 
 #### `actions.analytics.pageview`
 
