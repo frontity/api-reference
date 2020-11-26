@@ -1,3 +1,7 @@
+---
+description: API reference of `@frontity/wp-source` package
+---
+
 # @frontity/wp-source
 
 This package is in charge of getting the data from self-hosted WordPress or WordPress.com sites, and make it available from our React components.

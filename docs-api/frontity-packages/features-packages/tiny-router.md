@@ -1,3 +1,7 @@
+---
+description: API reference of `@frontity/tiny-router` package
+---
+
 # @frontity/tiny-router
 
 ## Installation

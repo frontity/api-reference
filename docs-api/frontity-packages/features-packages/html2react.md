@@ -1,3 +1,7 @@
+---
+description: API reference of `@frontity/html2react` package
+---
+
 # @frontity/html2react
 
 {% hint style="warning" %}

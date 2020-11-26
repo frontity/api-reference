@@ -1,3 +1,7 @@
+---
+description: API reference of `@frontity/components` package
+---
+
 # @frontity/components
 
 ## Description

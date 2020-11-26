@@ -2,9 +2,6 @@
 
 The core `frontity` package is the heart of the Frontity framework. 
 
-This package is in charge of:
-- Managing the CLI 
-- Orchestrate the packages configured in a Frontity project
-- Being an entry point for other packages and utils
+Besides containing the Frontity CLI commands (`npx frontity <command>`), the package is an entry point for other packages and utils, so it exposes the key methods and components provided by the Framework
 
 * [`frontity`](frontity.md)

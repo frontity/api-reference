@@ -74,7 +74,6 @@ A set of official Analytics Frontity packages that you can use to easily add ana
 
 These packages are collections or useful components or hooks that you can use in your Frontity project
 
-
 - [`@frontity/components`](collections-packages/components.md)
 - [`@frontity/hooks`](collections-packages/hooks.md)
 

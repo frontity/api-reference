@@ -1,3 +1,7 @@
+---
+description: API reference of `@frontity/head-tags` package
+---
+
 # @frontity/head-tags
 
 ## Description

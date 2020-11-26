@@ -1,3 +1,7 @@
+---
+description: API reference of `@frontity/hooks` package
+---
+
 # @frontity/hooks
 
 This package is a collection of React hooks that have proven to be pretty useful for a Frontity project.
