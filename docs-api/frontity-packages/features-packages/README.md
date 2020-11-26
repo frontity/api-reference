@@ -1,6 +1,9 @@
 # Features packages
 
-The core `frontity` package is the heart of the Frontity framework. 
+Two of the key ideas of Frontity framework is extensibility. 
+This means that Frontity projects can adapt to changes. 
+
+This idea is the reason behind the existence of Frontity packages. 
 
 This package is in charge of:
 - Managing the CLI 
