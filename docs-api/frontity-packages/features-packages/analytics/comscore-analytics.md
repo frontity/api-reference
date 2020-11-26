@@ -1,9 +1,6 @@
 # `@frontity/comscore-analytics`
 
-[![Version](https://img.shields.io/npm/v/@frontity/comscore-analytics.svg)](https://www.npmjs.com/package/@frontity/comscore-analytics) [![npm](https://img.shields.io/npm/dw/@frontity/comscore-analytics)](https://www.npmjs.com/package/@frontity/comscore-analytics) [![License: Apache--2.0](https://img.shields.io/badge/license-Apache%202-lightgrey)](https://github.com/frontity/frontity/blob/master/LICENSE)
-
 [Comscore](https://www.comscore.com/) Analytics package for Frontity
-
 
 ## Install
 
