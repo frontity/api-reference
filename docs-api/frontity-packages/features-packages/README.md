@@ -2,9 +2,7 @@
 
 Features packages are those packages that add a specific feature to a Frontity project. They need to be defined and configured in the `frontity.settings.js` so Frontity can properly use them in the project
 
-Most of the logic needed to apply specific features in a Frontity project are delegated in packages. Some of the packages contains essential features like _routing_ and _source_, so they will be used by most of the projects. Other optional features (like _analytics_) can be easily implemented through other packages
-
-These are the official Frontity packages:
+Most of the logic needed to apply specific features in a Frontity project are delegated in packages. Some of the packages contains essential features like [_routing_](#router-package) and [_source_](#source-package), so they will be used by most of the projects. Other optional features (like [_analytics_](#analytics-packages)) can be easily implemented through other packages
 
 #### Source package 
 
