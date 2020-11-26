@@ -153,9 +153,9 @@ This option allows you to show the Custom Post Types you create at WordPress whe
 
 | Name | Type   | Required | Description | Example |
 |------|--------|---------|----------|-------------|---------|
-| **`type`**    | string | true     | The slug you configured for your Custom Post Type | `movies` |
-| **`endpoint`** | string | true     | REST API endpoint from where this post type can be fetched. | `movies` | 
-| **`archive`** | string | false     | the URL of the archive of this Custom Post Type, where all of them are listed. | `/movies_archive` | 
+| **`type`**    | string | true     | The slug you configured for your Custom Post Type | "movies" |
+| **`endpoint`** | string | true     | REST API endpoint from where this post type can be fetched. | "movies" | 
+| `archive` | string | false     | the URL of the archive of this Custom Post Type, where all of them are listed. | "/movies_archive" | 
 
 
 Differentiating `type` and `endpoint` may be confusing as they are usually the same. You can confirm you are doing it correctly going to the CPT `endpoint` :
@@ -181,10 +181,10 @@ Similar to `postTypes`setting, this one allows you to show the lists of posts of
 
 | Name | Type | Required | Default Value | Description | Example |
 |------|--------|---------|----------|-------------|---------|
-| **`taxonomy`**    | `string` | `true` | | Taxonomy slug. The slug you configured for your Custom Taxonomy. |  |
-| **`endpoint`** | `string` | `true` | | REST API endpoint from where this post type can be fetched. |  | 
-| **`postTypeEndpoint`** | `string` | `false` | `posts` | REST API endpoint from which posts of this taxonomy can be fetched. If the Custom Taxonomy is meant to load Custom Post Types instead, you have to add its endpoint here. To clarify, although optional for posts in the case of a Custom Post Type this argument is **required**. |  | 
-| **`params`** | `object` | `false` |  | Extra params to be used while fetching the list of posts. |  | 
+| **`taxonomy`**    | `string` | `true` | | Taxonomy slug. The slug you configured for your Custom Taxonomy. | "actors" |
+| **`endpoint`** | `string` | `true` | | REST API endpoint from where this post type can be fetched. | "actor" | 
+| `postTypeEndpoint` | `string` | `false` | `posts` | REST API endpoint from which posts of this taxonomy can be fetched. If the Custom Taxonomy is meant to load Custom Post Types instead, you have to add its endpoint here. To clarify, although optional for posts in the case of a Custom Post Type this argument is **required**. | "movies" | 
+| `params` | `object` | `false` |  | Extra params to be used while fetching the list of posts. | `{ per_page: 5, _embed: true }` | 
 
 
 Again, differentiating `taxonomy` and `endpoint`may be confusing as they usually are the same too. You can confirm you are doing it correctly by going to the Custom Taxonomy `endpoint` :
@@ -284,16 +284,30 @@ Read more about actions [here](../learning-frontity/actions.md)
 
 This action fetches all entities related to a `link`, i.e. the pathname of a URL in your site.
 
+
+##### Parameters
+
 {% hint style="info" %}
 `(link: string, options: object) => Promise`
-
-* **Parameters**
-  * **`link`**: string\` Link representing a REST API endpoint or custom handler
-  * _`options`_: `object` _\(optional\)_
-    * _`force`_: `boolean` The entities should be fetched again.
-* **Return value**
-  * `Promise` it doesn't return data but a promise that is resolved when the action is finished \(and state is updated\)
 {% endhint %}
+
+| Name | Type | Required | Default Value | Description | Example |
+|------|--------|---------|----------|-------------|---------|
+| **`link`**    | `string` | `true` | | Link representing a REST API endpoint or custom handler |  |
+| **`options`** | `object` | `false` | | REST API endpoint from where this post type can be fetched. | "actor" | 
+
+**`options` object**
+
+| Name | Type | Description | Example |
+|------|--------|-------------|---------|
+| `force` | `boolean` | Link representing a REST API endpoint or custom handler |  |
+
+##### Return value
+
+| Type | Description |
+|--------|-------------|
+| `Promise` | it doesn't return data but a promise that is resolved when the action is finished \(and state is updated\) |
+
 
 All received data are populated in `state.source` and are accessible using the methods explained in the next section.
 
