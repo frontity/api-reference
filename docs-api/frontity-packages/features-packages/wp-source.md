@@ -183,8 +183,8 @@ Similar to `postTypes`setting, this one allows you to show the lists of posts of
 |------|--------|---------|----------|-------------|---------|
 | **`taxonomy`**    | `string` | `true` | | Taxonomy slug. The slug you configured for your Custom Taxonomy. | "actors" |
 | **`endpoint`** | `string` | `true` | | REST API endpoint from where this post type can be fetched. | "actor" | 
-| `postTypeEndpoint` | `string` | `false` | `posts` | REST API endpoint from which posts of this taxonomy can be fetched. If the Custom Taxonomy is meant to load Custom Post Types instead, you have to add its endpoint here. To clarify, although optional for posts in the case of a Custom Post Type this argument is **required**. | "movies" | 
-| `params` | `object` | `false` |  | Extra params to be used while fetching the list of posts. | `{ per_page: 5, _embed: true }` | 
+| `postTypeEndpoint`** | `string` | `false` | `posts` | REST API endpoint from which posts of this taxonomy can be fetched. If the Custom Taxonomy is meant to load Custom Post Types instead, you have to add its endpoint here. To clarify, although optional for posts in the case of a Custom Post Type this argument is **required**. | "movies" | 
+| **`params`** | `object` | `false` |  | Extra params to be used while fetching the list of posts. | `{ per_page: 5, _embed: true }` | 
 
 
 Again, differentiating `taxonomy` and `endpoint`may be confusing as they usually are the same too. You can confirm you are doing it correctly by going to the Custom Taxonomy `endpoint` :
@@ -284,23 +284,17 @@ Read more about actions [here](../learning-frontity/actions.md)
 
 This action fetches all entities related to a `link`, i.e. the pathname of a URL in your site.
 
+```
+(link: string, options: object) => Promise
+```
 
 ##### Parameters
 
-{% hint style="info" %}
-`(link: string, options: object) => Promise`
-{% endhint %}
-
-| Name | Type | Required | Default Value | Description | Example |
-|------|--------|---------|----------|-------------|---------|
-| **`link`**    | `string` | `true` | | Link representing a REST API endpoint or custom handler |  |
-| **`options`** | `object` | `false` | | REST API endpoint from where this post type can be fetched. | "actor" | 
-
-**`options` object**
-
-| Name | Type | Description | Example |
-|------|--------|-------------|---------|
-| `force` | `boolean` | Link representing a REST API endpoint or custom handler |  |
+| Name | Type | Required | Description |
+|------|--------|---------|----------|
+| **`link`**    | `string` | `true` | Link representing a REST API endpoint or custom handler | 
+| `options` | `object` | `false` | REST API endpoint from where this post type can be fetched. |
+| `options.force` | `boolean` | - | Link representing a REST API endpoint or custom handler |
 
 ##### Return value
 
@@ -360,17 +354,22 @@ actions.source.fetch("/category/nature/", { force: true });
 ### State
 
 #### `state.source.get()`
+<small style="padding-top:-50px"><small>`(link: string) => object`</small></small>
 
 Returns an object that gives you info about the type of that link and related entities.
 
-{% hint style="info" %}
-`(link: string) => object`
 
-* **Parameters**
-  * **`link`**: `string` Link representing a REST API endpoint or custom handler
-* **Return value**
-  * `object` Info about the type of data represented in the URL
-{% endhint %}
+##### Parameters
+
+| Name | Type | Required | Description |
+|------|--------|---------|----------|
+| **`link`**    | `string` | `true` | Link representing a REST API endpoint or custom handler | 
+
+##### Return value
+
+| Type | Description |
+|--------|-------------|
+| `object` | Info about the type of data represented in the URL |
 
 For example:
 
