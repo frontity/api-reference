@@ -10,7 +10,7 @@ Frontity projects are built around the idea of packages that encapsulates logic 
 
 Frontity packages are available available via [npm](https://www.npmjs.com/search?q=keywords:frontity) and they can be installed as dependencies of your Frontity project (as with any other Node project). 
 
-But installing these packages (and adding them as dependencies) is not enough, they also need to be properly defined and configured (under their proper Namespace) and as part of your Frontity project in the file `frontity.settings.js`
+Once they'reinstalled, Frontity needs to know the packages we're going to use in the project and how do we want to use them. We can set this in the file `frontity.settings.js`, where we can define and configure the packages (by using Namespaces) for the Frontity project 
 
 
 {% hint style="info" %}
@@ -23,6 +23,8 @@ You can see more info about how to create your custom package [here](#)
 Official Frontity packages are those created and maintained by the [Frontity Team](https://frontity.org/about-us/). 
 
 These packages encapsulates the logic to apply the main features needed in a WordPress + React stack project managed by Frontity
+
+A Frontity project is basically the sum of the **Core package** plus a selection of **Features packages**. We can also use **Collections packages** to help us speed up the development of our Frontity project  
 
 {% hint style="info" %}
 The [full list of available packages](https://www.npmjs.com/search?q=keywords:frontity) include others created by the community. In this site we're going to document only the official `frontity` packages that has a public API
