@@ -184,7 +184,7 @@ Similar to `postTypes`setting, this one allows you to show the lists of posts of
 | **`taxonomy`**    | `string` | `true` | | Taxonomy slug. The slug you configured for your Custom Taxonomy. | `"actors"` |
 | **`endpoint`** | `string` | `true` | | REST API endpoint from where this post type can be fetched. | `"actor"` | 
 | `postTypeEndpoint` | `string` | `false` | `posts` | REST API endpoint from which posts of this taxonomy can be fetched. If the Custom Taxonomy is meant to load Custom Post Types instead, you have to add its endpoint here. To clarify, although optional for posts in the case of a Custom Post Type this argument is **required**. | `"movies"` | 
-| **`params`** | `object` | `false` |  | Extra params to be used while fetching the list of posts. | `{ per_page: 5, _embed: true }` | 
+| `params` | `object` | `false` |  | Extra params to be used while fetching the list of posts. | `{ per_page: 5, _embed: true }` | 
 
 
 Again, differentiating `taxonomy` and `endpoint`may be confusing as they usually are the same too. You can confirm you are doing it correctly by going to the Custom Taxonomy `endpoint` :
