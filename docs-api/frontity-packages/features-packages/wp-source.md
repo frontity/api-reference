@@ -10,9 +10,7 @@ This package is in charge of getting the data from self-hosted WordPress or Word
 <!-- toc -->
 
 - [Installation](#installation)
-- [How to use](#how-to-use)
-- [API Reference](#api-reference)
-  * [Settings](#settings)
+- [Settings](#settings)
     + [`state.source.api` ![](https://img.shields.io/badge/REQUIRED-red.svg)](#statesourceapi-httpsimgshieldsiobadgerequired-redsvg)
     + [`state.source.subdirectory`](#statesourcesubdirectory)
     + [`state.source.homepage`](#statesourcehomepage)
@@ -23,6 +21,8 @@ This package is in charge of getting the data from self-hosted WordPress or Word
     + [`state.source.params`](#statesourceparams)
     + [`state.source.postTypes`](#statesourceposttypes)
     + [`state.source.taxonomies`](#statesourcetaxonomies)
+- [How to use](#how-to-use)
+- [API Reference](#api-reference)
   * [Actions](#actions)
     + [`actions.source.fetch()`](#actionssourcefetch)
       - [Parameters](#parameters)
@@ -817,6 +817,7 @@ Utility for building links from its attributes.
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+
 
 
 
