@@ -7,7 +7,7 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "toc": "node utils/frontity-toc.js",
+    "toc": "node utils/gitbook-toc.js",
     "check-links": "find docs -name '*.md' -not -path './node_modules/*' -maxdepth 2 -exec markdown-link-check '{}' --config config/mlc.config.json ';'",
     "check-links:quiet": "find docs -name '*.md' -not -path './node_modules/*' -maxdepth 2 -exec markdown-link-check -q -v '{}' --config config/mlc.config.json ';'",
     "textlint:all": "find docs -name '*.md' -not -path './node_modules/*' -maxdepth 2 -exec textlint '{}' ';'",

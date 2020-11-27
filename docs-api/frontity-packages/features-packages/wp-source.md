@@ -27,9 +27,9 @@ This package is in charge of getting the data from self-hosted WordPress or Word
     + [`actions.source.fetch()`](#actions-source-fetch)
   * [State](#state)
     + [`state.source.get()`](#state-source-get)
-    + [`state.source[taxonomy][id]`](#state-sourcetaxonomyid)
-    + [`state.source[type][id]`](#state-sourcetypeid)
-    + [`state.source.author[id]`](#state-source-authorid)
+    + [`state.source[taxonomy][id]`](#state-source-taxonomy-id)
+    + [`state.source[type][id]`](#state-source-type-id)
+    + [`state.source.author[id]`](#state-source-author-id)
   * [Libraries](#libraries)
     + [`libraries.source.api.init()`](#libraries-source-api-init)
     + [`libraries.source.api.get()`](#libraries-source-api-get)
@@ -796,6 +796,7 @@ Utility for building links from its attributes.
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+
 
 
 

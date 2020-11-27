@@ -25,6 +25,7 @@ new Promise(resolve => {
 const customSlugParser = (headerDetected, optionsSlug ) => {
   const parsedHeader = headerDetected
     .replace(/\./g, ' ')
+    .replace(/[\[|\]]/g, ' ')
     .replace(/\<.*\>/g, '')
   
   const headerToWrite = uslug(parsedHeader)
