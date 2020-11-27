@@ -11,34 +11,34 @@ This package is in charge of getting the data from self-hosted WordPress or Word
 
 - [Installation](#installation)
 - [Settings](#settings)
-    + [`state.source.api`](#statesourceapi)
-    + [`state.source.subdirectory`](#statesourcesubdirectory)
-    + [`state.source.homepage`](#statesourcehomepage)
-    + [`state.source.postsPage`](#statesourcepostspage)
-    + [`state.source.categoryBase`](#statesourcecategorybase)
-    + [`state.source.tagBase`](#statesourcetagbase)
-    + [`state.source.postEndpoint`](#statesourcepostendpoint)
-    + [`state.source.params`](#statesourceparams)
-    + [`state.source.postTypes`](#statesourceposttypes)
-    + [`state.source.taxonomies`](#statesourcetaxonomies)
+    + [`state.source.api`](#state-source-api)
+    + [`state.source.subdirectory`](#state-source-subdirectory)
+    + [`state.source.homepage`](#state-source-homepage)
+    + [`state.source.postsPage`](#state-source-postspage)
+    + [`state.source.categoryBase`](#state-source-categorybase)
+    + [`state.source.tagBase`](#state-source-tagbase)
+    + [`state.source.postEndpoint`](#state-source-postendpoint)
+    + [`state.source.params`](#state-source-params)
+    + [`state.source.postTypes`](#state-source-posttypes)
+    + [`state.source.taxonomies`](#state-source-taxonomies)
 - [How to use](#how-to-use)
 - [API Reference](#api-reference)
   * [Actions](#actions)
-    + [`actions.source.fetch()`](#actionssourcefetch)
+    + [`actions.source.fetch()`](#actions-source-fetch)
   * [State](#state)
-    + [`state.source.get()`](#statesourceget)
-    + [`state.source[taxonomy][id]`](#statesourcetaxonomyid)
-    + [`state.source[type][id]`](#statesourcetypeid)
-    + [`state.source.author[id]`](#statesourceauthorid)
+    + [`state.source.get()`](#state-source-get)
+    + [`state.source[taxonomy][id]`](#state-sourcetaxonomyid)
+    + [`state.source[type][id]`](#state-sourcetypeid)
+    + [`state.source.author[id]`](#state-source-authorid)
   * [Libraries](#libraries)
-    + [`libraries.source.api.init()`](#librariessourceapiinit)
-    + [`libraries.source.api.get()`](#librariessourceapiget)
-    + [`libraries.source.populate()`](#librariessourcepopulate)
-    + [`libraries.source.handlers`](#librariessourcehandlers)
-    + [`libraries.source.redirections`](#librariessourceredirections)
-    + [`libraries.source.parse()`](#librariessourceparse)
-    + [`libraries.source.stringify()`](#librariessourcestringify)
-    + [`libraries.source.normalize()`](#librariessourcenormalize)
+    + [`libraries.source.api.init()`](#libraries-source-api-init)
+    + [`libraries.source.api.get()`](#libraries-source-api-get)
+    + [`libraries.source.populate()`](#libraries-source-populate)
+    + [`libraries.source.handlers`](#libraries-source-handlers)
+    + [`libraries.source.redirections`](#libraries-source-redirections)
+    + [`libraries.source.parse()`](#libraries-source-parse)
+    + [`libraries.source.stringify()`](#libraries-source-stringify)
+    + [`libraries.source.normalize()`](#libraries-source-normalize)
 
 <!-- tocstop -->
 
@@ -796,6 +796,8 @@ Utility for building links from its attributes.
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+
+
 
 
 
