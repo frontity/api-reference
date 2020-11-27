@@ -5,13 +5,13 @@ description: API reference of `@frontity/wp-source` package
 
 This package is in charge of getting the data from self-hosted WordPress or WordPress.com sites, and make it available from our React components.
 
-## Table of contents
+## Table of Contents
 
 <!-- toc -->
 
 - [Installation](#installation)
 - [Settings](#settings)
-    + [`state.source.api` ![](https://img.shields.io/badge/REQUIRED-red.svg)](#statesourceapi-httpsimgshieldsiobadgerequired-redsvg)
+    + [`state.source.api`](#statesourceapi)
     + [`state.source.subdirectory`](#statesourcesubdirectory)
     + [`state.source.homepage`](#statesourcehomepage)
     + [`state.source.postsPage`](#statesourcepostspage)
@@ -77,7 +77,7 @@ module.exports = {
 
 These are the settings you can configure for this package in your `frontity.settings.js` file:
 
-#### `state.source.api` ![](https://img.shields.io/badge/REQUIRED-red.svg)
+#### `state.source.api`<img src="https://img.shields.io/badge/REQUIRED-red.svg" >
 
 The URL of your API. It can be from a self-hosted WordPress, like `https://site.com/wp-json` or from a WordPress.com site, like`https://public-api.wordpress.com/wp/v2/sites/site.wordpress.com`\(see [WordPress REST API on WordPress.com](https://developer.wordpress.com/2016/11/11/wordpress-rest-api-on-wordpress-com/)\).
 
@@ -796,6 +796,9 @@ Utility for building links from its attributes.
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+
+
+
 
 
 
