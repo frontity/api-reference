@@ -25,41 +25,20 @@ This package is in charge of getting the data from self-hosted WordPress or Word
 - [API Reference](#api-reference)
   * [Actions](#actions)
     + [`actions.source.fetch()`](#actionssourcefetch)
-      - [Parameters](#parameters)
-      - [Return value](#return-value)
   * [State](#state)
     + [`state.source.get()`](#statesourceget)
-      - [Parameters](#parameters-1)
-      - [Return value](#return-value-1)
     + [`state.source[taxonomy][id]`](#statesourcetaxonomyid)
     + [`state.source[type][id]`](#statesourcetypeid)
     + [`state.source.author[id]`](#statesourceauthorid)
   * [Libraries](#libraries)
     + [`libraries.source.api.init()`](#librariessourceapiinit)
-      - [Parameters](#parameters-2)
     + [`libraries.source.api.get()`](#librariessourceapiget)
-      - [Parameters](#parameters-3)
-      - [Return value](#return-value-2)
     + [`libraries.source.populate()`](#librariessourcepopulate)
-      - [Parameters](#parameters-4)
-      - [Return value](#return-value-3)
     + [`libraries.source.handlers`](#librariessourcehandlers)
-      - [The `func` property](#the-func-property)
-        * [Arguments](#arguments)
-        * [Return](#return)
     + [`libraries.source.redirections`](#librariessourceredirections)
-      - [The `func` property](#the-func-property-1)
-        * [Arguments](#arguments-1)
-        * [Return](#return-1)
     + [`libraries.source.parse()`](#librariessourceparse)
-      - [Parameters](#parameters-5)
-      - [Return value](#return-value-4)
     + [`libraries.source.stringify()`](#librariessourcestringify)
-      - [Parameters](#parameters-6)
-      - [Return value](#return-value-5)
     + [`libraries.source.normalize()`](#librariessourcenormalize)
-      - [Parameters](#parameters-7)
-      - [Return value](#return-value-6)
 
 <!-- tocstop -->
 
@@ -718,7 +697,7 @@ Redirections are objects that associate a path pattern with a function that retu
 A redirection is defined by an object with the following properties:
 
 | Name |  Type | Required | Description | 
-|------|--------|---------|----------|----------|
+|------|--------|---------|----------|
 | **`name`** | `string` | yes | Identifier of the redirection. |
 | **`priority`** | `number` | yes | Let `fetch` to know in which order redirections should be evaluated. |
 | **`pattern`** | `regExp` | yes | Pattern which paths are compared with. We use [path-to-regexp](https://github.com/pillarjs/path-to-regexp) under the hood, so check its documentation to know how to write patterns. |
@@ -817,6 +796,8 @@ Utility for building links from its attributes.
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+
+
 
 
 
