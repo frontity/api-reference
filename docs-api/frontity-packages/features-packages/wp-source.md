@@ -71,7 +71,13 @@ Add the `wp-source` package to your project:
 npm i @frontity/wp-source
 ```
 
-And include it in your `frontity.settings.js` file:
+{% hint style="info" %}
+Both of the starter themes (`@frontity/mars-theme` & `@frontity/twentytwenty-theme`) available when doing `npx frontity create` already include this `wp-source` package
+{% endhint %}
+
+## Settings
+
+This package needs to be included in your `frontity.settings.js` file as one of the packages that will be part of the Frontity project:
 
 ```javascript
 module.exports = {
@@ -90,75 +96,7 @@ module.exports = {
 };
 ```
 
-
-## How to use
-
-Let’s start by explaining how the state data is used and then how that data is requested and stored. The state works with two main concepts: **links** and **entities**.
-
-The state is designed so that you can know which entities correspond to which link, and then access the data of these entities in a simple way.
-
-{% hint style="warning" %}
-For the data to exist, it will be necessary to request them previously using the `fetch` action.
-{% endhint %}
-
-```jsx
-import React, { useEffect } from "react";
-import { connect } from "frontity";
-
-// In a React component that uses "connect":
-const CategoryNature = ({ state, actions }) => {
-  // 1. fetch data related to a path
-  // With this useEffect we make the call to fetch
-  // only the first time the component is rendered.
-  // When the data is fetched, the state is updated with the new data
-  // so the component is re-rendered and "data" will get proper content
-
-  useEffect(() => {
-    actions.source.fetch("/category/nature/");
-  }, []);
-
-  // 2. get data from frontity state
-  const data = state.source.get("/category/nature/");
-
-  // 3. get entities from frontity state
-  if (data.isCategory) {
-    // the category entity
-    const category = state.source.category[data.id];
-
-    // posts from that category
-    const posts = data.items.map(({ type, id }) => state.source[type][id]);
-
-    // 4. render!
-    return (
-      <>
-        <h1>{category.name}</h1>
-        {posts.map((p) => (
-          <a href={p.link}>{p.title.rendered}</a>
-        ))}
-      </>
-    );
-  }
-
-  return null;
-};
-
-export default connect(CategoryNature);
-```
-
-{% hint style="info" %}
-If you want to know more about how to use the `wp-source` package, here you have some videos where Frontity DevRel team talks about it:
-
-* 📺 [Frontity Talks 2020-01 - wp-source & CSS In JS \[1:36\]](https://www.youtube.com/watch?v=e-_66W8pfdY&t=96s)
-* 📺 [Frontity Talks 2020-02 - Pagination example & wp-source \(state & fetch\) \[17:53\]](https://www.youtube.com/watch?v=eW5xZlpcqQk&t=1073s)
-{% endhint %}
-
-## API Reference
-
-The [`wp-source` package](https://github.com/frontity/frontity/tree/dev/packages/wp-source) implements the [interface defined in the `source` package](https://github.com/frontity/frontity/blob/dev/packages/source/types.ts) and [adds some extra API](https://github.com/frontity/frontity/blob/dev/packages/wp-source/types.ts)
-
-### Settings
-
-These are the settings you can change in your `frontity.settings.js` file:
+These are the settings you can configure for this package in your `frontity.settings.js` file:
 
 #### `state.source.api` ![](https://img.shields.io/badge/REQUIRED-red.svg)
 
@@ -296,6 +234,81 @@ taxonomies: [
   },
 ];
 ```
+
+
+## How to use
+
+This package will automatically retrieve data from the related WordPress routes when accesing a React route. 
+
+The data got from WordPress REST API is organized and normalized in the state. This "normalization" of the data means the data is organized in the state in a way so there's no duplicated data in it and there's only one source of truth.
+
+The state works with two main concepts: **links** and **entities**.
+
+The state is designed so that you can know which entities correspond to which link, and then access the data of these entities in a simple way.
+
+Because of this there's a 2 step process to get the information from a link:
+1. Get the data related to the link 
+1. Get the data related to the entities available in that link
+
+{% hint style="warning" %}
+For the data to exist, it will be necessary to request them previously using the `fetch` action.
+{% endhint %}
+
+```jsx
+import React, { useEffect } from "react";
+import { connect } from "frontity";
+
+// In a React component that uses "connect":
+const CategoryNature = ({ state, actions }) => {
+  // 1. fetch data related to a path
+  // With this useEffect we make the call to fetch
+  // only the first time the component is rendered.
+  // When the data is fetched, the state is updated with the new data
+  // so the component is re-rendered and "data" will get proper content
+
+  useEffect(() => {
+    actions.source.fetch("/category/nature/");
+  }, []);
+
+  // 2. get data from frontity state
+  const data = state.source.get("/category/nature/");
+
+  // 3. get entities from frontity state
+  if (data.isCategory) {
+    // the category entity
+    const category = state.source.category[data.id];
+
+    // posts from that category
+    const posts = data.items.map(({ type, id }) => state.source[type][id]);
+
+    // 4. render!
+    return (
+      <>
+        <h1>{category.name}</h1>
+        {posts.map((p) => (
+          <a href={p.link}>{p.title.rendered}</a>
+        ))}
+      </>
+    );
+  }
+
+  return null;
+};
+
+export default connect(CategoryNature);
+```
+
+{% hint style="info" %}
+If you want to know more about how to use the `wp-source` package, here you have some videos where Frontity DevRel team talks about it:
+
+* 📺 [Frontity Talks 2020-01 - wp-source & CSS In JS \[1:36\]](https://www.youtube.com/watch?v=e-_66W8pfdY&t=96s)
+* 📺 [Frontity Talks 2020-02 - Pagination example & wp-source \(state & fetch\) \[17:53\]](https://www.youtube.com/watch?v=eW5xZlpcqQk&t=1073s)
+{% endhint %}
+
+## API Reference
+
+The [`wp-source` package](https://github.com/frontity/frontity/tree/dev/packages/wp-source) implements the [interface defined in the `source` package](https://github.com/frontity/frontity/blob/dev/packages/source/types.ts) and [adds some extra API](https://github.com/frontity/frontity/blob/dev/packages/wp-source/types.ts)
+
 
 
 ### Actions
