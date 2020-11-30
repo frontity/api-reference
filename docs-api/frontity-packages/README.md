@@ -10,8 +10,7 @@ Frontity projects are built around the idea of packages that encapsulates logic 
 
 Frontity packages are available available via [npm](https://www.npmjs.com/search?q=keywords:frontity) and they can be installed as dependencies of your Frontity project (as with any other Node project). 
 
-Once they'reinstalled, Frontity needs to know the packages we're going to use in the project and how do we want to use them. We can set this in the file `frontity.settings.js`, where we can define and configure the packages (by using Namespaces) for the Frontity project 
-
+Frontity needs to know the packages we're going to use in the project and how do we want to use them. We can set this in the file `frontity.settings.js`, where we can define and configure the packages (by using Namespaces) for the Frontity project 
 
 {% hint style="info" %}
 We're going to focus on the use of Frontity packages at a Frontity project level, but the same applies if you're creating a custom Frontity package. 
