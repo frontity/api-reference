@@ -1,8 +1,25 @@
 ---
 description: API reference of `@frontity/tiny-router` package
 ---
-
 # @frontity/tiny-router
+
+This package is in charge of managing (React) routes in a Frontity project.
+
+## Table of Contents
+
+<!-- toc -->
+
+- [Installation](#installation)
+- [Settings](#settings)
+    + [state.router.autoFetch](#state-router-autofetch)
+- [How to use](#how-to-use)
+  * [State](#state)
+    + [state.router.link](#state-router-link)
+    + [state.router.state](#state-router-state)
+  * [Actions](#actions)
+    + [actions.router.set](#actions-router-set)
+
+<!-- tocstop -->
 
 ## Installation
 
@@ -112,4 +129,5 @@ const Link = ({ actions, children, link }) => {
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+
 
