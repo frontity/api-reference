@@ -302,11 +302,15 @@ Read more about actions [here](../learning-frontity/actions.md)
 
 This action fetches all entities related to a `link`, i.e. the pathname of a URL in your site.
 
+It populates the state with both:
+ - An entry in `state.source.data` with information about that link.
+ - Normalized entities in relevant part of the state, like `state.source.post`, `state.source.category` or `state.source.author` and so on.
+
 > `(link: string, options: object) => Promise`
 
 ##### Parameters
 
-| Name |  Property | Type | Required | Description | Example |
+| Name |  Object Property | Type | Required | Description | Example |
 |------|--------|--------|---------|----------|----------|
 | _**`[link]`**_    | |  `string` | `true` | Link representing a REST API endpoint or custom handler | `"/category/nature/"` |
 | _`[options]`_ | | `object` | `false` | REST API endpoint from where this post type can be fetched. | `{ force: true }` |
@@ -513,7 +517,7 @@ Set the URL to the WordPress REST API.
 
 ##### Parameters
 
-| Name |  Property | Type | Required | Description | Example |
+| Name |  Object Property | Type | Required | Description | Example |
 |------|--------|--------|---------|----------|----------|
 | _`[options]`_ | | `object` | `true` | options object | - |
 | _`[options]`_ | `api` |`string` | `true` | URL pointing to a valid WP REST API. | `"https://test.frontity.io/wp-json"` |
@@ -546,7 +550,7 @@ Request entity from the WordPress REST API.
 
 ##### Parameters
 
-| Name |  Property | Type | Required | Description | Example |
+| Name |  Object Property | Type | Required | Description | Example |
 |------|--------|--------|---------|----------|----------|
 | _`[options]`_ | | `object` | `true` | options object | |
 | _`[options]`_ | `endpoint` | `string` | - | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\). | `"posts"` |
@@ -595,7 +599,7 @@ Add entities to the Frontity state.
 
 ##### Parameters
 
-| Name |  Property | Type | Required | Default Value | Description | 
+| Name |  Object Property | Type | Required | Default Value | Description | 
 |------|--------|--------|---------|----------|----------|
 | _`[options]`_ | | `object` | yes | | Options object |
 | _`[options]`_ | **`response`** | `object` | yes | | The response object returned by `api.get().` |
@@ -746,7 +750,7 @@ Utility for parsing links.
 
 ##### Return value
 
-| Name |  Property | Type | Description | 
+| Name |  Object Property | Type | Description | 
 |------|--------|--------|---------|----------|----------|
 | _`[resultParse]`_ | | `object` | Options object |
 | _`[resultParse]`_ | `path` | `string` | Pathname without the page |

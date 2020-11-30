@@ -11,13 +11,13 @@ This package is in charge of managing (React) routes in a Frontity project.
 
 - [Installation](#installation)
 - [Settings](#settings)
-    + [state.router.autoFetch](#state-router-autofetch)
+    + [`state.router.autoFetch`](#state-router-autofetch)
 - [API Reference](#api-reference)
   * [Actions](#actions)
-    + [actions.router.set](#actions-router-set)
+    + [`actions.router.set()`](#actions-router-set)
   * [State](#state)
-    + [state.router.link](#state-router-link)
-    + [state.router.state](#state-router-state)
+    + [`state.router.link`](#state-router-link)
+    + [`state.router.state`](#state-router-state)
 
 <!-- tocstop -->
 
@@ -43,7 +43,7 @@ module.exports = {
 
 ## Settings
 
-#### state.router.autoFetch
+#### `state.router.autoFetch`
 
 When `autoFetch` is activated, tiny-router does a `actions.source.fetch(link)` each time the action `actions.router.set(link)` is triggered. This ensures that the data you need for the current page is always available.
 
@@ -55,7 +55,7 @@ It's `true` by default.
 
 ### Actions
 
-#### actions.router.set()
+#### `actions.router.set()`
 
 Tiny Router is very simple, it only has one action: `actions.router.set()` .
 
@@ -103,7 +103,7 @@ const Link = ({ actions, children, link }) => {
 
 Tiny router has the following state:
 
-#### state.router.link
+#### `state.router.link`
 
 This is the path the site is in. For example, `/category/nature/`.
 
@@ -116,7 +116,7 @@ These are some examples of links:
 * `/some-post`: You are a post, path is `/some-post`.
 * `/some-page`: You are in a page, path is `/some-page`.
 
-#### state.router.state
+#### `state.router.state`
 
 This is the object that was saved in [`window.history.state`](https://developer.mozilla.org/en-US/docs/Web/API/History/state) when the route was changed.
 
@@ -124,6 +124,7 @@ This is the object that was saved in [`window.history.state`](https://developer.
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+
 
 
 
