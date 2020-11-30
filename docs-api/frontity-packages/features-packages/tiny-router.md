@@ -12,12 +12,12 @@ This package is in charge of managing (React) routes in a Frontity project.
 - [Installation](#installation)
 - [Settings](#settings)
     + [state.router.autoFetch](#state-router-autofetch)
-- [How to use](#how-to-use)
+- [API Reference](#api-reference)
+  * [Actions](#actions)
+    + [actions.router.set](#actions-router-set)
   * [State](#state)
     + [state.router.link](#state-router-link)
     + [state.router.state](#state-router-state)
-  * [Actions](#actions)
-    + [actions.router.set](#actions-router-set)
 
 <!-- tocstop -->
 
@@ -51,28 +51,7 @@ It also does a `actions.source.fetch(link)` in the `beforeSSR` action to ensure 
 
 It's `true` by default.
 
-## How to use
-
-### State
-
-Tiny router has the following state:
-
-#### state.router.link
-
-This is the path the site is in. For example, `/category/nature/`.
-
-These are some examples of links:
-
-* `/`: You are in the home, path is `/` and page is `1`.
-* `/page/2`: You are in the page 2 of the home, path is `/` and page is `2`.
-* `/category/nature:` You are in the category `nature`, path is `/` and page is `1`.
-* `/category/nature/page/2`: You are in page 2 of category `nature`, path is `/` and page is `2`.
-* `/some-post`: You are a post, path is `/some-post`.
-* `/some-page`: You are in a page, path is `/some-page`.
-
-#### state.router.state
-
-This is the object that was saved in [`window.history.state`](https://developer.mozilla.org/en-US/docs/Web/API/History/state) when the route was changed.
+## API Reference
 
 ### Actions
 
@@ -126,8 +105,33 @@ const Link = ({ actions, children, link }) => {
 };
 ```
 
+
+### State
+
+Tiny router has the following state:
+
+#### state.router.link
+
+This is the path the site is in. For example, `/category/nature/`.
+
+These are some examples of links:
+
+* `/`: You are in the home, path is `/` and page is `1`.
+* `/page/2`: You are in the page 2 of the home, path is `/` and page is `2`.
+* `/category/nature:` You are in the category `nature`, path is `/` and page is `1`.
+* `/category/nature/page/2`: You are in page 2 of category `nature`, path is `/` and page is `2`.
+* `/some-post`: You are a post, path is `/some-post`.
+* `/some-page`: You are in a page, path is `/some-page`.
+
+#### state.router.state
+
+This is the object that was saved in [`window.history.state`](https://developer.mozilla.org/en-US/docs/Web/API/History/state) when the route was changed.
+
+
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+
+
 
 
