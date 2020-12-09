@@ -9,10 +9,10 @@ These commands will allow you to either create a Frontity project or a Frontity 
 
 ### FRONTITY_NAME
 
-If you pass the `--no-prompt` flag to the [`create`](create.md) or [`create-package`](create-package.md), the CLI will use the name from this `FRONTITY_NAME` environment variable.
+If you pass the [`--no-prompt`](../README.md#no-prompt) flag to the [`create`](create.md) or [`create-package`](create-package.md), the CLI will use the name from this `FRONTITY_NAME` environment variable.
 
 If the CLI cannot find a `FRONTITY_NAME` environmental variable, it will prompt for the name of the package
 
-This is the scheme followed by the CLI to get the name of the package
-
-![](../../.gitbook/assets/no-prompt.png)
+{% hint style="info" %}
+You can see a scheme of the whole workflow of this `FRONITY_NAME` use case in the [`--no-prompt`](../README.md#no-prompt) section
+{% endhint %}

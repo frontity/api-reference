@@ -1,12 +1,30 @@
 ---
 description: API reference of `@frontity/html2react` package
 ---
-
 # @frontity/html2react
 
-{% hint style="warning" %}
-This reference is a **work in progress** until we have time to improve it. For the time being, if you have any questions on how to use `html2react` , the `processors` or anything else, please don't hesitate to ask in our community forum, we'll be happy to answer your questions.
-{% endhint %}
+This package is in charge of converting HTML to React. It works with _processors_ that match HTML portions and replaces them with React components.
+
+## Table of Contents
+
+<!-- toc -->
+
+- [Installation](#installation)
+- [Settings](#settings)
+- [How to use](#how-to-use)
+  * [Render the parsed content.](#render-the-parsed-content)
+  * [Load processors](#load-processors)
+  * [Create your own processors](#create-your-own-processors)
+  * [Nodes](#nodes)
+- [Processors](#processors)
+  * [Script](#script)
+  * [Iframe](#iframe)
+- [API Reference](#api-reference)
+  * [Libraries](#libraries)
+    + [`libraries.html2react.processors`](#libraries-html2react-processors)
+    + [`libraries.html2react.Component`](#libraries-html2react-component)
+
+<!-- tocstop -->
 
 ## Installation
 
@@ -16,7 +34,9 @@ Add the `html2react` package to your project:
 npm i @frontity/html2react
 ```
 
-And include it in your `frontity.settings.js` file:
+## Settings
+
+This package needs to be included in your `frontity.settings.js` file as one of the packages that will be part of the Frontity project:
 
 {% code title="frontity.settings.js" %}
 ```javascript
@@ -28,13 +48,13 @@ module.exports = {
 ```
 {% endcode %}
 
-## Settings
+If you use an already created theme this package will already be configured so you don't need to do anything else.
 
-You don't need to configure any settings for this package.
+If you're creating a custom theme you'll have to [define the processors you want to use in the configuration of the package](#loading-processors)
 
 ## How to use
 
-### Render the parsed content.
+### Rendering the parsed content
 
 This is how you need to include the Component that will render the parsed content. The only prop it takes is `html`, and you'll usually pass `post.content.rendered` to it:
 
@@ -60,7 +80,7 @@ const Post = ({ state, libraries }) => {
 };
 ```
 
-### Load processors
+### Loading processors
 
 The `processors` field is an _array_ where you can push all the processors you want to use with `html2react`. You can check the default processors [here](frontity-html2react.md#processors).
 
@@ -84,20 +104,33 @@ const myPackage = {
 export default myPackage;
 ```
 
-### Create your own processors
+### Creating your own processors
 
 A processor is an object with four properties: `name` , `priority` , `test`,and `processor`.
 
-* `name` : Just the name of your processor
-* `priority` : A number that lets the package know in which order processors should be evaluated. The processors are evaluated in numeric order. For example, a processor with `priority` of `10` will be applied **before** a  processor with a `priority` of `20`
-* `test` : It's a function that evaluate each [node](frontity-html2react.md#nodes), and if it returns `true`, this node will be passed down to the `processor` function
-* `processor` : A function to apply some logic to the [node](frontity-html2react.md#nodes) that we want to modify. It could be substituting HTML tags for React component with some logic, as adding `lazy-loading` to images, or just modifying some attributes, like adding `target="_blank"` to the links. Both the `test` and the `processor` functions receive the same params `({ node, root, state, libraries })` :
-* `node` : It's the HTML node tag the processor is evaluating
-* `root` : The top node of the node tree
-* `state` : Access to Frontity's `state`  . This could be useful to use some parts of the `state` inside your processor. For example, using your `state.theme.colors` 
-* `libraries` : Access to Frontity's `libraries`. As it happens with the `state`, sometimes could be useful to access your `libraries` as well
+| Name | Type   | Required | Description | Example |
+|------|--------|---------|----------|-------------|---------|
+| **`name`**    | string | true     | the name of your processor | `"image"` |
+| **`priority`** | number | true     | A number that lets the package know in which order processors should be evaluated. The processors are evaluated in numeric order. For example, a processor with `priority` of `10` will be applied **before** a  processor with a `priority` of `20` | 10 | 
+| **`test`** | function | true   | A function that evaluate each [node](frontity-html2react.md#nodes), and if it returns `true`, this node will be passed down to the `processor` function | `({ node }) => node.component === "img"` | 
+| **`processor`** | function | true   | A function to apply some logic to the [node](frontity-html2react.md#nodes) that we want to modify. It could be substituting HTML tags for React component with some logic, as adding `lazy-loading` to images, or just modifying some attributes, like adding `target="_blank"` to the links. | | 
 
-Let's see some examples. This is how the `image` processor is implemented in `html2react`:
+ Both the `test` and the `processor` functions receive the same arguments `({ node, root, state, libraries })` 
+
+| Name | Type   | Description | 
+|------|--------|---------|
+| `node` | object | The HTML node tag the processor is evaluating |
+| `root` | object | The top node of the node tree | 
+| `state` | object | Access to Frontity's `state`  . This could be useful to use some parts of the `state` inside your processor. For example, using your `state.theme.colors` |  
+| `libraries` | object | Access to Frontity's `libraries`. As it happens with the `state`, sometimes could be useful to access your `libraries` as well | 
+
+The **`test`** function _returns_ a boolean to indicate `processor` function should be executed (the node matches the pattern)
+
+The **`processor`** function _returns_ a `node` object 
+
+#### Example
+
+This is how the `image` processor is implemented in `html2react`:
 
 ```typescript
 import Image from "@frontity/components/image";
@@ -267,4 +300,5 @@ const Post = ({ libraries }) => {
   );
 };
 ```
+
 

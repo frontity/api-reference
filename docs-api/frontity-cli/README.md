@@ -53,6 +53,19 @@ If some of these arguments or environment variables are detected the proper valu
 
 ![](../.gitbook/assets/cli-environment-variables.png)
 
+### `--no-prompt`
+
+There's a **`--no-prompt`** option that can be used along with environment variables to avoid any question from CLI
+
+**Example**
+
+If you pass the `--no-prompt` flag to the [`create`](create.md) or [`create-package`](create-package.md), the CLI will use the name from this `FRONTITY_NAME` environment variable.
+
+If the CLI cannot find a `FRONTITY_NAME` environmental variable, it will prompt for the name of the package
+
+This is the scheme followed by the CLI to get the name of the package
+
+![](../.gitbook/assets/no-prompt.png)
 
 ## A typical workflow with Frontity commands
 
