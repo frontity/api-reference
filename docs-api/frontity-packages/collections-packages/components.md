@@ -220,8 +220,10 @@ Native Lazy needs a height attribute. For that reason, we use the Intersection O
 | `width` | string |  no | width of the iframe component |
 | `height` | string | no | height of the iframe component |
 | `className` | string |  no | class name for the component |
-| `loading` | string |  no |  `"lazy" | "eager" | "auto"` Default value: `"lazy"` |
+| `loading` | string |  no |  `"lazy"` \| `"eager"` \| `"auto"` Default value: `"lazy"` |
 | `rootMargin` | string |  no | margin around root element |
+
+
 
 #### Usage
 
