@@ -22,11 +22,11 @@ This package is in charge of converting HTML to React. It works with [_processor
   * [Script](#script)
     + [Usage](#usage)
   * [Iframe](#iframe)
-    + [Usage](#usage-1)
+    + [Usage](#usage)
 - [API Reference](#api-reference)
   * [Libraries](#libraries)
-    + [`libraries.html2react.processors`](#librarieshtml2reactprocessors)
-    + [`libraries.html2react.Component`](#librarieshtml2reactcomponent)
+    + [`libraries.html2react.processors`](#libraries-html2react-processors)
+    + [`libraries.html2react.Component`](#libraries-html2react-component)
 
 <!-- tocstop -->
 
@@ -317,6 +317,7 @@ const Post = ({ libraries }) => {
   );
 };
 ```
+
 
 
 
