@@ -158,11 +158,11 @@ and then you visit a URL \(or use `actions.source.fetch`\), the query part of th
 
 This option allows you to show the Custom Post Types you create at WordPress when accessing their URLs. It is an array of objects, each object being a different CPT. It has three arguments:
 
-| Name | Type   | Required | Description | Example |
-|------|--------|---------|----------|-------------|---------|
-| **`type`**    | string | true     | The slug you configured for your Custom Post Type | `"movies"` |
-| **`endpoint`** | string | true     | REST API endpoint from where this post type can be fetched. | `"movies"` | 
-| `archive` | string | false     | the URL of the archive of this Custom Post Type, where all of them are listed. | `"/movies_archive"` | 
+| Name | Type   | Required | Description |
+|------|--------|---------|----------|-------------|
+| **`type`**    | string | yes     | The slug you configured for your Custom Post Type |
+| **`endpoint`** | string | yes     | REST API endpoint from where this post type can be fetched. |
+| `archive` | string | no  | the URL of the archive of this Custom Post Type, where all of them are listed. |
 
 
 Differentiating `type` and `endpoint` may be confusing as they are usually the same. You can confirm you are doing it correctly going to the CPT `endpoint` :
@@ -186,15 +186,15 @@ postTypes: [
 Similar to `postTypes`setting, this one allows you to show the lists of posts of a Custom Taxonomies you create at WordPress when accessing their URLs. It is an array of objects, each object being a different Custom Taxonomy. It has four arguments:
 
 
-| Name | Type | Required | Default Value | Description | Example |
-|------|--------|---------|----------|-------------|---------|
-| **`taxonomy`**    | `string` | `true` | | Taxonomy slug. The slug you configured for your Custom Taxonomy. | `"actors"` |
-| **`endpoint`** | `string` | `true` | | REST API endpoint from where this post type can be fetched. | `"actor"` | 
-| `postTypeEndpoint` | `string` | `false` | `posts` | REST API endpoint from which posts of this taxonomy can be fetched. If the Custom Taxonomy is meant to load Custom Post Types instead, you have to add its endpoint here. To clarify, although optional for posts in the case of a Custom Post Type this argument is **required**. | `"movies"` | 
-| `params` | `object` | `false` |  | Extra params to be used while fetching the list of posts. | `{ per_page: 5, _embed: true }` | 
+| Name | Type | Required | Description |
+|------|--------|---------|---------|
+| **`taxonomy`**    | string | yes | Taxonomy slug. The slug you configured for your Custom Taxonomy. | 
+| **`endpoint`** | string | yes | REST API endpoint from where this post type can be fetched. | 
+| `postTypeEndpoint` | string | no | REST API endpoint from which posts of this taxonomy can be fetched. If the Custom Taxonomy is meant to load Custom Post Types instead, you have to add its endpoint here. To clarify, although optional for posts in the case of a Custom Post Type this argument is **required**. <br/> Default value is `posts`| 
+| `params` | object | no | Extra params to be used while fetching the list of posts. |
 
 
-Again, differentiating `taxonomy` and `endpoint`may be confusing as they usually are the same too. You can confirm you are doing it correctly by going to the Custom Taxonomy `endpoint` :
+gain, dfferentiating `taxonomy` and `endpoint`may be confusing as they usually are the same too. You can confirm you are doing it correctly by going to the Custom Taxonomy `endpoint` :
 
 ![](../../.gitbook/assets/https___test_frontity_io__rest_route__wp_v2_actor%20%282%29%20%281%29%20%282%29.png)
 
@@ -310,11 +310,11 @@ It populates the state with both:
 
 ##### Parameters
 
-| Name |  Object Property | Type | Required | Description | Example |
-|------|--------|--------|---------|----------|----------|
-| _**`[link]`**_    | |  `string` | `true` | Link representing a REST API endpoint or custom handler | `"/category/nature/"` |
-| _`[options]`_ | | `object` | `false` | REST API endpoint from where this post type can be fetched. | `{ force: true }` |
-| _`[options]`_ | `force` | `boolean` | - | The entities should be fetched again. | |
+| Name |  Object Property | Type | Required | Description |
+|------|--------|--------|---------|----------|
+| _**`[link]`**_    | |  string | yes | Link representing a REST API endpoint or custom handler | 
+| _`[options]`_ | | object | no | REST API endpoint from where this post type can be fetched. |
+| _`[options]`_ | `force` | boolean | - | The entities should be fetched again. | |
 
 ##### Return value
 
@@ -381,17 +381,17 @@ Returns an object that gives you info about the type of that link and related en
 
 ##### Parameters
 
-| Name | Type | Required | Description | Example |
-|------|--------|---------|----------|----------|
-| _**`[link]`**_  |  `string` | `true` | Link representing a REST API endpoint or custom handler | `"/category/nature/"` |
+| Name | Type | Required | Description |
+|------|--------|---------|----------|
+| _**`[link]`**_  |  string | yes | Link representing a REST API endpoint or custom handler | 
 
 ##### Return value
 
 | Type | Description |
 |--------|-------------|
-| `object` | Info about the type of data represented in the URL |
+| object | Info about the type of data represented in the URL |
 
-For example:
+Fr exampe:
 
 ```javascript
 state.source.get("/category/nature/");
@@ -517,11 +517,11 @@ Set the URL to the WordPress REST API.
 
 ##### Parameters
 
-| Name |  Object Property | Type | Required | Description | Example |
-|------|--------|--------|---------|----------|----------|
-| _`[options]`_ | | `object` | `true` | options object | - |
-| _`[options]`_ | `api` |`string` | `true` | URL pointing to a valid WP REST API. | `"https://test.frontity.io/wp-json"` |
-| _`[options]`_ | `isWpCom` |`boolean` | `false` | if the WP REST route is from a WordPress.com hosted site. | `false` |
+| Name |  Object Property | Type | Required | Description |
+|------|--------|--------|---------|----------|
+| _`[options]`_ | | object | yes | options object |
+| _`[options]`_ | `api` | string | yes | URL pointing to a valid WP REST API. |
+| _`[options]`_ | `isWpCom` |boolean | no | if the WP REST route is from a WordPress.com hosted site. | 
 
 
 **Example**
@@ -550,13 +550,13 @@ Request entity from the WordPress REST API.
 
 ##### Parameters
 
-| Name |  Object Property | Type | Required | Description | Example |
-|------|--------|--------|---------|----------|----------|
-| _`[options]`_ | | `object` | `true` | options object | |
-| _`[options]`_ | `endpoint` | `string` | - | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\). | `"posts"` |
-| _`[options]`_ | `params` | `object` | - | Any parameter that will be included in the query params. | `{ _embed: true, categories: "2,3,4" }`|
-| _`[options]`_ | `api` | `string` | - | Overrides the value set with `api.set.` | |
-| _`[options]`_ | `isWpCom` | `boolean` | - | Overrides the value set with `api.set.` | |
+| Name |  Object Property | Type | Required | Description | 
+|------|--------|--------|---------|----------|
+| _`[options]`_ | | object | yes | options object |
+| _`[options]`_ | `endpoint`| strin | yes | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\). | 
+| _`[options]`_ | `params` | object | no | Any parameter that will be included in the query params. |
+|_`[optins]`_ | `api` | string | no | Overrides the value set with `api.set.` | 
+| _`[options]`_ | `isWpCom` | boolean | no | Overrides the value set with `api.set.` |
 
 ##### Return value
 
@@ -599,13 +599,13 @@ Add entities to the Frontity state.
 
 ##### Parameters
 
-| Name |  Object Property | Type | Required | Default Value | Description | 
-|------|--------|--------|---------|----------|----------|
-| _`[options]`_ | | `object` | yes | | Options object |
-| _`[options]`_ | **`response`** | `object` | yes | | The response object returned by `api.get().` |
-| _`[options]`_ | **`state`** | `object` | yes | | The state object from the Frontity store. |
-| _`[options]`_ | `subdirectory` | `string` | no | Value defined in `state.source.subdirectory` | Domain's subdirectory where your Frontity site is accessible. When this options is passed, this subdirectory is added to the entities' links. |
-| _`[options]`_ | `force` | `boolean` | no | `false` | Value indicating if the entities should be overwritten |
+| Name |  Object Property | Type | Required | Description | 
+|------|--------|--------|---------|----------|
+| _`[options]`_ | | object | yes |Options object |
+| _`[options]`_ | **`response`** | oject | yes |The response object returned by `api.get().` |
+| _`[options]`_ | **`state`** | object | yes | The tate object from the Frontity store. |
+| _`[options]`_ | `subdirectory` | strin | no |Domain's subdirectory where your Frontity site is accessible. When this options is passed, this subdirectory is added to the entities' links. </br> Default Value is value defined in `state.source.subdirectory`  |
+| _`[options]`_ | `force` | boolean | no | Value indicating if the entities should be overwritten </br> Default Value is `false` |
 
 ##### Return value
 
@@ -634,10 +634,10 @@ A handler is defined by an object with the following properties:
 
 | Name |  Type | Required | Description | 
 |------|--------|---------|----------|----------|
-| **`name`** | `string` | yes | Identifier of the handler. |
-| **`priority`** | `number` | yes | Number that lets `fetch` to know in which order handlers should be evaluated. |
-| **`pattern`** | `regExp` | yes | Pattern which paths are compared with. We use [path-to-regexp](https://github.com/pillarjs/path-to-regexp) under the hood, so check its documentation to know how to write patterns. |
-| **`func`** | `function` | yes | Asynchronous function that retrieves entities and adds all info to the state. |
+| **`name`** | string | yes | Identifier of the handler. |
+| **`priority`** | number | yes | Number that lets `fetch` to know in which order handlers should be evaluated. |
+| **`pattern`** | regExp | yes | Pattern which paths are compared with. We use [path-to-regexp](https://github.com/pillarjs/path-to-regexp) under the hood, so check its documentation to know how to write patterns. |
+| **`func`** | function | yes | Asynchronous function that retrieves entities and adds all info to the state. |
 
 ##### The `func` property
 
@@ -647,11 +647,11 @@ The `func` property defined will receive an object with the following properties
 
 | Name |  Type | Description | 
 |------|--------|----------|----------|
-| `link` | `string` | The link that are being fetched. |
-| `params` | `string` | values obtained from the pattern after a match |
-| `state` | `object` | Frontity state. |
-| `libraries` | `object` | Frontity libraries. |
-| `force` | `boolean` | If the entities should be fetched again. Internally, this parameter will be passed to the `actions.source.fetch` call. |
+| `link` | string | The link that are being fetched. |
+| `params` | string | values obtained from the pattern after a match |
+| `state` | object | Frontity state. |
+| `libraries` | objet | Frotity libraries. |
+| `force` | boolean | f the etities should be fetched again. Internally, this parameter will be passed to the `actions.source.fetch` call. |
 
 ###### Return
 
@@ -702,10 +702,10 @@ A redirection is defined by an object with the following properties:
 
 | Name |  Type | Required | Description | 
 |------|--------|---------|----------|
-| **`name`** | `string` | yes | Identifier of the redirection. |
-| **`priority`** | `number` | yes | Let `fetch` to know in which order redirections should be evaluated. |
-| **`pattern`** | `regExp` | yes | Pattern which paths are compared with. We use [path-to-regexp](https://github.com/pillarjs/path-to-regexp) under the hood, so check its documentation to know how to write patterns. |
-| **`func`** | `function` | yes | Function that returns a new path. It receives an object with the params obtained after a match. |
+| **`name`** | string | yes | Identifier of the redirection. |
+| **`priority`** | number | yes | Let `fetch` to know in which order redirections should be evaluated. |
+| **`pattern`** | regExp | yes | Pattern which paths are compared with. We use [path-to-regexp](https://github.com/pillarjs/path-to-regexp) under the hood, so check its documentation to know how to write patterns. |
+| **`func`** | function | yes | Function that returns a new path. It receives an object with the params obtained after a match. |
 
 ##### The `func` property
 
@@ -715,13 +715,13 @@ The `func` property defined will receive an object with the following properties
 
 | Name |  Type | Description | 
 |------|--------|----------|----------|
-| `slug` | `string` | The link that is being fetched. |
+| `slug` | string | The link that is being fetched. |
 
 ###### Return
 
 | Type | Description |
 |--------|-------------|
-| `string` | a new path
+| string | a new path
 
 
 **Example**
@@ -746,17 +746,17 @@ Utility for parsing links.
 
 | Name |  Type | Required | Description | 
 |------|--------|--------|----------|
-| _`[link]`_ | `string` | yes |any link that points to entities in your site \(links, custom lists, etc.\) |
+| _`[link]`_ | string | yes |any link that points to entities in your site \(links, custom lists, etc.\) |
 
 ##### Return value
 
 | Name |  Object Property | Type | Description | 
 |------|--------|--------|---------|----------|----------|
-| _`[resultParse]`_ | | `object` | Options object |
-| _`[resultParse]`_ | `path` | `string` | Pathname without the page |
-| _`[resultParse]`_ | `page` | `number` | The page number |
-| _`[resultParse]`_ | `query` | `string` | Object with query parameters |
-| _`[resultParse]`_ | `hash` | `string` | The hash value \(with `#`\). |
+| _`[resultParse]`_ | | object | Options object |
+| _`[resultParse]`_ | `path` | sring | athname without the page |
+| _`[resultParse]`_ | `page` | number | The page number |
+| _`[resultParse]`_ | `query` | string | Object with query parameters |
+| _`[resultParse]`_ | `hash` | string | The hash value \(with `#`\). |
 
 
 #### `libraries.source.stringify()`
@@ -769,16 +769,16 @@ Utility for building links from its attributes.
 
 | Name |  Type | Required | Description | 
 |------|--------|--------|----------|
-| **`[path]`** | `string` | yes | pathname without the page |
-| _`[page]`_ | `number` | no | The page number |
-| _`[query]`_ | `object` | no | Object with query parameters |
-| _`[hash]`_ | `string` | no | The hash value \(with `#`\). |
+| **`[path]`** | string | yes | pathname without the page |
+| _`[page]`_ | number | no | The page number |
+| _`[query]`_ | object | no | Object with query parameters |
+| _`[hash]`_ | string | o | Thehash value \(with `#`\). |
 
 ##### Return value
 
 | Name |  Type | Description | 
 |------|----------|----------|
-| _`[link]`_ | `string` | Normalized link |
+| _`[link]`_ | string | Normalized link |
 
 #### `libraries.source.normalize()`
 
@@ -788,13 +788,13 @@ Utility for building links from its attributes.
 
 | Name |  Type | Required | Description | 
 |------|--------|--------|----------|
-| **`[link]`** | `string` | yes | Any link that points to entities in your site \(links, custom lists, etc.\) |
+| **`[link]`** | string | yes | Any link that points to entities in your site \(links, custom lists, etc.\) |
 
 ##### Return value
 
 | Name |  Type | Description | 
 |------|----------|----------|
-| _`[link]`_ | `string` | Normalized link |
+| _`[link]`_ | string | Normalized link |
 
 
 {% hint style="info" %}

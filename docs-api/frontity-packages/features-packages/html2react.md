@@ -12,17 +12,19 @@ This package is in charge of converting HTML to React. It works with _processors
 - [Installation](#installation)
 - [Settings](#settings)
 - [How to use](#how-to-use)
-  * [Render the parsed content.](#render-the-parsed-content)
-  * [Load processors](#load-processors)
-  * [Create your own processors](#create-your-own-processors)
-  * [Nodes](#nodes)
+  * [Rendering the parsed content](#rendering-the-parsed-content)
 - [Processors](#processors)
-  * [Script](#script)
-  * [Iframe](#iframe)
+  * [Loading processors](#loading-processors)
+  * [Creating your own processors](#creating-your-own-processors)
+    + [Example](#example)
+  * [Nodes](#nodes)
+  * [Processors included in the package](#processors-included-in-the-package)
+    + [Script](#script)
+    + [Iframe](#iframe)
 - [API Reference](#api-reference)
   * [Libraries](#libraries)
-    + [`libraries.html2react.processors`](#libraries-html2react-processors)
-    + [`libraries.html2react.Component`](#libraries-html2react-component)
+    + [`libraries.html2react.processors`](#librarieshtml2reactprocessors)
+    + [`libraries.html2react.Component`](#librarieshtml2reactcomponent)
 
 <!-- tocstop -->
 
@@ -80,9 +82,15 @@ const Post = ({ state, libraries }) => {
 };
 ```
 
-### Loading processors
+
+
+
+
+## Processors
 
 The `processors` field is an _array_ where you can push all the processors you want to use with `html2react`. You can check the default processors [here](frontity-html2react.md#processors).
+
+### Loading processors
 
 You can add your processors directly in `libraries.html2react.processors`. Here you can see as an example how this is done in `mars-theme`:
 
@@ -108,12 +116,12 @@ export default myPackage;
 
 A processor is an object with four properties: `name` , `priority` , `test`,and `processor`.
 
-| Name | Type   | Required | Description | Example |
-|------|--------|---------|----------|-------------|---------|
-| **`name`**    | string | true     | the name of your processor | `"image"` |
-| **`priority`** | number | true     | A number that lets the package know in which order processors should be evaluated. The processors are evaluated in numeric order. For example, a processor with `priority` of `10` will be applied **before** a  processor with a `priority` of `20` | 10 | 
-| **`test`** | function | true   | A function that evaluate each [node](frontity-html2react.md#nodes), and if it returns `true`, this node will be passed down to the `processor` function | `({ node }) => node.component === "img"` | 
-| **`processor`** | function | true   | A function to apply some logic to the [node](frontity-html2react.md#nodes) that we want to modify. It could be substituting HTML tags for React component with some logic, as adding `lazy-loading` to images, or just modifying some attributes, like adding `target="_blank"` to the links. | | 
+| Name | Type   | Required | Description | 
+|------|--------|---------|----------|-------------|
+| **`name`**    | string | yes     | the name of your processor |
+| **`priority`** | number | yes     | A number that lets the package know in which order processors should be evaluated. The processors are evaluated in numeric order. For example, a processor with `priority` of `10` will be applied **before** a  processor with a `priority` of `20` |
+| **`test`** | function | yes   | A function that evaluate each [node](frontity-html2react.md#nodes), and if it returns `true`, this node will be passed down to the `processor` function |
+| **`processor`** | function | yes   | A function to apply some logic to the [node](frontity-html2react.md#nodes) that we want to modify. It could be substituting HTML tags for React component with some logic, as adding `lazy-loading` to images, or just modifying some attributes, like adding `target="_blank"` to the links. |
 
  Both the `test` and the `processor` functions receive the same arguments `({ node, root, state, libraries })` 
 
@@ -220,23 +228,23 @@ A **`Comment`** is just an HTML comment. Like this `<!-- comment -->`.
 * **`type`** : `"comment"`
 * **`content`** : `string`
 
-## Processors
+### Processors included in the package 
 
-This are the current processors exposed in this package:
-
-### Script
+#### Script
 
 React doesn’t execute the code inside a `<script>` tags. For that reason, html2react doesn’t execute the script tags included in the contents.
 
 The script processor, with a priority of `20`, processes `<script>` tags found in the HTML for execution. `<script>` type must either be `application/javascript`, `text/javascript` or `application/ecmascript` to pass the test of the processor.
 
-**Usage:** The script processor is included by default in html2react. Therefore, no extra procedure is required to use the processor.
+##### Usage  
 
-### Iframe
+The script processor is included by default in html2react. Therefore, no extra procedure is required to use the processor.
+
+#### Iframe
 
 Iframes can impact the loading time and performance of a site. The iframe processor adds lazy-loading to the `<iframe>` tags found in the HTML.
 
-**Usage:**
+##### Usage  
 
 Add `iframe` to the `processors` array in your package `index.js` file.
 
@@ -300,5 +308,6 @@ const Post = ({ libraries }) => {
   );
 };
 ```
+
 
 
