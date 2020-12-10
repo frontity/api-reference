@@ -3,9 +3,11 @@ description: API reference of `@frontity/head-tags` package
 ---
 # @frontity/head-tags
 
-This package is designed to get automatically all the data that the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) exposes in the REST API, depending on the URL. Basically, this plugin adds all the tags in the `<head>` section of a site to WordPress REST API responses, what is pretty useful for plugins like Yoast SEO or All in One SEO.
+This package is designed to get automatically all the metadata that the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) exposes in the REST API (SEO metadata from plugins like Yoast SEO or All in One SEO), and **add them as meta tags in the `<head>` section of the rendered page**.
 
-This package doesn't make sense without the mentioned plugin, so before installing the package you have to install the plugin in your WordPress backend.
+{% hint style="warning" %}
+This package won't work without [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) installed and activated in your WordPress backend, so make sure you have it before using this package.
+{% endhint %}
 
 ## Table of Contents
 
@@ -42,7 +44,7 @@ packages: [
 ```
 
 {% hint style="warning" %}
-If you have an existing project make sure your [@frontity/wp-source](frontity-head-tags.md) package is at least on the 1.5.0 version. If not, update it using this command:  
+If you have an existing project make sure your [@frontity/wp-source](frontity-head-tags.md) package is at least on the 1.5.0 version. If not, update it using this command:
 `> npm install @frontity/wp-source@latest`
 {% endhint %}
 
@@ -51,15 +53,18 @@ If you have an existing project make sure your [@frontity/wp-source](frontity-he
 As it works automatically, It doesn't have settings itself, but it requires two Frontity parameters to work:
 
 * `state.frontity.url` : The URL of your site. Usually defined in the `frontity.settings.js` file.
-* `state.source.api`: The API where your project is pointing. Defined at [@frontity/wp-source](https://docs.frontity.org/frontity-packages/wordpress-source#state-source-api-required) if you haven't changed your Source.
+* `state.source.url` or `state.source.api`: The API where your project is pointing. Defined at [@frontity/wp-source](https://docs.frontity.org/api-reference-1/wordpress-source#settings) if you haven't changed your Source.
 
 It needs `@frontity/wp-source` installed and updated to at least the `1.5.0` version.
 
 ## How to use
 
-As mentioned before, it doesn't require any configuration. Just install it and everything will work out of the box. Note that you'll need the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) installed in your WordPress.
+This package will automatically add all the meta tags defined in WordPress for the page (through plugins like Yoast SEO or All in One SEO) in the `<head>` section of the rendered page. Just install theopackage it and everything will work out of the box. 
 
-This package needs these other Frontity packages:
+Remember that you'll need the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) installed in your WordPress. With that, this package will take care of 
+
+If you want to access the metadata available for a specific link you can use the `headTags.get` method
+
 
 ## API Reference
 
@@ -101,5 +106,3 @@ will return something like
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
-
-
