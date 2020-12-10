@@ -1,7 +1,6 @@
 ---
 description: API reference of `@frontity/head-tags` package
 ---
-
 # @frontity/head-tags
 
 ## Description
@@ -9,6 +8,19 @@ description: API reference of `@frontity/head-tags` package
 This package is designed to get automatically all the data that the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) exposes in the REST API, depending on the URL. Basically, this plugin adds all the tags in the `<head>` section of a site to WordPress REST API responses, what is pretty useful for plugins like Yoast SEO or All in One SEO.
 
 This package doesn't make sense without the mentioned plugin, so before installing the package you have to install the plugin in your WordPress backend.
+
+## Table of Contents
+
+<!-- toc -->
+
+- [Installation](#installation)
+- [Settings](#settings)
+- [How to use](#how-to-use)
+- [API Reference](#api-reference)
+  * [State](#state)
+    + [`headTags.get`](#headtagsget)
+
+<!-- tocstop -->
 
 ## Installation
 
@@ -91,4 +103,5 @@ will return something like
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+
 
