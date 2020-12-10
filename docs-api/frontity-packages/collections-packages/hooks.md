@@ -49,10 +49,10 @@ It accepts a single object with the following props:
 
 | Name | Type | Default | Required | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| **`root`** | Element | window | no | The Element that is used as the viewport for checking visibility of the target. Defaults to the browser viewport \(`window`\) if not specified or if null. |
-| **`rootMargin`** | string | '0px' | no | Margin around the root. Can have values similar to the CSS margin property, e.g. "10px 20px 30px 40px" \(top, right, bottom, left\). |
-| **`threshold`** | number \| number\[\] | 0 | no | Number between 0 and 1 indicating the percentage that should be visible before triggering. Can also be an array of numbers, to create multiple trigger points. |
-| **`triggerOnce`** | boolean | false | no | Only trigger this method once |
+| **`root`** | Element | `window` | no | The Element that is used as the viewport for checking visibility of the target. Defaults to the browser viewport \(`window`\) if not specified or if null. |
+| **`rootMargin`** | string | `"0px"` | no | Margin around the root. Can have values similar to the CSS margin property, e.g. "10px 20px 30px 40px" \(top, right, bottom, left\). |
+| **`threshold`** | number or array of numbers | `0` | no | Number between 0 and 1 indicating the percentage that should be visible before triggering. Can also be an array of numbers, to create multiple trigger points. |
+| **`triggerOnce`** | boolean | `false` | no | Only trigger this method once |
 
 #### Return value
 
