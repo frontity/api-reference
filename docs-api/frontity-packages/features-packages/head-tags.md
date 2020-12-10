@@ -59,11 +59,11 @@ It needs `@frontity/wp-source` installed and updated to at least the `1.5.0` ver
 
 ## How to use
 
-This package will automatically add all the meta tags defined in WordPress for the page (through plugins like Yoast SEO or All in One SEO) in the `<head>` section of the rendered page. Just install theopackage it and everything will work out of the box. 
+This package will automatically add all the meta tags defined in WordPress for the page (through plugins like Yoast SEO or All in One SEO) in the `<head>` section of the rendered page. So there are no additional steps to do. Just install the package and everything will work out of the box. 
 
 Remember that you'll need the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) installed in your WordPress. With that, this package will take care of 
 
-If you want to access the metadata available for a specific link you can use the `headTags.get` method
+If you want to access the metadata available for a specific link you can use the [`headTags.get`](#headtags-get) method
 
 
 ## API Reference
