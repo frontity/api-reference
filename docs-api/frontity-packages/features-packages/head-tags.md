@@ -18,7 +18,7 @@ This package won't work without [REST API Head Tags plugin](https://wordpress.or
 - [How to use](#how-to-use)
 - [API Reference](#api-reference)
   * [State](#state)
-    + [`headTags.get`](#headtagsget)
+    + [`headTags.get`](#headtags-get)
 
 <!-- tocstop -->
 
@@ -106,3 +106,4 @@ will return something like
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+
