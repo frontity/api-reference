@@ -18,9 +18,11 @@ This package is in charge of converting HTML to React. It works with [_processor
   * [Creating your own processors](#creating-your-own-processors)
     + [Example](#example)
   * [Nodes](#nodes)
-  * [Default Processors](#default-processors)
-    + [Script](#script)
-    + [Iframe](#iframe)
+- [Default Processors](#default-processors)
+  * [Script](#script)
+    + [Usage](#usage)
+  * [Iframe](#iframe)
+    + [Usage](#usage-1)
 - [API Reference](#api-reference)
   * [Libraries](#libraries)
     + [`libraries.html2react.processors`](#librarieshtml2reactprocessors)
@@ -231,23 +233,23 @@ A **`Comment`** is just an HTML comment. Like this `<!-- comment -->`.
 * **`type`** : `"comment"`
 * **`content`** : `string`
 
-### Default Processors
+## Default Processors
 
-#### Script
+### Script
 
 React doesn’t execute the code inside a `<script>` tags. For that reason, html2react doesn’t execute the script tags included in the contents.
 
 The script processor, with a priority of `20`, processes `<script>` tags found in the HTML for execution. `<script>` type must either be `application/javascript`, `text/javascript` or `application/ecmascript` to pass the test of the processor.
 
-##### Usage  
+#### Usage  
 
 The script processor is included by default in html2react. Therefore, no extra procedure is required to use the processor.
 
-#### Iframe
+### Iframe
 
 Iframes can impact the loading time and performance of a site. The iframe processor adds lazy-loading to the `<iframe>` tags found in the HTML.
 
-##### Usage  
+#### Usage  
 
 Add `iframe` to the `processors` array in your package `index.js` file.
 
@@ -311,6 +313,7 @@ const Post = ({ libraries }) => {
   );
 };
 ```
+
 
 
 
