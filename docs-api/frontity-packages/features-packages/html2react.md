@@ -3,7 +3,7 @@ description: API reference of `@frontity/html2react` package
 ---
 # @frontity/html2react
 
-This package is in charge of converting HTML to React. It works with _processors_ that match HTML portions and replaces them with React components.
+This package is in charge of converting HTML to React. It works with [_processors_](#processors) that match HTML portions and replaces them with React components.
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ This package is in charge of converting HTML to React. It works with _processors
   * [Creating your own processors](#creating-your-own-processors)
     + [Example](#example)
   * [Nodes](#nodes)
-  * [Processors included in the package](#processors-included-in-the-package)
+  * [Default Processors](#default-processors)
     + [Script](#script)
     + [Iframe](#iframe)
 - [API Reference](#api-reference)
@@ -87,6 +87,9 @@ const Post = ({ state, libraries }) => {
 
 
 ## Processors
+
+Processors are the blocks of logic used by `html2react` to detect specific portions of HTML and return custom HTML or React components
+
 
 The `processors` field is an _array_ where you can push all the processors you want to use with `html2react`. You can check the default processors [here](frontity-html2react.md#processors).
 
@@ -228,7 +231,7 @@ A **`Comment`** is just an HTML comment. Like this `<!-- comment -->`.
 * **`type`** : `"comment"`
 * **`content`** : `string`
 
-### Processors included in the package 
+### Default Processors
 
 #### Script
 
@@ -308,6 +311,7 @@ const Post = ({ libraries }) => {
   );
 };
 ```
+
 
 
 
