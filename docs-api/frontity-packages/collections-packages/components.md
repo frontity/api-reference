@@ -46,12 +46,12 @@ import Image from "@frontity/components/image";
 
 | Name | Type | Required | Default | Description | 
 | :--- | :--- | :--- | :--- | :--- |
-| `link` | string | Yes | --- | The URL to link to. |
-| `target` | string | No | `_self` | The [target](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target) of the anchor. Possible values: `_self` or `_blank` | 
-| `onClick` | function | No | `undefined` | The `onClick` handler. Can be used to pass an optional callback that will be invoked on click. | 
-| `scroll` | boolean | No | `true` | Whether the browser should scroll up to the top upon navigating to a new page.  | 
-| `prefetch` | boolean | No | `true` | Whether Frontity should automatically prefetch this link or not. The prefetching mode is controlled through [`state.theme.autoPrefetch`](frontity-components.md#auto-prefetch)  | 
-| `aria-current` | string | No | `undefined` | [Indicates the element that represents the current item within a container or set of related elements](https://www.w3.org/TR/wai-aria-1.1/#aria-current) | 
+| `link` | string | yes | --- | The URL to link to. |
+| `target` | string | no | `_self` | The [target](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target) of the anchor. Possible values: `_self` or `_blank` | 
+| `onClick` | function | no | `undefined` | The `onClick` handler. Can be used to pass an optional callback that will be invoked on click. | 
+| `scroll` | boolean | no | `true` | Whether the browser should scroll up to the top upon navigating to a new page.  | 
+| `prefetch` | boolean | no | `true` | Whether Frontity should automatically prefetch this link or not. The prefetching mode is controlled through [`state.theme.autoPrefetch`](frontity-components.md#auto-prefetch)  | 
+| `aria-current` | string | no | `undefined` | [Indicates the element that represents the current item within a container or set of related elements](https://www.w3.org/TR/wai-aria-1.1/#aria-current) | 
 
 All _"unknown"_ props passed to the Link are passed down to an anchor `</a>` tag.
 
@@ -156,11 +156,11 @@ export default connect(Link);
 
 #### Props
 
-| Name | Type | Default | Optional | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| `src` | string | `null` | `true` | `URL` to an external `JavaScript`  file. |
-| `code` | string | `null` | `true` | internal `JavaScript` code |
-| `id` | string | `null` | `true` | `ID` for script element |
+| Name | Type |  Required | Description |
+| :--- | :--- |  :--- | :--- |
+| `src` | string |  no | `URL` to an external `JavaScript`  file. |
+| `code` | string |  no | internal `JavaScript` code |
+| `id` | string | no | `ID` for script element |
 
 #### Usage
 
@@ -213,15 +213,15 @@ Native Lazy needs a height attribute. For that reason, we use the Intersection O
 
 #### Props
 
-| Name | Type | Default | Optional | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| `src` | string | `null` | `true` | `URL` to an external `JavaScript`  file. |
-| `title` | string | `null` | false | internal `JavaScript` code |
-| `width` | string | `null` | `true` | width of the iframe component |
-| `height` | string | null | true | height of the iframe component |
-| `className` | string | null | true | class name for the component |
-| `loading` | string | lazy | true | lazy \| eager \| auto |
-| `rootMargin` | string | null | true | margin around root element |
+| Name | Type | Required | Description |
+| :--- | :--- |  :--- | :--- |
+| `title` | string | yes | internal `JavaScript` code |
+| `src` | string |  no | `URL` to an external `JavaScript`  file. |
+| `width` | string |  no | width of the iframe component |
+| `height` | string | no | height of the iframe component |
+| `className` | string |  no | class name for the component |
+| `loading` | string |  no |  `"lazy" | "eager" | "auto"` Default value: `"lazy"` |
+| `rootMargin` | string |  no | margin around root element |
 
 #### Usage
 
