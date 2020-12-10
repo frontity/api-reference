@@ -199,6 +199,10 @@ const extAnchors = {
 
 The object `node` received by both `test` and `processor`can be an `Element`, a `Text` or a `Comment`. You can distinguish between them using `node.type`.
 
+- An `Element` is an HTML tag or a React component.
+- A `Text` is a text content. For example, the text inside a `<p>` tag.
+- A `Comment` is just an HTML comment. Like this `<!-- comment -->`.
+
 The common properties are:
 
 | Name | Type   | Description | 
@@ -207,30 +211,29 @@ The common properties are:
 | `parent` | Element | The parent of this node, which is always an `element` \(`text` or `comment` can't have children\) | 
 | `ignore` | boolean | If you set `ignore` to `true` for a node, it won't pass any `test`. This is useful in some situations when you don't want additional processors applied to this node. |  
 
-#### Node: `Element`
 
-An `Element` is an HTML tag or a React component.
+Besides common properties, `Element` nodes are also defined by the following properties:
 
 | Name | Type   | Description | 
 |------|--------|---------|
-| `type` | string | The Node type. `"element"` value for "Element" nodes |
-| `component` | string or function (React.ComponentType)| If it's a string, it's an HTML tag and if it's a function is a React component. You can change it at will and it is what you would usually do when you want to convert HTML tags to React components | 
-| `props` | object | An object containing all the HTML attributes of that node or props of that React component. You can also change them at will. All the attributes are converted to the React equivalents, even for HTML tags. </br> For example: <ul><li>`class` -&gt; `className`</li><li>`style` -&gt; `css` \([frontity's CSS prop](../learning-frontity/styles.md#the-css-prop)\)</li><li>`srcset` -&gt; `srcSet`</li><li>`onclick` -&gt; `onClick`</li></ul> | 
+| `component` | string or function (React component)| If it's a string, it's an HTML tag and if it's a function is a React component. You can change it at will and it is what you would usually do when you want to convert HTML tags to React components | 
+| `props` | object | An object containing all the HTML attributes of that node or props of that React component. You can also change them at will. All the attributes are converted to the React equivalents, even for HTML tags. | 
 | `children` | array (of nodes) | An array containing other nodes, children to this one. If you want to get rid of the children, just overwrite it with `null` or an empty array | 
 
-#### Node: `Text`
+Examples of `props` values (and their equivalent React props):
+  * `class` -&gt; `className`
+  * `style` -&gt; `css`
+  * `srcset` -&gt; `srcSet`
+  * `onclick` -&gt; `onClick`
+  * ..
 
-A `Text` is a text content. For example, the text inside a `<p>` tag.
 
-* **`type`** : `"text"`
-* **`content`** : `string`
+Besides common properties, `Text` and `Comment` nodes will also have the following property:
 
-#### Node: `Comment`
+| Name | Type   | Description | 
+|------|--------|---------|
+| `content` | string | Content of the Node | 
 
-A **`Comment`** is just an HTML comment. Like this `<!-- comment -->`.
-
-* **`type`** : `"comment"`
-* **`content`** : `string`
 
 ## Default Processors
 
