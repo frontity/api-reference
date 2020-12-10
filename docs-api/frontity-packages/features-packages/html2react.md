@@ -93,11 +93,11 @@ const Post = ({ state, libraries }) => {
 Processors are the blocks of logic used by `html2react` to detect specific portions of HTML and return custom HTML or React components
 
 
-The `processors` field is an _array_ where you can push all the processors you want to use with `html2react`. You can check the default processors [here](frontity-html2react.md#processors).
+The `processors` field is an _array_ where you can push all the processors you want to use with `html2react`. You can check the default processors [here](#default-processors).
 
 ### Loading processors
 
-You can add your processors directly in `libraries.html2react.processors`. Here you can see as an example how this is done in `mars-theme`:
+You can add your processors directly in [`libraries.html2react.processors`](#libraries-html-2-react-processors). Here you can see as an example how this is done in `mars-theme`:
 
 ```jsx
 import image from "@frontity/html2react/processors/image";
@@ -201,32 +201,31 @@ The object `node` received by both `test` and `processor`can be an `Element`, a 
 
 The common properties are:
 
-* **`type`** : `"element" | "text" | "comment"`
-* **`parent?`**: `Element` The parent of this node, which is always an `element` \(`text` or `comment` can't have children\)
-* **`ignore?`**: `boolean` If you set `ignore` to `true` for a node, it won't pass any `test`. This is useful in some situations when you don't want additional processors applied to this node.
+| Name | Type   | Description | 
+|------|--------|---------|
+| `type` | string | The Node type. </br> Possible values: `"element" | "text" | "comment"` |
+| `parent` | Element | The parent of this node, which is always an `element` \(`text` or `comment` can't have children\) | 
+| `ignore` | boolean | If you set `ignore` to `true` for a node, it won't pass any `test`. This is useful in some situations when you don't want additional processors applied to this node. |  
 
-  **Node: `Element`**
+#### Node: `Element`
 
 An `Element` is an HTML tag or a React component.
 
-* **`type`** : `"element"`
-* **`component`** : `string | React.ComponentType` If it's a string, it's an HTML tag and if it's a function is a React component. You can change it at will and it is what you would usually do when you want to convert HTML tags to React components
-* **`props`**: `object`  An object containing all the HTML attributes of that node or props of that React component. You can also change them at will. All the attributes are converted to the React equivalents, even for HTML tags. For example:
-  * `class` -&gt; `className`
-  * `style` -&gt; `css` \([frontity's CSS prop](../learning-frontity/styles.md#the-css-prop)\)
-  * `srcset` -&gt; `srcSet`
-  * `onclick` -&gt; `onClick`
-  * ..
-* **`children?`**: `array of nodes` An array containing other nodes, children to this one. If you want to get rid of the children, just overwrite it with `null` or an empty array
+| Name | Type   | Description | 
+|------|--------|---------|
+| `type` | string | The Node type. `"element"` value for "Element" nodes |
+| `component` | string or function (React.ComponentType)| If it's a string, it's an HTML tag and if it's a function is a React component. You can change it at will and it is what you would usually do when you want to convert HTML tags to React components | 
+| `props` | object | An object containing all the HTML attributes of that node or props of that React component. You can also change them at will. All the attributes are converted to the React equivalents, even for HTML tags. </br> For example: <ul><li>`class` -&gt; `className`</li><li>`style` -&gt; `css` \([frontity's CSS prop](../learning-frontity/styles.md#the-css-prop)\)</li><li>`srcset` -&gt; `srcSet`</li><li>`onclick` -&gt; `onClick`</li></ul> | 
+| `children` | array (of nodes) | An array containing other nodes, children to this one. If you want to get rid of the children, just overwrite it with `null` or an empty array | 
 
-**Node: `Text`**
+#### Node: `Text`
 
 A `Text` is a text content. For example, the text inside a `<p>` tag.
 
 * **`type`** : `"text"`
 * **`content`** : `string`
 
-**Node: `Comment`**
+#### Node: `Comment`
 
 A **`Comment`** is just an HTML comment. Like this `<!-- comment -->`.
 
@@ -273,9 +272,9 @@ const themeName = {
 
 #### `libraries.html2react.processors`
 
-An array of the `processor`s that will be used by `html2react`.
+An array of the processors that will be used by `html2react`.
 
-You should can add, remove or mutate any processor from the array:
+You can add, remove or mutate any processor from the array:
 
 ```jsx
 // Add a processor.
@@ -294,9 +293,11 @@ processor.priority = 20;
 
 The React component used to render the parsed HTML.
 
-**Props**
+##### Props
 
-* **`html`** : `String` The HTML that needs to be rendered
+| Name | Type   | Required | Description | 
+|------|--------|---------|----------|-------------|
+| **`html`**    | string | yes     | The HTML that needs to be rendered |
 
 ```jsx
 import React from 'react'
