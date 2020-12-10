@@ -27,6 +27,7 @@ const customSlugParser = (headerDetected, optionsSlug ) => {
     .replace(/\./g, ' ')
     .replace(/[\[|\]]/g, ' ')
     .replace(/\<.*\>/g, '')
+    .replace(/html2react/g, 'html 2 react')
   
   const headerToWrite = uslug(parsedHeader)
   
