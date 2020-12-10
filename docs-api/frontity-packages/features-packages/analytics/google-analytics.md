@@ -69,19 +69,19 @@ If `@frontity/google-analytics` is configured and enabled for _events_ in `state
 The `actions.analytics.event()` must receive an event object with the following properties.
 
 
-| Name          | Type   | Default | Required | Description                                                                                                                                                                                       |
-| :------------ | :----- | :-----: | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`name`**    | string | -       | true     | The value of this property is mapped to the [`eventAction`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#eventAction) field of `analytics.js` events. |
-| **`payload`** | Object | -       | true     | Event payload.                                                                                                                                                                                    |
+| Name          | Type   | Required | Description                                                                                                                                                                                       |
+| :------------ | :----- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`name`**    | string | yes     | The value of this property is mapped to the [`eventAction`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#eventAction) field of `analytics.js` events. |
+| **`payload`** | object | yes     | Event payload.                                                                                                                                                                                    |
 
 The `payload` object has to have the following format:
 
-| Name           | Type   | Default | Required | Description                                                                                                                                                                                           |
-| :------------- | :----- | :-----: | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`category`** | string | -       | true     | The value of this property is mapped to the [`eventCategory`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#eventCategory) field of `analytics.js` events. |
-| **`label`**    | string | -       | false    | The value of this property is mapped to the [`eventLabel`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#eventLabel) field of `analytics.js` events.       |
-| **`value`**    | number | -       | false    | The value of this property is mapped to the [`eventValue`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#eventValue) field of `analytics.js` events.       |
-| **`[key]`**    | any    | -       | false    | Any other property specified in [`analytics.js` field reference](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference).
+| Name           | Type   | Required | Description                                                                                                                                                                                           |
+| :------------- | :----- |  :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`category`** | string | yes     | The value of this property is mapped to the [`eventCategory`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#eventCategory) field of `analytics.js` events. |
+| `label`    | string | no    | The value of this property is mapped to the [`eventLabel`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#eventLabel) field of `analytics.js` events.       |
+| `value`    | number | no    | The value of this property is mapped to the [`eventValue`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#eventValue) field of `analytics.js` events.       |
+| `[key]`    | any    | no    | Any other property specified in [`analytics.js` field reference](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference).
 
 These values will be transfomed (by this package) into the proper format before sending the data to Google Analytics 
 

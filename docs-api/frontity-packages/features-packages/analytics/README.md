@@ -163,10 +163,10 @@ actions.analytics.event({
  The `actions.analytics.event()` must receive an event object with the following properties.
 
 
-| Name          | Type   | Default | Required | Description                                                                                                                                                                                       |
-| :------------ | :----- | :-----: | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`name`**    | string | -       | true     | The value of this property is mapped to the proper name event of each analytics package |
-| **`payload`** | Object | -       | true     | Event payload.                                                                                                                                                                                    |
+| Name          | Type   | Required | Description                                                                                                                                                                                       |
+| :------------ | :----- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`name`**    | string | yes     | The value of this property is mapped to the proper name event of each analytics package |
+| **`payload`** | object | yes     | Event payload.                                                                                                                                                                                    |
 This method will send the event tracking information to all the packages enabled in `state.analytics.events`
 
 Each package will handle the information sent through this `actions.analytics.event()` in a different way:

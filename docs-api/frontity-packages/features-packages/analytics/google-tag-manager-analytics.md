@@ -67,10 +67,10 @@ If `@frontity/google-tag-manager-analytics` is configured and enabled for _event
 
 The `actions.analytics.event()` must receive an event object with the following properties.
 
-| Name          | Type   | Default | Required | Description                                                                                        |
-| :------------ | :----- | :-----: | :------- | :------------------------------------------------------------------------------------------------- |
-| **`name`**    | string |    -    | true     | The value of this property is mapped to the `event` field of the object sent to GTM |
-| **`payload`** | Object |    -    | true     | Event payload.                                                                                     |
+| Name          | Type   | Required | Description                                                                                        |
+| :------------ | :----- | :------- | :------------------------------------------------------------------------------------------------- |
+| **`name`**    | string | yes     | The value of this property is mapped to the `event` field of the object sent to GTM |
+| **`payload`** | object | yes     | Event payload.                                                                                     |
 
 You can add any info you want in the `payload` object.
 
