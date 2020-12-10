@@ -1,10 +1,23 @@
 ---
 description: API reference of `@frontity/hooks` package
 ---
-
 # @frontity/hooks
 
 This package is a collection of React hooks that have proven to be pretty useful for a Frontity project.
+
+## Table of Contents
+
+<!-- toc -->
+
+- [Installation](#installation)
+- [How to use](#how-to-use)
+- [Hooks](#hooks)
+  * [`useInView`](#useinview)
+    + [Parameters](#parameters)
+    + [Return value](#return-value)
+    + [Usage](#usage)
+
+<!-- tocstop -->
 
 ## Installation
 
@@ -69,4 +82,5 @@ const MyLazyElement = ({ children }) => {
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+
 

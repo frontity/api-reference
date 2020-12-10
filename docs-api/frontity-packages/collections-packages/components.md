@@ -1,12 +1,32 @@
 ---
 description: API reference of `@frontity/components` package
 ---
-
 # @frontity/components
 
-## Description
-
 This package is a collection of React components that have proven to be pretty useful for a Frontity project.
+
+
+## Table of Contents
+
+<!-- toc -->
+
+- [How to use](#how-to-use)
+- [Components](#components)
+  * [Link](#link)
+    + [Props](#props)
+    + [Usage](#usage)
+    + [Auto Prefetch](#auto-prefetch)
+    + [Custom `` component](#custom-component)
+  * [Image](#image)
+  * [Script](#script)
+    + [Props](#props)
+    + [Usage](#usage)
+  * [Iframe](#iframe)
+    + [Props](#props)
+    + [Usage](#usage)
+  * [Switch](#switch)
+
+<!-- tocstop -->
 
 ## How to use
 
@@ -282,4 +302,5 @@ const Theme = ({ state }) => {
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+
 
