@@ -24,10 +24,10 @@ new Promise(resolve => {
 
 const customSlugParser = (headerDetected, optionsSlug ) => {
   const parsedHeader = headerDetected
+    .replace(/html2react/g, 'html 2 react')
     .replace(/\./g, ' ')
     .replace(/[\[|\]]/g, ' ')
     .replace(/\<.*\>/g, '')
-    .replace(/html2react/g, 'html 2 react')
   
   const headerToWrite = uslug(parsedHeader)
   

@@ -2,6 +2,18 @@
 
 Analytics package to use [Google Tag Manager](https://tagmanager.google.com/) with Frontity
 
+## Table of Contents
+
+<!-- toc -->
+
+- [Install](#install)
+- [Settings](#settings)
+- [Usage](#usage)
+    + [`actions.analytics.pageview`](#actions-analytics-pageview)
+    + [`actions.analytics.event`](#actions-analytics-event)
+
+<!-- tocstop -->
+
 ## Install
 
 ```sh
@@ -74,5 +86,5 @@ The `actions.analytics.event()` must receive an event object with the following 
 
 You can add any info you want in the `payload` object.
 
-These values will be transfomed (by this package) into the proper format before sending the data to Google Tag Manager 
+These values will be transfomed (by this package) into the proper format before sending the data to Google Tag Manager
 

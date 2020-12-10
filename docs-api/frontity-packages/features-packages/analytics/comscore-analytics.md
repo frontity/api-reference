@@ -2,6 +2,18 @@
 
 [Comscore](https://www.comscore.com/) Analytics package for Frontity
 
+## Table of Contents
+
+<!-- toc -->
+
+- [Install](#install)
+- [Settings](#settings)
+- [Usage](#usage)
+    + [`actions.analytics.pageview`](#actions-analytics-pageview)
+    + [`actions.analytics.event`](#actions-analytics-event)
+
+<!-- tocstop -->
+
 ## Install
 
 ```sh
@@ -65,5 +77,5 @@ If `@frontity/comscore-analytics` is configured [and enabled for _pageviews_](),
 
 #### `actions.analytics.event`
 
-This package doesn't actually track events for Comscore so any call of the method `actions.analytics.event()` will have no effect for this service  
+This package doesn't actually track events for Comscore so any call of the method `actions.analytics.event()` will have no effect for this service
 

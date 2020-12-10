@@ -7,6 +7,20 @@ These packages are:
 - [`@frontity/google-tag-manager-analytics`](google-tag-manager-analytics.md) for trackings using [Google Tag Manager](https://tagmanager.google.com/)
 - [`@frontity/comscore-analytics`](comscore-analytics.md) for trackings using [Comscore](https://www.comscore.com/)
 
+## Table of Contents
+
+<!-- toc -->
+
+- [Installation](#installation)
+- [Settings](#settings)
+    + [`state.analytics.pageviews`](#state-analytics-pageviews)
+    + [`state.analytics.events`](#state-analytics-events)
+- [How to use](#how-to-use)
+    + [`actions.analytics.pageview`](#actions-analytics-pageview)
+    + [`actions.analytics.event`](#actions-analytics-event)
+
+<!-- tocstop -->
+
 ## Installation
 
 Install the analytics package you need for your project:

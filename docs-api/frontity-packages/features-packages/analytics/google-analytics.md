@@ -2,6 +2,18 @@
 
 Analytics package to use [Google Analytics](https://analytics.google.com/) with Frontity
 
+## Table of Contents
+
+<!-- toc -->
+
+- [Install](#install)
+- [Settings](#settings)
+- [Usage](#usage)
+    + [`actions.analytics.pageview`](#actions-analytics-pageview)
+    + [`actions.analytics.event`](#actions-analytics-event)
+
+<!-- tocstop -->
+
 ## Install
 
 ```sh
@@ -83,5 +95,5 @@ The `payload` object has to have the following format:
 | `value`    | number | no    | The value of this property is mapped to the [`eventValue`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#eventValue) field of `analytics.js` events.       |
 | `[key]`    | any    | no    | Any other property specified in [`analytics.js` field reference](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference).
 
-These values will be transfomed (by this package) into the proper format before sending the data to Google Analytics 
+These values will be transfomed (by this package) into the proper format before sending the data to Google Analytics
 
