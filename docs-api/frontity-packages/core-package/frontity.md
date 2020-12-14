@@ -1,10 +1,7 @@
 ---
 description: API reference of `frontity` package
 ---
-
 # `frontity`
-
-## Overview
 
 Apart from being the package that executes the Frontity commands in the terminal, `frontity` also exports functions, objects, etc. to be imported and used by other Frontity packages.
 
@@ -14,70 +11,63 @@ You can import any of these utils using:
 import { connect, styled, Head, ... } from "frontity";
 ```
 
+## Table of Contents
+
+<!-- toc -->
+
+- [Overview](#overview)
+  * [React](#react)
+  * [CSS in JS](#css-in-js)
+  * [Code Splitting](#code-splitting)
+  * [`fetch` and `URL`](#fetch-and-url)
+- [API Reference](#api-reference)
+  * [`connect`](#connect)
+  * [`useConnect`](#useconnect)
+  * [`styled`](#styled)
+  * [`css`](#css)
+  * [`Global`](#global)
+  * [`keyframes`](#keyframes)
+  * [`loadable`](#loadable)
+  * [`Head`](#head)
+  * [`useFills`](#usefills)
+  * [`fetch`](#fetch)
+  * [`URL`](#url)
+  * [`decode`](#decode)
+  * [`Slot`](#slot)
+
+<!-- tocstop -->
+
+## Overview
+
 ### React
 
-Use **`connect`** to inject `state`, `actions` and `libraries` in your React components.
+Use **[`connect`](#connect)** to inject `state`, `actions` and `libraries` in your React components.
 
-If you are familiar with React hooks, you can use also **`useConnect`** to do the same.
+If you are familiar with React hooks, you can use also **[`useConnect`](#useConnect)** to do the same.
 
-Use the **`Head`** component whenever you want to add HTML tags inside the `<head>` of any of your site's pages. You can read more **Head** in the [Head page](../learning-frontity/head.md) of our **Learning Frontity** section.
+Use the **[`Head`](#head)** component whenever you want to add HTML tags inside the `<head>` of any of your site's pages. You can read more **Head** in the [Head page](../learning-frontity/head.md) of our **Learning Frontity** section.
 
-Use the **`Slot`** component whenever you want to add a 'placeholder' to your theme which will be filled with a **`Fill`**. Fills are added to the state in the `state.fills` namespace.
-
-#### **API reference:**
-
-* [connect](frontity.md#connect)
-* [useConnect](frontity.md#useConnect)
-* [Head](frontity.md#head)
-* [Slot](frontity.md#slot)
+Use the **[`Slot`](#slot)** component whenever you want to add a 'placeholder' to your theme which will be filled with a **`Fill`**. Fills are added to the state in the `state.fills` namespace.
 
 ### CSS in JS
 
-**`styled`** creates new React components from HTML tags, or other React components, with styles attached to them. **`css`** lets you to add inline styles to an element if you don't want to create a new component. If you want to add styles for the whole app, use **`Global`**. And **`keyframes`** is used to define and use animations in your CSS.
+**[`styled`](#styled)** creates new React components from HTML tags, or other React components, with styles attached to them. **[`css`](#css)** lets you to add inline styles to an element if you don't want to create a new component. If you want to add styles for the whole app, use **[`Global`](#global)**. And **[`keyframes`](#keyframes)** is used to define and use animations in your CSS.
 
 You can read more in the [Styles](../learning-frontity/styles.md) page of our **Learning Frontity** section.
 
-#### **API reference:**
-
-* [styled](frontity.md#styled)
-* [CSS](frontity.md#css)
-* [Global](frontity.md#global)
-* [keyframes](frontity.md#keyframes)
-
 ### Code Splitting
 
-Use **`loadable`** in order to separate you code into different bundles that will be dynamically loaded at runtime. This helps you to reduce your page size.
+Use **[`loadable`](#loadable)** in order to separate you code into different bundles that will be dynamically loaded at runtime. This helps you to reduce your page size.
 
 You can read more in the [Code Splitting](../learning-frontity/code-splitting.md) page of our **Learning Frontity** section.
 
-#### **API reference:**
-
-* [loadable](frontity.md#loadable)
-
 ### `fetch` and `URL`
 
-Frontity exports `fetch` and `URL` with the same API they have in the browser, but they work the same both in the client and in the server.
-
-#### **API reference:**
-
-* [fetch](frontity.md#fetch)
-* [URL](frontity.md#url)
-
-### Helpers
-
-#### API reference:
-
-* [decode](frontity.md#decode)
+Frontity exports [`fetch`](#fetch) and [`URL`](#url) with the same API they have in the browser, but they work the same both in the client and in the server.
 
 ## API Reference
 
 ### `connect`
-
-#### Syntax
-
-```javascript
-ConnectedComponent = connect(Component, options?);
-```
 
 It's a function that receives a React component and returns the same component but connected to the Frontity state, actions and libraries. Any instance of that component will receive three new props: `state`, `actions` and `libraries`, allowing the component to read the state, manipulate it through actions or use any code other packages have exposed in libraries.
 
@@ -87,15 +77,19 @@ If you don't want to inject the Frontity state props in your connected component
 
 For these components to access the state use the [`useConnect`](frontity.md#useConnect) hook.
 
-**Arguments**
+#### Syntax
 
-* `Component`: a React component
-* `options` \(optional\): object with the following properties:
-  * `injectProps`: Boolean
+```javascript
+ConnectedComponent = connect(Component, options?);
+```
 
-    If `false`, the `state`, `actions` and `libraries` won't be passed as props to the component.
+#### Parameters
 
-    Default is `true`
+| Name |  Object Property | Type | Required | Description |
+|------|--------|--------|---------|----------|
+| _**`[Component]`**_    | |  React component | yes | Link representing a REST API endpoint or custom handler | 
+| _`[options]`_ | | object | no | options object |
+| _`[options]`_ | `injectProps` | boolean | - | If `false`, the `state`, `actions` and `libraries` won't be passed as props to the component. Default is `true` | |
 
 #### Return value
 
@@ -131,12 +125,6 @@ export default connect(Page);
 
 ### `useConnect`
 
-#### Syntax
-
-```javascript
-const { state, actions, libraries } = useConnect();
-```
-
 It's a React hook that returns the Frontity state, allowing the component to consume `state`, `actions` and `libraries` in components without passing them as props.
 
 {% hint style="warning" %}
@@ -147,6 +135,12 @@ By using `connect`:
 * Your components get optimized with _memo_, so they won't re-render whenever a parent component re-renders
 * Your components get reactive, so they will re-render when the parts of state they use are changed
 {% endhint %}
+
+#### Syntax
+
+```javascript
+const { state, actions, libraries } = useConnect();
+```
 
 #### Return value
 
@@ -232,6 +226,12 @@ export default connect(Input, { injectProps: false });
 
 ### `styled`
 
+`styled` is a function that receives an HTML tag or a React component as the argument and returns a function that can be used as a [tagged template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates). Inside, you write the CSS code for your component.
+
+The `styled` tag function returns a styled component with the CSS you wrote.
+
+Also, `styled` has built-in tag functions for every HTML tag so in those cases it is not necessary to call `styled` directly.
+
 #### Syntax
 
 ```jsx
@@ -245,12 +245,6 @@ const StyledComponent = styled(Component)`
   background: aliceblue;
 `;
 ```
-
-`styled` is a function that receives an HTML tag or a React component as the argument and returns a function that can be used as a [tagged template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates). Inside, you write the CSS code for your component.
-
-The `styled` tag function returns a styled component with the CSS you wrote.
-
-Also, `styled` has built-in tag functions for every HTML tag so in those cases it is not necessary to call `styled` directly.
 
 #### Arguments
 
@@ -284,6 +278,10 @@ const StyledPage = styled(Page)`
 
 ### `css`
 
+It's a tagged template literal to add an inline style to React Components.
+
+The usage is quite similar to **`styled`** except that **`css`** doesn't return a React Component but a special object that can be passed to a component through the **`css`** prop.
+
 #### Syntax
 
 ```javascript
@@ -291,10 +289,6 @@ const styleObject = css`
   background: pink;
 `;
 ```
-
-It's a tagged template literal to add an inline style to React Components.
-
-The usage is quite similar to **`styled`** except that **`css`** doesn't return a React Component but a special object that can be passed to a component through the **`css`** prop.
 
 #### Arguments
 
@@ -322,17 +316,18 @@ const Component = () => (
 
 ### `Global`
 
-#### Syntax
-
-```jsx
-<Global styles={styleObject} />
-```
 
 It's a React component that creates global styles for the whole Frontity site.
 
 {% hint style="warning" %}
 **Using `<Global>` for other than HTML tags is not recommended** because Frontity is not able to optimize it. That means you can use it for tags like `html`, `body` , `a`, `img`, and so on... But **avoid it for classes**. Use either the CSS prop or styled-components instead.
 {% endhint %}
+
+#### Syntax
+
+```jsx
+<Global styles={styleObject} />
+```
 
 #### Props
 
@@ -360,6 +355,9 @@ const Page = () => (
 
 ### `keyframes`
 
+
+It's a function used to define and use animations in your CSS.
+
 #### Syntax
 
 ```jsx
@@ -367,8 +365,6 @@ const animation = keyframes`
     from { ... } to { ... };
 `;
 ```
-
-It's a function used to define and use animations in your CSS.
 
 #### Arguments
 
@@ -404,15 +400,15 @@ const Component = () => <Button>Styling my theme</Button>;
 
 ### `loadable`
 
+It's a function that loads a component asynchronously generating a different bundle for it. Frontity has integrated and configured [Loadable Components](https://www.smooth-code.com/open-source/loadable-components/docs/code-splitting/), in case you want to check its docs.
+
+You can also take a look at the [Code Splitting](../learning-frontity/code-splitting.md) page inside the Learning Frontity section.
+
 #### Syntax
 
 ```jsx
 const HeavyComponent = loadable(importFunction, options);
 ```
-
-It's a function that loads a component asynchronously generating a different bundle for it. Frontity has integrated and configured [Loadable Components](https://www.smooth-code.com/open-source/loadable-components/docs/code-splitting/), in case you want to check its docs.
-
-You can also take a look at the [Code Splitting](../learning-frontity/code-splitting.md) page inside the Learning Frontity section.
 
 #### Arguments
 
@@ -873,4 +869,10 @@ export default {
 ```
 
 Note that `libNamespace.ComponentName` here matches the value of `state.fills.namespace.nameOfTheFill.library` above. `FillComponent` here is the actual component which is defined elsewhere and may be imported. The return value of this component, i.e. `FillComponent`, is the content that will be inserted into HTML at the position of the `<Slot>` that it is attached to.
+
+
+
+
+
+
 

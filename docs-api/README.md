@@ -10,7 +10,7 @@ In the [**CLI Commands**](frontity-cli/) section you'll find info about the comm
 
 ## **Packages**
 
-Frontity packages are the ingredients of your Frontity project. They're in charge of a specific portion of logic required by the project (routing, source, HTML render,.. ).
+Frontity packages are the ingredients of your Frontity project. They're **NPM packages** in charge of a specific portion of logic required by the project (routing, source, HTML render,.. ).
 
 You can learn all about existing Frontity packages in the section entitled [**Frontity Packages**](frontity-packages/).
 
@@ -22,7 +22,7 @@ The included themes, namely Mars and TwentyTwenty, are dealt with separately fro
 
 ## **Plugins**
 
-Sometimes theres a Frontity WordPress plugin required so everything works smoothly. You'll find everything you need to know about them in the [**WordPress Plugins**](frontity-plugins/) section 
+Sometimes theres a **Frontity WordPress plugin** required so everything works smoothly. You'll find everything you need to know about them in the [**WordPress Plugins**](frontity-plugins/) section 
 
 ------
 
