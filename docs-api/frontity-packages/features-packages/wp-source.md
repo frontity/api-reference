@@ -652,7 +652,7 @@ Handlers are objects that associate a path pattern with a function that gets the
 A handler is defined by an object with the following properties:
 
 | Name |  Type | Required | Description | 
-|------|--------|---------|----------|----------|
+|------|--------|----------|----------|
 | **`name`** | string | yes | Identifier of the handler. |
 | **`priority`** | number | yes | Number that lets `fetch` to know in which order handlers should be evaluated. |
 | **`pattern`** | regExp | yes | Pattern which paths are compared with. We use [path-to-regexp](https://github.com/pillarjs/path-to-regexp) under the hood, so check its documentation to know how to write patterns. |
@@ -811,9 +811,11 @@ Utility for building links from its attributes.
 
 ##### Syntax
 
-`(link: string) => string`
+```typescript
+(link: string) => string
+```
 
-##### Parameters
+##### Arguments
 
 | Name |  Type | Required | Description | 
 |------|--------|--------|----------|
