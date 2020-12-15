@@ -310,11 +310,11 @@ It populates the state with both:
 
 ##### Parameters
 
-| Name |  Object Property | Type | Required | Description |
-|------|--------|--------|---------|----------|
-| _**`[link]`**_    | |  string | yes | Link representing a REST API endpoint or custom handler | 
-| _`[options]`_ | | object | no | REST API endpoint from where this post type can be fetched. |
-| _`[options]`_ | `force` | boolean | - | The entities should be fetched again. | |
+| Name |  Type | Required | Description |
+|------|--------|---------|----------|
+| _**`link`**_    | string | yes | Link representing a REST API endpoint or custom handler | 
+| _`options`_ | object | no | REST API endpoint from where this post type can be fetched. |
+| _`options`_.`force` | boolean | - | The entities should be fetched again. | | | `force` | boolean | - | The entities should be fetched again. | |
 
 ##### Return value
 
@@ -383,7 +383,7 @@ Returns an object that gives you info about the type of that link and related en
 
 | Name | Type | Required | Description |
 |------|--------|---------|----------|
-| _**`[link]`**_  |  string | yes | Link representing a REST API endpoint or custom handler | 
+| _**`link`**_  |  string | yes | Link representing a REST API endpoint or custom handler | 
 
 ##### Return value
 
@@ -517,11 +517,11 @@ Set the URL to the WordPress REST API.
 
 ##### Parameters
 
-| Name |  Object Property | Type | Required | Description |
-|------|--------|--------|---------|----------|
-| _`[options]`_ | | object | yes | options object |
-| _`[options]`_ | `api` | string | yes | URL pointing to a valid WP REST API. |
-| _`[options]`_ | `isWpCom` |boolean | no | if the WP REST route is from a WordPress.com hosted site. | 
+| Name | Type | Required | Description |
+|---------|-------|---------|----------|
+| _`options`_ | object | yes | options object |
+| _`options`_.**`api`** |  string  |  yes  |  URL pointing to a valid WP REST API. |
+| _`options`_.`isWpCom` | boolean | no | if the WP REST route is from a WordPress.com hosted site. | 
 
 
 **Example**
@@ -546,17 +546,19 @@ api.init({
 
 Request entity from the WordPress REST API.
 
+##### Syntax
+
 > `(options: object) => Promise`
 
-##### Parameters
+##### Arguments
 
-| Name |  Object Property | Type | Required | Description | 
-|------|--------|--------|---------|----------|
-| _`[options]`_ | | object | yes | options object |
-| _`[options]`_ | `endpoint`| strin | yes | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\). | 
-| _`[options]`_ | `params` | object | no | Any parameter that will be included in the query params. |
-|_`[optins]`_ | `api` | string | no | Overrides the value set with `api.set.` | 
-| _`[options]`_ | `isWpCom` | boolean | no | Overrides the value set with `api.set.` |
+| Name |  Type | Required | Description | 
+|------|--------|---------|----------|
+| _`options`_ | object | yes | options object |
+| _`options`_.**`endpoint`** | string | yes | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\). | 
+| _`options`_.`params` | object | no | Any parameter that will be included in the query params. |
+| _`options`_.`api` | string | no | Overrides the value set with `api.set.` | 
+| _`options`_.`isWpCom` | boolean | no | Overrides the value set with `api.set.` |
 
 ##### Return value
 
@@ -599,13 +601,13 @@ Add entities to the Frontity state.
 
 ##### Parameters
 
-| Name |  Object Property | Type | Required | Description | 
-|------|--------|--------|---------|----------|
-| _`[options]`_ | | object | yes |Options object |
-| _`[options]`_ | **`response`** | oject | yes |The response object returned by `api.get().` |
-| _`[options]`_ | **`state`** | object | yes | The tate object from the Frontity store. |
-| _`[options]`_ | `subdirectory` | strin | no |Domain's subdirectory where your Frontity site is accessible. When this options is passed, this subdirectory is added to the entities' links. </br> Default Value is value defined in `state.source.subdirectory`  |
-| _`[options]`_ | `force` | boolean | no | Value indicating if the entities should be overwritten </br> Default Value is `false` |
+| Name |  Type | Required | Description | 
+|------|--------|---------|----------|
+| _`options`_ | object | yes |Options object |
+| _`options`_.**`response`**  | oject | yes |The response object returned by `api.get().` |
+| _`options`_.**`state`** | object | yes | The tate object from the Frontity store. |
+| _`options`_.`subdirectory` | strin | no |Domain's subdirectory where your Frontity site is accessible. When this options is passed, this subdirectory is added to the entities' links. </br> Default Value is value defined in `state.source.subdirectory`  |
+| _`options`_.`force` | boolean | no | Value indicating if the entities should be overwritten </br> Default Value is `false` |
 
 ##### Return value
 
@@ -746,43 +748,47 @@ Utility for parsing links.
 
 | Name |  Type | Required | Description | 
 |------|--------|--------|----------|
-| _`[link]`_ | string | yes |any link that points to entities in your site \(links, custom lists, etc.\) |
+| _`link`_ | string | yes |any link that points to entities in your site \(links, custom lists, etc.\) |
 
 ##### Return value
 
-| Name |  Object Property | Type | Description | 
-|------|--------|--------|---------|----------|----------|
-| _`[resultParse]`_ | | object | Options object |
-| _`[resultParse]`_ | `path` | sring | athname without the page |
-| _`[resultParse]`_ | `page` | number | The page number |
-| _`[resultParse]`_ | `query` | string | Object with query parameters |
-| _`[resultParse]`_ | `hash` | string | The hash value \(with `#`\). |
+| Name |  Type | Description | 
+|------|----------|----------|
+| _`resultParse`_ | object | Options object |
+| _`resultParse`_.`path` | string | athname without the page |
+| _`resultParse`_.`page` | number | The page number |
+| _`resultParse`_.`query` | string | Object with query parameters |
+| _`resultParse`_.`hash` | string | The hash value \(with `#`\). |
 
 
 #### `libraries.source.stringify()`
 
 Utility for building links from its attributes.
 
-> `(args: object) => string`
+##### Syntax
+
+`(args: object) => string`
 
 ##### Parameters
 
 | Name |  Type | Required | Description | 
 |------|--------|--------|----------|
-| **`[path]`** | string | yes | pathname without the page |
-| _`[page]`_ | number | no | The page number |
-| _`[query]`_ | object | no | Object with query parameters |
-| _`[hash]`_ | string | o | Thehash value \(with `#`\). |
+| **`path`** | string | yes | pathname without the page |
+| _`page`_ | number | no | The page number |
+| _`query`_ | object | no | Object with query parameters |
+| _`hash`_ | string | o | Thehash value \(with `#`\). |
 
 ##### Return value
 
 | Name |  Type | Description | 
 |------|----------|----------|
-| _`[link]`_ | string | Normalized link |
+| _`link`_ | string | Normalized link |
 
 #### `libraries.source.normalize()`
 
-> `(link: string) => string`
+##### Syntax
+
+`(link: string) => string`
 
 ##### Parameters
 

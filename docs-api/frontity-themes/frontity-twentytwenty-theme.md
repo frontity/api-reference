@@ -71,7 +71,7 @@ Here you have an example of a possible configuration \(each setting is explained
 },
 ```
 
-All the settings and their description:
+All the settings that can be set under `state.theme` and their description:
 
 | Key | Description | Default value |
 | --- | --- | --- |
