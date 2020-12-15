@@ -159,7 +159,7 @@ and then you visit a URL \(or use `actions.source.fetch`\), the query part of th
 This option allows you to show the Custom Post Types you create at WordPress when accessing their URLs. It is an array of objects, each object being a different CPT. It has three arguments:
 
 | Name | Type   | Required | Description |
-|------|--------|---------|----------|-------------|
+|------|--------|----------|-------------|
 | **`type`**    | string | yes     | The slug you configured for your Custom Post Type |
 | **`endpoint`** | string | yes     | REST API endpoint from where this post type can be fetched. |
 | `archive` | string | no  | the URL of the archive of this Custom Post Type, where all of them are listed. |
