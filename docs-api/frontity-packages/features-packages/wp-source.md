@@ -665,7 +665,7 @@ A handler is defined by an object with the following properties:
 The `func` property defined will receive an object with the following properties
 
 | Name |  Type | Description | 
-|------|--------|----------|----------|
+|------|--------|----------|
 | `link` | string | The link that are being fetched. |
 | `params` | string | values obtained from the pattern after a match |
 | `state` | object | Frontity state. |
