@@ -85,51 +85,11 @@ All the settings and their description:
 | _featuredMedia_.**showOnArchive** | Whether to show featured image on archive view | true |
 | _featuredMedia_.**showOnPost** | Whether to show featured media on post view | true |
 | **autoPreFetch** | Whether to auto-fetch links on a page. <br/>Possible values: <br/>- `no` → don't auto-tech any links <br/>- `all` → auto-fetch all the links of the page <br/>- `in-view` → auto-fetch just the links that are in-view <br/>- `hover` → auto-fetch links when hover | no |
+| **fontSets** | Which font set to use: <br/>- `us-ascii` <br/>- `latin` <br/>- `all`  | `all` |
 
+## API Reference
 
-```html
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"><b>autoPreFetch</b>
-      </th>
-      <th style="text-align:left">
-        <p>Whether to auto-fetch links on a page. Possible values:</p>
-        <ul>
-          <li><code>no</code>: don&apos;t auto-tech any links</li>
-          <li><code>all</code>: auto-fetch all the links of the page</li>
-          <li><code>in-view</code> : auto-fetch just the links that are in-view</li>
-          <li><code>hover</code> : auto-fetch links when hover</li>
-        </ul>
-      </th>
-      <th style="text-align:left">no</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"><b>fontSets</b>
-      </th>
-      <th style="text-align:left">
-        <p>Which font set to use:</p>
-        <ul>
-          <li><code>us-ascii</code>
-          </li>
-          <li><code>latin</code>
-          </li>
-          <li><code>all</code>
-          </li>
-        </ul>
-      </th>
-      <th style="text-align:left">all</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-```
+### Actions
 
 #### actions.theme.openMobileMenu
 
