@@ -11,6 +11,7 @@ This package is in charge of getting the data from self-hosted WordPress or Word
 
 - [Installation](#installation)
 - [Settings](#settings)
+    + [`state.source.url`](#state-source-url)
     + [`state.source.api`](#state-source-api)
     + [`state.source.subdirectory`](#state-source-subdirectory)
     + [`state.source.homepage`](#state-source-homepage)
@@ -76,6 +77,10 @@ module.exports = {
 ```
 
 These are the settings you can configure for this package in your `frontity.settings.js` file:
+
+#### `state.source.url`
+The URL of your API. It should be for a self-hosted WordPress site, like `https://site.com/`. If you have a WordPress.com site you should use `state.source.api` (see below).
+
 
 #### `state.source.api`<img src="https://img.shields.io/badge/REQUIRED-red.svg" >
 
