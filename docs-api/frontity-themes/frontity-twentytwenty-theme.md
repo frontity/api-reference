@@ -1,7 +1,5 @@
 # @frontity/twentytwenty-theme
 
-## Description
-
 The **Twenty Twenty** default WordPress theme was included in WordPress 5.3 and we ported it over to Frontity so users can use it in a headless setup as well. You can check out its **code** and structure on our [GitHub repository](https://github.com/frontity/frontity/tree/dev/packages/twentytwenty-theme) and find it on [npm](https://www.npmjs.com/package/@frontity/twentytwenty-theme).
 
 These are some of the key features included in this theme:
@@ -76,45 +74,20 @@ Here you have an example of a possible configuration \(each setting is explained
 All the settings and their description:
 
 | Key | Description | Default value |
-| :--- | :--- | :--- |
-
-
+| --- | --- | --- |
 | **menu** | Menu links to display in the header | \[\] |
-| :--- | :--- | :--- |
-
-
 | _colors_.**primary** | Used throughout most of the application to style links and other common elements. | `#cd2653` |
-| :--- | :--- | :--- |
-
-
 | _colors_.**headerBg** | Color of the header background. | `#ffffff` |
-| :--- | :--- | :--- |
-
-
 | _colors_.**footerBg** | Color of the footer background. | `#ffffff` |
-| :--- | :--- | :--- |
-
-
 | _colors_.**bodyBg** | Color of the body background. | `#f5efe0` |
-| :--- | :--- | :--- |
-
-
 | **showSearchInHeader** | Whether to show the search button in page header | true |
-| :--- | :--- | :--- |
-
-
 | **showAllContentOnArchive** | Whether to show all post content or only excerpt in archive view | false |
-| :--- | :--- | :--- |
-
-
 | _featuredMedia_.**showOnArchive** | Whether to show featured image on archive view | true |
-| :--- | :--- | :--- |
-
-
 | _featuredMedia_.**showOnPost** | Whether to show featured media on post view | true |
-| :--- | :--- | :--- |
+| **autoPreFetch** | Whether to auto-fetch links on a page. <br/>Possible values: <br/>- `no` → don't auto-tech any links <br/>- `all` → auto-fetch all the links of the page <br/>- `in-view` → auto-fetch just the links that are in-view <br/>- `hover` → auto-fetch links when hover | no |
 
 
+```html
 <table>
   <thead>
     <tr>
@@ -156,6 +129,7 @@ All the settings and their description:
   </thead>
   <tbody></tbody>
 </table>
+```
 
 #### actions.theme.openMobileMenu
 

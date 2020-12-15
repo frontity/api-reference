@@ -83,13 +83,13 @@ For these components to access the state use the [`useConnect`](frontity.md#useC
 ConnectedComponent = connect(Component, options?);
 ```
 
-#### Parameters
+#### Arguments
 
 | Name |  Object Property | Type | Required | Description |
 |------|--------|--------|---------|----------|
-| _**`[Component]`**_    | |  React component | yes | Link representing a REST API endpoint or custom handler | 
-| _`[options]`_ | | object | no | options object |
-| _`[options]`_ | `injectProps` | boolean | - | If `false`, the `state`, `actions` and `libraries` won't be passed as props to the component. Default is `true` | |
+| _**`Component`**_    | |  React component | yes | Link representing a REST API endpoint or custom handler | 
+| _`options`_ | | object | no | options object |
+| _`options`_ | `injectProps` | boolean | - | If `false`, the `state`, `actions` and `libraries` won't be passed as props to the component. Default is `true` | |
 
 #### Return value
 
@@ -412,10 +412,12 @@ const HeavyComponent = loadable(importFunction, options);
 
 #### Arguments
 
-* **`importFunction`**: a function that executes a [dynamic import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Dynamic_Import) and returns a `Promise` that will contain the imported module
-* **`options`**: an object with any of the following properties:
-  * `fallback`: component displayed until the `Promise` resolves
-  * `ssr`: if `false`, it will not be processed server-side \(default to `true`\)
+| Name |  Object Property | Type | Required | Description |
+|------|--------|--------|---------|----------|
+| _**importFunction**_    | |  function | yes | a function that executes a [dynamic import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Dynamic_Import) and returns a `Promise` that will contain the imported module | 
+| _`options`_ | | object | no | options object |
+| _`options`_ | `fallback` | React component | - | component displayed until the `Promise` resolves |
+| _`options`_ | `ssr` | boolaan | - | if `false`, it will not be processed server-side \(default to `true`\) |
 
 #### Return value
 
@@ -481,11 +483,11 @@ A React hook to ease the creation of `Slot` components.
 const fills = useFills("Slot Name");
 ```
 
-#### Parameters
+#### Arguments
 
-| Name | Type | Default | Required | Description |
+| Name | Type | Required | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| **`slotName`** | string | undefined | true | A string that refers to the name of the Slot. |
+| **_slotName_** | string | yes | A string that refers to the name of the Slot. |
 
 #### Return value
 
@@ -542,9 +544,14 @@ state.frontity.debug = true;
 
 If you want to do this on the console, remember that you need to access the `state` using `frontity.state`, like this:
 
-![Debug mode in the console](../.gitbook/assets/frontity-debug-in-console%20%281%29.png)
+![Debug mode in the console](../../.gitbook/assets/frontity-debug-in-console%20%281%29.png)
 
 ### `fetch`
+
+
+It's a function with the [WHATWG API](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch) for fetching a resource from the network.
+
+This function is safe to use both server and client-side, but you have to import it first.
 
 #### Syntax
 
@@ -552,14 +559,13 @@ If you want to do this on the console, remember that you need to access the `sta
 const fetchResponsePromise = fetch(resource, init);
 ```
 
-It's a function with the [WHATWG API](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch) for fetching a resource from the network.
-
-This function is safe to use both server and client-side, but you have to import it first.
-
 #### Arguments
 
-* **`resource`**: a string containing the direct URL of the resource you want to fetch
-* **`init`**: an options object containing any custom settings that you want to apply to the request \(go to [this link](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters) for the complete list of available settings\)
+| Name |  Type | Required | Description |
+|------|--------|---------|----------|
+| _**resource**_    | string | yes | a string containing the direct URL of the resource you want to fetch | 
+| _`init`_ |object | no | an options object containing any custom settings that you want to apply to the request \(go to [this link](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters) for the complete list of available settings\)|
+
 
 #### Return value
 
@@ -591,11 +597,11 @@ This constructor is safe to use both server and client side, but you have to imp
 
 #### Arguments
 
-* **`url`**: a string representing an absolute or relative URL
+| Name |  Type | Required | Description |
+|------|--------|---------|----------|
+| _**url**_    | string | yes | Absolute or relative URL.   | 
+| _`base`_ |string |  If `url` is a relative URL, `base` is required | Base URL to use in case `url` is a relative URL |
 
-  If `url` is a relative URL, `base` is required
-
-* **`base`**: a string representing the base URL to use in case `url` is a relative URL
 
 #### Return value
 
@@ -624,7 +630,9 @@ const decodedText = decode(text);
 
 #### Arguments
 
-* **`text`**: a string representing the HTML to be escaped
+| Name |  Type | Required | Description |
+|------|--------|---------|----------|
+| _**text**_    | string | yes | HTML to be escaped.   | 
 
 #### Return value
 
