@@ -306,15 +306,19 @@ It populates the state with both:
  - An entry in `state.source.data` with information about that link.
  - Normalized entities in relevant part of the state, like `state.source.post`, `state.source.category` or `state.source.author` and so on.
 
-> `(link: string, options: object) => Promise`
+##### Syntax
 
-##### Parameters
+```typescript
+(link: string, options: object) => Promise`
+```
+
+##### Arguments
 
 | Name |  Type | Required | Description |
 |------|--------|---------|----------|
 | _**`link`**_    | string | yes | Link representing a REST API endpoint or custom handler | 
 | _`options`_ | object | no | REST API endpoint from where this post type can be fetched. |
-| _`options`_.`force` | boolean | - | The entities should be fetched again. | | | `force` | boolean | - | The entities should be fetched again. | |
+| _`options`_.`force` | boolean | - | The entities should be fetched again. |
 
 ##### Return value
 
@@ -377,9 +381,14 @@ actions.source.fetch("/category/nature/", { force: true });
 
 Returns an object that gives you info about the type of that link and related entities.
 
-> `(link: string) => object`
+##### Syntax
 
-##### Parameters
+```typescript
+(link: string) => object`
+```
+
+
+##### Arguments
 
 | Name | Type | Required | Description |
 |------|--------|---------|----------|
@@ -513,9 +522,13 @@ source.author[4]
 
 Set the URL to the WordPress REST API.
 
-> `(options: object) => Promise`
+##### Syntax
 
-##### Parameters
+```typescript
+(options: object) => Promise
+```
+
+##### Arguments
 
 | Name | Type | Required | Description |
 |---------|-------|---------|----------|
@@ -548,7 +561,9 @@ Request entity from the WordPress REST API.
 
 ##### Syntax
 
-> `(options: object) => Promise`
+```typescript
+(options: object) => Promise
+```
 
 ##### Arguments
 
@@ -597,9 +612,11 @@ const postBeautiesGullfoss = await api.get({
 
 Add entities to the Frontity state.
 
-> `(options: object) => Promise`
+```typescript
+(options: object) => Promise
+```
 
-##### Parameters
+##### Arguments
 
 | Name |  Type | Required | Description | 
 |------|--------|---------|----------|
@@ -742,9 +759,13 @@ libraries.source.redirections.push({
 
 Utility for parsing links.
 
-> `(link: string) => object`
+##### Syntax
 
-##### Parameters
+```typescript
+(link: string) => object
+```
+
+##### Arguments
 
 | Name |  Type | Required | Description | 
 |------|--------|--------|----------|
@@ -767,9 +788,11 @@ Utility for building links from its attributes.
 
 ##### Syntax
 
-`(args: object) => string`
+```typescript
+(args: object) => string
+```
 
-##### Parameters
+##### Arguments
 
 | Name |  Type | Required | Description | 
 |------|--------|--------|----------|
