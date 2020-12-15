@@ -147,8 +147,8 @@ module.exports = {
         source: {
           api: "https://site.com/wp-json",
           params: {
-            per_page: 5,
-            type: ["post", "page"],
+per_page: 5,
+type: ["post", "page"],
           },
         },
       },
