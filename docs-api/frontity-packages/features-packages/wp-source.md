@@ -703,7 +703,7 @@ libraries.source.handlers.push({
     });
 
     // 3. add link to data
-    Object.assign(state.source.data[link], {
+    Object.assign(state.source.datalink, {
       id: product.id,
       type: product.type,
       isPostType: true,
@@ -733,7 +733,7 @@ A redirection is defined by an object with the following properties:
 The `func` property defined will receive an object with the following properties
 
 | Name |  Type | Description | 
-|------|--------|----------|----------|
+|------|--------|----------|
 | `slug` | string | The link that is being fetched. |
 
 ###### Return
@@ -819,13 +819,13 @@ Utility for building links from its attributes.
 
 | Name |  Type | Required | Description | 
 |------|--------|--------|----------|
-| **`[link]`** | string | yes | Any link that points to entities in your site \(links, custom lists, etc.\) |
+| **`link`** | string | yes | Any link that points to entities in your site \(links, custom lists, etc.\) |
 
 ##### Return value
 
 | Name |  Type | Description | 
 |------|----------|----------|
-| _`[link]`_ | string | Normalized link |
+| _`link`_ | string | Normalized link |
 
 
 {% hint style="info" %}
