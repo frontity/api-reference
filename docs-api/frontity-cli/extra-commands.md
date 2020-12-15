@@ -1,7 +1,7 @@
 # Extra commands
 
-* [`info`](extra-commands.md#info)
-* [`subscribe`](extra-commands.md#info)
+- [`info`](extra-commands.md#info)
+- [`subscribe`](extra-commands.md#info)
 
 ## Info
 
@@ -15,13 +15,13 @@ npx frontity info [options]
 
 #### **`[options]`**
 
-| Option | Description |
-| :---: | :--- |
+|  Option  | Description              |
+| :------: | :----------------------- |
 | `--help` | Output usage information |
 
 ### Examples
 
-* Display info about my specific environment
+- Display info about my specific environment
 
 > When we ask in the [community forum](https://community.frontity.org/) about some issue we're having in development mode, it is very helpful to add this info to the post \(so the community can check things like OS, Node version and so on\)
 
@@ -63,11 +63,10 @@ npx frontity subscribe [options] [email]
 
 #### **`[options]`**
 
-| Option | Description |
-| :---: | :--- |
+|  Option  | Description              |
+| :------: | :----------------------- |
 | `--help` | Output usage information |
 
 #### **`[email]`**
 
 The Frontity newsletter will be sent to this _email_
-

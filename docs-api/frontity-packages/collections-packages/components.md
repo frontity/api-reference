@@ -1,10 +1,10 @@
 ---
 description: API reference of `@frontity/components` package
 ---
+
 # @frontity/components
 
 This package is a collection of React components that have proven to be pretty useful for a Frontity project.
-
 
 ## Table of Contents
 
@@ -12,19 +12,19 @@ This package is a collection of React components that have proven to be pretty u
 
 - [How to use](#how-to-use)
 - [Components](#components)
-  * [Link](#link)
-    + [Props](#props)
-    + [Usage](#usage)
-    + [Auto Prefetch](#auto-prefetch)
-    + [Custom `` component](#custom-component)
-  * [Image](#image)
-  * [Script](#script)
-    + [Props](#props)
-    + [Usage](#usage)
-  * [Iframe](#iframe)
-    + [Props](#props)
-    + [Usage](#usage)
-  * [Switch](#switch)
+  - [Link](#link)
+    - [Props](#props)
+    - [Usage](#usage)
+    - [Auto Prefetch](#auto-prefetch)
+    - [Custom `` component](#custom-component)
+  - [Image](#image)
+  - [Script](#script)
+    - [Props](#props)
+    - [Usage](#usage)
+  - [Iframe](#iframe)
+    - [Props](#props)
+    - [Usage](#usage)
+  - [Switch](#switch)
 
 <!-- tocstop -->
 
@@ -40,31 +40,31 @@ import Image from "@frontity/components/image";
 
 ### Link
 
-`<Link />` is a React component that you can use in your Frontity project to define links that works with the internal routing system. * Under the hood, this component uses the `actions.router.set(link)` method from `@frontity/tiny-router` and creates an `<a/>` tag. 
+`<Link />` is a React component that you can use in your Frontity project to define links that works with the internal routing system. \* Under the hood, this component uses the `actions.router.set(link)` method from `@frontity/tiny-router` and creates an `<a/>` tag.
 
 #### Props
 
-| Name | Type | Required | Default | Description | 
-| :--- | :--- | :--- | :--- | :--- |
-| `link` | string | yes | --- | The URL to link to. |
-| `target` | string | no | `_self` | The [target](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target) of the anchor. Possible values: `_self` or `_blank` | 
-| `onClick` | function | no | `undefined` | The `onClick` handler. Can be used to pass an optional callback that will be invoked on click. | 
-| `scroll` | boolean | no | `true` | Whether the browser should scroll up to the top upon navigating to a new page.  | 
-| `prefetch` | boolean | no | `true` | Whether Frontity should automatically prefetch this link or not. The prefetching mode is controlled through [`state.theme.autoPrefetch`](frontity-components.md#auto-prefetch)  | 
-| `aria-current` | string | no | `undefined` | [Indicates the element that represents the current item within a container or set of related elements](https://www.w3.org/TR/wai-aria-1.1/#aria-current) | 
+| Name           | Type     | Required | Default     | Description                                                                                                                                                                    |
+| :------------- | :------- | :------- | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `link`         | string   | yes      | ---         | The URL to link to.                                                                                                                                                            |
+| `target`       | string   | no       | `_self`     | The [target](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target) of the anchor. Possible values: `_self` or `_blank`                                           |
+| `onClick`      | function | no       | `undefined` | The `onClick` handler. Can be used to pass an optional callback that will be invoked on click.                                                                                 |
+| `scroll`       | boolean  | no       | `true`      | Whether the browser should scroll up to the top upon navigating to a new page.                                                                                                 |
+| `prefetch`     | boolean  | no       | `true`      | Whether Frontity should automatically prefetch this link or not. The prefetching mode is controlled through [`state.theme.autoPrefetch`](frontity-components.md#auto-prefetch) |
+| `aria-current` | string   | no       | `undefined` | [Indicates the element that represents the current item within a container or set of related elements](https://www.w3.org/TR/wai-aria-1.1/#aria-current)                       |
 
 All _"unknown"_ props passed to the Link are passed down to an anchor `</a>` tag.
 
 #### Usage
 
 ```jsx
-
 import Link from "@frontity/components/link";
 
 const MyComponent = () => (
-    <Link link={linkUrl} onClick={e => console.log(e)}>This is a link</Link>
-)
-
+  <Link link={linkUrl} onClick={(e) => console.log(e)}>
+    This is a link
+  </Link>
+);
 ```
 
 #### Auto Prefetch
@@ -99,10 +99,9 @@ The possible values for `state.theme.autoPrefetch` are:
 | `in-view` | Prefetch links currently visible in the viewport. |
 | `all`     | Prefetches all internal links on the page.        |
 
-
 #### Custom `<Link />` component
 
-Using this `<Link />` component is optional. You can create your own `<Link />` component with your own logic. 
+Using this `<Link />` component is optional. You can create your own `<Link />` component with your own logic.
 
 _Example of a custom `<Link />` component implementation_
 
@@ -145,7 +144,6 @@ const Link = ({
 export default connect(Link);
 ```
 
-
 ### Image
 
 `<Image />` is a React component that adds `lazy-loading` to the native WordPress images. Combined with [`@html2react/processors`](frontity-html2react.md#processors) , you can add this functionality and optimize your images pretty easy.
@@ -156,11 +154,11 @@ export default connect(Link);
 
 #### Props
 
-| Name | Type |  Required | Description |
-| :--- | :--- |  :--- | :--- |
-| `src` | string |  no | `URL` to an external `JavaScript`  file. |
-| `code` | string |  no | internal `JavaScript` code |
-| `id` | string | no | `ID` for script element |
+| Name   | Type   | Required | Description                             |
+| :----- | :----- | :------- | :-------------------------------------- |
+| `src`  | string | no       | `URL` to an external `JavaScript` file. |
+| `code` | string | no       | internal `JavaScript` code              |
+| `id`   | string | no       | `ID` for script element                 |
 
 #### Usage
 
@@ -180,7 +178,8 @@ Internal JavaScript code
 import Script from "@frontity/components/script";
 
 const MyComponent = () => (
-    <Script code={`
+  <Script
+    code={`
         const body = document.querySelector('body');
 
         // Triggers anytime anywhere in the body of the page is clicked
@@ -188,24 +187,25 @@ const MyComponent = () => (
             e.preventDefault();
             console.log('Button Works');
         });
-    `} />
-)
+    `}
+  />
+);
 ```
 
 ### Iframe
 
 `<Iframe />` is a React component that implement lazy-load on iframe components. The approach taken in implementing this component is based off the edge cases in the table below.
 
-| Intersection Observer | Native Lazy | Height &gt; 0 | Output |
-| :--- | :--- | :--- | :--- |
-| true | true | true | Native Lazy Load |
-| true | true | false | Intersection Observer |
-| true | false | true | Intersection Observer |
-| true | false | false | Intersection Observer |
-| false | true | true | (not possible) |
-| false | true | false | (not possible) |
-| false | false | true | Normal Load (eager) |
-| false | false | false | Normal Load (eager) |
+| Intersection Observer | Native Lazy | Height &gt; 0 | Output                |
+| :-------------------- | :---------- | :------------ | :-------------------- |
+| true                  | true        | true          | Native Lazy Load      |
+| true                  | true        | false         | Intersection Observer |
+| true                  | false       | true          | Intersection Observer |
+| true                  | false       | false         | Intersection Observer |
+| false                 | true        | true          | (not possible)        |
+| false                 | true        | false         | (not possible)        |
+| false                 | false       | true          | Normal Load (eager)   |
+| false                 | false       | false         | Normal Load (eager)   |
 
 {% hint style="info" %}
 Native Lazy needs a height attribute. For that reason, we use the Intersection Observer when a height is not provided.
@@ -213,17 +213,15 @@ Native Lazy needs a height attribute. For that reason, we use the Intersection O
 
 #### Props
 
-| Name | Type | Required | Description |
-| :--- | :--- |  :--- | :--- |
-| `title` | string | yes | internal `JavaScript` code |
-| `src` | string |  no | `URL` to an external `JavaScript`  file. |
-| `width` | string |  no | width of the iframe component |
-| `height` | string | no | height of the iframe component |
-| `className` | string |  no | class name for the component |
-| `loading` | string |  no |  `"lazy"` \| `"eager"` \| `"auto"` Default value: `"lazy"` |
-| `rootMargin` | string |  no | margin around root element |
-
-
+| Name         | Type   | Required | Description                                               |
+| :----------- | :----- | :------- | :-------------------------------------------------------- |
+| `title`      | string | yes      | internal `JavaScript` code                                |
+| `src`        | string | no       | `URL` to an external `JavaScript` file.                   |
+| `width`      | string | no       | width of the iframe component                             |
+| `height`     | string | no       | height of the iframe component                            |
+| `className`  | string | no       | class name for the component                              |
+| `loading`    | string | no       | `"lazy"` \| `"eager"` \| `"auto"` Default value: `"lazy"` |
+| `rootMargin` | string | no       | margin around root element                                |
 
 #### Usage
 
@@ -231,12 +229,12 @@ Native Lazy needs a height attribute. For that reason, we use the Intersection O
 import Iframe from "@frontity/components/iframe";
 
 const MyComponent = () => (
-    <Iframe
-        src="https://frontity.org"
-        title="Frontity"
-        height="500"
-        width="500" 
-    />
+  <Iframe
+    src="https://frontity.org"
+    title="Frontity"
+    height="500"
+    width="500"
+  />
 );
 ```
 
@@ -252,18 +250,18 @@ You can use it for routing to different components in your theme:
 import Switch from "@frontity/components/switch";
 
 const Theme = ({ state }) => {
-    const data = state.source.get(state.router.link);
+  const data = state.source.get(state.router.link);
 
-    return (
-        <Switch>
-            <Loading when={data.isFetching} />
-            <Home when={data.isHome} />
-            <Archive when={data.isArchive} />
-            <Post when={data.isPostType} />
-            <ErrorPage /> {/* rendered by default */}
-        </Switch>
-    );
-}
+  return (
+    <Switch>
+      <Loading when={data.isFetching} />
+      <Home when={data.isHome} />
+      <Archive when={data.isArchive} />
+      <Post when={data.isPostType} />
+      <ErrorPage /> {/* rendered by default */}
+    </Switch>
+  );
+};
 ```
 
 But also inside any other component. For example, in a `<Header>` component that has a different menu for the home:
@@ -272,37 +270,34 @@ But also inside any other component. For example, in a `<Header>` component that
 import Switch from "@frontity/components/switch";
 
 const Header = ({ state }) => {
-    const data = state.source.get(state.router.link);
+  const data = state.source.get(state.router.link);
 
-    return (
-        <Switch>
-            <MenuHome when={data.isHome} />
-            <Menu /> // rendered by default
-        </Switch>
-    );
-}
+  return (
+    <Switch>
+      <MenuHome when={data.isHome} />
+      <Menu /> // rendered by default
+    </Switch>
+  );
+};
 ```
 
 This component is an alternative to applying plain JavaScript logic in React:
 
 ```javascript
 const Theme = ({ state }) => {
-    const data = state.source.get(state.router.link);
+  const data = state.source.get(state.router.link);
 
-    return (
-        <>
-          {(data.isFetching && <Loading />) ||
-           (data.isHome && <Home />) ||
-           (data.isArchive && <Archive />) ||
-           (data.isPostType && <Post />) ||
-           <ErrorPage />}
-        </>    
-    );
-}
+  return (
+    <>
+      {(data.isFetching && <Loading />) ||
+        (data.isHome && <Home />) ||
+        (data.isArchive && <Archive />) ||
+        (data.isPostType && <Post />) || <ErrorPage />}
+    </>
+  );
+};
 ```
 
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
-
-

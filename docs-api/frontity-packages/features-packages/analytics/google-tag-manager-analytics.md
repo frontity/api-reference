@@ -9,8 +9,8 @@ Analytics package to use [Google Tag Manager](https://tagmanager.google.com/) wi
 - [Install](#install)
 - [Settings](#settings)
 - [Usage](#usage)
-    + [`actions.analytics.pageview`](#actions-analytics-pageview)
-    + [`actions.analytics.event`](#actions-analytics-event)
+  - [`actions.analytics.pageview`](#actions-analytics-pageview)
+  - [`actions.analytics.event`](#actions-analytics-event)
 
 <!-- tocstop -->
 
@@ -67,7 +67,7 @@ This `@frontity/google-tag-manager-analytics` package can co-exist with some oth
 - `actions.analytics.pageview()` will take into account settings in `state.analytics.pageviews`
 - `actions.analytics.event()` will take into account settings in `state.analytics.events`
 
-> Read more [here](README.md#how-to-use) about how to use Analytic packages 
+> Read more [here](README.md#how-to-use) about how to use Analytic packages
 
 #### `actions.analytics.pageview`
 
@@ -79,12 +79,11 @@ If `@frontity/google-tag-manager-analytics` is configured and enabled for _event
 
 The `actions.analytics.event()` must receive an event object with the following properties.
 
-| Name          | Type   | Required | Description                                                                                        |
-| :------------ | :----- | :------- | :------------------------------------------------------------------------------------------------- |
-| **`name`**    | string | yes     | The value of this property is mapped to the `event` field of the object sent to GTM |
-| **`payload`** | object | yes     | Event payload.                                                                                     |
+| Name          | Type   | Required | Description                                                                         |
+| :------------ | :----- | :------- | :---------------------------------------------------------------------------------- |
+| **`name`**    | string | yes      | The value of this property is mapped to the `event` field of the object sent to GTM |
+| **`payload`** | object | yes      | Event payload.                                                                      |
 
 You can add any info you want in the `payload` object.
 
 These values will be transfomed (by this package) into the proper format before sending the data to Google Tag Manager
-

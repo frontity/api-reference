@@ -4,7 +4,6 @@ description: API reference of `@frontity/wp-source` package
 
 <!-- this is a template with the structure to document a Frontity package -->
 
-
 # `package-name`
 
 This package is in charge of ...
@@ -13,20 +12,19 @@ This package is in charge of ...
 
 ## Table of contents
 
-* [Installation](#)
-* [Settings](#)
-  * [`state.packageNamespace.setting1`](#)
-  * [`state.packageNamespace.setting2`](#)
-* [How to use](#)
-* [API Reference](#)
-  * [Actions](#)
-    * [`actions.packageNamespace.action1()`](#)
-  * [State](#)
-    * [`state.packageNamespace.method1()`](#)
-    * [`state.packageNamespace[propA][propB]`](#)
-  * [Libraries](#)
-    * [`libraries.packageNamespace.method1()`](#)
-    
+- [Installation](#)
+- [Settings](#)
+  - [`state.packageNamespace.setting1`](#)
+  - [`state.packageNamespace.setting2`](#)
+- [How to use](#)
+- [API Reference](#)
+  - [Actions](#)
+    - [`actions.packageNamespace.action1()`](#)
+  - [State](#)
+    - [`state.packageNamespace.method1()`](#)
+    - [`state.packageNamespace[propA][propB]`](#)
+  - [Libraries](#)
+    - [`libraries.packageNamespace.method1()`](#)
 
 ## Installation
 
@@ -59,32 +57,28 @@ module.exports = {
 
 These are the settings you can change in your `frontity.settings.js` file:
 
-####  [`state.packageNamespace.setting1`](#)
-  
+#### [`state.packageNamespace.setting1`](#)
+
 Description of the setting with examples of possible values and images if needed
 
 It has three arguments:
 
-| Name | Type   | Default | Required | Description | Example |
-|------|--------|---------|----------|-------------|---------|
-| **`type`**    | string | -       | true     | The slug you configured for your Custom Post Type | `movies` |
-| **`endpoint`** | string | -       | true     | REST API endpoint from where this post type can be fetched. | `movies` | 
-| **`archive`** | string | -       | false     | the URL of the archive of this Custom Post Type, where all of them are listed. | `/movies_archive` | 
-
-
-
+| Name           | Type   | Default | Required | Description                                                                    | Example           |
+| -------------- | ------ | ------- | -------- | ------------------------------------------------------------------------------ | ----------------- |
+| **`type`**     | string | -       | true     | The slug you configured for your Custom Post Type                              | `movies`          |
+| **`endpoint`** | string | -       | true     | REST API endpoint from where this post type can be fetched.                    | `movies`          |
+| **`archive`**  | string | -       | false    | the URL of the archive of this Custom Post Type, where all of them are listed. | `/movies_archive` |
 
 ## How to use
 
-Let’s start by explaining... 
-
+Let’s start by explaining...
 
 {% hint style="info" %}
 If you want to know more about how to use the `wp-source` package, here you have some videos where Frontity DevRel team talks about it:
 
-* 📺 [Frontity Talks 2020-01 - wp-source & CSS In JS \[1:36\]](https://www.youtube.com/watch?v=e-_66W8pfdY&t=96s)
-* 📺 [Frontity Talks 2020-02 - Pagination example & wp-source \(state & fetch\) \[17:53\]](https://www.youtube.com/watch?v=eW5xZlpcqQk&t=1073s)
-{% endhint %}
+- 📺 [Frontity Talks 2020-01 - wp-source & CSS In JS \[1:36\]](https://www.youtube.com/watch?v=e-_66W8pfdY&t=96s)
+- 📺 [Frontity Talks 2020-02 - Pagination example & wp-source \(state & fetch\) \[17:53\]](https://www.youtube.com/watch?v=eW5xZlpcqQk&t=1073s)
+  {% endhint %}
 
 ## API Reference
 
@@ -102,10 +96,8 @@ Read more about actions [here](../learning-frontity/actions.md)
 
 This action ...
 
-
 ...
 
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
-

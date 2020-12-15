@@ -4,4 +4,3 @@ These packages are collections or useful components or hooks that you can use to
 
 - [`@frontity/components`](components.md)
 - [`@frontity/hooks`](hooks.md)
-

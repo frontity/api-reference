@@ -12,16 +12,16 @@ The [`frontity serve`](../run-commands/serve.md) command will use the files gene
 
 ### **`[options]`**
 
-| Option | Description |
-| :---: | :--- |
-| [`--development`](#the-development-option) | Builds the project for development. Related environment variable: [`FRONTITY_BUILD_DEVELOPMENT`](#frontity_build_development) |
-| `--target <target>` | Create bundles with "es5", "module" or "both". Default target is "both".  Related environment variable: [`FRONTITY_BUILD_TARGET`](#frontity_build_target) |
-| [`--publicPath <path>`](#the-public-path-option) | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is "/static/". Related environment variable: [`FRONTITY_BUILD_PUBLIC_PATH`](#frontity_build_public_path)|
-| `--help` | Output usage information |
+|                      Option                      | Description                                                                                                                                                                                                |
+| :----------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    [`--development`](#the-development-option)    | Builds the project for development. Related environment variable: [`FRONTITY_BUILD_DEVELOPMENT`](#frontity_build_development)                                                                              |
+|               `--target <target>`                | Create bundles with "es5", "module" or "both". Default target is "both". Related environment variable: [`FRONTITY_BUILD_TARGET`](#frontity_build_target)                                                   |
+| [`--publicPath <path>`](#the-public-path-option) | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is "/static/". Related environment variable: [`FRONTITY_BUILD_PUBLIC_PATH`](#frontity_build_public_path) |
+|                     `--help`                     | Output usage information                                                                                                                                                                                   |
 
 **Examples**
 
-* Builds the project for production using an external domain `https://external-domain.com/static` as the path for static files
+- Builds the project for production using an external domain `https://external-domain.com/static` as the path for static files
 
 ```text
 npx frontity build --public-path="https://external-domain.com/static"
@@ -52,7 +52,6 @@ In case some people need to change it \(because of constrains in their site arch
 {% hint style="info" %}
 This option is also available for [`dev`](../run-commands/dev.md) command
 {% endhint %}
-
 
 _Example:_
 
