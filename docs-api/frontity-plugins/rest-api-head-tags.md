@@ -13,7 +13,7 @@ It is perfect if you are using WordPress for a headless set-up and you would lik
 - [How to use this plugin](#how-to-use-this-plugin)
   * [Entities with head tags](#entities-with-head-tags)
   * [In a Frontity project](#in-a-frontity-project)
-  * [**In a different project**](#in-a-different-project)
+  * [In a different project](#in-a-different-project)
 - [Settings](#settings)
   * [Purge cache](#purge-cache)
   * [Enable output](#enable-output)

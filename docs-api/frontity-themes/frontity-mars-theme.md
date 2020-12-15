@@ -47,9 +47,9 @@ All the settings that can be set under `state.theme` and their description:
 
 | Key | Description | Default value |
 | :--- | :--- | :--- |
-| **menu** | Menu links to display in the header | \[\] |
-| _featuredMedia_.**showOnList** | Whether to show featured image on list view | true |
-| _featuredMedia_.**showOnPost** | Whether to show featured media on post view | true |
+| menu | Menu links to display in the header | \[\] |
+| featuredMedia.showOnList | Whether to show featured image on list view | true |
+| featuredMedia.showOnPost | Whether to show featured media on post view | true |
 
 ## API Reference
 

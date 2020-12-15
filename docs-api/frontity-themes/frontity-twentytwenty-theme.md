@@ -75,17 +75,17 @@ All the settings that can be set under `state.theme` and their description:
 
 | Key | Description | Default value |
 | --- | --- | --- |
-| **menu** | Menu links to display in the header | \[\] |
-| _colors_.**primary** | Used throughout most of the application to style links and other common elements. | `#cd2653` |
-| _colors_.**headerBg** | Color of the header background. | `#ffffff` |
-| _colors_.**footerBg** | Color of the footer background. | `#ffffff` |
-| _colors_.**bodyBg** | Color of the body background. | `#f5efe0` |
-| **showSearchInHeader** | Whether to show the search button in page header | true |
-| **showAllContentOnArchive** | Whether to show all post content or only excerpt in archive view | false |
-| _featuredMedia_.**showOnArchive** | Whether to show featured image on archive view | true |
-| _featuredMedia_.**showOnPost** | Whether to show featured media on post view | true |
-| **autoPreFetch** | Whether to auto-fetch links on a page. <br/>Possible values: <br/>- `no` → don't auto-tech any links <br/>- `all` → auto-fetch all the links of the page <br/>- `in-view` → auto-fetch just the links that are in-view <br/>- `hover` → auto-fetch links when hover | no |
-| **fontSets** | Which font set to use: <br/>- `us-ascii` <br/>- `latin` <br/>- `all`  | `all` |
+| menu | Menu links to display in the header | \[\] |
+| colors.primary | Used throughout most of the application to style links and other common elements. | `#cd2653` |
+| colors.headerBg | Color of the header background. | `#ffffff` |
+| colors.footerBg | Color of the footer background. | `#ffffff` |
+| colors.bodyBg | Color of the body background. | `#f5efe0` |
+| showSearchInHeader | Whether to show the search button in page header | true |
+| showAllContentOnArchive | Whether to show all post content or only excerpt in archive view | false |
+| featuredMedia.showOnArchive | Whether to show featured image on archive view | true |
+| featuredMedia.showOnPost | Whether to show featured media on post view | true |
+| autoPreFetch | Whether to auto-fetch links on a page. <br/>Possible values: <br/>- `no` → don't auto-tech any links <br/>- `all` → auto-fetch all the links of the page <br/>- `in-view` → auto-fetch just the links that are in-view <br/>- `hover` → auto-fetch links when hover | no |
+| fontSets | Which font set to use: <br/>- `us-ascii` <br/>- `latin` <br/>- `all`  | `all` |
 
 ## API Reference
 
