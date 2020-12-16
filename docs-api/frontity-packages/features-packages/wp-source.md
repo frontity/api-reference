@@ -1,7 +1,6 @@
 ---
 description: API reference of `@frontity/wp-source` package
 ---
-
 # @frontity/wp-source
 
 This package is in charge of getting the data from self-hosted WordPress or WordPress.com sites, and make it available from our React components.
@@ -12,35 +11,39 @@ This package is in charge of getting the data from self-hosted WordPress or Word
 
 - [Installation](#installation)
 - [Settings](#settings)
-  - [`state.source.url`](#state-source-url)
-  - [`state.source.api`](#state-source-api)
-  - [`state.source.subdirectory`](#state-source-subdirectory)
-  - [`state.source.homepage`](#state-source-homepage)
-  - [`state.source.postsPage`](#state-source-postspage)
-  - [`state.source.categoryBase`](#state-source-categorybase)
-  - [`state.source.tagBase`](#state-source-tagbase)
-  - [`state.source.postEndpoint`](#state-source-postendpoint)
-  - [`state.source.params`](#state-source-params)
-  - [`state.source.postTypes`](#state-source-posttypes)
-  - [`state.source.taxonomies`](#state-source-taxonomies)
+  * [REST API](#rest-api)
+    + [`state.source.url`](#state-source-url)
+    + [`state.source.api`](#state-source-api)
+  * [Custom paths](#custom-paths)
+    + [`state.source.subdirectory`](#state-source-subdirectory)
+    + [`state.source.homepage`](#state-source-homepage)
+    + [`state.source.postsPage`](#state-source-postspage)
+    + [`state.source.categoryBase`](#state-source-categorybase)
+    + [`state.source.tagBase`](#state-source-tagbase)
+    + [`state.source.postEndpoint`](#state-source-postendpoint)
+  * [Custom requests](#custom-requests)
+    + [`state.source.params`](#state-source-params)
+  * [Custom Post Types](#custom-post-types)
+    + [`state.source.postTypes`](#state-source-posttypes)
+    + [`state.source.taxonomies`](#state-source-taxonomies)
 - [How to use](#how-to-use)
 - [API Reference](#api-reference)
-  - [Actions](#actions)
-    - [`actions.source.fetch()`](#actions-source-fetch)
-  - [State](#state)
-    - [`state.source.get()`](#state-source-get)
-    - [`state.source[taxonomy][id]`](#state-source-taxonomy-id)
-    - [`state.source[type][id]`](#state-source-type-id)
-    - [`state.source.author[id]`](#state-source-author-id)
-  - [Libraries](#libraries)
-    - [`libraries.source.api.init()`](#libraries-source-api-init)
-    - [`libraries.source.api.get()`](#libraries-source-api-get)
-    - [`libraries.source.populate()`](#libraries-source-populate)
-    - [`libraries.source.handlers`](#libraries-source-handlers)
-    - [`libraries.source.redirections`](#libraries-source-redirections)
-    - [`libraries.source.parse()`](#libraries-source-parse)
-    - [`libraries.source.stringify()`](#libraries-source-stringify)
-    - [`libraries.source.normalize()`](#libraries-source-normalize)
+  * [Actions](#actions)
+    + [`actions.source.fetch()`](#actions-source-fetch)
+  * [State](#state)
+    + [`state.source.get()`](#state-source-get)
+    + [`state.source[taxonomy][id]`](#state-source-taxonomy-id)
+    + [`state.source[type][id]`](#state-source-type-id)
+    + [`state.source.author[id]`](#state-source-author-id)
+  * [Libraries](#libraries)
+    + [`libraries.source.api.init()`](#libraries-source-api-init)
+    + [`libraries.source.api.get()`](#libraries-source-api-get)
+    + [`libraries.source.populate()`](#libraries-source-populate)
+    + [`libraries.source.handlers`](#libraries-source-handlers)
+    + [`libraries.source.redirections`](#libraries-source-redirections)
+    + [`libraries.source.parse()`](#libraries-source-parse)
+    + [`libraries.source.stringify()`](#libraries-source-stringify)
+    + [`libraries.source.normalize()`](#libraries-source-normalize)
 
 <!-- tocstop -->
 
@@ -79,6 +82,8 @@ module.exports = {
 
 These are the settings you can configure for this package in your `frontity.settings.js` file:
 
+### REST API 
+
 #### `state.source.url`
 
 The URL of your API. It should be for a self-hosted WordPress site, like `https://site.com/`. If you have a WordPress.com site you should use `state.source.api` (see below).
@@ -88,6 +93,8 @@ The URL of your API. It should be for a self-hosted WordPress site, like `https:
 The URL of your API. It can be from a self-hosted WordPress, like `https://site.com/wp-json` or from a WordPress.com site, like`https://public-api.wordpress.com/wp/v2/sites/site.wordpress.com`\(see [WordPress REST API on WordPress.com](https://developer.wordpress.com/2016/11/11/wordpress-rest-api-on-wordpress-com/)\).
 
 Setting this value is the minimal configuration this package needs to work
+
+### Custom paths
 
 #### `state.source.subdirectory`
 
@@ -135,6 +142,8 @@ Set the endpoint against which calls to the REST API are made **when posts are r
 
 The default value is `"posts"`.
 
+### Custom requests
+
 #### `state.source.params`
 
 Object of params that will be used in every call to the WP REST API when using `actions.source.fetch`. This is useful to filter fields from the REST API, change the default `per_page` value and so on. For example, if you set this value to
@@ -159,6 +168,8 @@ module.exports = {
 ```
 
 and then you visit a URL \(or use `actions.source.fetch`\), the query part of the HTTP call to the REST API will be `per_page=5&type[]=post&type[]=page`.
+
+### Custom Post Types
 
 #### `state.source.postTypes`
 
@@ -826,3 +837,5 @@ Utility for building links from its attributes.
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+
+

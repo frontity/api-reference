@@ -38,7 +38,7 @@ const parseMarkdownTOC = contentFile => {
   
   return toc.insert(contentFile, { 
     slugify: customSlugParser,
-    maxdepth: 3
+    maxdepth: 4
   });
   
 }
