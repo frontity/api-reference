@@ -3,3 +3,6 @@ root: ./docs-api/
 ​structure:
     readme: README.md
     summary: SUMMARY.md​
+
+redirects:
+    frontity-cli/environment-variables: ./frontity-cli/README.md
