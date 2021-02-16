@@ -6,4 +6,4 @@ root: ./docs-api/
 
 redirects:
     frontity-cli/environment-variables: ./frontity-cli/README.md
-    api-reference-1/frontity: ./frontity-packages/core-package/frontity.md
+    frontity-packages/frontity: ./frontity-packages/core-package/frontity.md
