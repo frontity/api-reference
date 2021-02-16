@@ -18,7 +18,7 @@ You can learn all about existing Frontity packages in the section entitled [**Fr
 
 In reality a Frontity theme is just a special instance of a Frontity package. Really **everything** is a package when you're working with Frontity.
 
-The included themes, namely Mars and TwentyTwenty, are dealt with separately from the other packages under the [**Frontity Themes**](frontity-themes/) section.
+The included themes, namely `mars-theme` and `twentytwenty-theme`, are dealt with separately from the other packages under the [**Frontity Themes**](frontity-themes/) section.
 
 ## **Plugins**
 
