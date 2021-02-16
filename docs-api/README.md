@@ -22,7 +22,7 @@ The included themes, namely `mars-theme` and `twentytwenty-theme`, are dealt wit
 
 ## **Plugins**
 
-Sometimes theres a **Frontity WordPress plugin** required so everything works smoothly. You'll find everything you need to know about them in the [**WordPress Plugins**](frontity-plugins/) section
+Sometimes a **Frontity WordPress plugin** is required so everything works smoothly. You'll find everything you need to know about them in the [**WordPress Plugins**](frontity-plugins/) section
 
 ---
 
