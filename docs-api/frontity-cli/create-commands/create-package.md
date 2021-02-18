@@ -33,3 +33,21 @@ This argument sets the _name_ of your Frontity package. The `create-package` com
 
 New package "my-custom-theme" created.
 ```
+
+## Environment Variables
+
+### `FRONTITY_CREATE_PACKAGE_NAME`
+
+If you pass the [`--no-prompt`](../README.md#no-prompt) flag to the [`create-package`](create-package.md), the CLI will use the name from this `FRONTITY_CREATE_PACKAGE_NAME` environment variable.
+
+If the CLI cannot find a `FRONTITY_CREATE_PACKAGE_NAME` environmental variable, it will prompt for the name of the package
+
+_Example:_
+
+```text
+FRONTITY_CREATE_NAME=test-project
+```
+
+{% hint style="info" %}
+You can see a scheme of the whole workflow of using this `FRONTITY_CREATE_PACKAGE_NAME` environment variable in the [`--no-prompt`](../README.md#no-prompt) section
+{% endhint %}

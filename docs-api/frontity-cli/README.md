@@ -59,9 +59,9 @@ There's a **`--no-prompt`** option that can be used along with environment varia
 
 **Example**
 
-If you pass the `--no-prompt` flag to the [`create`](create.md) or [`create-package`](create-package.md), the CLI will use the name from this [`FRONTITY_NAME`](create-commands/README.md#FRONTITY_NAME) environment variable.
+If you pass the `--no-prompt` flag to the [`create`](create.md) or [`create-package`](create-package.md), the CLI will use the name from either [`FRONTITY_CREATE_NAME`](create-commands/create.md#FRONTITY_CREATE_NAME) or [`FRONTITY_CREATE_PACKAGE_NAME`](create-commands/create-package.md#FRONTITY_CREATE_PACKAGE_NAME) environment variables.
 
-If the CLI cannot find a `FRONTITY_NAME` environmental variable, it will prompt for the name of the package
+If the CLI cannot find any of these environmental variables, it will prompt for the name of the package
 
 This is the scheme followed by the CLI to get the name of the package
 
