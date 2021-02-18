@@ -140,7 +140,7 @@ Recommended usage of this component is as above using the Slot and Fill pattern.
 
 However, the Ad component is exposed in libraries and so you can get the `GooglePublisherTag` component from libraries and render it in any place.
 
-```js
+```jsx
 const Component = ({ libraries }) => {
   const MyAd = libraries.fills.googleAdManager.GooglePublisherTag;
 
