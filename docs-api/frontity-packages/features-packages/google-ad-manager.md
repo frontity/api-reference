@@ -138,7 +138,7 @@ Props that will be passed to the `<Slot>` component
 
 Recommended usage of this component is as above using the Slot and Fill pattern.
 
-However, the Ad component is exposed in libraries and so you can get the `<GooglePublisherTag />` component from libraries and render it in any place.
+However, the Ad component is exposed in libraries and so you can get the `GooglePublisherTag` component from libraries and render it in any place.
 
 ```js
 const Component = ({ libraries }) => {
