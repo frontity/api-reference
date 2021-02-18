@@ -126,13 +126,13 @@ Assigns a priority in case more than one fill is assigned to that slot.
 
 Props that will be passed to the `<Slot>` component
 
-| Name            | Type   | Required | Description                                                                                                                                      |
-| --------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`id`**        | string | yes      | An identifier that you define                                                                                                                    |
-| **`unit`**      | string | yes      | The (Google supplied) code for the ad unit to be displayed.                                                                                      |
-| **`size`**      | array  | yes      | The width and height to display the ad.                                                                                                          |
-| **`targeting`** | array  | no       | The URL of the archive of this Custom Post Type, where all of them are listed.                                                                   |
-| **`data`**      | array  | no       | One or more keys, each with one or more associated values. _[more info](https://developers.google.com/publisher-tag/guides/key-value-targeting)_ |
+| Name            | Type   | Required | Description                                                                                                                                       |
+| --------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`id`**        | string | yes      | An identifier that you define                                                                                                                     |
+| **`unit`**      | string | yes      | The (Google supplied) code for the ad unit to be displayed.                                                                                       |
+| **`size`**      | array  | yes      | The width and height to display the ad.                                                                                                           |
+| **`targeting`** | array  | no       | One or more keys, each with one or more associated values. _[more info](https://developers.google.com/publisher-tag/guides/key-value-targeting)_. |
+| **`data`**      | array  | no       | Other data that you want to pass to the Slot.                                                                                                     |
 
 ## How to use
 
