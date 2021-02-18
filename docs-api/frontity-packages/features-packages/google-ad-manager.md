@@ -145,8 +145,8 @@ const Component = ({ libraries }) => {
   const MyAd = libraries.fills.googleAdManager.GooglePublisherTag;
 
 	Return (
-	  <MyAd unit=”/unit/234”,
-	        size="[300, 600]",
+	  <MyAd unit=”/unit/234”
+	        size="[300, 600]"
 		/>
 	)
 }
