@@ -132,7 +132,7 @@ Props that will be passed to the `<Slot>` component
 | **`unit`**      | string | yes      | The (Google supplied) code for the ad unit to be displayed.                                                                                      |
 | **`size`**      | array  | yes      | The width and height to display the ad.                                                                                                          |
 | **`targeting`** | array  | no       | The URL of the archive of this Custom Post Type, where all of them are listed.                                                                   |
-| **`data`**      | array  | no       | One or more keys, each with one or more associated values. \_[more info](https://developers.google.com/publisher-tag/guides/key-value-targeting) |
+| **`data`**      | array  | no       | One or more keys, each with one or more associated values. _[more info](https://developers.google.com/publisher-tag/guides/key-value-targeting)_ |
 
 ## How to use
 
