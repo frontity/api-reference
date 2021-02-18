@@ -106,7 +106,7 @@ export default {
 
 > Type: `str`
 
-The name of the slot as defined in your theme where you want the ad to go, as a `string`.
+The name of the slot as defined in your theme where you want the ad to go.
 
 #### `library`<img src="https://img.shields.io/badge/REQUIRED-red.svg" >
 
@@ -120,21 +120,19 @@ This will be `"googleAdManager.GooglePublisherTag"`.
 
 Assigns a priority in case more than one fill is assigned to that slot.
 
-#### `props`
+#### `props`<img src="https://img.shields.io/badge/REQUIRED-red.svg" >
 
 > Type: `obj`
 
 Props that will be passed to the `<Slot>` component
 
-| Name            | Type   | Required | Description                                                                    |
-| --------------- | ------ | -------- | ------------------------------------------------------------------------------ |
-| **`id`**        | string | yes      | An identifier that you define                                                  |
-| **`unit`**      | string | yes      | The (Google supplied) code for the ad unit to be displayed.                    |
-| **`size`**      | array  | yes      | The width and height to display the ad.                                        |
-| **`targeting`** | array  | no       | The URL of the archive of this Custom Post Type, where all of them are listed. |
-| **`data`**      | array  | no       | One or more keys, each with one or more associated values. \*                  |
-
-_\* [see here](https://developers.google.com/publisher-tag/guides/key-value-targeting) for more info._
+| Name            | Type   | Required | Description                                                                                                                                      |
+| --------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`id`**        | string | yes      | An identifier that you define                                                                                                                    |
+| **`unit`**      | string | yes      | The (Google supplied) code for the ad unit to be displayed.                                                                                      |
+| **`size`**      | array  | yes      | The width and height to display the ad.                                                                                                          |
+| **`targeting`** | array  | no       | The URL of the archive of this Custom Post Type, where all of them are listed.                                                                   |
+| **`data`**      | array  | no       | One or more keys, each with one or more associated values. \_[more info](https://developers.google.com/publisher-tag/guides/key-value-targeting) |
 
 ## How to use
 
