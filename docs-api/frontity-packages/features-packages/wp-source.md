@@ -110,7 +110,7 @@ By using this property you can specify the prefix of your REST API, for example 
 
 A name or path indicating the subdirectory of your domain where your Frontity site lives. For example, if your site is in [https://mysite.com/blog](https://mysite.com/blog), you have to use it with the value of `blog` or `/blog`. It also transform links of the entities that come from the REST API.
 
-#### `state..homepage`
+#### `state.source.homepage`
 
 This option allows you to show a specific page when accessing the homepage of your site. For example, if you set this value to `/about-us` then that page will be shown if you access `/`.
 
