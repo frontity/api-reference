@@ -86,13 +86,23 @@ These are the settings you can configure for this package in your `frontity.sett
 
 #### `state.source.url`
 
-The URL of your API. It should be for a self-hosted WordPress site, like `https://site.com/`. If you have a WordPress.com site you should use `state.source.api` (see below).
+The URL of your WordPress backend installation. The default value of this property is derived from `state.frontity.url`
 
-#### `state.source.api`<img src="https://img.shields.io/badge/REQUIRED-red.svg" >
+#### `state.wpSource.api`
 
-The URL of your API. It can be from a self-hosted WordPress, like `https://site.com/wp-json` or from a WordPress.com site, like`https://public-api.wordpress.com/wp/v2/sites/site.wordpress.com`\(see [WordPress REST API on WordPress.com](https://developer.wordpress.com/2016/11/11/wordpress-rest-api-on-wordpress-com/)\).
+The URL of your WordPress API (previously `state.source.api`). 
 
-Setting this value is the minimal configuration this package needs to work
+If `state.source.url` has been set, you don't really need to set this value as the dafault value of `state.source.api` will be computed from `state.source.url`  by adding the "prefix" (`/wp-json` by default)
+
+Either by getting this value from `state.source.url` or by setting it directly, this value is the minimal configuration this package needs to work
+
+#### `state.wpSource.isWpCom`
+
+Boolean value to indicate if the WordPress installation that will be used as the source of data is a wordpress.com site (the API urls are different in this case )
+
+#### `state.wpSource.prefix`
+
+By using this property you can specify the prefix of your REST API, for example `"/wp-json"` or `"?rest_route=/"`. The default value is `"/wp-json"`.
 
 ### Custom paths
 
@@ -100,7 +110,7 @@ Setting this value is the minimal configuration this package needs to work
 
 A name or path indicating the subdirectory of your domain where your Frontity site lives. For example, if your site is in [https://mysite.com/blog](https://mysite.com/blog), you have to use it with the value of `blog` or `/blog`. It also transform links of the entities that come from the REST API.
 
-#### `state.source.homepage`
+#### `state..homepage`
 
 This option allows you to show a specific page when accessing the homepage of your site. For example, if you set this value to `/about-us` then that page will be shown if you access `/`.
 
