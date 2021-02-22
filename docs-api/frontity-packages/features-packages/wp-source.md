@@ -86,13 +86,14 @@ These are the settings you can configure for this package in your `frontity.sett
 
 #### `state.source.url`
 
-The URL of your WordPress backend installation. The default value of this property is derived from `state.frontity.url`
+The URL of your WordPress backend installation. The default value of this property is derived from `state.frontity.url`.
 
 #### `state.wpSource.api`
 
 The URL of your WordPress API (previously `state.source.api`). 
 
-If `state.source.url` has been set, you don't really need to set this value as the dafault value of `state.source.api` will be computed from `state.source.url`  by adding the "prefix" (`/wp-json` by default)
+If `state.source.url` has been set, you don't need to set this value as the
+default value will be computed by Frontity from the value of `state.source.url`.
 
 Either by getting this value from `state.source.url` or by setting it directly, this value is the minimal configuration this package needs to work
 
