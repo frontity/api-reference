@@ -17,9 +17,9 @@ The _name_ of your Frontity project. It will also be the name of the folder that
 |                  Option                  | Description                                                                                                     |
 | :--------------------------------------: | :-------------------------------------------------------------------------------------------------------------- |
 |  [`--theme <theme>`](#the-theme-option)  | The theme to use                                                                                                |
-|              `--typescript`              | Adds support for TypeScript                                                                                     |
+|              `--typescript`              | Adds support for TypeScript. Related environment variable: [`FRONTITY_CREATE_TYPESCRIPT`](README.md#frontity_create_typescript).                                                                                     |
 |               `--use-cwd`                | Generates the project in the current directory                                                                  |
-| [`--no-prompt`](README.md#frontity_name) | Skips prompting the user for options. Related environment variable: [`FRONTITY_NAME`](README.md#frontity_name). |
+| `--no-prompt` | Skips prompting the user for options. Related environment variable: [`FRONTITY_CREATE_NAME`](README.md#frontity_create_name). |
 |                 `--help`                 | Output usage information                                                                                        |
 
 #### The `--theme` option
@@ -65,4 +65,33 @@ Run cd awesome project && npx frontity dev and have fun! 🎉
 
 You can find docs at https://docs.frontity.org/.
 For technical support and assistance please join our community at https://community.frontity.org/.
+```
+
+## Environment Variables
+
+### `FRONTITY_CREATE_NAME`
+
+If you pass the [`--no-prompt`](../README.md#no-prompt) flag to the [`create`](create.md), the CLI will use the name from this `FRONTITY_CREATE_NAME` environment variable.
+
+If the CLI cannot find a `FRONTITY_CREATE_NAME` environmental variable, it will prompt for the name of the package
+
+_Example:_
+
+```text
+FRONTITY_CREATE_NAME=test-project
+```
+
+{% hint style="info" %}
+You can see a scheme of the whole workflow of using this `FRONTITY_CREATE_NAME` environment variable in the [`--no-prompt`](../README.md#no-prompt) section
+{% endhint %}
+
+
+### `FRONTITY_CREATE_TYPESCRIPT`
+
+Adds support for TypeScript in the project created
+
+_Example:_
+
+```text
+FRONTITY_CREATE_TYPESCRIPT=true
 ```
