@@ -12,8 +12,10 @@ This package enables Frontity to integrate with Google Ad Manager. It allows you
 
 - [Installation](#installation)
 - [Settings](#settings)
+  - [Object properties](#object-properties)
+    - [The `props` property](#the-props-property)
+- [Examples](#examples)
 - [How to use](#how-to-use)
-- [API Reference](#api-reference)
 
 <!-- tocstop -->
 
@@ -27,13 +29,55 @@ npm i @frontity/google-ad-manager
 
 ## Settings
 
-The [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package is **`googleAdManager`**.
+This package can be included in your `frontity.settings.js` file as one of the packages that will be part of your Frontity project.
 
-This package does not have any general settings.
+The [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package is **`googleAdManager`**. The object should be added to `state.fills`.
 
-Settings for a specific ad are defined in each fill.
+Each fill in the **`googleAdManager`** namespace is an object which should be assigned to an arbitrarily named key. The structure should be as follows:
 
-This package needs to be included in your `frontity.settings.js` file as one of the packages that will be part of the Frontity project:
+```js
+export default {
+  packages: [
+    {
+      name: "@frontity/google-ad-manager",
+      state: {
+        fills: {
+          googleAdManager: {
+            arbitrary_fill_name: {
+              // Object properties
+            },
+          },
+        },
+      },
+    },
+  ],
+};
+```
+
+### Object properties
+
+| Name          | Type   | Required | Description                                                                |
+| ------------- | ------ | -------- | -------------------------------------------------------------------------- |
+| **`slot`**    | string | yes      | The name of the slot as defined in your theme where you want the ad to go. |
+| **`library`** | string | yes      | This will be `"googleAdManager.GooglePublisherTag"`.                       |
+| `priority`    | int    | no       | Assigns a priority in case more than one fill is assigned to that slot.    |
+| **`props`**   | obj    | yes      | Props that will be passed to the `<Slot>` component _(see table below)_    |
+
+#### The `props` property
+
+An object with props that will be passed to the `<Slot>` component.
+
+| Name        | Type   | Required | Description                                                                                                                                                                                              |
+| ----------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`id`**    | string | yes      | An identifier that you define                                                                                                                                                                            |
+| **`unit`**  | string | yes      | The (Google supplied) adUnitPath code for the ad unit to be displayed. _[more info](https://developers.google.com/publisher-tag/reference#googletag.slot-googletag.defineslotadunitpath,-size,-opt_div)_ |
+| **`size`**  | array  | yes      | The width and height to display the ad.                                                                                                                                                                  |
+| `targeting` | array  | no       | One or more keys, each with one or more associated values. _[more info](https://developers.google.com/publisher-tag/guides/key-value-targeting)_.                                                        |
+| `data`      | array  | no       | Other data that you want to pass to the Slot.                                                                                                                                                            |
+
+## Examples
+
+Example with one ad:
 
 ```js
 export default {
@@ -102,41 +146,9 @@ export default {
 };
 ```
 
-#### `slot`<img src="https://img.shields.io/badge/REQUIRED-red.svg" >
-
-> Type: `str`
-
-The name of the slot as defined in your theme where you want the ad to go.
-
-#### `library`<img src="https://img.shields.io/badge/REQUIRED-red.svg" >
-
-> Type: `str`
-
-This will be `"googleAdManager.GooglePublisherTag"`.
-
-#### `priority`
-
-> Type: `int`
-
-Assigns a priority in case more than one fill is assigned to that slot.
-
-#### `props`<img src="https://img.shields.io/badge/REQUIRED-red.svg" >
-
-> Type: `obj`
-
-Props that will be passed to the `<Slot>` component
-
-| Name            | Type   | Required | Description                                                                                                                                       |
-| --------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`id`**        | string | yes      | An identifier that you define                                                                                                                     |
-| **`unit`**      | string | yes      | The (Google supplied) code for the ad unit to be displayed.                                                                                       |
-| **`size`**      | array  | yes      | The width and height to display the ad.                                                                                                           |
-| **`targeting`** | array  | no       | One or more keys, each with one or more associated values. _[more info](https://developers.google.com/publisher-tag/guides/key-value-targeting)_. |
-| **`data`**      | array  | no       | Other data that you want to pass to the Slot.                                                                                                     |
-
 ## How to use
 
-Recommended usage of this component is as above using the Slot and Fill pattern.
+The recommended usage of this component is as in the examples above using the Slot and Fill pattern. The configuration of the fill(s) is done in the `state.fills.googleAdManager` namespace in `frontity.settings.js`.
 
 However, the Ad component is exposed in libraries and so you can get the `GooglePublisherTag` component from libraries and render it in any place.
 
@@ -145,15 +157,12 @@ const Component = ({ libraries }) => {
   const MyAd = libraries.fills.googleAdManager.GooglePublisherTag;
 
 	Return (
-	  <MyAd unit=”/unit/234”
-	        size="[300, 600]"
+	  <MyAd
+        unit=”/unit/234”
+	      size="[300, 600]"
 		/>
 	)
 }
 
 Export connect(Component);
 ```
-
-## API Reference
-
-...
