@@ -17,9 +17,9 @@ The _name_ of your Frontity project. It will also be the name of the folder that
 |                  Option                  | Description                                                                                                     |
 | :--------------------------------------: | :-------------------------------------------------------------------------------------------------------------- |
 |  [`--theme <theme>`](#the-theme-option)  | The theme to use                                                                                                |
-|              `--typescript`              | Adds support for TypeScript. Related environment variable: [`FRONTITY_CREATE_TYPESCRIPT`](README.md#frontity_create_typescript).                                                                                     |
+|              `--typescript`              | Adds support for TypeScript. Related environment variable: [`FRONTITY_CREATE_TYPESCRIPT`](#frontity_create_typescript).                                                                                     |
 |               `--use-cwd`                | Generates the project in the current directory                                                                  |
-| `--no-prompt` | Skips prompting the user for options. Related environment variable: [`FRONTITY_CREATE_NAME`](README.md#frontity_create_name). |
+| `--no-prompt` | Skips prompting the user for options. Related environment variable: [`FRONTITY_CREATE_NAME`](#frontity_create_name). |
 |                 `--help`                 | Output usage information                                                                                        |
 
 #### The `--theme` option
