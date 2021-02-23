@@ -38,7 +38,7 @@ New package "my-custom-theme" created.
 
 ### `FRONTITY_CREATE_PACKAGE_NAME`
 
-If you pass the [`--no-prompt`](../README.md#no-prompt) flag to the [`create-package`](create-package.md), the CLI will use the name from this `FRONTITY_CREATE_PACKAGE_NAME` environment variable.
+If you pass the [`--no-prompt`](../README.md#no-prompt) flag to the [`create-package`](#), the CLI will use the name from this `FRONTITY_CREATE_PACKAGE_NAME` environment variable.
 
 If the CLI cannot find a `FRONTITY_CREATE_PACKAGE_NAME` environmental variable, it will prompt for the name of the package
 

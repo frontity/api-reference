@@ -71,7 +71,7 @@ For technical support and assistance please join our community at https://commun
 
 ### `FRONTITY_CREATE_NAME`
 
-If you pass the [`--no-prompt`](../README.md#no-prompt) flag to the [`create`](create.md), the CLI will use the name from this `FRONTITY_CREATE_NAME` environment variable.
+If you pass the [`--no-prompt`](../README.md#no-prompt) flag to the [`create`](#), the CLI will use the name from this `FRONTITY_CREATE_NAME` environment variable.
 
 If the CLI cannot find a `FRONTITY_CREATE_NAME` environmental variable, it will prompt for the name of the package
 
