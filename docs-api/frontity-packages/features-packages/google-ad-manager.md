@@ -166,3 +166,5 @@ const Component = ({ libraries }) => {
 
 Export connect(Component);
 ```
+
+[Watch the explainer video](https://www.youtube.com/watch?v=Esm8cs0jMoY)
