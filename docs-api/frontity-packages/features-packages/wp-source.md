@@ -118,11 +118,10 @@ set this property as your `state.source.url` will be the same as the
 
 The URL of your WordPress REST API endpoint.
 
-Typically, you will not need to set it value yourself, as its value can be
-usually be computed from the value of `state.source.url`.
+Typically, you will not need to set it yourself, as its value can usually be computed from the value of `state.source.url`.
 
 However, if your WordPress site is hosted on wordpress.com and you are on a
-Free, Personal or Premium plan, you will need to either set this value or set
+[Free, Personal or Premium plan](https://wordpress.com/pricing/), you will need to either set this value or set
 `state.wpSource.isWpCom` to `true`.
 
 For example, assuming that your `state.source.url` is `https://my-awesome-site.com`:
@@ -135,13 +134,13 @@ For example, assuming that your `state.source.url` is `https://my-awesome-site.c
 
 #### `state.wpSource.isWpCom`
 
-Boolean value to indicate if the WordPress installation that will be used as the
+Boolean value to indicate if the WordPress installation used as the
 source of data is a wordpress.com site.
 
-This setting can usually be deduced from the value of `state.source.api`.
+This setting can usually computed from the value of `state.source.api`.
 
 However, if your WordPress site is hosted on wordpress.com and you are on Free,
-Personal or Premium plan, will you need to set this value to `true` or set the
+Personal or Premium plan, will you need to set this value to `true` OR set the
 value of [`state.source.api`](####`state.source.api`).
 
 #### `state.wpSource.prefix`
