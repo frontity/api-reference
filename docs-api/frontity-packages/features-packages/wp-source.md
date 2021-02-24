@@ -87,8 +87,7 @@ These are the settings you can configure for this package in your `frontity.sett
 
 #### `state.source.url` <img src="https://img.shields.io/badge/REQUIRED-red.svg" >
 
-The URL of your WordPress backend installation. The default value of this
-property is derived from `state.frontity.url`.
+The URL of your WordPress backend installation. The default value of this property is derived from `state.frontity.url`.
 
 Example:
 
@@ -109,9 +108,7 @@ export default {
 ```
 
 {% hint style="info" %}
-If you are using Frontity using the Embedded mode, you do **not** normally have to
-set this property as your `state.source.url` will be the same as the
-`state.frontity.url`.
+If you are using Frontity using the [Embedded Mode (Experimental)](https://community.frontity.org/t/embedded-mode/1432), you do **not** normally have to set this property as your `state.source.url` will be the same as the `state.frontity.url`.
 {% endhint %}
 
 #### `state.source.api`
@@ -120,22 +117,21 @@ The URL of your WordPress REST API endpoint.
 
 Typically, you will not need to set it yourself, as its value can usually be computed from the value of `state.source.url`.
 
-However, if your WordPress site is hosted on wordpress.com and you are on a
-[Free, Personal or Premium plan](https://wordpress.com/pricing/), you will need to either set this value or set
-`state.wpSource.isWpCom` to `true`.
+If your WordPress site is hosted on wordpress.com and you are on a [Free, Personal or Premium plan](https://wordpress.com/pricing/), you will also need to set `state.wpSource.isWpCom` to `true`, so the proper URL is assigned to `state.source.api`.
 
 For example, assuming that your `state.source.url` is `https://my-awesome-site.com`:
 
 - If you are self-hosting your WordPress
   installation or using a third party hosting like WP Engine, Pantheon, etc.,
-  the value would be `https://my-awesome-site.com/wp-json`.
-- If you are on a Free, Personal or Premium [wordpress.com
-  plan](https://wordpress.com/pricing/) this value would be `https://public-api.wordpress.com/wp/v2/sites/my-awesome-site.com`.
+  the value of `state.source.api` would be `https://my-awesome-site.com/wp-json`.
+- If you are on a Free, Personal or Premium [wordpress.com plan](https://wordpress.com/pricing/) (`state.wpSource.isWpCom = true`) this value of `state.source.api` would be `https://public-api.wordpress.com/wp/v2/sites/my-awesome-site.com`.
+
+You can also directly set to `state.source.api` the URL of your WordPress REST API endpoint. This will overwrite any computed values got from other properties.
+
 
 #### `state.wpSource.isWpCom`
 
-Boolean value to indicate if the WordPress installation used as the
-source of data is a wordpress.com site.
+Boolean value to indicate if the WordPress installation used as the source of data is a wordpress.com site.
 
 This setting can usually computed from the value of `state.source.api`.
 
