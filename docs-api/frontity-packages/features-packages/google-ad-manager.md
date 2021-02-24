@@ -56,12 +56,12 @@ export default {
 
 ### Object properties
 
-| Name          | Type   | Required | Description                                                                |
-| ------------- | ------ | -------- | -------------------------------------------------------------------------- |
-| **`slot`**    | string | yes      | The name of the slot as defined in your theme where you want the ad to go. |
-| **`library`** | string | yes      | This will be `"googleAdManager.GooglePublisherTag"`.                       |
-| `priority`    | int    | no       | Assigns a priority in case more than one fill is assigned to that slot.    |
-| **`props`**   | obj    | yes      | Props that will be passed to the `<Slot>` component _(see table below)_    |
+| Name          | Type   | Required | Description                                                                                                                                                                              |
+| ------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`slot`**    | string | yes      | The name of the slot as defined in your theme where you want the ad to go.                                                                                                               |
+| **`library`** | string | yes      | The React component used to display the Ad. We can set this value to `"googleAdManager.GooglePublisherTag"` (`GooglePublisherTag` component available in the `googleAdManager` package). |
+| `priority`    | int    | no       | Assigns a priority in case more than one fill is assigned to that slot.                                                                                                                  |
+| **`props`**   | obj    | yes      | Props that will be passed to the `<Slot>` component _(see table below)_                                                                                                                  |
 
 #### The `props` property
 
@@ -69,7 +69,7 @@ An object with props that will be passed to the `<Slot>` component.
 
 | Name        | Type   | Required | Description                                                                                                                                                                                              |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`id`**    | string | yes      | An identifier that you define                                                                                                                                                                            |
+| **`id`**    | string | yes      | An `id` for Ad block                                                                                                                                                                                     |
 | **`unit`**  | string | yes      | The (Google supplied) adUnitPath code for the ad unit to be displayed. _[more info](https://developers.google.com/publisher-tag/reference#googletag.slot-googletag.defineslotadunitpath,-size,-opt_div)_ |
 | **`size`**  | array  | yes      | The width and height to display the ad.                                                                                                                                                                  |
 | `targeting` | array  | no       | One or more keys, each with one or more associated values. _[more info](https://developers.google.com/publisher-tag/guides/key-value-targeting)_.                                                        |
@@ -130,7 +130,7 @@ export default {
               library: "googleAdManager.GooglePublisherTag",
               priority: 5,
               props: {
-                id: "Below Content",
+                id: "div-gpt-below-content",
                 unit: "/6499/example/banner",
                 size: [300, 600],
                 targeting: {
@@ -148,12 +148,40 @@ export default {
 
 ## How to use
 
-The recommended usage of this component is as in the examples above using the Slot and Fill pattern. The configuration of the fill(s) is done in the `state.fills.googleAdManager` namespace in `frontity.settings.js`.
+### With the `Slot & Fill` pattern
+
+The recommended usage of this component is using the Slot and Fill pattern. The configuration of the fill(s) is done in the `state.fills.googleAdManager` namespace in `frontity.settings.js` as explained above.
+
+With this configuration then we can insert the Slots representing the Ads in any React component
+
+```jsx
+import { Slot, ... } from "frontity";
+
+const MyComponent = () => {
+
+  return (
+    <>
+      ...
+      <Slot name="Below Header" />
+      ...
+      <Slot name="Below Content" />
+      ...
+    </>
+  );
+};
+
+...
+
+export default MyComponent;
+
+```
+
+### Using directly the Ad component
 
 However, the Ad component is exposed in libraries and so you can get the `GooglePublisherTag` component from libraries and render it in any place.
 
 ```jsx
-const Component = ({ libraries }) => {
+const MyComponent = ({ libraries }) => {
   const MyAd = libraries.fills.googleAdManager.GooglePublisherTag;
 
 	Return (
@@ -164,7 +192,17 @@ const Component = ({ libraries }) => {
 	)
 }
 
-Export connect(Component);
+export connect(MyComponent);
 ```
 
+<<<<<<< HEAD
 [Watch the explainer video](https://www.youtube.com/watch?v=Esm8cs0jMoY)
+=======
+
+---
+
+Check this video showing how to use this packahe
+
+{% embed url="https://www.youtube.com/watch?v=Esm8cs0jMoY" caption="" %}
+
+> > > > > > > e3c042a5cadfdbd05cff8693d9bf767e02b3c7f6
