@@ -203,5 +203,3 @@ export connect(MyComponent);
 This short video demonstrates the usage of the `@frontity/google-ad-manager` package.
 
 {% embed url="https://www.youtube.com/watch?v=Esm8cs0jMoY" caption="" %}
-
-> > > > > > > e3c042a5cadfdbd05cff8693d9bf767e02b3c7f6
