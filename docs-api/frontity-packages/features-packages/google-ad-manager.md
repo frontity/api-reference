@@ -152,7 +152,7 @@ export default {
 
 The recommended usage of this component is using the Slot and Fill pattern. The configuration of the fill(s) is done in the `state.fills.googleAdManager` namespace in `frontity.settings.js` as explained above.
 
-With this configuration then we can insert the Slots representing the Ads in any React component
+With this configuration we can then insert the Slots representing the Ads in any React component
 
 ```jsx
 import { Slot, ... } from "frontity";
@@ -176,9 +176,9 @@ export default MyComponent;
 
 ```
 
-### Using directly the Ad component
+### Using the Ad component directly
 
-However, the Ad component is exposed in libraries and so you can get the `GooglePublisherTag` component from libraries and render it in any place.
+Alternatively, since the Ad component is exposed in `libraries`, you can get the `GooglePublisherTag` component from `libraries` and render it wherever you wish.
 
 ```jsx
 const MyComponent = ({ libraries }) => {
@@ -201,7 +201,7 @@ export connect(MyComponent);
 
 ---
 
-Check this video showing how to use this packahe
+This short video demonstrates the usage of the `@frontity/google-ad-manager` package.
 
 {% embed url="https://www.youtube.com/watch?v=Esm8cs0jMoY" caption="" %}
 
