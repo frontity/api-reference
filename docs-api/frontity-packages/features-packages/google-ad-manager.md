@@ -15,7 +15,10 @@ This package enables Frontity to integrate with Google Ad Manager. It allows you
   - [Object properties](#object-properties)
     - [The `props` property](#the-props-property)
 - [Examples](#examples)
-- [How to use](#how-to-use)
+- [Usage](#usage)
+  - [Using the `Slot & Fill` pattern](#using-the-slot-fill-pattern)
+  - [Using the Ad component directly](#using-the-ad-component-directly)
+- [Video](#video)
 
 <!-- tocstop -->
 
@@ -146,13 +149,13 @@ export default {
 };
 ```
 
-## How to use
+## Usage
 
-### With the `Slot & Fill` pattern
+### Using the `Slot & Fill` pattern
 
 The recommended usage of this component is using the Slot and Fill pattern. The configuration of the fill(s) is done in the `state.fills.googleAdManager` namespace in `frontity.settings.js` as explained above.
 
-With this configuration we can then insert the Slots representing the Ads in any React component
+With this configuration we can then insert the Slots representing the Ads in any React component.
 
 ```jsx
 import { Slot, ... } from "frontity";
@@ -195,11 +198,7 @@ const MyComponent = ({ libraries }) => {
 export connect(MyComponent);
 ```
 
-<<<<<<< HEAD
-[Watch the explainer video](https://www.youtube.com/watch?v=Esm8cs0jMoY)
-=======
-
----
+## Video
 
 This short video demonstrates the usage of the `@frontity/google-ad-manager` package.
 
