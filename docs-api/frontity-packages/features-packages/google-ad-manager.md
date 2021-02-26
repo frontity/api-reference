@@ -70,13 +70,14 @@ export default {
 
 An object with props that will be passed to the `<Slot>` component.
 
-| Name        | Type   | Required | Description                                                                                                                                                                                              |
-| ----------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`id`**    | string | yes      | An `id` for Ad block                                                                                                                                                                                     |
-| **`unit`**  | string | yes      | The (Google supplied) adUnitPath code for the ad unit to be displayed. _[more info](https://developers.google.com/publisher-tag/reference#googletag.slot-googletag.defineslotadunitpath,-size,-opt_div)_ |
-| **`size`**  | array  | yes      | The width and height to display the ad.                                                                                                                                                                  |
-| `targeting` | array  | no       | One or more keys, each with one or more associated values. _[more info](https://developers.google.com/publisher-tag/guides/key-value-targeting)_.                                                        |
-| `data`      | array  | no       | Other data that you want to pass to the Slot.                                                                                                                                                            |
+| Name                   | Type   | Required | Description                                                                                                                                                                                              |
+| ---------------------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`id`**               | string | yes      | An `id` for Ad, used to generate the ID the `<div>` container will use.                                                                                                                                  |
+| **`unit`**             | string | yes      | The (Google supplied) adUnitPath code for the ad unit to be displayed. _[more info](https://developers.google.com/publisher-tag/reference#googletag.slot-googletag.defineslotadunitpath,-size,-opt_div)_ |
+| **`size`**             | object | yes      | An array of integer values to specify the width and height (in pixels) to display the ad.                                                                                                                |
+| `targeting`            | object | no       | One or more keys, each with one or more associated values. _[more info](https://developers.google.com/publisher-tag/guides/key-value-targeting)_.                                                        |
+| `data`                 | object | no       | Data object representing a link, passed automatically if the component is                                                                                                                                |
+| \* rendered by a slot. |
 
 ## Examples
 
