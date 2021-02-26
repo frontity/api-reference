@@ -187,13 +187,13 @@ Alternatively, since the Ad component is exposed in `libraries`, you can get the
 const MyComponent = ({ libraries }) => {
   const MyAd = libraries.fills.googleAdManager.GooglePublisherTag;
 
-	Return (
+	return (
 	  <MyAd
-        unit=”/unit/234”
-	      size="[300, 600]"
+      unit="/unit/234"
+      size={[300, 600]}
 		/>
-	)
-}
+	);
+};
 
 export connect(MyComponent);
 ```
