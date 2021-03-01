@@ -18,6 +18,7 @@
     - [@frontity/tiny-router](frontity-packages/features-packages/tiny-router.md)
     - [@frontity/html2react](frontity-packages/features-packages/html2react.md)
     - [@frontity/head-tags](frontity-packages/features-packages/head-tags.md)
+    - [@frontity/google-ad-manager](frontity-packages/features-packages/google-ad-manager.md)
     - [`analytics` packages](frontity-packages/features-packages/analytics/README.md)
       - [`@frontity/google-analytics`](frontity-packages/features-packages/analytics/google-analytics.md)
       - [`@frontity/google-tag-manager-analytics`](frontity-packages/features-packages/analytics/google-tag-manager-analytics.md)
