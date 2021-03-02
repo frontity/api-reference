@@ -1,6 +1,7 @@
 ---
 description: API reference of `@frontity/wp-source` package
 ---
+
 # @frontity/wp-source
 
 This package is in charge of getting the data from self-hosted WordPress or WordPress.com sites, and make it available from our React components.
@@ -11,39 +12,39 @@ This package is in charge of getting the data from self-hosted WordPress or Word
 
 - [Installation](#installation)
 - [Settings](#settings)
-  * [REST API](#rest-api)
-    + [`state.source.url`](#state-source-url)
-    + [`state.source.api`](#state-source-api)
-  * [Custom paths](#custom-paths)
-    + [`state.source.subdirectory`](#state-source-subdirectory)
-    + [`state.source.homepage`](#state-source-homepage)
-    + [`state.source.postsPage`](#state-source-postspage)
-    + [`state.source.categoryBase`](#state-source-categorybase)
-    + [`state.source.tagBase`](#state-source-tagbase)
-    + [`state.source.postEndpoint`](#state-source-postendpoint)
-  * [Custom requests](#custom-requests)
-    + [`state.source.params`](#state-source-params)
-  * [Custom Post Types](#custom-post-types)
-    + [`state.source.postTypes`](#state-source-posttypes)
-    + [`state.source.taxonomies`](#state-source-taxonomies)
+  - [REST API](#rest-api)
+    - [`state.source.url`](#state-source-url)
+    - [`state.source.api`](#state-source-api)
+  - [Custom paths](#custom-paths)
+    - [`state.source.subdirectory`](#state-source-subdirectory)
+    - [`state.source.homepage`](#state-source-homepage)
+    - [`state.source.postsPage`](#state-source-postspage)
+    - [`state.source.categoryBase`](#state-source-categorybase)
+    - [`state.source.tagBase`](#state-source-tagbase)
+    - [`state.source.postEndpoint`](#state-source-postendpoint)
+  - [Custom requests](#custom-requests)
+    - [`state.source.params`](#state-source-params)
+  - [Custom Post Types](#custom-post-types)
+    - [`state.source.postTypes`](#state-source-posttypes)
+    - [`state.source.taxonomies`](#state-source-taxonomies)
 - [How to use](#how-to-use)
 - [API Reference](#api-reference)
-  * [Actions](#actions)
-    + [`actions.source.fetch()`](#actions-source-fetch)
-  * [State](#state)
-    + [`state.source.get()`](#state-source-get)
-    + [`state.source[taxonomy][id]`](#state-source-taxonomy-id)
-    + [`state.source[type][id]`](#state-source-type-id)
-    + [`state.source.author[id]`](#state-source-author-id)
-  * [Libraries](#libraries)
-    + [`libraries.source.api.init()`](#libraries-source-api-init)
-    + [`libraries.source.api.get()`](#libraries-source-api-get)
-    + [`libraries.source.populate()`](#libraries-source-populate)
-    + [`libraries.source.handlers`](#libraries-source-handlers)
-    + [`libraries.source.redirections`](#libraries-source-redirections)
-    + [`libraries.source.parse()`](#libraries-source-parse)
-    + [`libraries.source.stringify()`](#libraries-source-stringify)
-    + [`libraries.source.normalize()`](#libraries-source-normalize)
+  - [Actions](#actions)
+    - [`actions.source.fetch()`](#actions-source-fetch)
+  - [State](#state)
+    - [`state.source.get()`](#state-source-get)
+    - [`state.source[taxonomy][id]`](#state-source-taxonomy-id)
+    - [`state.source[type][id]`](#state-source-type-id)
+    - [`state.source.author[id]`](#state-source-author-id)
+  - [Libraries](#libraries)
+    - [`libraries.source.api.init()`](#libraries-source-api-init)
+    - [`libraries.source.api.get()`](#libraries-source-api-get)
+    - [`libraries.source.populate()`](#libraries-source-populate)
+    - [`libraries.source.handlers`](#libraries-source-handlers)
+    - [`libraries.source.redirections`](#libraries-source-redirections)
+    - [`libraries.source.parse()`](#libraries-source-parse)
+    - [`libraries.source.stringify()`](#libraries-source-stringify)
+    - [`libraries.source.normalize()`](#libraries-source-normalize)
 
 <!-- tocstop -->
 
@@ -82,17 +83,150 @@ module.exports = {
 
 These are the settings you can configure for this package in your `frontity.settings.js` file:
 
-### REST API 
+### REST API
 
-#### `state.source.url`
+#### `state.source.url` <img src="https://img.shields.io/badge/REQUIRED-red.svg" >
 
-The URL of your API. It should be for a self-hosted WordPress site, like `https://site.com/`. If you have a WordPress.com site you should use `state.source.api` (see below).
+The URL of your WordPress backend installation. The default value of this property is derived from `state.frontity.url`.
 
-#### `state.source.api`<img src="https://img.shields.io/badge/REQUIRED-red.svg" >
+Example:
 
-The URL of your API. It can be from a self-hosted WordPress, like `https://site.com/wp-json` or from a WordPress.com site, like`https://public-api.wordpress.com/wp/v2/sites/site.wordpress.com`\(see [WordPress REST API on WordPress.com](https://developer.wordpress.com/2016/11/11/wordpress-rest-api-on-wordpress-com/)\).
+```javascript
+// frontity.settings.js
+export default {
+  packages: [
+    {
+      name: "@frontity/wp-source",
+      state: {
+        source: {
+          url: "https://test.frontity.org",
+        },
+      },
+    },
+  ],
+};
+```
 
-Setting this value is the minimal configuration this package needs to work
+{% hint style="info" %}
+If you are using Frontity using the [Embedded Mode](https://community.frontity.org/t/embedded-mode/1432), you do **not** normally have to set this property as your `state.source.url` will be the same as the `state.frontity.url`.
+{% endhint %}
+
+#### `state.source.api`
+
+The URL of your WordPress REST API endpoint.
+
+Typically, you will not need to set it yourself, as its value can usually be computed from the value of `state.source.url`.
+
+If your WordPress site is hosted on wordpress.com and you are on a [Free, Personal or Premium plan](https://wordpress.com/pricing/), you will also need to set `state.wpSource.isWpCom` to `true`, so the proper URL is assigned to `state.source.api`.
+
+For example, assuming that you have 
+
+```js
+...
+state: {
+  source: {
+    url: "https://my-awesome-site.com",
+  },
+},
+...
+```
+
+- If you are **self-hosting your WordPress installation** or using a third party hosting like WP Engine, Pantheon, etc., the value of `state.source.api` would be `https://my-awesome-site.com/wp-json`
+
+- If you are **on a Free, Personal or Premium [wordpress.com plan](https://wordpress.com/pricing/)** (and you set `state.wpSource.isWpCom = true`) this value of `state.source.api` would be `https://public-api.wordpress.com/wp/v2/sites/my-awesome-site.com`.
+
+You can also directly set to `state.source.api` the URL of your WordPress REST API endpoint. This will overwrite any computed values got from other properties.
+
+Example:
+
+```javascript
+// frontity.settings.js
+export default {
+  packages: [
+    {
+      name: "@frontity/wp-source",
+      state: {
+        source: {
+          api: "https://test.frontity.org/wp-json"
+        },
+      },
+    },
+  ],
+};
+```
+
+_or for a wordpress.com site..._
+
+```javascript
+// frontity.settings.js
+export default {
+  packages: [
+    {
+      name: "@frontity/wp-source",
+      state: {
+        source: {
+          api: "https://public-api.wordpress.com/wp/v2/sites/frontitytest.wordpress.com",
+        },
+      },
+    },
+  ],
+};
+```
+
+
+#### `state.wpSource.isWpCom`
+
+Boolean value to indicate if the WordPress installation used as the source of data is a wordpress.com site (Free,
+Personal or Premium plan).
+
+However, if your WordPress site is hosted on wordpress.com and you are on Free, Personal or Premium plan, you will need to set this value to `true` 
+
+You don't need to set this value if you directly set the URL of your wordpress.com REST API in [`state.source.api`](####`state.source.api`).
+
+Example:
+
+```javascript
+// frontity.settings.js
+export default {
+  packages: [
+    {
+      name: "@frontity/wp-source",
+      state: {
+        source: {
+          url: "https://frontitytest.wordpress.com",
+        },
+        wpSource: {
+          isWpCom: true,
+        },
+      }
+    },
+  ],
+};
+```
+
+_is equivalent to..._
+
+```javascript
+// frontity.settings.js
+export default {
+  packages: [
+    {
+      name: "@frontity/wp-source",
+      state: {
+        source: {
+          api: "https://public-api.wordpress.com/wp/v2/sites/frontitytest.wordpress.com",
+        },
+      }
+    },
+  ],
+};
+```
+
+#### `state.wpSource.prefix`
+
+By using this property you can specify the prefix of your REST API, for example `"/wp-json"` or `"?rest_route=/"`. The default value is `"/wp-json"`.
+
+This option should only be set if you have changed the path to the REST API endpoint in your WordPress installation. If you have not done that or you're not sure what it means, you can safely ignore this option.
 
 ### Custom paths
 
@@ -837,5 +971,3 @@ Utility for building links from its attributes.
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
-
-
