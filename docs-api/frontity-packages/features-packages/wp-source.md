@@ -15,6 +15,8 @@ This package is in charge of getting the data from self-hosted WordPress or Word
   - [REST API](#rest-api)
     - [`state.source.url`](#state-source-url)
     - [`state.source.api`](#state-source-api)
+    - [`state.wpSource.isWpCom`](#state-wpsource-iswpcom)
+    - [`state.wpSource.prefix`](#state-wpsource-prefix)
   - [Custom paths](#custom-paths)
     - [`state.source.subdirectory`](#state-source-subdirectory)
     - [`state.source.homepage`](#state-source-homepage)
@@ -119,7 +121,7 @@ Typically, you will not need to set it yourself, as its value can usually be com
 
 If your WordPress site is hosted on wordpress.com and you are on a [Free, Personal or Premium plan](https://wordpress.com/pricing/), you will also need to set `state.wpSource.isWpCom` to `true`, so the proper URL is assigned to `state.source.api`.
 
-For example, assuming that you have 
+For example, assuming that you have
 
 ```js
 ...
@@ -147,7 +149,7 @@ export default {
       name: "@frontity/wp-source",
       state: {
         source: {
-          api: "https://test.frontity.org/wp-json"
+          api: "https://test.frontity.org/wp-json",
         },
       },
     },
@@ -165,7 +167,8 @@ export default {
       name: "@frontity/wp-source",
       state: {
         source: {
-          api: "https://public-api.wordpress.com/wp/v2/sites/frontitytest.wordpress.com",
+          api:
+            "https://public-api.wordpress.com/wp/v2/sites/frontitytest.wordpress.com",
         },
       },
     },
@@ -173,13 +176,12 @@ export default {
 };
 ```
 
-
 #### `state.wpSource.isWpCom`
 
 Boolean value to indicate if the WordPress installation used as the source of data is a wordpress.com site (Free,
 Personal or Premium plan).
 
-However, if your WordPress site is hosted on wordpress.com and you are on Free, Personal or Premium plan, you will need to set this value to `true` 
+However, if your WordPress site is hosted on wordpress.com and you are on Free, Personal or Premium plan, you will need to set this value to `true`
 
 You don't need to set this value if you directly set the URL of your wordpress.com REST API in [`state.source.api`](####`state.source.api`).
 
@@ -198,7 +200,7 @@ export default {
         wpSource: {
           isWpCom: true,
         },
-      }
+      },
     },
   ],
 };
@@ -214,9 +216,10 @@ export default {
       name: "@frontity/wp-source",
       state: {
         source: {
-          api: "https://public-api.wordpress.com/wp/v2/sites/frontitytest.wordpress.com",
+          api:
+            "https://public-api.wordpress.com/wp/v2/sites/frontitytest.wordpress.com",
         },
-      }
+      },
     },
   ],
 };
