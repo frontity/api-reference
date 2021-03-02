@@ -108,7 +108,7 @@ export default {
 ```
 
 {% hint style="info" %}
-If you are using Frontity using the [Embedded Mode (Experimental)](https://community.frontity.org/t/embedded-mode/1432), you do **not** normally have to set this property as your `state.source.url` will be the same as the `state.frontity.url`.
+If you are using Frontity using the [Embedded Mode](https://community.frontity.org/t/embedded-mode/1432), you do **not** normally have to set this property as your `state.source.url` will be the same as the `state.frontity.url`.
 {% endhint %}
 
 #### `state.source.api`
@@ -119,33 +119,114 @@ Typically, you will not need to set it yourself, as its value can usually be com
 
 If your WordPress site is hosted on wordpress.com and you are on a [Free, Personal or Premium plan](https://wordpress.com/pricing/), you will also need to set `state.wpSource.isWpCom` to `true`, so the proper URL is assigned to `state.source.api`.
 
-For example, assuming that your `state.source.url` is `https://my-awesome-site.com`:
+For example, assuming that you have 
 
-- If you are **self-hosting your WordPress
-  installation** or using a third party hosting like WP Engine, Pantheon, etc.,
-  the value of `state.source.api` would be `https://my-awesome-site.com/wp-json`.
-- If you are **on a Free, Personal or Premium [wordpress.com plan](https://wordpress.com/pricing/)** (`state.wpSource.isWpCom = true`) this value of `state.source.api` would be `https://public-api.wordpress.com/wp/v2/sites/my-awesome-site.com`.
+```js
+...
+state: {
+  source: {
+    url: "https://my-awesome-site.com",
+  },
+},
+...
+```
+
+- If you are **self-hosting your WordPress installation** or using a third party hosting like WP Engine, Pantheon, etc., the value of `state.source.api` would be `https://my-awesome-site.com/wp-json`
+
+- If you are **on a Free, Personal or Premium [wordpress.com plan](https://wordpress.com/pricing/)** (and you set `state.wpSource.isWpCom = true`) this value of `state.source.api` would be `https://public-api.wordpress.com/wp/v2/sites/my-awesome-site.com`.
 
 You can also directly set to `state.source.api` the URL of your WordPress REST API endpoint. This will overwrite any computed values got from other properties.
+
+Example:
+
+```javascript
+// frontity.settings.js
+export default {
+  packages: [
+    {
+      name: "@frontity/wp-source",
+      state: {
+        source: {
+          api: "https://test.frontity.org/wp-json"
+        },
+      },
+    },
+  ],
+};
+```
+
+_or for a wordpress.com site..._
+
+```javascript
+// frontity.settings.js
+export default {
+  packages: [
+    {
+      name: "@frontity/wp-source",
+      state: {
+        source: {
+          api: "https://public-api.wordpress.com/wp/v2/sites/frontitytest.wordpress.com",
+        },
+      },
+    },
+  ],
+};
+```
 
 
 #### `state.wpSource.isWpCom`
 
-Boolean value to indicate if the WordPress installation used as the source of data is a wordpress.com site.
+Boolean value to indicate if the WordPress installation used as the source of data is a wordpress.com site (Free,
+Personal or Premium plan).
 
-This setting can usually computed from the value of `state.source.api`.
+However, if your WordPress site is hosted on wordpress.com and you are on Free, Personal or Premium plan, you will need to set this value to `true` 
 
-However, if your WordPress site is hosted on wordpress.com and you are on Free,
-Personal or Premium plan, will you need to set this value to `true` OR set the
-value of [`state.source.api`](####`state.source.api`).
+You don't need to set this value if you directly set the URL of your wordpress.com REST API in [`state.source.api`](####`state.source.api`).
+
+Example:
+
+```javascript
+// frontity.settings.js
+export default {
+  packages: [
+    {
+      name: "@frontity/wp-source",
+      state: {
+        source: {
+          url: "https://frontitytest.wordpress.com",
+        },
+        wpSource: {
+          isWpCom: true,
+        },
+      }
+    },
+  ],
+};
+```
+
+_is equivalent to..._
+
+```javascript
+// frontity.settings.js
+export default {
+  packages: [
+    {
+      name: "@frontity/wp-source",
+      state: {
+        source: {
+          api: "https://public-api.wordpress.com/wp/v2/sites/frontitytest.wordpress.com",
+        },
+      }
+    },
+  ],
+};
+```
 
 #### `state.wpSource.prefix`
 
 By using this property you can specify the prefix of your REST API, for example `"/wp-json"` or `"?rest_route=/"`. The default value is `"/wp-json"`.
 
-This option should only be set if you have changed the path to the REST API
-endpoint in your WordPress installation. If you have not done that or you're not
-sure what it means, you can safely ignore this option.
+This option should only be set if you have changed the path to the REST API endpoint in your WordPress installation. If you have not done that or you're not sure what it means, you can safely ignore this option.
 
 ### Custom paths
 
