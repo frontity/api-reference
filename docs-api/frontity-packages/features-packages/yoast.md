@@ -22,7 +22,10 @@ If you have an earlier version of the Yoast SEO plugin (i.e. < 14.0) installed i
 
 - [Installation](#installation)
 - [Settings](#settings)
+  - [`state.yoast.renderTags`](#state-yoast-rendertags)
+  - [`state.yoast.transformLinks`](#state-yoast-transformlinks)
 - [Usage](#usage)
+  - [Adding the Yoast meta to archive pages](#adding-the-yoast-meta-to-archive-pages)
 - [Video](#video)
 
 <!-- tocstop -->
@@ -97,9 +100,9 @@ The `@frontity/yoast` package also requires two Frontity parameters in order to 
 - `state.frontity.url` : The URL of your site. Usually defined in the `frontity.settings.js` file.
 - `state.source.url` or `state.source.api`: The API where your project is pointing. Defined at [@frontity/wp-source](https://api.frontity.org/frontity-packages/features-packages/wp-source#settings) if you haven't changed your Source.
 
-==================
+### Adding the Yoast meta to archive pages
 
-In order to embed the post types – which are the entities that contain the yoast_meta field for post type archives (i.e. the homepage or the archive of a custom post type) – in the REST API responses, you would need to include some code in your WordPress site similar to the following one:
+As it stands the `@frontity/yoast` package adds the Yoast meta to pages, and to single posts and CPTs. In order to have the Yoast SEO meta on post/CPT archive pages the following PHP code snippet should be added to the WordPress installation. It can be added either in the active theme's `functions.php` file or by using a plugin such as [Code Snippets](https://en-gb.wordpress.org/plugins/code-snippets/).
 
 ```php
 add_action( 'rest_api_init', function () {
@@ -125,7 +128,9 @@ add_action( 'rest_api_init', function () {
 } );
 ```
 
-That code adds the type inside the \_links field of post entities and makes it embeddable so type entities are included when Frontity makes calls to the WordPress REST API.
+This snippet embeds the post types – i.e. the entities that contain the `yoast_meta` field for post/CPT archives – in the REST API responses. It adds the `type` property inside the `\_links` field of post entities when the `?_embed=true` query parameter is used.
+
+> note: Frontity always uses the `?_embed=true` query parameter when making requests to the WP REST API.
 
 ## Video
 
