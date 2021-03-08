@@ -12,7 +12,7 @@ This package is in charge of getting the data from self-hosted WordPress or Word
 
 - [Installation](#installation)
 - [Settings](#settings)
-  - [REST API](#rest-api)
+  - [REST API](#rest-api-settings)
     - [`state.source.url`](#state-source-url)
     - [`state.source.api`](#state-source-api)
     - [`state.wpSource.isWpCom`](#state-wpsource-iswpcom)
@@ -715,12 +715,12 @@ Entities are normally never overwritten. So, if an entity already exists in the 
 **Example**
 
 ```javascript
-const response = await libraries.source.api.get({ endpoint: "posts" })
-const entitiesAdded = await libraries.source.populate({ response, state })
+const response = await libraries.source.api.get({ endpoint: "posts" });
+const entitiesAdded = await libraries.source.populate({ response, state });
 
-entitiesAdded.forEach(({type, id, link}) => {
-  console.log({type, id, link})
-})
+entitiesAdded.forEach(({ type, id, link }) => {
+  console.log({ type, id, link });
+});
 ```
 
 #### `libraries.source.handlers`
