@@ -17,6 +17,7 @@ This package is a collection of React components that have proven to be pretty u
     - [Usage](#usage)
     - [Auto Prefetch](#auto-prefetch)
     - [Custom `` component](#custom-component)
+    - [The `link` processor](#the-link-processor)
   - [Image](#image)
   - [Script](#script)
     - [Props](#props)
