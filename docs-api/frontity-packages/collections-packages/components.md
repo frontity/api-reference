@@ -16,7 +16,7 @@ This package is a collection of React components that have proven to be pretty u
     - [Props](#props)
     - [Usage](#usage)
     - [Auto Prefetch](#auto-prefetch)
-    - [Custom `` component](#custom-component)
+    - [Custom `Link` component](#custom-link-component)
     - [The `link` processor](#the-link-processor)
   - [Image](#image)
   - [Script](#script)
@@ -100,7 +100,7 @@ The possible values for `state.theme.autoPrefetch` are:
 | `in-view` | Prefetch links currently visible in the viewport. |
 | `all`     | Prefetches all internal links on the page.        |
 
-#### Custom `<Link />` component
+#### Custom `Link` component
 
 Using this `<Link />` component is optional. You can create your own `<Link />` component with your own logic.
 
