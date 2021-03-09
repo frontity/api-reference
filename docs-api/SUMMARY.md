@@ -22,6 +22,7 @@
     - [@frontity/yoast](frontity-packages/features-packages/yoast.md)
     - [`analytics` packages](frontity-packages/features-packages/analytics/README.md)
       - [`@frontity/google-analytics`](frontity-packages/features-packages/analytics/google-analytics.md)
+        - [`In progress...`](../)
       - [`@frontity/google-tag-manager-analytics`](frontity-packages/features-packages/analytics/google-tag-manager-analytics.md)
       - [`@frontity/comscore-analytics`](frontity-packages/features-packages/analytics/comscore-analytics.md)
   - [Collections packages](frontity-packages/collections-packages/README.md)
