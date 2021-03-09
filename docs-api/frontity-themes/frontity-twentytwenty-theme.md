@@ -2,6 +2,24 @@
 
 The **Twenty Twenty** default WordPress theme was included in WordPress 5.3 and we ported it over to Frontity so users can use it in a headless setup as well. You can check out its **code** and structure on our [GitHub repository](https://github.com/frontity/frontity/tree/dev/packages/twentytwenty-theme) and find it on [npm](https://www.npmjs.com/package/@frontity/twentytwenty-theme).
 
+<!-- toc -->
+
+- [Features](#features)
+- [Theme Anatomy](#theme-anatomy)
+- [Demo](#demo)
+- [Settings](#settings)
+- [API Reference](#api-reference)
+  - [Actions](#actions)
+    - [actions.theme.openMobileMenu](#actions-theme-openmobilemenu)
+    - [actions.theme.closeMobileMenu](#actions-theme-closemobilemenu)
+    - [actions.theme.openSearchModal](#actions-theme-opensearchmodal)
+    - [actions.theme.closeSearchModal](#actions-theme-closesearchmodal)
+  - [Libraries](#libraries)
+
+<!-- tocstop -->
+
+## Features
+
 These are some of the key features included in this theme:
 
 **Accessibility Ready**
@@ -28,15 +46,89 @@ You can prefetch page for any link to provide an almost instant user experience.
 
 Frontity's theme has the same pagination as the original WordPress theme. This way you can have access to different pages in the footer, and navigate easily between pages.
 
+## Theme Anatomy
+
+A standard installation of `@frontity/twentytwenty-theme` has the following file structure:
+
+```text
+.
+├── CHANGELOG.md
+├── LICENSE
+├── package.json
+├── README.md
+└── src
+   ├── components
+   │  ├── archive
+   │  │  ├── archive-header.js
+   │  │  ├── archive-pagination.js
+   │  │  ├── archive.js
+   │  │  └── index.js
+   │  ├── footer.js
+   │  ├── header.js
+   │  ├── hooks
+   │  │  ├── use-focus-effect.js
+   │  │  └── use-trap-focus.js
+   │  ├── icons.js
+   │  ├── index.js
+   │  ├── link.js
+   │  ├── loading.js
+   │  ├── mobile
+   │  │  ├── menu-button.js
+   │  │  ├── menu-modal.js
+   │  │  └── search-button.js
+   │  ├── navigation
+   │  │  ├── nav-toggle.js
+   │  │  └── navigation.js
+   │  ├── page-error.js
+   │  ├── page-meta-title.js
+   │  ├── post
+   │  │  ├── featured-media.js
+   │  │  ├── index.js
+   │  │  ├── post-categories.js
+   │  │  ├── post-item.js
+   │  │  ├── post-meta-item.js
+   │  │  ├── post-meta.js
+   │  │  ├── post-separator.js
+   │  │  ├── post-tags.js
+   │  │  └── post.js
+   │  ├── search
+   │  │  ├── search-button.js
+   │  │  ├── search-form.js
+   │  │  ├── search-modal.js
+   │  │  └── search-results.js
+   │  └── styles
+   │     ├── button.js
+   │     ├── font-faces.js
+   │     ├── global-styles.js
+   │     ├── input.js
+   │     ├── screen-reader.js
+   │     ├── section-container.js
+   │     └── skip-link.js
+   ├── fonts
+   │  └── inter
+   │     ├── Inter-Bold-LATIN.woff2
+   │     ├── Inter-Bold-US-ASCII.woff2
+   │     ├── Inter-Bold.woff2
+   │     ├── Inter-italic-var.woff2
+   │     ├── Inter-Medium-LATIN.woff2
+   │     ├── Inter-Medium-US-ASCII.woff2
+   │     ├── Inter-Medium.woff2
+   │     ├── Inter-SemiBold-LATIN.woff2
+   │     ├── Inter-SemiBold-US-ASCII.woff2
+   │     ├── Inter-SemiBold.woff2
+   │     └── Inter-upright-var.woff2
+   └── index.js
+```
+
 ## Demo
 
 ![Homepage view in Twenty Twenty Frontity Theme.](../.gitbook/assets/screenshot-homepage-view-twentytwenty-frontity-theme.png)
 
-You can check out all the features in this [**theme demo**](https://twentytwenty.frontity.org/), \_\*\*\_or even in our [Frontity blog](https://blog.frontity.org/).
+You can check out all the features in this [**theme demo**](https://twentytwenty.frontity.org/), or even in our [Frontity blog](https://blog.frontity.org/).
 
 ## Settings
 
-In this theme, apart from changing the colors, you can select other options. You can configured it via the `frontity.settings.js` file. The theme options can be specified in the `state.theme` property.
+In this theme, apart from changing the colors, you can also select other options. You can configure it via the `frontity.settings.js` file. The theme options can be specified in the `state.theme` property.
 
 Here you have an example of a possible configuration \(each setting is explained later in detail\):
 
