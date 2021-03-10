@@ -8,9 +8,8 @@ Basically it's the same as WordPress, just keep working as you usually do.
 
 These are the current themes available for your Frontity project, explained in detail:
 
-- [@frontity/twentytwenty-theme](frontity-twentytwenty-theme.md)
+- [@frontity/twentytwenty-theme](twentytwenty-theme/README.md)
 - [@frontity/mars-theme](frontity-mars-theme.md)
-
 
 ## **Third Party themes**
 
@@ -52,7 +51,6 @@ Copacetic Frontity Theme by Taylor White
 Fourothree Theme by 403Page Labs
 
 - [GitHub repository](https://github.com/403pagelabs/fourothree-theme)
-
 
 You can find all the Frontity themes looking for the tag [`frontity-theme`](https://www.npmjs.com/search?q=keywords:frontity-theme) at npm. In order to make your theme available to the community, we recommend you follow these [best practices](https://docs.frontity.org/guides/how-to-share-a-frontity-project).
 
