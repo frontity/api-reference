@@ -156,7 +156,7 @@ If the `href` attribute of the `<a>` tag is either:
 
 then the processor will convert the the `<a>` tag into a `<Link>` component.
 
-The `<Link>` component created by the processor will be modelled on the `<a>` tag and will have properties consistent with it's attributes - e.g. the `link` property of the `<Link>` component will be the same as the `href` attribute of `<a>` tag being replaced. The processor will also convert absolute links on the same domain to be relative links.
+The `<Link>` component created by the processor will be modelled on the `<a>` tag and will have properties consistent with its attributes - e.g. the `link` property of the `<Link>` component will be the same as the `href` attribute of `<a>` tag being replaced. The processor will also convert absolute links on the same domain to be relative links.
 
 If the `href` attribute of the `<a>` tag is an absolute link on a different domain from the WordPress data source, i.e. it is a link to an external site, then that tag will remain as is and will not be replaced or converted.
 
