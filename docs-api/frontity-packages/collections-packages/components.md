@@ -160,11 +160,7 @@ The `<Link>` component created by the processor will be modelled on the `<a>` ta
 
 If the `href` attribute of the `<a>` tag is an absolute link on a different domain from the WordPress data source, i.e. it is a link to an external site, then that tag will remain as is and will not be replaced or converted.
 
-In order for this to work two conditions must be met:
-
-1. The WordPress data source must be defined using `state.source.url`, it will not work if the data source is defined with the (now deprecated) `state.source.api`. See [here](https://api.frontity.org/frontity-packages/features-packages/wp-source#rest-api-settings) and [here](https://docs.frontity.org/guides/setting-url-wordpress-source-data) for more information on defining your data source URL.
-
-2. The `link` processor must be imported into the theme and included in the list of `html2react` processors. This would normally be done in the root level `index.js` of your theme. See [here](../features-packages/html2reeact.md) and [here](https://docs.frontity.org/learning-frontity/libraries#array-of-processors-from-html-2-react) for more info.
+In order for this to work the `link` processor must be imported into the theme and included in the list of `html2react` processors. This would normally be done in the root level `index.js` of your theme. See [here](../features-packages/html2reeact.md) and [here](https://docs.frontity.org/learning-frontity/libraries#array-of-processors-from-html-2-react) for more info.
 
 ```js
 import link from "@frontity/html2react/processors/link";
