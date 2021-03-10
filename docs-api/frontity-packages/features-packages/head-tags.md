@@ -10,6 +10,10 @@ This package is designed to get automatically all the metadata that the [REST AP
 This package won't work without [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) installed and activated in your WordPress backend, so make sure you have it before using this package.
 {% endhint %}
 
+{% hint style="info" %}
+If you are using Yoast SEO >v14.0 we recommend that you instead use the [@frontity/yoast](./yoast.md) package which does not require an additional plugin to be installed in WordPress.
+{% endhint %}
+
 ## Table of Contents
 
 <!-- toc -->
