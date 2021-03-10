@@ -32,13 +32,13 @@ This package is designed to get automatically all the data that the [REST API He
 
 This package enables Frontity to integrate with Google Ad Manager.
 
-- [`@frontity/google-ad-manager`](features-packages/google-ad-manager.md)
+- [`@frontity/google-ad-manager`](google-ad-manager.md)
 
 #### Yoast package
 
 This package is designed to automatically get and render all the tags that the [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/) plugin for WordPress exposes in the REST API. It works with Yoast SEO version 14.0 or greater.
 
-- [`@frontity/yoast`](features-packages/yoast.md)
+- [`@frontity/yoast`](yoast.md)
 
 #### Analytics packages
 
