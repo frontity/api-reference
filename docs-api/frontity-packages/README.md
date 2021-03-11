@@ -57,9 +57,21 @@ This package is in charge of converting HTML to React
 
 #### SEO package
 
-This package is designed to get automatically all the data that the REST API Head Tags plugin exposes in the REST API
+This package is designed to get automatically all the data that the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/)n exposes in the REST API
 
 - [`@frontity/head-tags`](features-packages/head-tags.md)
+
+#### Google Ad Manager package
+
+This package enables Frontity to integrate with Google Ad Manager.
+
+- [`@frontity/google-ad-manager`](features-packages/google-ad-manager.md)
+
+#### Yoast package
+
+This package is designed to automatically get and render all the tags that the [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/) plugin for WordPress exposes in the REST API. It works with Yoast SEO version 14.0 or greater.
+
+- [`@frontity/yoast`](features-packages/yoast.md)
 
 #### Analytics packages
 
