@@ -13,9 +13,9 @@ The [`frontity serve`](../run-commands/serve.md) command will use the files gene
 ### **`[options]`**
 
 |                      Option                      | Description                                                                                                                                                                                                |
-| :----------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :----------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |    [`--development`](#the-development-option)    | Builds the project for development. Related environment variable: [`FRONTITY_BUILD_DEVELOPMENT`](#frontity_build_development)                                                                              |
-|               `--target <target>`                | Create bundles with "es5", "module" or "both". Default target is "both". Related environment variable: [`FRONTITY_BUILD_TARGET`](#frontity_build_target)                                                   |
+|    [`--target <target>`](#the-target-option)     | Builds the project                                                                                                                                                                                         | Create bundles with "es5", "module" or "both". Default target is "both". Related environment variable: [`FRONTITY_BUILD_TARGET`](#frontity_build_target) |
 | [`--publicPath <path>`](#the-public-path-option) | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is "/static/". Related environment variable: [`FRONTITY_BUILD_PUBLIC_PATH`](#frontity_build_public_path) |
 |                     `--help`                     | Output usage information                                                                                                                                                                                   |
 
@@ -38,6 +38,37 @@ npx frontity build --development
 ```
 
 So, it’s basically the same as just running `frontity dev` except that it will only build the project `once` and will **not run the development server**.
+
+### The `--target` option
+
+The target option allows to decide what features will be transpiled with babel.
+
+With `--target es5`, the support of the following browsers as the minimum is:
+
+```
+es5: {
+    browsers: [
+      "and_chr >= 67",
+      "and_ff >= 18",
+      "and_uc >= 11.8",
+      "android >= 67",
+      "not android <= 4.4.4",
+      "chrome >= 49",
+      "edge >= 12",
+      "firefox >= 18",
+      "ios_saf >= 10",
+      "not op_mini all",
+      "op_mob >= 46",
+      "opera >= 36",
+      "safari >= 10",
+      "samsung >= 5",
+    ],
+  },
+```
+
+So, Frontity **don't** transpile any features that those browsers already support. In particular Frontity aim to support only the browsers that ship with the [built-in `Proxy` object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) . This list comes from [here](https://github.com/frontity/frontity/blob/107d3543ce5463186809b7e6f50ca31ffbdc107d/packages/core/src/config/babel/index.ts#L20-L37) and it is [used by the @babel/preset-env](https://babeljs.io/docs/en/babel-preset-env#targets) to determine how to transpile the files.
+
+With `--target module`, Frontity tell babel to [only support the browsers that support ESModules](https://babeljs.io/docs/en/babel-preset-env#targetsesmodules)
 
 ### The `--public-path` option
 
