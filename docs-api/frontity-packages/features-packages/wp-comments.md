@@ -46,48 +46,6 @@ export default {
 };
 ```
 
-More info about how to use this package can be found in the [Feature Discussion](https://community.frontity.org/t/wordpress-comments-package/1267).
-
----
-
-# @frontity/google-ad-manager
-
-This package enables Frontity to integrate with Google Ad Manager. It allows you to add ads as **fills** in `frontity.settings.js` so that they will appear in a specific **slot** defined in your theme. (see [Slot and Fill](../core-package/frontity.md#slot))
-
-## Table of Contents
-
-<!-- toc -->
-
-- [Installation](#installation)
-- [Settings](#settings)
-  - [Object properties](#object-properties)
-    - [The `props` property](#the-props-property)
-- [Examples](#examples)
-- [Usage](#usage)
-  - [Using the `Slot & Fill` pattern](#using-the-slot-fill-pattern)
-  - [Using the Ad component directly](#using-the-ad-component-directly)
-- [Video](#video)
-
-<!-- tocstop -->
-
-## Installation
-
-Add the `google-ad-manager` package to your project:
-
-```bash
-npm i @frontity/google-ad-manager
-```
-
-## Settings
-
-This package can be included in your `frontity.settings.js` file as one of the packages that will be part of your Frontity project.
-
-The [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package is **`googleAdManager`**. The object should be added to `state.fills`.
-
-# Final implementation
-
-This was implemented in two different PRs ([#495](https://github.com/frontity/frontity/pull/495) and [#521](https://github.com/frontity/frontity/pull/521)) and included these things:
-
 ### Comments handler
 
 This is a `wp-source` handler for fetching comments from a specific post using its ID. For example, to fetch all comments that belong to the post with ID 60 you would do:
