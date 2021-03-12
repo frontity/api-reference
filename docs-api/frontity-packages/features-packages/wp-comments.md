@@ -127,7 +127,7 @@ The following map of fields, representing the current field values that have bee
 
 The validation errors returned from WordPress REST API are stored in the state in `state.comments.forms[].errors`. Each field sent as part of the comments object will have its related property under the `state.comments.forms[].errors` object if there's an error related to that field.
 
-Full list of fields that may be under this object can be seen at [The _fields_ of a comment](#)
+Full list of fields that may be under this object can be seen at [The _fields_ of a comment](#the-fields-of-a-commentthe-fields-of-a-comment)
 
 ### Actions
 
@@ -145,10 +145,10 @@ If no fields are specified, the form fields are emptied.
 
 ##### Arguments
 
-| Name           | Type   | Required | Description                                                                                                                                            |
-| -------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                                |
-| _`comment`_    | object | no       | Object representings the fields of the comment to be updated. Full list of fields that can be send under this object at [The _fields_ of a comment](#) |
+| Name           | Type   | Required | Description                                                                                                                                                                                          |
+| -------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                                                                              |
+| _`comment`_    | object | no       | Object representings the fields of the comment to be updated. Full list of fields that can be send under this object at [The _fields_ of a comment](#the-fields-of-a-commentthe-fields-of-a-comment) |
 
 ```js
 actions.comments.updateFields(60, {
@@ -172,10 +172,10 @@ Take into account this action does not validate input. That means requests are m
 
 ##### Arguments
 
-| Name           | Type   | Required | Description                                                                                                                |
-| -------------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------- |
-| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                    |
-| _`comment`_    | object | no       | Object representings the comment. Full list of fields that can be send under this object at [The _fields_ of a comment](#) |
+| Name           | Type   | Required | Description                                                                                                                                       |
+| -------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                           |
+| _`comment`_    | object | no       | Object representings the comment. Full list of fields that can be send under this object at [The _fields_ of a comment](#the-fields-of-a-comment) |
 
 ```js
 // Submit the comment to the post with ID 60
