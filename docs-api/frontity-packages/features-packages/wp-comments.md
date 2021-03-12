@@ -108,8 +108,6 @@ The `wp-comments` package stores in `state.comments.forms` a map of objects by p
 | `errorStatusCode` | number                                                                                                                          | The HTTP status code that might have been received from the WordPress REST API.                                 |
 | **`errors`**      | [object](https://github.com/frontity/frontity/blob/c61fbe2d240fea3b7c4d9835beac3f0159e2ee24/packages/wp-comments/types.ts#L223) | The validation errors that can be returned by the WordPress REST API.                                           |
 
-☝️ TO-DO: Add example `state.comments.forms`
-
 ##### `state.comments.forms[].fields`
 
 The following map of fields, representing the current field values that have been input in the form rendered in the given post. The content of this property is updated using the **`updateFields()`** action described later.
@@ -124,8 +122,6 @@ The following map of fields, representing the current field values that have bee
 | `authorEmail` | string | no       | Author's email.                                                |
 | `authorURL`   | string | no       | URL of the author's site.                                      |
 | `parent`      | number | no       | ID of the comment to which this one responds. Default Value: 0 |
-
-☝️ TO-DO: Add example `state.comments.forms[].fields`
 
 ##### `state.comments.forms[].errors`
 
