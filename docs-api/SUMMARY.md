@@ -24,6 +24,7 @@
       - [`@frontity/google-analytics`](frontity-packages/features-packages/analytics/google-analytics.md)
       - [`@frontity/google-tag-manager-analytics`](frontity-packages/features-packages/analytics/google-tag-manager-analytics.md)
       - [`@frontity/comscore-analytics`](frontity-packages/features-packages/analytics/comscore-analytics.md)
+    - [@frontity/wp-comments](frontity-packages/features-packages/wp-comments.md)
   - [Collections packages](frontity-packages/collections-packages/README.md)
     - [@frontity/components](frontity-packages/collections-packages/components.md)
     - [@frontity/hooks](frontity-packages/collections-packages/hooks.md)

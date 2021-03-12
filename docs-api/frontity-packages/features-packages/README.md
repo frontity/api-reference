@@ -47,3 +47,9 @@ A set of official Analytics Frontity packages that you can use to easily add ana
 - [`@frontity/google-analytics`](analytics/google-analytics.md)
 - [`@frontity/google-tag-manager-analytics`](analytics/google-tag-manager-analytics.md)
 - [`@frontity/comscore-analytics`](analytics/comscore-analytics.md)
+
+#### Comments packages
+
+Comments package that adds integration for WordPress native comments.
+
+- [`@frontity/wp-comments`](features-packages/wp-comments.md)
