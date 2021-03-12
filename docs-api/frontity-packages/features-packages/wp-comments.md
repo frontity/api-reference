@@ -8,6 +8,20 @@ Comments package that adds integration for WordPress native comments.
 
 <!-- toc -->
 
+- [Installation](#installation)
+- [Settings](#settings)
+  - [In WordPress](#in-wordpress)
+  - [In Frontity](#in-frontity)
+- [API Reference](#api-reference)
+  - [Handlers](#handlers)
+    - [`@comments/:id`](#commentsid)
+  - [State](#state)
+    - [`state.comments.forms[]`](#state-comments-forms)
+  - [Actions](#actions)
+    - [`actions.comments.updateFields()`](#actions-comments-updatefields)
+    - [`actions.comments.submit()`](#actions-comments-submit)
+- [Demo](#demo)
+
 <!-- tocstop -->
 
 ## Installation
@@ -121,7 +135,7 @@ Full list of fields that may be under this object can be seen at [The _fields_ o
 
 ### Actions
 
-### `actions.comments.updateFields()`
+#### `actions.comments.updateFields()`
 
 Update the fields of the form specified by `postId`. This action simply updates what is stored in `state.comments.form[postId].fields` with the given values.
 
@@ -146,7 +160,7 @@ actions.comments.updateFields(60, {
 });
 ```
 
-### `actions.comments.submit()`
+#### `actions.comments.submit()`
 
 This _asynchronous_ action publishes a new comment to the post specified by `postId`. It submits the fields stored in the respective form (i.e. `state.comments.form[postId]`) or the fields passed as a second argument. If fields are passed, those replace the current values stored in `state.comments.form[postId].fields`.
 
