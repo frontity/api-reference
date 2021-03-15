@@ -41,10 +41,10 @@ import Image from "@frontity/components/image";
 
 ### Link
 
-`<Link />` is a React component that you can use in your Frontity project to define links that works with the internal routing system.
+`<Link />` is a React component that you can use in your Frontity project to define links that works with the internal routing system. Under the hood, this component uses the `actions.router.set(link)` method from `@frontity/tiny-router` and creates an `<a/>` tag.
 
 {% hint style="info" %}
-Under the hood, this component uses the `actions.router.set(link)` method from `@frontity/tiny-router` and creates an `<a/>` tag.
+This component requires having `state.source.url` properly configured. Have a look at the guide [Setting the URL of the WordPress data source](https://docs.frontity.org/guides/setting-url-wordpress-source-data) to learn more about this
 {% endhint %}
 
 #### Props
@@ -176,6 +176,10 @@ libraries: {
     processors: [link],
   },
 ```
+
+{% hint style="info" %}
+This `link` processor needs to be added to any theme that wants to uses this Client-side navigation for embedded links in the content
+{% endhint %}
 
 ### Image
 
