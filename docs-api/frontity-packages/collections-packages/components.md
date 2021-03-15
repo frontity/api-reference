@@ -41,7 +41,11 @@ import Image from "@frontity/components/image";
 
 ### Link
 
-`<Link />` is a React component that you can use in your Frontity project to define links that works with the internal routing system. \* Under the hood, this component uses the `actions.router.set(link)` method from `@frontity/tiny-router` and creates an `<a/>` tag.
+`<Link />` is a React component that you can use in your Frontity project to define links that works with the internal routing system.
+
+{% hint style="info" %}
+Under the hood, this component uses the `actions.router.set(link)` method from `@frontity/tiny-router` and creates an `<a/>` tag.
+{% endhint %}
 
 #### Props
 
