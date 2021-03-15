@@ -129,13 +129,13 @@ The validation errors returned from WordPress REST API are stored in the state i
 
 Full list of fields that may be under this object can be seen at [The _fields_ of a comment](#the-fields-of-a-commentthe-fields-of-a-comment)
 
-#### `state.source.commnent`
+#### `state.source.comment`
 
 This is the portion of the state where the comments are stored after being fetched from the REST API or POSTed through the `comments.submit()` action
 
 Thanks to the handler `@comments/:id` you can get the [ID's of the comments](https://github.com/frontity/frontity/blob/2eb98ae4e6fee1f93ac5af5c834a3add644ba7b0/packages/wp-comments/types.ts#L158) in a specific post.
 
-With this list of ID's you can get the details for each one at `state.source.commnent[id]`
+With this list of ID's you can get the details for each one at `state.source.comment[id]`
 
 _Example_
 
