@@ -42,7 +42,7 @@ In order to use this package, you will need to add a single line of configuratio
 add_filter( 'rest_allow_anonymous_comments', '__return_true' );
 ```
 
-YYou can add that directly in your theme's `functions.php` file or use a [Code Snippets](https://wordpress.org/plugins/code-snippets/) plugin.
+You can add that directly in your theme's `functions.php` file or use a [Code Snippets](https://wordpress.org/plugins/code-snippets/) plugin.
 
 ### In Frontity
 
