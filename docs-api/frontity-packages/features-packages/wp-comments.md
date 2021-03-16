@@ -46,7 +46,7 @@ You can add that directly in your `theme.php` file or use a [Code Snippets](http
 
 ### In Frontity
 
-This package doesn't have any configuration. It just need to be added in the `frontity.settings.js` to the `packages` array.
+This package doesn't have any configuration. It just needs to be added in the `frontity.settings.js` to the `packages` array.
 
 **`frontity.settings.js`**
 
@@ -64,7 +64,7 @@ export default {
 
 This is a `wp-source` handler for fetching comments from a specific post using its ID. For example, to fetch all comments that belong to the post with ID 60 you would do:
 
-```
+```js
 await actions.source.fetch("@comments/60");
 ```
 
@@ -80,7 +80,8 @@ const Comments = connect(({ postId, state }) => {
   // Utility to render comments and replies recursively.
   const renderComments = (items) =>
     items.map(({ id, children }) => (
-      <Comment id={id}>
+      // You should define your own <Comment/> component!
+      <Comment key={id}>
         {/* Render replies */}
         {children && renderComments(children)}
       </Comment>
@@ -95,7 +96,10 @@ const Comments = connect(({ postId, state }) => {
 
 #### `state.comments.forms[]`
 
-The `wp-comments` package stores in `state.comments.forms` a map of objects by post ID, representing each one a comment form. These objects are intended to be used as the state of React `<form>` components and contain the input values as well as the submission status. They have the following properties:
+The `wp-comments` package stores in `state.comments.forms` a map of objects by
+post ID, each representing one comment form. These objects are intended
+to be used as the state of React `<form>` components and contain the input
+values as well as the submission status. They have the following properties:
 
 | Name              | Type                                                                                                                            | Description                                                                                                     |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -112,7 +116,7 @@ The `wp-comments` package stores in `state.comments.forms` a map of objects by p
 
 The following map of fields, representing the current field values that have been input in the form rendered in the given post. The content of this property is updated using the **`updateFields()`** action described later.
 
-###### The _fields_ of a comment
+###### The fields of a comment
 
 | Name          | Type   | Required | Description                                                    |
 | ------------- | ------ | -------- | -------------------------------------------------------------- |
@@ -127,7 +131,7 @@ The following map of fields, representing the current field values that have bee
 
 The validation errors returned from WordPress REST API are stored in the state in `state.comments.forms[].errors`. Each field sent as part of the comments object will have its related property under the `state.comments.forms[].errors` object if there's an error related to that field.
 
-Full list of fields that may be under this object can be seen at [The _fields_ of a comment](#the-fields-of-a-commentthe-fields-of-a-comment)
+Full list of fields that may be under this object is shown in [the fields of a comment](#the-fields-of-a-comment)
 
 #### `state.source.comment`
 
@@ -166,15 +170,15 @@ If no fields are specified, the form fields are emptied.
 ##### Syntax
 
 ```typescript
-(postId: number, comment: object) => Promise`
+(postId: number, comment: object) => Promise;
 ```
 
 ##### Arguments
 
-| Name           | Type   | Required | Description                                                                                                                                                                                          |
-| -------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                                                                              |
-| _`comment`_    | object | no       | Object representings the fields of the comment to be updated. Full list of fields that can be send under this object at [The _fields_ of a comment](#the-fields-of-a-commentthe-fields-of-a-comment) |
+| Name           | Type   | Required | Description                                                                                                                                                                            |
+| -------------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                                                                |
+| _`comment`_    | object | no       | Object representing the fields of the comment to be updated. Full list of fields that can be sent under this object can be seen in [the fields of a comment](#the-fields-of-a-comment) |
 
 ```js
 actions.comments.updateFields(60, {
@@ -184,24 +188,24 @@ actions.comments.updateFields(60, {
 
 #### `actions.comments.submit()`
 
-This _asynchronous_ action publishes a new comment to the post specified by `postId`. It submits the fields stored in the respective form (i.e. `state.comments.form[postId]`) or the fields passed as a second argument. If fields are passed, those replace the current values stored in `state.comments.form[postId].fields`.
+This _asynchronous_ action publishes a new comment for the post specified by `postId`. It submits the fields stored in the respective form (i.e. `state.comments.form[postId]`) or the fields passed as a second argument. If fields are passed, those replace the current values stored in `state.comments.form[postId].fields`.
 
 After calling this action, you can access `state.comments.forms[postId].isSubmitted` property(described above) to know the submission status.
 
-Take into account this action does not validate input. That means requests are made even though some fields are empty or have invalid values. If that is the case, WordPress would return an error message and populate the error status accordingly.
+Take into account this action does not validate input. That means requests are made even though some fields are empty or have invalid values. If that is the case, WordPress will return an error message and populate the error status accordingly.
 
 ##### Syntax
 
 ```typescript
-(postId: number, comment: object) => Promise`
+(postId: number, comment: object) => Promise;
 ```
 
 ##### Arguments
 
-| Name           | Type   | Required | Description                                                                                                                                       |
-| -------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                           |
-| _`comment`_    | object | no       | Object representings the comment. Full list of fields that can be send under this object at [The _fields_ of a comment](#the-fields-of-a-comment) |
+| Name           | Type   | Required | Description                                                                                                                                    |
+| -------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                        |
+| _`comment`_    | object | no       | Object representing the comment. Full list of fields that can be sent under this object at [the fields of a comment](#the-fields-of-a-comment) |
 
 ```js
 // Submit the comment to the post with ID 60
@@ -209,7 +213,7 @@ Take into account this action does not validate input. That means requests are m
 await actions.comments.submit(60);
 
 // Submit the comment to the post with ID 60
-// using the values passed in the second argument.
+// using the values passed as the second argument.
 await actions.comments.submit(60, {
   content: "This is a comment example. Hi!",
   authorName: "Frontibotito",
@@ -223,4 +227,4 @@ This short video demonstrates the usage of the `@frontity/wp-comments` package.
 
 {% embed url="https://www.youtube.com/watch?v=pG1532lStI8&t=7s" caption="" %}
 
-The project used in the video is avialable [here](https://github.com/frontity-demos/frontity-examples/blob/master/wp-comments/README.md)
+The project used in the video is available [here](https://github.com/frontity-demos/frontity-examples/blob/master/wp-comments/README.md)
