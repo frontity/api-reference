@@ -127,7 +127,7 @@ The following map of fields, representing the current field values that have bee
 
 The validation errors returned from WordPress REST API are stored in the state in `state.comments.forms[].errors`. Each field sent as part of the comments object will have its related property under the `state.comments.forms[].errors` object if there's an error related to that field.
 
-Full list of fields that may be under this object can be seen at [The _fields_ of a comment](#the-fields-of-a-commentthe-fields-of-a-comment)
+Full list of fields that may be under this object can be seen at [The _fields_ of a comment](#the-fields-of-a-comment).
 
 #### `state.source.comment`
 
