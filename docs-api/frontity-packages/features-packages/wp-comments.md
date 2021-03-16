@@ -42,11 +42,11 @@ In order to use this package, you will need to add a single line of configuratio
 add_filter( 'rest_allow_anonymous_comments', '__return_true' );
 ```
 
-You can add that directly in your `theme.php` file or use a [Code Snippets](https://wordpress.org/plugins/code-snippets/) plugin.
+YYou can add that directly in your theme's `functions.php` file or use a [Code Snippets](https://wordpress.org/plugins/code-snippets/) plugin.
 
 ### In Frontity
 
-This package doesn't have any configuration. It just need to be added in the `frontity.settings.js` to the `packages` array.
+This package doesn't have any configuration. It just needs to be added to the `packages` array in `frontity.settings.js`.
 
 **`frontity.settings.js`**
 
@@ -68,7 +68,7 @@ This is a `wp-source` handler for fetching comments from a specific post using i
 await actions.source.fetch("@comments/60");
 ```
 
-This would fetch all comments published in that post and populate a data object inside `state.source.data` with a tree structure of comments and replies, sorted by date (most recent first).
+This would fetch all comments associated with that post and populate a data object inside `state.source.data` with a tree structure of comments and replies, sorted by date (most recent first).
 
 To access the fetched comments you could use something similar to this example:
 
@@ -153,7 +153,7 @@ data.items
   .forEach(console.log);
 ```
 
-Check a fully working example of [this](https://github.com/frontity-demos/frontity-examples/blob/master/wp-comments/packages/mars-theme/src/components/comments/comments-list.js) in [this `wp-comments` demo](https://github.com/frontity-demos/frontity-examples/tree/master/wp-comments)
+Check a fully working example of [this](https://github.com/frontity-demos/frontity-examples/blob/master/wp-comments/packages/mars-theme/src/components/comments/comments-list.js) in [this `wp-comments` demo](https://github.com/frontity-demos/frontity-examples/tree/master/wp-comments).
 
 ### Actions
 
@@ -171,10 +171,10 @@ If no fields are specified, the form fields are emptied.
 
 ##### Arguments
 
-| Name           | Type   | Required | Description                                                                                                                                                                                          |
-| -------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                                                                              |
-| _`comment`_    | object | no       | Object representings the fields of the comment to be updated. Full list of fields that can be send under this object at [The _fields_ of a comment](#the-fields-of-a-commentthe-fields-of-a-comment) |
+| Name           | Type   | Required | Description                                                                                                                                                                                                       |
+| -------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                                                                                           |
+| _`comment`_    | object | no       | Object representing the fields of the comment to be updated. A full list of the fields that can be sent as part of this object can be seen in the table at [The _fields_ of a comment](#the-fields-of-a-comment). |
 
 ```js
 actions.comments.updateFields(60, {
@@ -198,10 +198,10 @@ Take into account this action does not validate input. That means requests are m
 
 ##### Arguments
 
-| Name           | Type   | Required | Description                                                                                                                                       |
-| -------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                           |
-| _`comment`_    | object | no       | Object representings the comment. Full list of fields that can be send under this object at [The _fields_ of a comment](#the-fields-of-a-comment) |
+| Name           | Type   | Required | Description                                                                                                                                                                          |
+| -------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                                                              |
+| _`comment`_    | object | no       | Object representing the comment. A full list of the fields that can be sent as part of this object can be seen in the table at [The _fields_ of a comment](#the-fields-of-a-comment) |
 
 ```js
 // Submit the comment to the post with ID 60
