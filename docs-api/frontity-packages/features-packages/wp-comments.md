@@ -42,7 +42,9 @@ In order to use this package, you will need to add a single line of configuratio
 add_filter( 'rest_allow_anonymous_comments', '__return_true' );
 ```
 
-You can add that directly in your theme's `functions.php` file or use a [Code Snippets](https://wordpress.org/plugins/code-snippets/) plugin.
+[This filter](https://developer.wordpress.org/reference/hooks/rest_allow_anonymous_comments/) enables creating comments for anonymous users via the REST API.
+
+You can add this that directly in your theme's `functions.php` file or use a [Code Snippets](https://wordpress.org/plugins/code-snippets/) plugin.
 
 ### In Frontity
 
@@ -56,13 +58,39 @@ export default {
 };
 ```
 
+## Usage
+
+### Getting comments of a post
+
+We can use the `@comments/:id` handler to fetch all the comments of a specific post. This data will be populated to the state so then we can do `state.source.get("@comments/60");` to get the ID's of these comments. With each ID we can get the details from the state at `state.source.comment[id]`
+
+{% hint style="info" %}
+Have a look at the "Getting Comments via the handler`@comments/:id`" diagram available in [excalidraw](https://excalidraw.com/#json=6390859801034752,s447JzLAC0AdHzSAiNeUOg)
+{% endhint %}
+
+### Sending new comments for a post
+
+Every post with a comments form (to send comments) will use the `state.comments.forms[postId]` to store the data of the comment and the possible errors got when submitting the comments
+
+The data at `state.comments.forms[postId]` can be updated through the action `actions.comments.updateFields()`
+
+To send new comments you can use the action `actions.comments.submit()` which will send the data available at `state.comments.forms[postId].fields`
+
+The submission status will be stored under under `state.comments.forms[postId]` and if there are errors they will be available at the properties `errorMessage`, `errorCode` and `errorStatusCode`
+
+{% hint style="info" %}
+Have a look at the "Sending new Comments via a React form" diagram available in [excalidraw](https://excalidraw.com/#json=6390859801034752,s447JzLAC0AdHzSAiNeUOg)
+{% endhint %}
+
 ## API Reference
 
 ### Handlers
 
 #### `@comments/:id`
 
-This is a `wp-source` handler for fetching comments from a specific post using its ID. For example, to fetch all comments that belong to the post with ID 60 you would do:
+This [`wp-source`](https://api.frontity.org/frontity-packages/features-packages/wp-source) handler gets all comments published in the specified post (using its ID) and creates a tree structure with comments and their replies in the data object.
+
+For example, to fetch all comments that belong to the post with ID 60 you would do:
 
 ```js
 await actions.source.fetch("@comments/60");
@@ -101,16 +129,15 @@ post ID, each representing one comment form. These objects are intended
 to be used as the state of React `<form>` components and contain the input
 values as well as the submission status. They have the following properties:
 
-| Name              | Type                                                                                                                            | Description                                                                                                     |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| **`fields`**      | [object](https://github.com/frontity/frontity/blob/c61fbe2d240fea3b7c4d9835beac3f0159e2ee24/packages/wp-comments/types.ts#L223) | Form fields with their values.                                                                                  |
-| `isSubmitting`    | boolean                                                                                                                         | The comment hasn't been received by WP yet.                                                                     |
-| `isSubmitted`     | boolean                                                                                                                         | The comment has been received.                                                                                  |
-| ` isError`        | boolean                                                                                                                         | The request has failed.                                                                                         |
-| `errorMessage`    | string                                                                                                                          | Failure reason.                                                                                                 |
-| `errorCode`       | string                                                                                                                          | The error code. Those are defined internally in the WordPress REST API. Example: `rest_comment_invalid_post_id` |
-| `errorStatusCode` | number                                                                                                                          | The HTTP status code that might have been received from the WordPress REST API.                                 |
-| **`errors`**      | [object](https://github.com/frontity/frontity/blob/c61fbe2d240fea3b7c4d9835beac3f0159e2ee24/packages/wp-comments/types.ts#L223) | The validation errors that can be returned by the WordPress REST API.                                           |
+| Name              | Type                               | Description                                                                                                     |
+| ----------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **`fields`**      | [object](#the-fields-of-a-comment) | Form fields with their values.                                                                                  |
+| `isSubmitting`    | boolean                            | The comment hasn't been received by WP yet.                                                                     |
+| `isSubmitted`     | boolean                            | The comment has been received.                                                                                  |
+| ` isError`        | boolean                            | The request has failed.                                                                                         |
+| `errorMessage`    | string                             | Failure reason.                                                                                                 |
+| `errorCode`       | string                             | The error code. Those are defined internally in the WordPress REST API. Example: `rest_comment_invalid_post_id` |
+| `errorStatusCode` | number                             | The HTTP status code that might have been received from the WordPress REST API.                                 |
 
 ##### `state.comments.forms[].fields`
 
@@ -127,13 +154,7 @@ The following map of fields, representing the current field values that have bee
 | `authorURL`   | string | no       | URL of the author's site.                                      |
 | `parent`      | number | no       | ID of the comment to which this one responds. Default Value: 0 |
 
-##### `state.comments.forms[].errors`
-
-The validation errors returned from WordPress REST API are stored in the state in `state.comments.forms[].errors`. Each field sent as part of the comments object will have its related property under the `state.comments.forms[].errors` object if there's an error related to that field.
-
-Full list of fields that may be under this object can be seen at [The _fields_ of a comment](#the-fields-of-a-comment).
-
-#### `state.source.comment`
+#### `state.source.comment[id]`
 
 This is the portion of the state where the comments are stored after being fetched from the REST API or POSTed through the `comments.submit()` action
 
@@ -163,9 +184,11 @@ Check a fully working example of [this](https://github.com/frontity-demos/fronti
 
 #### `actions.comments.updateFields()`
 
-Update the fields of the form specified by `postId`. This action simply updates what is stored in `state.comments.form[postId].fields` with the given values.
+Update the fields of the form specified by `postId`. This action simply updates what is stored in `state.comments.forms[postId].fields` with the given values.
 
 If no fields are specified, the form fields are emptied.
+
+These fields will be used by `actions.comments.submit()` when submitting the comment
 
 ##### Syntax
 
@@ -188,7 +211,7 @@ actions.comments.updateFields(60, {
 
 #### `actions.comments.submit()`
 
-This _asynchronous_ action publishes a new comment for the post specified by `postId`. It submits the fields stored in the respective form (i.e. `state.comments.form[postId]`) or the fields passed as a second argument. If fields are passed, those replace the current values stored in `state.comments.form[postId].fields`.
+This _asynchronous_ action publishes a new comment for the post specified by `postId`. It submits the fields stored in the respective form (i.e. `state.comments.forms[postId]`) or the fields passed as a second argument. If fields are passed, those replace the current values stored in `state.comments.forms[postId].fields`.
 
 After calling this action, you can access `state.comments.forms[postId].isSubmitted` property(described above) to know the submission status.
 
