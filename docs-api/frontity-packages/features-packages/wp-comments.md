@@ -12,11 +12,15 @@ Comments package that adds integration for WordPress native comments.
 - [Settings](#settings)
   - [In WordPress](#in-wordpress)
   - [In Frontity](#in-frontity)
+- [Usage](#usage)
+  - [Getting comments of a post](#getting-comments-of-a-post)
+  - [Sending new comments for a post](#sending-new-comments-for-a-post)
 - [API Reference](#api-reference)
   - [Handlers](#handlers)
     - [`@comments/:id`](#commentsid)
   - [State](#state)
     - [`state.comments.forms[]`](#state-comments-forms)
+    - [`state.source.comment[id]`](#state-source-comment-id)
   - [Actions](#actions)
     - [`actions.comments.updateFields()`](#actions-comments-updatefields)
     - [`actions.comments.submit()`](#actions-comments-submit)
@@ -65,7 +69,7 @@ export default {
 We can use the `@comments/:id` handler to fetch all the comments of a specific post. This data will be populated to the state so then we can do `state.source.get("@comments/60");` to get the ID's of these comments. With each ID we can get the details from the state at `state.source.comment[id]`
 
 {% hint style="info" %}
-Have a look at the "Getting Comments via the handler`@comments/:id`" diagram available in [excalidraw](https://excalidraw.com/#json=6390859801034752,s447JzLAC0AdHzSAiNeUOg)
+Have a look at the "Getting Comments via the handler`@comments/:id`" diagram available in [excalidraw](https://excalidraw.com/#json=6013823009947648,zf2eqSbwJ0JHMCqHSx6_Fw)
 {% endhint %}
 
 ### Sending new comments for a post
@@ -79,7 +83,7 @@ To send new comments you can use the action `actions.comments.submit()` which wi
 The submission status will be stored under under `state.comments.forms[postId]` and if there are errors they will be available at the properties `errorMessage`, `errorCode` and `errorStatusCode`
 
 {% hint style="info" %}
-Have a look at the "Sending new Comments via a React form" diagram available in [excalidraw](https://excalidraw.com/#json=6390859801034752,s447JzLAC0AdHzSAiNeUOg)
+Have a look at the "Sending new Comments via a React form" diagram available in [excalidraw](https://excalidraw.com/#json=6013823009947648,zf2eqSbwJ0JHMCqHSx6_Fw)
 {% endhint %}
 
 ## API Reference
