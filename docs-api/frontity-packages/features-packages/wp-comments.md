@@ -66,24 +66,107 @@ export default {
 
 ### Getting comments of a post
 
-We can use the `@comments/:id` handler to fetch all the comments of a specific post (`actions.source.fetch("@comments/60")`). This data will be populated to the state so then we can do `state.source.get("@comments/60")` to get the ID's of these comments. With each ID we can get the details from the state at `state.source.comment[id]`
+We can use the `@comments/:id` handler to fetch all the comments of a specific post (`actions.source.fetch("@comments/60")`).
+
+This data will be populated to the state so then we can do `state.source.get("@comments/60")` to get the ID's of these comments.
+
+```js
+>> frontity.state.source.get("@comments/60/")
+{
+  "isFetching": false,
+  "isReady": true,
+  "link": "@comments/60/",
+  "route": "@comments/60/",
+  "query": {},
+  "page": 1,
+  "postId": 60,
+  "items": [
+    {
+      "type": "comment",
+      "id": 285
+    },
+    ...,
+
+    {
+      "type": "comment",
+      "id": 274,
+      "children": [
+        {
+          "type": "comment",
+          "id": 276
+        }
+      ]
+    },
+  ...
+  ],
+  "total": 32,
+  "totalPages": 1,
+  "type": "comments",
+  "isComments": true
+}
+```
+
+With each ID we can get the details from the state at `state.source.comment[id]`
+
+```js
+>> frontity.state.source.comment[285]
+{
+  "id": 285,
+  "parent": 0,
+  "author": 0,
+  "author_name": "mario",
+  "author_url": "",
+  "date": "2020-07-31T11:30:25",
+  "content": {
+    "rendered": "<p>Let&#8217;s see it</p>\n"
+  },
+  "link": "/2016/the-beauties-of-gullfoss/comment-page-5/#comment-285",
+  "type": "comment",
+  "author_avatar_urls": {...},
+  ...
+  }
+}"
+```
+
+![](../../.gitbook/assets/handler-comments-id.png)
 
 {% hint style="info" %}
-Have a look at the [**"Getting Comments via the handler`@comments/:id`"** diagram](https://excalidraw.com/#json=5946337115766784,uDV5oMBePTHTX8ppRwDt5g) to learn more about this
+Have a look at this [diagram](https://excalidraw.com/#json=6489116225044480,z_EpwQgSmtB5DyqfPbce_Q) to learn more about this
 {% endhint %}
 
 ### Sending new comments for a post
 
 Every post with a comments' form (to send comments) will use `state.comments.forms[postId]` to store the data of the comment and the submission status
 
+```js
+>> frontity.state.comments.forms[60].fields
+{
+  "content": "This is nice",
+  "authorName": "Jamie",
+  "authorEmail": "jamie@gmail.com"
+}
+```
+
 The data at `state.comments.forms[postId]` can be updated through the action `actions.comments.updateFields()`
+
+```js
+>> frontity.actions.comments.updateFields(60, { content: "Hello world!" });
+>> frontity.state.comments.forms[60].fields
+{
+  "content": "This is nice",
+  "authorName": "Jamie",
+  "authorEmail": "jamie@gmail.com"
+}
+```
 
 To send new comments you can use the action `actions.comments.submit()` which will send the data available at `state.comments.forms[postId].fields`
 
 The submission status will be stored under under `state.comments.forms[postId]` and if there are errors they will be available at the properties `errorMessage`, `errorCode` and `errorStatusCode`
 
+![](../../.gitbook/assets/send-comments-wpcomments.png)
+
 {% hint style="info" %}
-Have a look at these [**"Sending new Comments via a React form"** diagrams](https://excalidraw.com/#json=5946337115766784,uDV5oMBePTHTX8ppRwDt5g) to learn more about this
+Have a look at these [diagrams](https://excalidraw.com/#json=6174729664724992,A-DM-LUhTX896Q3e_NW5vQ) to learn more about this
 {% endhint %}
 
 ## API Reference
@@ -100,10 +183,10 @@ For example, to fetch all comments that belong to the post with ID 60 you would 
 await actions.source.fetch("@comments/60");
 ```
 
-This would fetch all comments associated with that post and populate a data object inside `state.source.data["@comments/60"]` with a tree structure of comments and replies, sorted by date (most recent first).
+This would fetch all comments associated with that post and populate a data object inside the state (`frontity.state.source.data["@comments/60/"]`) with a tree structure of comments and replies, sorted by date (most recent first).
 
 {% hint style="info" %}
-After fetching the comments with `actions.source.fetch("@comments/60")` you can get the data object with the comments with `state.source.get("@comments/60")`
+Have a look at the section [**Getting comments of a post**](#) to learn more
 {% endhint %}
 
 To access the fetched comments you could use something similar to this example:
@@ -132,10 +215,7 @@ const Comments = connect(({ postId, state }) => {
 
 #### `state.comments.forms[]`
 
-The `wp-comments` package stores in `state.comments.forms` a map of objects by
-post ID, each representing one comment form. These objects are intended
-to be used as the state of React `<form>` components and contain the input
-values as well as the submission status. They have the following properties:
+The `wp-comments` package stores in `state.comments.forms` a map of objects by post ID, each representing one comment form. These objects are intended to be used as the state of React `<form>` components and contain the input values as well as the submission status. They have the following properties:
 
 | Name              | Type                               | Description                                                                                                     |
 | ----------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -162,6 +242,10 @@ The following map of fields, representing the current field values that have bee
 | `authorURL`   | string | no       | URL of the author's site.                                      |
 | `parent`      | number | no       | ID of the comment to which this one responds. Default Value: 0 |
 
+{% hint style="info" %}
+Have a look at the section [**Sending new comments for a post**](#) to learn more
+{% endhint %}
+
 #### `state.source.comment[id]`
 
 This is the portion of the state where the comments are stored after being fetched from the REST API or POSTed through the `comments.submit()` action
@@ -169,6 +253,10 @@ This is the portion of the state where the comments are stored after being fetch
 Thanks to the handler `@comments/:id` you can get the [ID's of the comments](https://github.com/frontity/frontity/blob/2eb98ae4e6fee1f93ac5af5c834a3add644ba7b0/packages/wp-comments/types.ts#L158) in a specific post.
 
 With this list of ID's you can get the details for each one at `state.source.comment[id]`
+
+{% hint style="info" %}
+Have a look at the section [**Getting comments of a post**](#) to learn more
+{% endhint %}
 
 _Example_
 
@@ -219,6 +307,10 @@ actions.comments.updateFields(60, {
 });
 ```
 
+{% hint style="info" %}
+Have a look at the section [**Sending new comments for a post**](#) to learn more
+{% endhint %}
+
 #### `actions.comments.submit()`
 
 This _asynchronous_ action publishes a new comment for the post specified by `postId`. It submits the fields stored in the respective form (i.e. `state.comments.forms[postId]`) or the fields passed as a second argument. If fields are passed, those replace the current values stored in `state.comments.forms[postId].fields`.
@@ -253,6 +345,10 @@ await actions.comments.submit(60, {
   authorEmail: "frontibotito@frontity.com",
 });
 ```
+
+{% hint style="info" %}
+Have a look at the section [**Sending new comments for a post**](#) to learn more
+{% endhint %}
 
 ## Demo
 
