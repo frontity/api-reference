@@ -66,15 +66,15 @@ export default {
 
 ### Getting comments of a post
 
-We can use the `@comments/:id` handler to fetch all the comments of a specific post. This data will be populated to the state so then we can do `state.source.get("@comments/60");` to get the ID's of these comments. With each ID we can get the details from the state at `state.source.comment[id]`
+We can use the `@comments/:id` handler to fetch all the comments of a specific post (`actions.source.fetch("@comments/60")`). This data will be populated to the state so then we can do `state.source.get("@comments/60")` to get the ID's of these comments. With each ID we can get the details from the state at `state.source.comment[id]`
 
 {% hint style="info" %}
-Have a look at the "Getting Comments via the handler`@comments/:id`" diagram available in [excalidraw](https://excalidraw.com/#json=6013823009947648,zf2eqSbwJ0JHMCqHSx6_Fw)
+Have a look at the "Getting Comments via the handler`@comments/:id`" diagram available in [excalidraw](https://excalidraw.com/#json=5946337115766784,uDV5oMBePTHTX8ppRwDt5g)
 {% endhint %}
 
 ### Sending new comments for a post
 
-Every post with a comments form (to send comments) will use the `state.comments.forms[postId]` to store the data of the comment and the possible errors got when submitting the comments
+Every post with a comments' form (to send comments) will use `state.comments.forms[postId]` to store the data of the comment and the submission status
 
 The data at `state.comments.forms[postId]` can be updated through the action `actions.comments.updateFields()`
 
@@ -83,7 +83,7 @@ To send new comments you can use the action `actions.comments.submit()` which wi
 The submission status will be stored under under `state.comments.forms[postId]` and if there are errors they will be available at the properties `errorMessage`, `errorCode` and `errorStatusCode`
 
 {% hint style="info" %}
-Have a look at the "Sending new Comments via a React form" diagram available in [excalidraw](https://excalidraw.com/#json=6013823009947648,zf2eqSbwJ0JHMCqHSx6_Fw)
+Have a look at the "Sending new Comments via a React form" diagram available in [excalidraw](https://excalidraw.com/#json=5946337115766784,uDV5oMBePTHTX8ppRwDt5g)
 {% endhint %}
 
 ## API Reference
@@ -100,7 +100,11 @@ For example, to fetch all comments that belong to the post with ID 60 you would 
 await actions.source.fetch("@comments/60");
 ```
 
-This would fetch all comments associated with that post and populate a data object inside `state.source.data` with a tree structure of comments and replies, sorted by date (most recent first).
+This would fetch all comments associated with that post and populate a data object inside `state.source.data["@comments/60"]` with a tree structure of comments and replies, sorted by date (most recent first).
+
+{% hint style="info" %}
+After fetching the comments with `actions.source.fetch("@comments/60")` you can get the data object with the comments with `state.source.get("@comments/60")`
+{% endhint %}
 
 To access the fetched comments you could use something similar to this example:
 
