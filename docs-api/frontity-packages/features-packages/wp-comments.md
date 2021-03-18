@@ -158,6 +158,23 @@ To send new comments you can use the action `actions.comments.submit()` which wi
 
 The submission status will be stored under under `state.comments.forms[postId]` and if there are errors they will be available at the properties `errorMessage`, `errorCode` and `errorStatusCode`
 
+```js
+>> frontity.state.comments.forms[60]
+{
+  "fields": {
+    "content": "Nice post!",
+    "authorName": "Johnny",
+    "authorEmail": "johnny@gmail"
+  },
+  "isSubmitting": false,
+  "isSubmitted": false,
+  "isError": true,
+  "errorMessage": "Invalid parameter(s): author_email",
+  "errorCode": "rest_invalid_param",
+  "errorStatusCode": 400
+}
+```
+
 ![](../../.gitbook/assets/send-comments-wpcomments.png)
 
 {% hint style="info" %}
