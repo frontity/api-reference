@@ -138,22 +138,17 @@ Have a look at this [diagram](https://excalidraw.com/#json=6489116225044480,z_Ep
 
 Every post with a comments' form (to send comments) will use `state.comments.forms[postId]` to store the data of the comment and the submission status
 
-```js
->> frontity.state.comments.forms[60].fields
-{
-  "content": "This is nice",
-  "authorName": "Jamie",
-  "authorEmail": "jamie@gmail.com"
-}
-```
-
 The data at `state.comments.forms[postId]` can be updated through the action `actions.comments.updateFields()`
 
 ```js
->> frontity.actions.comments.updateFields(60, { content: "Hello world!" });
+>> frontity.actions.comments.updateFields(60, {
+  content: "Hello world!",
+  authorName: "Jamie",
+  authorEmail: "jamie@gmail.com"
+});
 >> frontity.state.comments.forms[60].fields
 {
-  "content": "This is nice",
+  "content": "Hello world!",
   "authorName": "Jamie",
   "authorEmail": "jamie@gmail.com"
 }
