@@ -1,86 +1,31 @@
----
-description: API reference of `@frontity/hooks` package
----
-
-# @frontity/hooks
-
-This package is a collection of React hooks that have proven to be pretty useful for a Frontity project.
+# Infinite Scroll Hooks
 
 ## Table of Contents
 
 <!-- toc -->
 
-- [Installation](#installation)
-- [How to use](#how-to-use)
-- [Hooks](#hooks)
-  - [`useInView`](#useinview)
+- [`useArchiveInfiniteScroll`](#usearchiveinfinitescroll)
+  - [Parameters](#parameters)
+  - [Return value](#return-value)
+  - [Usage](#usage)
+- [`usePostTypeInfiniteScroll`](#useposttypeinfinitescroll)
+  - [Parameters](#parameters)
+  - [Return value](#return-value)
+  - [Usage](#usage)
+- [More things added](#more-things-added)
+  - [`actions.source.updateState`](#actions-source-updatestate)
     - [Parameters](#parameters)
-    - [Return value](#return-value)
-    - [Usage](#usage)
+
+* [Out of Scope](#out-of-scope)
+* [API changes](#api-changes)
+  - [Backward compatible changes](#backward-compatible-changes)
+  - [Breaking changes](#breaking-changes)
+  - [Deprecated APIs](#deprecated-apis)
+* [Technical explanation](#technical-explanation)
 
 <!-- tocstop -->
 
-## Installation
-
-Add the `@frontity/hooks` package to your project:
-
-```text
-npm i @frontity/hooks
-```
-
-## How to use
-
-In order to use it, you just have to import the hook you want to use in your theme from `@frontity/hooks` and place it wherever needed. For example, if we want to use the `useInView` hook:
-
-```javascript
-import useInView from "@frontity/hooks/use-in-view";
-```
-
-## Hooks
-
-### `useInView`
-
-It tracks when an element enters or leaves the viewport.
-
-The hook just wraps the [`react-intersection-observer`](https://github.com/thebuilder/react-intersection-observer) library which uses internally the [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) API. As some old browsers don't support it, `useInView` also returns a `supported` prop indicating if it's supported or not.
-
-#### Parameters
-
-It accepts a single object with the following props:
-
-| Name              | Type                       | Default  | Required | Description                                                                                                                                                    |
-| :---------------- | :------------------------- | :------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`root`**        | Element                    | `window` | no       | The Element that is used as the viewport for checking visibility of the target. Defaults to the browser viewport \(`window`\) if not specified or if null.     |
-| **`rootMargin`**  | string                     | `"0px"`  | no       | Margin around the root. Can have values similar to the CSS margin property, e.g. "10px 20px 30px 40px" \(top, right, bottom, left\).                           |
-| **`threshold`**   | number or array of numbers | `0`      | no       | Number between 0 and 1 indicating the percentage that should be visible before triggering. Can also be an array of numbers, to create multiple trigger points. |
-| **`triggerOnce`** | boolean                    | `false`  | no       | Only trigger this method once                                                                                                                                  |
-
-#### Return value
-
-An object with the following properties:
-
-| Name            | Type            | Description                                                                                                                                        |
-| :-------------- | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`ref`**       | React.RefObject | React reference object pointing to the DOM element. It must be passed to the element you want to track.                                            |
-| **`inView`**    | boolean         | Boolean indicating if the element is visible. The value is always `true` if _`supported`_ is `false`.                                              |
-| **`supported`** | boolean         | Boolean indicating if [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) is supported by the browser. |
-
-#### Usage
-
-```javascript
-import useInView from "@frontity/hooks/use-in-view";
-
-const MyLazyElement = ({ children }) => {
-  // Get the reference and the visibility status.
-  const { ref, inView } = useInView({ triggerOnce: true });
-
-  // Pass the reference to the container and render `children` if
-  // the container is visible, or a placeholder otherwise.
-  return <div ref={ref}>{inView ? children : <MyPlaceholder />}</div>;
-};
-```
-
-### `useArchiveInfiniteScroll`
+## `useArchiveInfiniteScroll`
 
 This hook implements the logic needed to include infinite scroll in archives (i.e. categories, tags, the posts archive, etc.).
 
@@ -90,7 +35,7 @@ The hook receives options to set a limit of pages shown automatically, to disabl
 
 Apart from that list, it returns a set of boolean values to know if the next pages is being fetched, if the limit has been reached or if the next page returned an error, and a function to fetch the next page manually.
 
-#### Parameters
+### Parameters
 
 It accepts an optional object with the following props:
 
@@ -104,7 +49,7 @@ It accepts an optional object with the following props:
 > NOTE: The IntersectionOptions type refers to the type of the the parameters
 > received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
 
-#### Return value
+### Return value
 
 An object with the following properties:
 
@@ -125,7 +70,7 @@ Each element of the `pages` array has the following structure:
 | **`isLast`**  | boolean  | If this page is the last page. Useful to add separators between pages, but avoid adding it for the last one. |
 | **`Wrapper`** | React.FC | The Wrapper component that should wrap the real `Archive` component.                                         |
 
-#### Usage
+### Usage
 
 ````javascript
 import { connect, useConnect } from "frontity";
@@ -177,7 +122,7 @@ const Archive = () => {
 export default connect(Archive);
 ````
 
-### `usePostTypeInfiniteScroll`
+## `usePostTypeInfiniteScroll`
 
 Hook that implements the logic needed to include infinite scroll in a post type view (i.e. posts, pages, galleries, etc.).
 
@@ -188,7 +133,7 @@ rendered, the next page of the archive is fetched. A list of the fetched pages i
 
 The `limit` prop in this case stands for the number of posts being shown, not the number of fetched pages. In the same way, the `fetchNext` shows the next post, and only fetches the next page of posts if needed.
 
-#### Parameters
+### Parameters
 
 It accepts an optional object with the following props:
 
@@ -204,7 +149,7 @@ It accepts an optional object with the following props:
 > NOTE: The IntersectionOptions type refers to the type of the the parameters
 > received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
 
-#### Return value
+### Return value
 
 The output of these hooks is pretty similar to the previous one's:
 
@@ -225,7 +170,7 @@ Each element of the `posts` array has the following structure:
 | **`isLast`**  | boolean  | If this post is the last post. Useful to add separators between posts, but avoid adding it for the last one. |
 | **`Wrapper`** | React.FC | The Wrapper component that should wrap the real `Post` component.                                            |
 
-#### Usage
+### Usage
 
 ````js
 import { connect, useConnect } from "frontity";
@@ -276,6 +221,8 @@ const PostType = () => {
 
 export default connect(PostType);
 ````
+
+---
 
 ## More things added
 
