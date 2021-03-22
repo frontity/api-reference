@@ -17,7 +17,7 @@
     - [@frontity/wp-source](frontity-packages/features-packages/wp-source.md)
     - [@frontity/tiny-router](frontity-packages/features-packages/tiny-router.md)
     - [@frontity/html2react](frontity-packages/features-packages/html2react.md)
-    - [SEO packages](frontity-packages/seo/README.md)
+    - [SEO packages](frontity-packages/features-packages/seo/README.md)
       - [@frontity/head-tags](frontity-packages/features-packages/seo/head-tags.md)
       - [@frontity/yoast](frontity-packages/features-packages/seo/yoast.md)
     - [@frontity/google-ad-manager](frontity-packages/features-packages/google-ad-manager.md)
