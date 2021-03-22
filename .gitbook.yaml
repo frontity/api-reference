@@ -10,7 +10,6 @@ redirects:
     frontity-packages/frontity-analytics: ./frontity-packages/features-packages/analytics/README.md
     frontity-packages/router: ./frontity-packages/features-packages/tiny-router.md
     frontity-packages/wordpress-source: ./frontity-packages/features-packages/wp-source.md
-    frontity-packages/frontity-html2react: ./frontity-packages/features-packages/html2react.md
     frontity-packages/frontity-head-tags: ./frontity-packages/features-packages/head-tags.md
     frontity-packages/frontity-components: ./frontity-packages/collections-packages/components.md
     frontity-packages/frontity-hooks: ./frontity-packages/collections-packages/hooks.md
