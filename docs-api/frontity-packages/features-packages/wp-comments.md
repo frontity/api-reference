@@ -48,7 +48,7 @@ add_filter( 'rest_allow_anonymous_comments', '__return_true' );
 
 [This filter](https://developer.wordpress.org/reference/hooks/rest_allow_anonymous_comments/) enables creating comments for anonymous users via the REST API.
 
-You can add this that directly in your theme's `functions.php` file or use a [Code Snippets](https://wordpress.org/plugins/code-snippets/) plugin.
+You can add this snippet directly in your theme's `functions.php` file or use a [Code Snippets](https://wordpress.org/plugins/code-snippets/) plugin.
 
 ### In Frontity
 
@@ -106,7 +106,7 @@ This data will be populated to the state so then we can do `state.source.get("@c
 }
 ```
 
-With each ID we can get the details from the state at `state.source.comment[id]`
+With each ID we can get the details from the state at `state.source.comment[id]`.
 
 ```js
 >> frontity.state.source.comment[285]
@@ -131,14 +131,14 @@ With each ID we can get the details from the state at `state.source.comment[id]`
 ![](../../.gitbook/assets/handler-comments-id.png)
 
 {% hint style="info" %}
-Have a look at this [diagram](https://excalidraw.com/#json=6489116225044480,z_EpwQgSmtB5DyqfPbce_Q) to learn more about this
+Take a look at this [diagram](https://excalidraw.com/#json=6489116225044480,z_EpwQgSmtB5DyqfPbce_Q) to learn more about this.
 {% endhint %}
 
 ### Sending new comments for a post
 
-Every post with a comments' form (to send comments) will use `state.comments.forms[postId]` to store the data of the comment and the submission status
+Every post with a comments form (to send comments) will use `state.comments.forms[postId]` to store the data of the comment and the submission status.
 
-The data at `state.comments.forms[postId]` can be updated through the action `actions.comments.updateFields()`
+The data at `state.comments.forms[postId]` can be updated through the action `actions.comments.updateFields()`.
 
 ```js
 >> frontity.actions.comments.updateFields(60, {
@@ -154,9 +154,9 @@ The data at `state.comments.forms[postId]` can be updated through the action `ac
 }
 ```
 
-To send new comments you can use the action `actions.comments.submit()` which will send the data available at `state.comments.forms[postId].fields`
+To send new comments you can use the action `actions.comments.submit()` which will send the data available at `state.comments.forms[postId].fields`.
 
-The submission status will be stored under under `state.comments.forms[postId]` and if there are errors they will be available at the properties `errorMessage`, `errorCode` and `errorStatusCode`
+The submission status will be stored under under `state.comments.forms[postId]` and if there are errors they will be available at the properties `errorMessage`, `errorCode` and `errorStatusCode`.
 
 ```js
 >> frontity.state.comments.forms[60]
@@ -178,7 +178,7 @@ The submission status will be stored under under `state.comments.forms[postId]` 
 ![](../../.gitbook/assets/send-comments-wpcomments.png)
 
 {% hint style="info" %}
-Have a look at these [diagrams](https://excalidraw.com/#json=6174729664724992,A-DM-LUhTX896Q3e_NW5vQ) to learn more about this
+Take a look at this [diagram](https://excalidraw.com/#json=6174729664724992,A-DM-LUhTX896Q3e_NW5vQ) to learn more about this.
 {% endhint %}
 
 ## API Reference
@@ -198,7 +198,7 @@ await actions.source.fetch("@comments/60");
 This would fetch all comments associated with that post and populate a data object inside the state (`frontity.state.source.data["@comments/60/"]`) with a tree structure of comments and replies, sorted by date (most recent first).
 
 {% hint style="info" %}
-Have a look at the section [**Getting comments of a post**](#) to learn more
+Have a look at the section [**Getting comments of a post**](#getting-comments-of-a-post) to learn more
 {% endhint %}
 
 To access the fetched comments you could use something similar to this example:
@@ -227,7 +227,7 @@ const Comments = connect(({ postId, state }) => {
 
 #### `state.comments.forms[]`
 
-The `wp-comments` package stores in `state.comments.forms` a map of objects by post ID, each representing one comment form. These objects are intended to be used as the state of React `<form>` components and contain the input values as well as the submission status. They have the following properties:
+The `wp-comments` package stores a map of objects by post ID in `state.comments.forms`. Each of these objects represents one comment form. These objects are intended to be used as the state of React `<form>` components and contain the input values as well as the submission status. They have the following properties:
 
 | Name              | Type                               | Description                                                                                                     |
 | ----------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -255,19 +255,19 @@ The following map of fields, representing the current field values that have bee
 | `parent`      | number | no       | ID of the comment to which this one responds. Default Value: 0 |
 
 {% hint style="info" %}
-Have a look at the section [**Sending new comments for a post**](#) to learn more
+See the section [**Sending new comments for a post**](#sending-new-comments-for-a-post) to learn more.
 {% endhint %}
 
 #### `state.source.comment[id]`
 
-This is the portion of the state where the comments are stored after being fetched from the REST API or POSTed through the `comments.submit()` action
+This is the portion of the state where the comments are stored after being fetched from the REST API or POSTed through the `comments.submit()` action.
 
 Thanks to the handler `@comments/:id` you can get the [ID's of the comments](https://github.com/frontity/frontity/blob/2eb98ae4e6fee1f93ac5af5c834a3add644ba7b0/packages/wp-comments/types.ts#L158) in a specific post.
 
-With this list of ID's you can get the details for each one at `state.source.comment[id]`
+With this list of ID's you can get the details for each one at `state.source.comment[id]`.
 
 {% hint style="info" %}
-Have a look at the section [**Getting comments of a post**](#) to learn more
+See the section [**Getting comments of a post**](#getting-comments-of-a-post) to learn more.
 {% endhint %}
 
 _Example_
@@ -298,7 +298,7 @@ Update the fields of the form specified by `postId`. This action simply updates 
 
 If no fields are specified, the form fields are emptied.
 
-These fields will be used by `actions.comments.submit()` when submitting the comment
+These fields will be used by `actions.comments.submit()` when submitting the comment.
 
 ##### Syntax
 
@@ -320,16 +320,16 @@ actions.comments.updateFields(60, {
 ```
 
 {% hint style="info" %}
-Have a look at the section [**Sending new comments for a post**](#) to learn more
+See the section [**Sending new comments for a post**](#sending-new-comments-for-a-post) to learn more.
 {% endhint %}
 
 #### `actions.comments.submit()`
 
 This _asynchronous_ action publishes a new comment for the post specified by `postId`. It submits the fields stored in the respective form (i.e. `state.comments.forms[postId]`) or the fields passed as a second argument. If fields are passed, those replace the current values stored in `state.comments.forms[postId].fields`.
 
-After calling this action, you can access `state.comments.forms[postId].isSubmitted` property(described above) to know the submission status.
+After calling this action, you can access `state.comments.forms[postId].isSubmitted` property (described above) to determine the submission status.
 
-Take into account this action does not validate input. That means requests are made even though some fields are empty or have invalid values. If that is the case, WordPress will return an error message and populate the error status accordingly.
+Take into account that this action does not validate input. This means requests are made even though some fields are empty or have invalid values. If that is the case, WordPress will return an error message and populate the error status accordingly.
 
 ##### Syntax
 
@@ -359,7 +359,7 @@ await actions.comments.submit(60, {
 ```
 
 {% hint style="info" %}
-Have a look at the section [**Sending new comments for a post**](#) to learn more
+Take a look at the section [**Sending new comments for a post**](#sending-new-comments-for-a-post) to learn more.
 {% endhint %}
 
 ## Demo
@@ -368,4 +368,4 @@ This short video demonstrates the usage of the `@frontity/wp-comments` package.
 
 {% embed url="https://www.youtube.com/watch?v=pG1532lStI8&t=7s" caption="" %}
 
-The project used in the video is available [here](https://github.com/frontity-demos/frontity-examples/blob/master/wp-comments/README.md)
+The project used in the video is available [here](https://github.com/frontity-demos/frontity-examples/blob/master/wp-comments/README.md).
