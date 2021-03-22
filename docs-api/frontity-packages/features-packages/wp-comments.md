@@ -154,9 +154,9 @@ The data at `state.comments.forms[postId]` can be updated through the action [`a
 }
 ```
 
-To send new comments you can use the action [`actions.comments.submit()`](#actions-comments-submit) which will send the data available at `state.comments.forms[postId].fields`.
+To send new comments you can use the action [`actions.comments.submit()`](#actions-comments-submit) which will send the data available at [`state.comments.forms[postId].fields`](#state-comments-forms-postid-fields).
 
-The submission status will be stored under under `state.comments.forms[postId]` and if there are errors they will be available at the properties `errorMessage`, `errorCode` and `errorStatusCode`.
+The submission status will be stored under under [`state.comments.forms[postId]`](#state-comments-forms-postid) and if there are errors they will be available at the properties `errorMessage`, `errorCode` and `errorStatusCode`.
 
 ```js
 >> frontity.state.comments.forms[60]
@@ -229,19 +229,19 @@ const Comments = connect(({ postId, state }) => {
 
 The `wp-comments` package stores a map of objects by post ID in `state.comments.forms`. Each of these objects represents one comment form. These objects are intended to be used as the state of React `<form>` components and contain the input values as well as the submission status. They have the following properties:
 
-| Name              | Type                               | Description                                                                                                     |
-| ----------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| **`fields`**      | [object](#the-fields-of-a-comment) | Form fields with their values.                                                                                  |
-| `isSubmitting`    | boolean                            | The comment hasn't been received by WP yet.                                                                     |
-| `isSubmitted`     | boolean                            | The comment has been received.                                                                                  |
-| ` isError`        | boolean                            | The request has failed.                                                                                         |
-| `errorMessage`    | string                             | Failure reason.                                                                                                 |
-| `errorCode`       | string                             | The error code. Those are defined internally in the WordPress REST API. Example: `rest_comment_invalid_post_id` |
-| `errorStatusCode` | number                             | The HTTP status code that might have been received from the WordPress REST API.                                 |
+| Name              | Type                                          | Description                                                                                                     |
+| ----------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **`fields`**      | [object](#state-comments-forms-postid-fields) | Form fields with their values.                                                                                  |
+| `isSubmitting`    | boolean                                       | The comment hasn't been received by WP yet.                                                                     |
+| `isSubmitted`     | boolean                                       | The comment has been received.                                                                                  |
+| ` isError`        | boolean                                       | The request has failed.                                                                                         |
+| `errorMessage`    | string                                        | Failure reason.                                                                                                 |
+| `errorCode`       | string                                        | The error code. Those are defined internally in the WordPress REST API. Example: `rest_comment_invalid_post_id` |
+| `errorStatusCode` | number                                        | The HTTP status code that might have been received from the WordPress REST API.                                 |
 
 #### `state.comments.forms[postId].fields`
 
-The following map of fields, representing the current field values that have been input in the form rendered in the given post. The content of this property is updated using the **`updateFields()`** action described later.
+The following map of fields, representing the current field values that have been input in the form rendered in the given post. The content of this property is updated using the **[`updateFields()`](#actions-comments-updatefields)** action described later.
 
 | Name          | Type   | Required | Description                                                    |
 | ------------- | ------ | -------- | -------------------------------------------------------------- |
@@ -258,9 +258,9 @@ See the section [**Sending new comments for a post**](#sending-new-comments-for-
 
 #### `state.source.comment[id]`
 
-This is the portion of the state where the comments are stored after being fetched from the REST API or POSTed through the `comments.submit()` action.
+This is the portion of the state where the comments are stored after being fetched from the REST API or POSTed through the [`comments.submit()`](#actions-comments-submit) action.
 
-Thanks to the handler `@comments/:id` you can get the [ID's of the comments](https://github.com/frontity/frontity/blob/2eb98ae4e6fee1f93ac5af5c834a3add644ba7b0/packages/wp-comments/types.ts#L158) in a specific post.
+Thanks to the handler [`@comments/:id`](#comments-id) you can get the [ID's of the comments](https://github.com/frontity/frontity/blob/2eb98ae4e6fee1f93ac5af5c834a3add644ba7b0/packages/wp-comments/types.ts#L158) in a specific post.
 
 With this list of ID's you can get the details for each one at `state.source.comment[id]`.
 
@@ -292,11 +292,11 @@ Check a fully working example of [this](https://github.com/frontity-demos/fronti
 
 #### `actions.comments.updateFields()`
 
-Update the fields of the form specified by `postId`. This action simply updates what is stored in `state.comments.forms[postId].fields` with the given values.
+Update the fields of the form specified by `postId`. This action simply updates what is stored in [`state.comments.forms[postId].fields`](#state-comments-forms-postid-fields) with the given values.
 
 If no fields are specified, the form fields are emptied.
 
-These fields will be used by `actions.comments.submit()` when submitting the comment.
+These fields will be used by [`actions.comments.submit()`](#actions-comments-submit) when submitting the comment.
 
 ##### Syntax
 
@@ -306,10 +306,10 @@ These fields will be used by `actions.comments.submit()` when submitting the com
 
 ##### Arguments
 
-| Name           | Type   | Required | Description                                                                                                                                                                                                       |
-| -------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                                                                                           |
-| _`comment`_    | object | no       | Object representing the fields of the comment to be updated. A full list of the fields that can be sent as part of this object can be seen in the table at [The _fields_ of a comment](#the-fields-of-a-comment). |
+| Name           | Type   | Required | Description                                                                                                                                                                                       |
+| -------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                                                                           |
+| _`comment`_    | object | no       | Object representing the fields of the comment to be updated. The fields of this object are the same than the ones at [`state.comments.forms[postId].fields`](#state-comments-forms-postid-fields) |
 
 ```js
 actions.comments.updateFields(60, {
@@ -323,7 +323,7 @@ See the section [**Sending new comments for a post**](#sending-new-comments-for-
 
 #### `actions.comments.submit()`
 
-This _asynchronous_ action publishes a new comment for the post specified by `postId`. It submits the fields stored in the respective form (i.e. `state.comments.forms[postId]`) or the fields passed as a second argument. If fields are passed, those replace the current values stored in `state.comments.forms[postId].fields`.
+This _asynchronous_ action publishes a new comment for the post specified by `postId`. It submits the fields stored in the respective form (i.e. `state.comments.forms[postId]`) or the fields passed as a second argument. If fields are passed, those replace the current values stored in [`state.comments.forms[postId].fields`](#state-comments-forms-postid-fields).
 
 After calling this action, you can access `state.comments.forms[postId].isSubmitted` property (described above) to determine the submission status.
 
@@ -337,10 +337,10 @@ Take into account that this action does not validate input. This means requests 
 
 ##### Arguments
 
-| Name           | Type   | Required | Description                                                                                                                                                                          |
-| -------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                                                              |
-| _`comment`_    | object | no       | Object representing the comment. A full list of the fields that can be sent as part of this object can be seen in the table at [The _fields_ of a comment](#the-fields-of-a-comment) |
+| Name           | Type   | Required | Description                                                                                                                                                           |
+| -------------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                                               |
+| _`comment`_    | object | no       | Object representing the comment. The fields of this object are the same than the ones at [`state.comments.forms[postId].fields`](#state-comments-forms-postid-fields) |
 
 ```js
 // Submit the comment to the post with ID 60
