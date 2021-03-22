@@ -26,8 +26,8 @@ This package is in charge of converting HTML to React
 
 These packages are designed to get automatically all the data from WordPress SEO plugins and render it (along with the content) in the final HTML
 
-- [`@frontity/head-tags`](seo/head-tags.md)
-- [`@frontity/yoast`](seo/yoast.md)
+- [`@frontity/head-tags`](head-tags.md)
+- [`@frontity/yoast`](yoast.md)
 
 #### Ad Manager packages
 
