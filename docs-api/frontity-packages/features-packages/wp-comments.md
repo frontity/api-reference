@@ -106,7 +106,7 @@ This data will be populated to the state so then we can do `state.source.get("@c
 }
 ```
 
-With each ID we can get the details from the state at [`state.source.comment[id]](#state-source-comment-id)`.
+With each ID we can get the details from the state at [`state.source.comment[id]`](#state-source-comment-id)`.
 
 ```js
 >> frontity.state.source.comment[285]
@@ -136,9 +136,9 @@ Take a look at this [diagram](https://excalidraw.com/#json=6489116225044480,z_Ep
 
 ### Sending new comments for a post
 
-Every post with a comments form (to send comments) will use `state.comments.forms[postId]` to store the data of the comment and the submission status.
+Every post with a comments form (to send comments) will use [`state.comments.forms[postId]`](#state-comments-forms-postid) to store the data of the comment and the submission status.
 
-The data at `state.comments.forms[postId]` can be updated through the action `actions.comments.updateFields()`.
+The data at `state.comments.forms[postId]` can be updated through the action [`actions.comments.updateFields()`](#actions-comments-updatefields).
 
 ```js
 >> frontity.actions.comments.updateFields(60, {
@@ -154,7 +154,7 @@ The data at `state.comments.forms[postId]` can be updated through the action `ac
 }
 ```
 
-To send new comments you can use the action `actions.comments.submit()` which will send the data available at `state.comments.forms[postId].fields`.
+To send new comments you can use the action [`actions.comments.submit()`](#actions-comments-submit) which will send the data available at `state.comments.forms[postId].fields`.
 
 The submission status will be stored under under `state.comments.forms[postId]` and if there are errors they will be available at the properties `errorMessage`, `errorCode` and `errorStatusCode`.
 
@@ -239,11 +239,9 @@ The `wp-comments` package stores a map of objects by post ID in `state.comments.
 | `errorCode`       | string                             | The error code. Those are defined internally in the WordPress REST API. Example: `rest_comment_invalid_post_id` |
 | `errorStatusCode` | number                             | The HTTP status code that might have been received from the WordPress REST API.                                 |
 
-##### `state.comments.forms[postId].fields`
+#### `state.comments.forms[postId].fields`
 
 The following map of fields, representing the current field values that have been input in the form rendered in the given post. The content of this property is updated using the **`updateFields()`** action described later.
-
-###### The fields of a comment
 
 | Name          | Type   | Required | Description                                                    |
 | ------------- | ------ | -------- | -------------------------------------------------------------- |
