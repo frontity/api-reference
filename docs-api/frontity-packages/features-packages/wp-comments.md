@@ -66,7 +66,7 @@ export default {
 
 ### Getting comments of a post
 
-We can use the `@comments/:id` handler to fetch all the comments of a specific post (`actions.source.fetch("@comments/60")`).
+We can use the [`@comments/:id`](#comments-id) handler to fetch all the comments of a specific post (`actions.source.fetch("@comments/60")`).
 
 This data will be populated to the state so then we can do `state.source.get("@comments/60")` to get the ID's of these comments.
 
@@ -106,7 +106,7 @@ This data will be populated to the state so then we can do `state.source.get("@c
 }
 ```
 
-With each ID we can get the details from the state at `state.source.comment[id]`.
+With each ID we can get the details from the state at [`state.source.comment[id]](#state-source-comment-id)`.
 
 ```js
 >> frontity.state.source.comment[285]
@@ -225,7 +225,7 @@ const Comments = connect(({ postId, state }) => {
 
 ### State
 
-#### `state.comments.forms[]`
+#### `state.comments.forms[postId]`
 
 The `wp-comments` package stores a map of objects by post ID in `state.comments.forms`. Each of these objects represents one comment form. These objects are intended to be used as the state of React `<form>` components and contain the input values as well as the submission status. They have the following properties:
 
@@ -239,7 +239,7 @@ The `wp-comments` package stores a map of objects by post ID in `state.comments.
 | `errorCode`       | string                             | The error code. Those are defined internally in the WordPress REST API. Example: `rest_comment_invalid_post_id` |
 | `errorStatusCode` | number                             | The HTTP status code that might have been received from the WordPress REST API.                                 |
 
-##### `state.comments.forms[].fields`
+##### `state.comments.forms[postId].fields`
 
 The following map of fields, representing the current field values that have been input in the form rendered in the given post. The content of this property is updated using the **`updateFields()`** action described later.
 
