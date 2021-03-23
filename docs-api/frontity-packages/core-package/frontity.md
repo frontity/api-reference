@@ -2,7 +2,7 @@
 description: API reference of `frontity` package
 ---
 
-# `frontity`
+# frontity
 
 Apart from being the package that executes the Frontity commands in the terminal, `frontity` also exports functions, objects, etc. to be imported and used by other Frontity packages.
 
@@ -14,57 +14,53 @@ import { connect, styled, Head, ... } from "frontity";
 
 ## Table of Contents
 
-<!-- toc -->
-
-- [Overview](#overview)
-  - [React](#react)
-  - [CSS in JS](#css-in-js)
-  - [Code Splitting](#code-splitting)
-  - [`fetch` and `URL`](#fetch-and-url)
-- [API Reference](#api-reference)
-  - [`connect`](#connect)
-  - [`useConnect`](#useconnect)
-  - [`styled`](#styled)
-  - [`css`](#css)
-  - [`Global`](#global)
-  - [`keyframes`](#keyframes)
-  - [`loadable`](#loadable)
-  - [`Head`](#head)
-  - [`useFills`](#usefills)
-  - [`fetch`](#fetch)
-  - [`URL`](#url)
-  - [`decode`](#decode)
-  - [`Slot`](#slot)
-
-<!-- tocstop -->
+* [Overview](frontity.md#overview)
+  * [React](frontity.md#react)
+  * [CSS in JS](frontity.md#css-in-js)
+  * [Code Splitting](frontity.md#code-splitting)
+  * [`fetch` and `URL`](frontity.md#fetch-and-url)
+* [API Reference](frontity.md#api-reference)
+  * [`connect`](frontity.md#connect)
+  * [`useConnect`](frontity.md#useconnect)
+  * [`styled`](frontity.md#styled)
+  * [`css`](frontity.md#css)
+  * [`Global`](frontity.md#global)
+  * [`keyframes`](frontity.md#keyframes)
+  * [`loadable`](frontity.md#loadable)
+  * [`Head`](frontity.md#head)
+  * [`useFills`](frontity.md#usefills)
+  * [`fetch`](frontity.md#fetch)
+  * [`URL`](frontity.md#url)
+  * [`decode`](frontity.md#decode)
+  * [`Slot`](frontity.md#slot)
 
 ## Overview
 
 ### React
 
-Use **[`connect`](#connect)** to inject `state`, `actions` and `libraries` in your React components.
+Use [**`connect`**](frontity.md#connect) to inject `state`, `actions` and `libraries` in your React components.
 
-If you are familiar with React hooks, you can use also **[`useConnect`](#useConnect)** to do the same.
+If you are familiar with React hooks, you can use also [**`useConnect`**](frontity.md#useConnect) to do the same.
 
-Use the **[`Head`](#head)** component whenever you want to add HTML tags inside the `<head>` of any of your site's pages. You can read more **Head** in the [Head page](../learning-frontity/head.md) of our **Learning Frontity** section.
+Use the [**`Head`**](frontity.md#head) component whenever you want to add HTML tags inside the `<head>` of any of your site's pages. You can read more **Head** in the [Head page](https://github.com/frontity/api-reference/tree/5c8540768cdaaba9e65f4dc8032531eda7708051/docs-api/frontity-packages/learning-frontity/head.md) of our **Learning Frontity** section.
 
-Use the **[`Slot`](#slot)** component whenever you want to add a 'placeholder' to your theme which will be filled with a **`Fill`**. Fills are added to the state in the `state.fills` namespace.
+Use the [**`Slot`**](frontity.md#slot) component whenever you want to add a 'placeholder' to your theme which will be filled with a **`Fill`**. Fills are added to the state in the `state.fills` namespace.
 
 ### CSS in JS
 
-**[`styled`](#styled)** creates new React components from HTML tags, or other React components, with styles attached to them. **[`css`](#css)** lets you to add inline styles to an element if you don't want to create a new component. If you want to add styles for the whole app, use **[`Global`](#global)**. And **[`keyframes`](#keyframes)** is used to define and use animations in your CSS.
+[**`styled`**](frontity.md#styled) creates new React components from HTML tags, or other React components, with styles attached to them. [**`css`**](frontity.md#css) lets you to add inline styles to an element if you don't want to create a new component. If you want to add styles for the whole app, use [**`Global`**](frontity.md#global). And [**`keyframes`**](frontity.md#keyframes) is used to define and use animations in your CSS.
 
-You can read more in the [Styles](../learning-frontity/styles.md) page of our **Learning Frontity** section.
+You can read more in the [Styles](https://github.com/frontity/api-reference/tree/5c8540768cdaaba9e65f4dc8032531eda7708051/docs-api/frontity-packages/learning-frontity/styles.md) page of our **Learning Frontity** section.
 
 ### Code Splitting
 
-Use **[`loadable`](#loadable)** in order to separate you code into different bundles that will be dynamically loaded at runtime. This helps you to reduce your page size.
+Use [**`loadable`**](frontity.md#loadable) in order to separate you code into different bundles that will be dynamically loaded at runtime. This helps you to reduce your page size.
 
-You can read more in the [Code Splitting](../learning-frontity/code-splitting.md) page of our **Learning Frontity** section.
+You can read more in the [Code Splitting](https://github.com/frontity/api-reference/tree/5c8540768cdaaba9e65f4dc8032531eda7708051/docs-api/frontity-packages/learning-frontity/code-splitting.md) page of our **Learning Frontity** section.
 
 ### `fetch` and `URL`
 
-Frontity exports [`fetch`](#fetch) and [`URL`](#url) with the same API they have in the browser, but they work the same both in the client and in the server.
+Frontity exports [`fetch`](frontity.md#fetch) and [`URL`](frontity.md#url) with the same API they have in the browser, but they work the same both in the client and in the server.
 
 ## API Reference
 
@@ -86,20 +82,19 @@ ConnectedComponent = connect(Component, options?);
 
 #### Arguments
 
-| Name              | Object Property | Type            | Required | Description                                                                                                     |
-| ----------------- | --------------- | --------------- | -------- | --------------------------------------------------------------------------------------------------------------- | --- |
-| _**`Component`**_ |                 | React component | yes      | Link representing a REST API endpoint or custom handler                                                         |
-| _`options`_       |                 | object          | no       | options object                                                                                                  |
-| _`options`_       | `injectProps`   | boolean         | -        | If `false`, the `state`, `actions` and `libraries` won't be passed as props to the component. Default is `true` |     |
+| Name | Object Property | Type | Required | Description |  |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| _**`Component`**_ |  | React component | yes | Link representing a REST API endpoint or custom handler |  |
+| _`options`_ |  | object | no | options object |  |
+| _`options`_ | `injectProps` | boolean | - | If `false`, the `state`, `actions` and `libraries` won't be passed as props to the component. Default is `true` |  |
 
 #### Return value
 
-- The same component as passed in as the first argument but connected to the Frontity state
+* The same component as passed in as the first argument but connected to the Frontity state
 
 #### Example
 
 {% code title="Page.js" %}
-
 ```jsx
 import React from "react";
 import { connect } from "frontity";
@@ -123,7 +118,6 @@ const Page = ({ state }) => {
 // Connect Page to the Frontity state.
 export default connect(Page);
 ```
-
 {% endcode %}
 
 ### `useConnect`
@@ -131,13 +125,13 @@ export default connect(Page);
 It's a React hook that returns the Frontity state, allowing the component to consume `state`, `actions` and `libraries` in components without passing them as props.
 
 {% hint style="warning" %}
+
 You still need to use `connect` when using `useConnect` properly.
 
 By using `connect`:
 
-- Your components get optimized with _memo_, so they won't re-render whenever a parent component re-renders
-- Your components get reactive, so they will re-render when the parts of state they use are changed
-  {% endhint %}
+* Your components get optimized with _memo_, so they won't re-render whenever a parent component re-renders
+* Your components get reactive, so they will re-render when the parts of state they use are changed
 
 #### Syntax
 
@@ -147,12 +141,11 @@ const { state, actions, libraries } = useConnect();
 
 #### Return value
 
-- The Frontity state \(`state`, `actions` and `libraries`\)
+* The Frontity state \(`state`, `actions` and `libraries`\)
 
 #### Example
 
 {% code title="Page.js" %}
-
 ```jsx
 import React from "react";
 import { connect, useConnect } from "frontity";
@@ -179,7 +172,6 @@ const Page = () => {
 // Connect Page to the Frontity state.
 export default connect(Page);
 ```
-
 {% endcode %}
 
 #### Use Case of `{ injectProps: false }` with `connect`
@@ -214,8 +206,8 @@ You'll end up passing `actions` and `libraries` to `<input>` as well, because th
 
 To avoid this you can:
 
-- Add `{ injectProps: false }` to `connect`
-- Use `const { state, actions, libraries } = useConnect();`
+* Add `{ injectProps: false }` to `connect`
+* Use `const { state, actions, libraries } = useConnect();`
 
 ```jsx
 const Input = (props) => {
@@ -253,11 +245,11 @@ const StyledComponent = styled(Component)`
 
 #### Arguments
 
-- A template literal containing CSS code
+* A template literal containing CSS code
 
 #### Return value
 
-- A React component with the styles defined
+* A React component with the styles defined
 
 #### Example
 
@@ -297,11 +289,11 @@ const styleObject = css`
 
 #### Arguments
 
-- A template literal containing CSS code
+* A template literal containing CSS code
 
 #### Return value
 
-- A style object to be passed to a **`css`** prop or to the **`<Global>`**'s **`styles`** prop
+* A style object to be passed to a **`css`** prop or to the **`<Global>`**'s **`styles`** prop
 
 #### Example
 
@@ -335,7 +327,7 @@ It's a React component that creates global styles for the whole Frontity site.
 
 #### Props
 
-- **`styles`**: an style object created with [`css`](frontity.md#css)
+* **`styles`**: an style object created with [`css`](frontity.md#css)
 
 #### Example
 
@@ -371,11 +363,11 @@ const animation = keyframes`
 
 #### Arguments
 
-- A template literal containing [CSS @keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes) code
+* A template literal containing [CSS @keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes) code
 
 #### Return value
 
-- An animation object to be used inside a template literal passed to [`styled`](frontity.md#styled) or [`css`](frontity.md#css)
+* An animation object to be used inside a template literal passed to [`styled`](frontity.md#styled) or [`css`](frontity.md#css)
 
 #### Example
 
@@ -405,7 +397,7 @@ const Component = () => <Button>Styling my theme</Button>;
 
 It's a function that loads a component asynchronously generating a different bundle for it. Frontity has integrated and configured [Loadable Components](https://www.smooth-code.com/open-source/loadable-components/docs/code-splitting/), in case you want to check its docs.
 
-You can also take a look at the [Code Splitting](../learning-frontity/code-splitting.md) page inside the Learning Frontity section.
+You can also take a look at the [Code Splitting](https://github.com/frontity/api-reference/tree/5c8540768cdaaba9e65f4dc8032531eda7708051/docs-api/frontity-packages/learning-frontity/code-splitting.md) page inside the Learning Frontity section.
 
 #### Syntax
 
@@ -415,16 +407,16 @@ const HeavyComponent = loadable(importFunction, options);
 
 #### Arguments
 
-| Name                 | Object Property | Type            | Required | Description                                                                                                                                                                                                   |
-| -------------------- | --------------- | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _**importFunction**_ |                 | function        | yes      | a function that executes a [dynamic import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Dynamic_Import) and returns a `Promise` that will contain the imported module |
-| _`options`_          |                 | object          | no       | options object                                                                                                                                                                                                |
-| _`options`_          | `fallback`      | React component | -        | component displayed until the `Promise` resolves                                                                                                                                                              |
-| _`options`_          | `ssr`           | boolaan         | -        | if `false`, it will not be processed server-side \(default to `true`\)                                                                                                                                        |
+| Name | Object Property | Type | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| _**importFunction**_ |  | function | yes | a function that executes a [dynamic import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Dynamic_Import) and returns a `Promise` that will contain the imported module |
+| _`options`_ |  | object | no | options object |
+| _`options`_ | `fallback` | React component | - | component displayed until the `Promise` resolves |
+| _`options`_ | `ssr` | boolaan | - | if `false`, it will not be processed server-side \(default to `true`\) |
 
 #### Return value
 
-- A React component
+* A React component
 
 #### Example
 
@@ -459,7 +451,7 @@ As we use `react-helmet` under the hood, you may check its [reference guide](htt
 
 #### Props
 
-- **`children`**: the HTML tags you want to appear inside `<head>`
+* **`children`**: the HTML tags you want to appear inside `<head>`
 
 #### Example
 
@@ -488,9 +480,9 @@ const fills = useFills("Slot Name");
 
 #### Arguments
 
-| Name           | Type   | Required | Description                                   |
-| :------------- | :----- | :------- | :-------------------------------------------- |
-| **_slotName_** | string | yes      | A string that refers to the name of the Slot. |
+| Name | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| _**slotName**_ | string | yes | A string that refers to the name of the Slot. |
 
 #### Return value
 
@@ -502,14 +494,14 @@ Mind that a user might define more than one fill for a particular slot. Because 
 
 Each configuration object has this structure:
 
-| Name           | Type           | Description                                                                                                                                                                                                          |
-| :------------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`Fill`**     | ReactComponent | The component that should be rendered for this fill.                                                                                                                                                                 |
-| **`slot`**     | string         | The name of the slot. Mind that a user can define multiple fills that fill the same slot, so there might exist more than one object with the same `slot` property. Defined in `state.fills.namespace.fillName.slot`. |
-| **`props`**    | object         | The props that should be passed down to the component. Defined in `state.fills.namespace.fillName.props`.                                                                                                            |
-| **`library`**  | string         | The name of the library that is using the fill. defined in `state.fills.namespace.fillName.library`.                                                                                                                 |
-| **`priority`** | number         | The priority of the fill. By default, the fills are sorted in ascending order according to this value. Defined in `state.fills.namespace.fillName.priority`.                                                         |
-| **`key`**      | string         | This is a unique value that identifies the particular fill. It's a combination of the `namespace` and the `fillName`.                                                                                                |
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| **`Fill`** | ReactComponent | The component that should be rendered for this fill. |
+| **`slot`** | string | The name of the slot. Mind that a user can define multiple fills that fill the same slot, so there might exist more than one object with the same `slot` property. Defined in `state.fills.namespace.fillName.slot`. |
+| **`props`** | object | The props that should be passed down to the component. Defined in `state.fills.namespace.fillName.props`. |
+| **`library`** | string | The name of the library that is using the fill. defined in `state.fills.namespace.fillName.library`. |
+| **`priority`** | number | The priority of the fill. By default, the fills are sorted in ascending order according to this value. Defined in `state.fills.namespace.fillName.priority`. |
+| **`key`** | string | This is a unique value that identifies the particular fill. It's a combination of the `namespace` and the `fillName`. |
 
 #### Example
 
@@ -547,7 +539,7 @@ state.frontity.debug = true;
 
 If you want to do this on the console, remember that you need to access the `state` using `frontity.state`, like this:
 
-![Debug mode in the console](../../.gitbook/assets/frontity-debug-in-console%20%281%29.png)
+![Debug mode in the console](../../.gitbook/assets/frontity-debug-in-console%20%282%29.png)
 
 ### `fetch`
 
@@ -563,14 +555,14 @@ const fetchResponsePromise = fetch(resource, init);
 
 #### Arguments
 
-| Name           | Type   | Required | Description                                                                                                                                                                                                                                           |
-| -------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _**resource**_ | string | yes      | a string containing the direct URL of the resource you want to fetch                                                                                                                                                                                  |
-| _`init`_       | object | no       | an options object containing any custom settings that you want to apply to the request \(go to [this link](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters) for the complete list of available settings\) |
+| Name | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| _**resource**_ | string | yes | a string containing the direct URL of the resource you want to fetch |
+| _`init`_ | object | no | an options object containing any custom settings that you want to apply to the request \(go to [this link](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters) for the complete list of available settings\) |
 
 #### Return value
 
-- A `Promise` that resolves to a [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) object
+* A `Promise` that resolves to a [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) object
 
 #### Example
 
@@ -598,14 +590,14 @@ This constructor is safe to use both server and client side, but you have to imp
 
 #### Arguments
 
-| Name      | Type   | Required                                       | Description                                     |
-| --------- | ------ | ---------------------------------------------- | ----------------------------------------------- |
-| _**url**_ | string | yes                                            | Absolute or relative URL.                       |
-| _`base`_  | string | If `url` is a relative URL, `base` is required | Base URL to use in case `url` is a relative URL |
+| Name | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| _**url**_ | string | yes | Absolute or relative URL. |
+| _`base`_ | string | If `url` is a relative URL, `base` is required | Base URL to use in case `url` is a relative URL |
 
 #### Return value
 
-- A [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL)object
+* A [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL)object
 
 #### Example
 
@@ -630,13 +622,13 @@ const decodedText = decode(text);
 
 #### Arguments
 
-| Name       | Type   | Required | Description         |
-| ---------- | ------ | -------- | ------------------- |
-| _**text**_ | string | yes      | HTML to be escaped. |
+| Name | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| _**text**_ | string | yes | HTML to be escaped. |
 
 #### Return value
 
-- `string`
+* `string`
 
 #### Example
 
@@ -696,12 +688,12 @@ or
 
 All the following props can be passed to the `<Slot/>` component.
 
-| Name             | Type       | Default                               | Required | Description                                                                                                                                                                                                                                                                  |
-| :--------------- | :--------- | :------------------------------------ | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`           | string     | `undefined`                           | yes      | The name of the Slot. The user of this Slot will have to specify this name in order to insert a Fill component.                                                                                                                                                              |
-| `children`       | ReactNode  | `undefined`                           | yes      | The component that will be used as a fallback in case that no fill is specified for a particular Slot. You can use any type of data that is a valid React element.                                                                                                           |
-| `data`           | ReturnType | `state.source.get(state.router.link)` | no       | Any data that you might want to pass to the Fill. Normally used for passing route data fetched in the parent component. If you don't pass any value, the `<Slot/>` component will set the value of this prop to `state.source.get(state.router.link)` for you automatically. |
-| `any other prop` | any        | undefined                             | no       | Any other custom prop. The theme can specify other props and they will be passed down to the Fill.                                                                                                                                                                           |
+| Name | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `name` | string | `undefined` | yes | The name of the Slot. The user of this Slot will have to specify this name in order to insert a Fill component. |
+| `children` | ReactNode | `undefined` | yes | The component that will be used as a fallback in case that no fill is specified for a particular Slot. You can use any type of data that is a valid React element. |
+| `data` | ReturnType | `state.source.get(state.router.link)` | no | Any data that you might want to pass to the Fill. Normally used for passing route data fetched in the parent component. If you don't pass any value, the `<Slot/>` component will set the value of this prop to `state.source.get(state.router.link)` for you automatically. |
+| `any other prop` | any | undefined | no | Any other custom prop. The theme can specify other props and they will be passed down to the Fill. |
 
 #### Examples
 
@@ -807,13 +799,13 @@ const state = {
 
 Fills configuration objects structure:
 
-| Name         | Description                                                                                    | Required |
-| :----------- | :--------------------------------------------------------------------------------------------- | :------- |
-| `object key` | Name of your fill, must be unique.                                                             | yes      |
-| `slot`       | Name of the slot they want to fill.                                                            | yes      |
-| `library`    | Name of the component they want to use. This is obtained from `libraries.fills` \(see below\). | yes      |
-| `priority`   | Priority of the fill. Default is 10. \(lower value means higher priority\)                     | no       |
-| `props`      | Object with props that will be passed to the component.                                        | no       |
+| Name | Description | Required |
+| :--- | :--- | :--- |
+| `object key` | Name of your fill, must be unique. | yes |
+| `slot` | Name of the slot they want to fill. | yes |
+| `library` | Name of the component they want to use. This is obtained from `libraries.fills` \(see below\). | yes |
+| `priority` | Priority of the fill. Default is 10. \(lower value means higher priority\) | no |
+| `props` | Object with props that will be passed to the component. | no |
 
 Fills configuration objects can have a false value. This is useful if a package creates a fill by default and a user \(or another package\) wants to turn it off.
 
@@ -873,3 +865,4 @@ export default {
 ```
 
 Note that `libNamespace.ComponentName` here matches the value of `state.fills.namespace.nameOfTheFill.library` above. `FillComponent` here is the actual component which is defined elsewhere and may be imported. The return value of this component, i.e. `FillComponent`, is the content that will be inserted into HTML at the position of the `<Slot>` that it is attached to.
+
