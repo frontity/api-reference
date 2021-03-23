@@ -1,54 +1,49 @@
-# Frontity Analytics packages
+# analytics packages
 
 There is a set of official _Analytics Frontity packages_ that you can use to easily add analytics tracking in your project.
 
 These packages are:
 
-- [`@frontity/google-analytics`](google-analytics.md) for trackings using [Google Analytics](https://analytics.google.com/)
-- [`@frontity/google-tag-manager-analytics`](google-tag-manager-analytics.md) for trackings using [Google Tag Manager](https://tagmanager.google.com/)
-- [`@frontity/comscore-analytics`](comscore-analytics.md) for trackings using [Comscore](https://www.comscore.com/)
+* [`@frontity/google-analytics`](google-analytics.md) for trackings using [Google Analytics](https://analytics.google.com/)
+* [`@frontity/google-tag-manager-analytics`](google-tag-manager-analytics.md) for trackings using [Google Tag Manager](https://tagmanager.google.com/)
+* [`@frontity/comscore-analytics`](comscore-analytics.md) for trackings using [Comscore](https://www.comscore.com/)
 
 ## Table of Contents
 
-<!-- toc -->
-
-- [Installation](#installation)
-- [Settings](#settings)
-  - [`state.analytics.pageviews`](#state-analytics-pageviews)
-  - [`state.analytics.events`](#state-analytics-events)
-- [How to use](#how-to-use)
-  - [`actions.analytics.pageview`](#actions-analytics-pageview)
-  - [`actions.analytics.event`](#actions-analytics-event)
-
-<!-- tocstop -->
+* [Installation](./#installation)
+* [Settings](./#settings)
+  * [`state.analytics.pageviews`](./#state-analytics-pageviews)
+  * [`state.analytics.events`](./#state-analytics-events)
+* [How to use](./#how-to-use)
+  * [`actions.analytics.pageview`](./#actions-analytics-pageview)
+  * [`actions.analytics.event`](./#actions-analytics-event)
 
 ## Installation
 
 Install the analytics package you need for your project:
 
-- [Installation instructions for `@frontity/google-analytics`](google-analytics.md#install)
-- [Installation instructions for `@frontity/google-tag-manager-analytics`](google-tag-manager-analytics.md#install)
-- [Installation instructions for `@frontity/comscore-analytics`](comscore-analytics.md#install)
+* [Installation instructions for `@frontity/google-analytics`](google-analytics.md#install)
+* [Installation instructions for `@frontity/google-tag-manager-analytics`](google-tag-manager-analytics.md#install)
+* [Installation instructions for `@frontity/comscore-analytics`](comscore-analytics.md#install)
 
 ## Settings
 
 Each package will require some custom configuration to add things such as tracking IDs for the services behind. In the description of each package you'll find the details of each configuration:
 
-- [Settings for `@frontity/google-analytics`](google-analytics.md#settings)
-- [Settings for `@frontity/google-tag-manager-analytics`](google-tag-manager-analytics.md#settings)
-- [Settings for `@frontity/comscore-analytics`](comscore-analytics.md#settings)
+* [Settings for `@frontity/google-analytics`](google-analytics.md#settings)
+* [Settings for `@frontity/google-tag-manager-analytics`](google-tag-manager-analytics.md#settings)
+* [Settings for `@frontity/comscore-analytics`](comscore-analytics.md#settings)
 
 Once we have properly installed and configured these `analytics` packages, their actions will be centralized by the `analytics` namespace.
 
-In `frontity.settings.js` we can enable/disable specific analytics packages for pageviews or events through the following properties in the `state` (under the `analytics` namespace)
+In `frontity.settings.js` we can enable/disable specific analytics packages for pageviews or events through the following properties in the `state` \(under the `analytics` namespace\)
 
-- `state.analytics.pageviews`
-- `state.analytics.events`
+* `state.analytics.pageviews`
+* `state.analytics.events`
 
 These properties can be set directly in `frontity.settings.js` from `state.analytics`...
 
-```js
-
+```javascript
 const settings = {
   name: ...,
   state: {
@@ -72,7 +67,7 @@ export default settings;
 
 Or from each Analytics package setting...
 
-```js
+```javascript
 const settings = {
   ...,
   packages: [
@@ -100,7 +95,7 @@ const settings = {
 export default settings;
 ```
 
-#### `state.analytics.pageviews`
+### `state.analytics.pageviews`
 
 Map of Analytics packages namespaces with boolean values.
 
@@ -112,15 +107,13 @@ If you want to disable sending pageviews for a specific analytics package, the r
 All analytics namespaces will be `true` by default in this setting
 {% endhint %}
 
-#### `state.analytics.events`
+### `state.analytics.events`
 
 Map of Analytics packages namespaces with boolean values.
 
-This object is used by `actions.analytics.event` to know which
-analytics packages should send the event to their respective services.
+This object is used by `actions.analytics.event` to know which analytics packages should send the event to their respective services.
 
-If you want to disable sending events for a specific analytics
-package, the respective namespace of that package should be set here to `false`.
+If you want to disable sending events for a specific analytics package, the respective namespace of that package should be set here to `false`.
 
 {% hint style="info" %}
 All analytics namespaces will be `true` by default in this setting
@@ -130,30 +123,29 @@ All analytics namespaces will be `true` by default in this setting
 
 Once everything is properly configured, the following `actions` under the namespace `analytics` will be ready to be used
 
-- `actions.analytics.pageview`
-- `actions.analytics.event`
+* `actions.analytics.pageview`
+* `actions.analytics.event`
 
-#### `actions.analytics.pageview`
+### `actions.analytics.pageview`
 
 Send a pageview to all active analytics packages.
 
 This action takes all namespaces defined in `state.analytics.pageviews` that are `true` and calls the `pageview` action of each one with the specified `Pageview` object.
 
-`actions.analytics.pageview` is automatically launched every time link changes (or every time `action.router.set(link)` is launched)
+`actions.analytics.pageview` is automatically launched every time link changes \(or every time `action.router.set(link)` is launched\)
 
 {% hint style="warning" %}
 This action is is not meant to be called directly but in case you still want to do this it would be something like this:
 
-```js
+```javascript
 actions.analytics.pageview({
   link: "/2016/the-beauties-of-gullfoss",
   title: "The Beauties Of Gullfoss",
 });
 ```
-
 {% endhint %}
 
-#### `actions.analytics.event`
+### `actions.analytics.event`
 
 Send an event to all enabled analytics packages.
 
@@ -163,7 +155,7 @@ This is the method you can call from any component of your React app to track sp
 
 _Example:_
 
-```js
+```javascript
 actions.analytics.event({
   name: "click",
   payload: {
@@ -175,15 +167,16 @@ actions.analytics.event({
 
 The `actions.analytics.event()` must receive an event object with the following properties.
 
-| Name          | Type   | Required | Description                                                                             |
-| :------------ | :----- | :------- | :-------------------------------------------------------------------------------------- |
-| **`name`**    | string | yes      | The value of this property is mapped to the proper name event of each analytics package |
-| **`payload`** | object | yes      | Event payload.                                                                          |
+| Name | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| **`name`** | string | yes | The value of this property is mapped to the proper name event of each analytics package |
+| **`payload`** | object | yes | Event payload. |
 
 This method will send the event tracking information to all the packages enabled in `state.analytics.events`
 
 Each package will handle the information sent through this `actions.analytics.event()` in a different way:
 
-- [How `@frontity/google-analytics` handle this event object](google-analytics.md#actionsanalyticsevent)
-- [How `@frontity/google-tag-manager-analytics` handle this event object](google-tag-manager-analytics.md#actionsanalyticsevent)
-- [How `@frontity/comscore-analytics` handle this event object](comscore-analytics.md#actionsanalyticsevent)
+* [How `@frontity/google-analytics` handle this event object](google-analytics.md#actionsanalyticsevent)
+* [How `@frontity/google-tag-manager-analytics` handle this event object](google-tag-manager-analytics.md#actionsanalyticsevent)
+* [How `@frontity/comscore-analytics` handle this event object](comscore-analytics.md#actionsanalyticsevent)
+
