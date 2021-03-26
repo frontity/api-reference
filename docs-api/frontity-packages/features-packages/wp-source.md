@@ -251,7 +251,7 @@ const state = {
 
 Additionally the value of `state.source.auth` can be set via a **query string**. If a `frontity_source_auth` param is present in the URL `state.source.auth` will use its value. Values passed in this way will be removed from the `initialLink` URL and added to `state.frontity.options`.
 
-> Note that the parameters are camelCased when they are added to `state.frontity.options`, so the `frontity_source_auth` query string param will become `state.frontity.options.frontitySourceAuth` once added.
+> Note that the parameters are camelCased when they are added to `state.frontity.options`, so the `frontity_source_auth` query string param will become `state.frontity.options.sourceAuth` once added.
 
 > For more information on Frontity query string parameters [see here](https://docs.frontity.org/guides/frontity-query-options).
 
