@@ -249,11 +249,9 @@ const state = {
 };
 ```
 
-Additionally the value of `state.source.auth` can be set via a **query string**. If a `frontity_source_auth` param is present in the URL `state.source.auth` will use its value. Values passed in this way will be removed from the `initialLink` URL and added to `state.frontity.options`.
+Additionally the value of `state.source.auth` can be set via a **query string**. If a `frontity_source_auth` [Frontity Query Option](https://docs.frontity.org/guides/frontity-query-options) param is present in the URL `state.source.auth` will use its value. Values passed in this way will be removed from the `initialLink` URL and added to `state.frontity.options`.
 
-> Note that the parameters are camelCased when they are added to `state.frontity.options`, so the `frontity_source_auth` query string param will become `state.frontity.options.sourceAuth` once added.
-
-> For more information on Frontity query string parameters [see here](https://docs.frontity.org/guides/frontity-query-options).
+> Note that the Frontity Query Option parameters are camelCased when they are added to `state.frontity.options`, so the `frontity_source_auth` query string param will become `state.frontity.options.sourceAuth` once added.
 
 The value of `state.source.auth` can also be set from an **environmental variable**. If frontity detects a `FRONTITY_SOURCE_AUTH` environmental variable, it will pass its value to `state.source.auth`.
 
@@ -673,14 +671,14 @@ Request entity from the WordPress REST API.
 
 **Arguments**
 
-| Name                       | Type    | Required | Description                                                                                                                                  |
-| :------------------------- | :------ | :------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
-| _`options`_                | object  | yes      | options object                                                                                                                               |
-| _`options`_.**`endpoint`** | string  | yes      | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\).          |
-| _`options`_.`params`       | object  | no       | Any parameter that will be included in the query params.                                                                                     |
-| _`options`_.`auth`         | string  | no       | Allows the Authorization header on the fetch() request to be set. Can use the value at [`state.source.auth`](wp-source.md#state-source-auth) |
-| _`options`_.`api`          | string  | no       | Overrides the value set with `api.set.`                                                                                                      |
-| _`options`_.`isWpCom`      | boolean | no       | Overrides the value set with `api.set.`                                                                                                      |
+| Name                       | Type    | Required | Description                                                                                                                                                                                              |
+| :------------------------- | :------ | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _`options`_                | object  | yes      | options object                                                                                                                                                                                           |
+| _`options`_.**`endpoint`** | string  | yes      | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\).                                                                      |
+| _`options`_.`params`       | object  | no       | Any parameter that will be included in the query params.                                                                                                                                                 |
+| _`options`_.`auth`         | string  | no       | Allows the Authorization header on the fetch() request to be set. If not specified, will use the value from [`state.source.auth`](wp-source.md#state-source-auth) if that value is present in the state. |
+| _`options`_.`api`          | string  | no       | Overrides the value set with `api.set.`                                                                                                                                                                  |
+| _`options`_.`isWpCom`      | boolean | no       | Overrides the value set with `api.set.`                                                                                                                                                                  |
 
 **Return value**
 
