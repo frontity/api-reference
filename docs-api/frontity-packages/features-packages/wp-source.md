@@ -776,7 +776,7 @@ libraries.source.handlers.push({
     });
 
     // 3. add link to data
-    Object.assign(state.source.datalink, {
+    Object.assign(state.source.data[link], {
       id: product.id,
       type: product.type,
       isPostType: true,
