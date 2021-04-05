@@ -695,7 +695,7 @@ Add entities to the Frontity state.
 | :--- | :--- | :--- | :--- |
 | _`options`_ | object | yes | Options object |
 | _`options`_.**`response`** | oject | yes | The response object returned by `api.get().` |
-| _`options`_.**`state`** | object | yes | The tate object from the Frontity store. |
+| _`options`_.**`state`** | object | yes | The state object from the Frontity store. |
 | _`options`_.`subdirectory` | strin | no | Domain's subdirectory where your Frontity site is accessible. When this options is passed, this subdirectory is added to the entities' links. &lt;/br&gt; Default Value is value defined in `state.source.subdirectory` |
 | _`options`_.`force` | boolean | no | Value indicating if the entities should be overwritten &lt;/br&gt; Default Value is `false` |
 
