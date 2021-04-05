@@ -4,7 +4,7 @@ description: API reference of `@frontity/tiny-router` package
 
 # @frontity/tiny-router
 
-This package is in charge of managing (React) routes in a Frontity project.
+This package is in charge of managing \(React\) routes in a Frontity project.
 
 ## Table of Contents
 
@@ -16,6 +16,7 @@ This package is in charge of managing (React) routes in a Frontity project.
 - [API Reference](#api-reference)
   - [Actions](#actions)
     - [`actions.router.set()`](#actions-router-set)
+    - [`actions.router.updateState()`](#actions-router-updatestate)
   - [State](#state)
     - [`state.router.link`](#state-router-link)
     - [`state.router.state`](#state-router-state)
@@ -60,7 +61,7 @@ It's `true` by default.
 
 Tiny Router is very simple, it only has one action: `actions.router.set()` .
 
-##### Syntax
+**Syntax**
 
 ```typescript
 actions.router.set = async (link: string, options: {
@@ -69,16 +70,16 @@ actions.router.set = async (link: string, options: {
 }): Promise<void>;
 ```
 
-##### Arguments
+**Arguments**
 
-| Name                 | Type   | Required | Description                                                                                                                                                                                                                                                                                                                        |
-| -------------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _**`link`**_         | string | yes      | The URL that will replace the current one. _`link` is short for permalink_. <br/> Examples:                                                                                                                                                                                                                                        |
-| _`options`_          | object | no       | Options object                                                                                                                                                                                                                                                                                                                     |
-| _`options`_.`method` | string | -        | The method used in the action. Possible values: `"push"` corresponds to [`window.history.pushState`](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) and `"replace"` to [`window.history.replaceState`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState) </br> Default Value is `"push"` |
-| _`options`_.`state`  | object | -        | An object that will be saved in `window.history.state`. This object is recovered when the user go back and forward using the browser buttons.                                                                                                                                                                                      |
+| Name                 | Type   | Required | Description                                                                                                                                                                                                                                                                                                                              |
+| :------------------- | :----- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _**`link`**_         | string | yes      | The URL that will replace the current one. _`link` is short for permalink_. Examples:                                                                                                                                                                                                                                                    |
+| _`options`_          | object | no       | Options object                                                                                                                                                                                                                                                                                                                           |
+| _`options`_.`method` | string | -        | The method used in the action. Possible values: `"push"` corresponds to [`window.history.pushState`](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) and `"replace"` to [`window.history.replaceState`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState) &lt;/br&gt; Default Value is `"push"` |
+| _`options`_.`state`  | object | -        | An object that will be saved in `window.history.state`. This object is recovered when the user go back and forward using the browser buttons.                                                                                                                                                                                            |
 
-##### Examples
+**Examples**
 
 This is a very simple, but functional `Link` component created with `actions.router.set`:
 
@@ -96,6 +97,18 @@ const Link = ({ actions, children, link }) => {
   );
 };
 ```
+
+#### `actions.router.updateState()`
+
+Action that replaces the value of `state.router.state` with the give object. The same object is stored in the browser history state using the
+[`history.replaceState()`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState)
+function.
+
+**Arguments**
+
+| Name               | Type   | Required | Description                             |
+| :----------------- | :----- | :------- | :-------------------------------------- |
+| **`historyState`** | object | yes      | The object to set as the history state. |
 
 ### State
 

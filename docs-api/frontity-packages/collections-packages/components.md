@@ -8,26 +8,22 @@ This package is a collection of React components that have proven to be pretty u
 
 ## Table of Contents
 
-<!-- toc -->
-
-- [How to use](#how-to-use)
-- [Components](#components)
-  - [Link](#link)
-    - [Props](#props)
-    - [Usage](#usage)
-    - [Auto Prefetch](#auto-prefetch)
-    - [Custom `Link` component](#custom-link-component)
-    - [The `link` processor](#the-link-processor)
-  - [Image](#image)
-  - [Script](#script)
-    - [Props](#props)
-    - [Usage](#usage)
-  - [Iframe](#iframe)
-    - [Props](#props)
-    - [Usage](#usage)
-  - [Switch](#switch)
-
-<!-- tocstop -->
+- [How to use](components.md#how-to-use)
+- [Components](components.md#components)
+  - [Link](components.md#link)
+    - [Props](components.md#props)
+    - [Usage](components.md#usage)
+    - [Auto Prefetch](components.md#auto-prefetch)
+    - [Custom `Link` component](components.md#custom-link-component)
+    - [The `link` processor](components.md#the-link-processor)
+  - [Image](components.md#image)
+  - [Script](components.md#script)
+    - [Props](components.md#props)
+    - [Usage](components.md#usage)
+  - [Iframe](components.md#iframe)
+    - [Props](components.md#props)
+    - [Usage](components.md#usage)
+  - [Switch](components.md#switch)
 
 ## How to use
 
@@ -49,14 +45,14 @@ This component requires having `state.source.url` properly configured. Have a lo
 
 #### Props
 
-| Name           | Type     | Required | Default     | Description                                                                                                                                                                    |
-| :------------- | :------- | :------- | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `link`         | string   | yes      | ---         | The URL to link to.                                                                                                                                                            |
-| `target`       | string   | no       | `_self`     | The [target](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target) of the anchor. Possible values: `_self` or `_blank`                                           |
-| `onClick`      | function | no       | `undefined` | The `onClick` handler. Can be used to pass an optional callback that will be invoked on click.                                                                                 |
-| `scroll`       | boolean  | no       | `true`      | Whether the browser should scroll up to the top upon navigating to a new page.                                                                                                 |
-| `prefetch`     | boolean  | no       | `true`      | Whether Frontity should automatically prefetch this link or not. The prefetching mode is controlled through [`state.theme.autoPrefetch`](frontity-components.md#auto-prefetch) |
-| `aria-current` | string   | no       | `undefined` | [Indicates the element that represents the current item within a container or set of related elements](https://www.w3.org/TR/wai-aria-1.1/#aria-current)                       |
+| Name           | Type     | Required | Default     | Description                                                                                                                                                                                                                                                                                                            |
+| :------------- | :------- | :------- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `link`         | string   | yes      | ---         | The URL to link to.                                                                                                                                                                                                                                                                                                    |
+| `target`       | string   | no       | `_self`     | The [target](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target) of the anchor. Possible values: `_self` or `_blank`                                                                                                                                                                                   |
+| `onClick`      | function | no       | `undefined` | The `onClick` handler. Can be used to pass an optional callback that will be invoked on click.                                                                                                                                                                                                                         |
+| `scroll`       | boolean  | no       | `true`      | Whether the browser should scroll up to the top upon navigating to a new page.                                                                                                                                                                                                                                         |
+| `prefetch`     | boolean  | no       | `true`      | Whether Frontity should automatically prefetch this link or not. The prefetching mode is controlled through [`state.theme.autoPrefetch`](https://github.com/frontity/api-reference/tree/5cb70b185de018562902d073a62bb934053a5445/docs-api/frontity-packages/collections-packages/frontity-components.md#auto-prefetch) |
+| `aria-current` | string   | no       | `undefined` | [Indicates the element that represents the current item within a container or set of related elements](https://www.w3.org/TR/wai-aria-1.1/#aria-current)                                                                                                                                                               |
 
 All _"unknown"_ props passed to the Link are passed down to an anchor `</a>` tag.
 
@@ -78,7 +74,7 @@ This component can help implementing some auto prefetching strategies. The confi
 
 Imagine that `my-awesome-theme` uses this component. Then, people can set the auto prefetch setting like this:
 
-```js
+```javascript
 const settings = {
   // Other settings...
   packages: [
@@ -164,13 +160,13 @@ The `<Link>` component created by the processor will be modelled on the `<a>` ta
 
 If the `href` attribute of the `<a>` tag is an absolute link on a different domain from the WordPress data source, i.e. it is a link to an external site, then that tag will remain as is and will not be replaced or converted.
 
-In order for this to work the `link` processor must be imported into the theme and included in the list of `html2react` processors. This would normally be done in the root level `index.js` of your theme. See [here](../features-packages/html2reeact.md) and [here](https://docs.frontity.org/learning-frontity/libraries#array-of-processors-from-html-2-react) for more info.
+In order for this to work the `link` processor must be imported into the theme and included in the list of `html2react` processors. This would normally be done in the root level `index.js` of your theme. See [here](https://github.com/frontity/api-reference/tree/5cb70b185de018562902d073a62bb934053a5445/docs-api/frontity-packages/features-packages/html2reeact.md) and [here](https://docs.frontity.org/learning-frontity/libraries#array-of-processors-from-html-2-react) for more info.
 
-```js
+```javascript
 import link from "@frontity/html2react/processors/link";
 ```
 
-```js
+```javascript
 libraries: {
   html2react: {
     processors: [link],
@@ -183,7 +179,7 @@ This `link` processor needs to be added to any theme that wants to uses this Cli
 
 ### Image
 
-`<Image />` is a React component that adds `lazy-loading` to the native WordPress images. Combined with [`@html2react/processors`](frontity-html2react.md#processors) , you can add this functionality and optimize your images pretty easy.
+`<Image />` is a React component that adds `lazy-loading` to the native WordPress images. Combined with [`@html2react/processors`](https://github.com/frontity/api-reference/tree/5cb70b185de018562902d073a62bb934053a5445/docs-api/frontity-packages/collections-packages/frontity-html2react.md#processors) , you can add this functionality and optimize your images pretty easy.
 
 ### Script
 
@@ -239,10 +235,10 @@ const MyComponent = () => (
 | true                  | true        | false         | Intersection Observer |
 | true                  | false       | true          | Intersection Observer |
 | true                  | false       | false         | Intersection Observer |
-| false                 | true        | true          | (not possible)        |
-| false                 | true        | false         | (not possible)        |
-| false                 | false       | true          | Normal Load (eager)   |
-| false                 | false       | false         | Normal Load (eager)   |
+| false                 | true        | true          | \(not possible\)      |
+| false                 | true        | false         | \(not possible\)      |
+| false                 | false       | true          | Normal Load \(eager\) |
+| false                 | false       | false         | Normal Load \(eager\) |
 
 {% hint style="info" %}
 Native Lazy needs a height attribute. For that reason, we use the Intersection Observer when a height is not provided.
@@ -279,7 +275,7 @@ const MyComponent = () => (
 
 The `<Switch />` renders the first child component that returns `true` as the value of its `when` prop.
 
-The last child component (which should not have a `when` prop) will be rendered if no other component matches the condition.
+The last child component \(which should not have a `when` prop\) will be rendered if no other component matches the condition.
 
 You can use it for routing to different components in your theme:
 

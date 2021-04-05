@@ -6,23 +6,18 @@ It is perfect if you are using WordPress for a headless set-up and you would lik
 
 ## Table of Contents
 
-<!-- toc -->
-
-- [Requisites](#requisites)
-- [Compatibility](#compatibility)
-
-* [How to use this plugin](#how-to-use-this-plugin)
-  - [Entities with head tags](#entities-with-head-tags)
-  - [In a Frontity project](#in-a-frontity-project)
-  - [In a different project](#in-a-different-project)
-* [Settings](#settings)
-  - [Purge cache](#purge-cache)
-  - [Enable output](#enable-output)
-  - [Skip cache](#skip-cache)
-* [WordPress installation](#wordpress-installation)
-* [Troubleshooting](#troubleshooting)
-
-<!-- tocstop -->
+- [Requisites](rest-api-head-tags.md#requisites)
+- [Compatibility](rest-api-head-tags.md#compatibility)
+- [How to use this plugin](rest-api-head-tags.md#how-to-use-this-plugin)
+  - [Entities with head tags](rest-api-head-tags.md#entities-with-head-tags)
+  - [In a Frontity project](rest-api-head-tags.md#in-a-frontity-project)
+  - [In a different project](rest-api-head-tags.md#in-a-different-project)
+- [Settings](rest-api-head-tags.md#settings)
+  - [Purge cache](rest-api-head-tags.md#purge-cache)
+  - [Enable output](rest-api-head-tags.md#enable-output)
+  - [Skip cache](rest-api-head-tags.md#skip-cache)
+- [WordPress installation](rest-api-head-tags.md#wordpress-installation)
+- [Troubleshooting](rest-api-head-tags.md#troubleshooting)
 
 ### Requisites
 

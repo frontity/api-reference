@@ -1,22 +1,18 @@
-# `@frontity/comscore-analytics`
+# @frontity/comscore-analytics
 
 [Comscore](https://www.comscore.com/) Analytics package for Frontity
 
 ## Table of Contents
 
-<!-- toc -->
-
-- [Install](#install)
-- [Settings](#settings)
-- [Usage](#usage)
-  - [`actions.analytics.pageview`](#actions-analytics-pageview)
-  - [`actions.analytics.event`](#actions-analytics-event)
-
-<!-- tocstop -->
+- [Install](comscore-analytics.md#install)
+- [Settings](comscore-analytics.md#settings)
+- [Usage](comscore-analytics.md#usage)
+  - [`actions.analytics.pageview`](comscore-analytics.md#actions-analytics-pageview)
+  - [`actions.analytics.event`](comscore-analytics.md#actions-analytics-event)
 
 ## Install
 
-```sh
+```bash
 npm i @frontity/comscore-analytics
 ```
 
@@ -24,13 +20,13 @@ npm i @frontity/comscore-analytics
 
 The [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package is **`comscoreAnalytics`**
 
-Every Comscore account has a [Tracking ID](#).  
-To connect the package with a specific account (or accounts) we can set the following properties in the `frontity.settings.js`:
+Every Comscore account has a [Tracking ID](comscore-analytics.md).  
+To connect the package with a specific account \(or accounts\) we can set the following properties in the `frontity.settings.js`:
 
 - `state.comscoreAnalytics.trackingId`: to specify just one _tracking ID_
 - `state.comscoreAnalytics.trackingIds`: to specify a list of _tracking ID's_
 
-```js
+```javascript
 export default {
   packages: [
     {
@@ -45,7 +41,7 @@ export default {
 };
 ```
 
-```js
+```javascript
 export default {
   packages: [
     {
@@ -67,12 +63,12 @@ This `@frontity/comscore-analytics` package can co-exist with some other `analyt
 - `actions.analytics.pageview` will take into account settings in `state.analytics.pageviews`
 - `actions.analytics.event` will take into account settings in `state.analytics.events`
 
-> Read more [here](README.md#how-to-use) about how to use Analytic packages
+> Read more [here](./#how-to-use) about how to use Analytic packages
 
-#### `actions.analytics.pageview`
+### `actions.analytics.pageview`
 
-If `@frontity/comscore-analytics` is configured [and enabled for _pageviews_](), every time a link changes (or every time `action.router.set(link)` is launched) a tracking for that page will be sent to Google Analytics
+If `@frontity/comscore-analytics` is configured [and enabled for _pageviews_](comscore-analytics.md), every time a link changes \(or every time `action.router.set(link)` is launched\) a tracking for that page will be sent to Google Analytics
 
-#### `actions.analytics.event`
+### `actions.analytics.event`
 
 This package doesn't actually track events for Comscore so any call of the method `actions.analytics.event()` will have no effect for this service

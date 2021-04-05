@@ -4,32 +4,28 @@ description: API reference of `@frontity/html2react` package
 
 # @frontity/html2react
 
-This package is in charge of converting HTML to React. It works with [_processors_](#processors) that match HTML portions and replaces them with React components.
+This package is in charge of converting HTML to React. It works with [_processors_](html2react.md#processors) that match HTML portions and replaces them with React components.
 
 ## Table of Contents
 
-<!-- toc -->
-
-- [Installation](#installation)
-- [Settings](#settings)
-- [How to use](#how-to-use)
-  - [Rendering the parsed content](#rendering-the-parsed-content)
-- [Processors](#processors)
-  - [Loading processors](#loading-processors)
-  - [Creating your own processors](#creating-your-own-processors)
-    - [Example](#example)
-  - [Nodes](#nodes)
-- [Default Processors](#default-processors)
-  - [Script](#script)
-    - [Usage](#usage)
-  - [Iframe](#iframe)
-    - [Usage](#usage)
-- [API Reference](#api-reference)
-  - [Libraries](#libraries)
-    - [`libraries.html2react.processors`](#libraries-html-2-react-processors)
-    - [`libraries.html2react.Component`](#libraries-html-2-react-component)
-
-<!-- tocstop -->
+- [Installation](html2react.md#installation)
+- [Settings](html2react.md#settings)
+- [How to use](html2react.md#how-to-use)
+  - [Rendering the parsed content](html2react.md#rendering-the-parsed-content)
+- [Processors](html2react.md#processors)
+  - [Loading processors](html2react.md#loading-processors)
+  - [Creating your own processors](html2react.md#creating-your-own-processors)
+    - [Example](html2react.md#example)
+  - [Nodes](html2react.md#nodes)
+- [Default Processors](html2react.md#default-processors)
+  - [Script](html2react.md#script)
+    - [Usage](html2react.md#usage)
+  - [Iframe](html2react.md#iframe)
+    - [Usage](html2react.md#usage)
+- [API Reference](html2react.md#api-reference)
+  - [Libraries](html2react.md#libraries)
+    - [`libraries.html2react.processors`](html2react.md#libraries-html-2-react-processors)
+    - [`libraries.html2react.Component`](html2react.md#libraries-html-2-react-component)
 
 ## Installation
 
@@ -55,7 +51,7 @@ module.exports = {
 
 If you use an already created theme this package will already be configured so you don't need to do anything else.
 
-If you're creating a custom theme you'll have to [define the processors you want to use in the configuration of the package](#loading-processors)
+If you're creating a custom theme you'll have to [define the processors you want to use in the configuration of the package](html2react.md#loading-processors)
 
 ## How to use
 
@@ -89,11 +85,11 @@ const Post = ({ state, libraries }) => {
 
 Processors are the blocks of logic used by `html2react` to detect specific portions of HTML and return custom HTML or React components
 
-The `processors` field is an _array_ where you can push all the processors you want to use with `html2react`. You can check the default processors [here](#default-processors).
+The `processors` field is an _array_ where you can push all the processors you want to use with `html2react`. You can check the default processors [here](html2react.md#default-processors).
 
 ### Loading processors
 
-You can add your processors directly in [`libraries.html2react.processors`](#libraries-html-2-react-processors). Here you can see as an example how this is done in `mars-theme`:
+You can add your processors directly in [`libraries.html2react.processors`](html2react.md#libraries-html-2-react-processors). Here you can see as an example how this is done in `mars-theme`:
 
 ```jsx
 import image from "@frontity/html2react/processors/image";
@@ -117,23 +113,23 @@ export default myPackage;
 
 A processor is an object with four properties: `name` , `priority` , `test`,and `processor`.
 
-| Name            | Type     | Required | Description                                                                                                                                                                                                                                                                                   |
-| --------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`name`**      | string   | yes      | the name of your processor                                                                                                                                                                                                                                                                    |
-| **`priority`**  | number   | yes      | A number that lets the package know in which order processors should be evaluated. The processors are evaluated in numeric order. For example, a processor with `priority` of `10` will be applied **before** a processor with a `priority` of `20`                                           |
-| **`test`**      | function | yes      | A function that evaluate each [node](frontity-html2react.md#nodes), and if it returns `true`, this node will be passed down to the `processor` function                                                                                                                                       |
-| **`processor`** | function | yes      | A function to apply some logic to the [node](frontity-html2react.md#nodes) that we want to modify. It could be substituting HTML tags for React component with some logic, as adding `lazy-loading` to images, or just modifying some attributes, like adding `target="_blank"` to the links. |
+| Name            | Type     | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| :-------------- | :------- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`name`**      | string   | yes      | the name of your processor                                                                                                                                                                                                                                                                                                                                                                                                         |
+| **`priority`**  | number   | yes      | A number that lets the package know in which order processors should be evaluated. The processors are evaluated in numeric order. For example, a processor with `priority` of `10` will be applied **before** a processor with a `priority` of `20`                                                                                                                                                                                |
+| **`test`**      | function | yes      | A function that evaluate each [node](https://github.com/frontity/api-reference/tree/5c8540768cdaaba9e65f4dc8032531eda7708051/docs-api/frontity-packages/features-packages/frontity-html2react.md#nodes), and if it returns `true`, this node will be passed down to the `processor` function                                                                                                                                       |
+| **`processor`** | function | yes      | A function to apply some logic to the [node](https://github.com/frontity/api-reference/tree/5c8540768cdaaba9e65f4dc8032531eda7708051/docs-api/frontity-packages/features-packages/frontity-html2react.md#nodes) that we want to modify. It could be substituting HTML tags for React component with some logic, as adding `lazy-loading` to images, or just modifying some attributes, like adding `target="_blank"` to the links. |
 
 Both the `test` and the `processor` functions receive the same arguments `({ node, root, state, libraries })`
 
 | Name        | Type   | Description                                                                                                                                              |
-| ----------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :---------- | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `node`      | object | The HTML node tag the processor is evaluating                                                                                                            |
 | `root`      | object | The top node of the node tree                                                                                                                            |
 | `state`     | object | Access to Frontity's `state` . This could be useful to use some parts of the `state` inside your processor. For example, using your `state.theme.colors` |
 | `libraries` | object | Access to Frontity's `libraries`. As it happens with the `state`, sometimes could be useful to access your `libraries` as well                           |
 
-The **`test`** function _returns_ a boolean to indicate `processor` function should be executed (the node matches the pattern)
+The **`test`** function _returns_ a boolean to indicate `processor` function should be executed \(the node matches the pattern\)
 
 The **`processor`** function _returns_ a `node` object
 
@@ -201,21 +197,21 @@ The object `node` received by both `test` and `processor`can be an `Element`, a 
 
 The common properties are:
 
-| Name     | Type    | Description                                                                                                                                                           |
-| -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- |
-| `type`   | string  | The Node type. </br> Possible values: `"element"                                                                                                                      | "text" | "comment"` |
-| `parent` | Element | The parent of this node, which is always an `element` \(`text` or `comment` can't have children\)                                                                     |
-| `ignore` | boolean | If you set `ignore` to `true` for a node, it won't pass any `test`. This is useful in some situations when you don't want additional processors applied to this node. |
+| Name     | Type    | Description                                                                                                                                                           |        |             |
+| :------- | :------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- | :---------- |
+| `type`   | string  | The Node type. &lt;/br&gt; Possible values: \`"element"                                                                                                               | "text" | "comment"\` |
+| `parent` | Element | The parent of this node, which is always an `element` \(`text` or `comment` can't have children\)                                                                     |        |             |
+| `ignore` | boolean | If you set `ignore` to `true` for a node, it won't pass any `test`. This is useful in some situations when you don't want additional processors applied to this node. |        |             |
 
 Besides common properties, `Element` nodes are also defined by the following properties:
 
-| Name        | Type                                 | Description                                                                                                                                                                                                  |
-| ----------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `component` | string or function (React component) | If it's a string, it's an HTML tag and if it's a function is a React component. You can change it at will and it is what you would usually do when you want to convert HTML tags to React components         |
-| `props`     | object                               | An object containing all the HTML attributes of that node or props of that React component. You can also change them at will. All the attributes are converted to the React equivalents, even for HTML tags. |
-| `children`  | array (of nodes)                     | An array containing other nodes, children to this one. If you want to get rid of the children, just overwrite it with `null` or an empty array                                                               |
+| Name        | Type                                   | Description                                                                                                                                                                                                  |
+| :---------- | :------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `component` | string or function \(React component\) | If it's a string, it's an HTML tag and if it's a function is a React component. You can change it at will and it is what you would usually do when you want to convert HTML tags to React components         |
+| `props`     | object                                 | An object containing all the HTML attributes of that node or props of that React component. You can also change them at will. All the attributes are converted to the React equivalents, even for HTML tags. |
+| `children`  | array \(of nodes\)                     | An array containing other nodes, children to this one. If you want to get rid of the children, just overwrite it with `null` or an empty array                                                               |
 
-Examples of `props` values (and their equivalent React props):
+Examples of `props` values \(and their equivalent React props\):
 
 - `class` -&gt; `className`
 - `style` -&gt; `css`
@@ -226,7 +222,7 @@ Examples of `props` values (and their equivalent React props):
 Besides common properties, `Text` and `Comment` nodes will also have the following property:
 
 | Name      | Type   | Description         |
-| --------- | ------ | ------------------- |
+| :-------- | :----- | :------------------ |
 | `content` | string | Content of the Node |
 
 ## Default Processors
@@ -294,10 +290,10 @@ processor.priority = 20;
 
 The React component used to render the parsed HTML.
 
-##### Props
+**Props**
 
 | Name       | Type   | Required | Description                        |
-| ---------- | ------ | -------- | ---------------------------------- |
+| :--------- | :----- | :------- | :--------------------------------- |
 | **`html`** | string | yes      | The HTML that needs to be rendered |
 
 ```jsx

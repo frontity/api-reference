@@ -2,7 +2,7 @@
 
 Mars theme is meant to be considered a starter theme or a theme to show people how to use some of Frontity functionalities. You can check out its **code** and structure on our [GitHub repository](https://github.com/frontity/frontity/tree/dev/packages/mars-theme) and find it on [npm](https://www.npmjs.com/package/@frontity/mars-theme).
 
-You can also find a detailed guide to learn how both Frontity and `mars-theme` work on "[Understanding Mars Theme](../guides/understanding-mars-theme-1.md)".
+You can also find a detailed guide to learn how both Frontity and `mars-theme` work on "[Understanding Mars Theme](https://github.com/frontity/api-reference/tree/070479e3bd22a1eea6f525808a33be3cfaf01d46/docs-api/guides/understanding-mars-theme-1.md)".
 
 {% hint style="info" %}
 Have a look at this episode of Frontity Talks where we talk about the `mars-theme`: 📺 [Frontity Talks 2020-04 - mars-theme \[27:52\]](https://www.youtube.com/watch?v=e6n1j4gwFjQ&t=1672s).

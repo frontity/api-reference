@@ -1,4 +1,4 @@
-# » Frontity API Reference
+# Introduction
 
 Welcome to the API Reference site for Frontity. This is where you will find detailed technical descriptions for the CLI, packages and plugins available in Frontity
 
@@ -10,7 +10,7 @@ In the [**CLI Commands**](frontity-cli/) section you'll find info about the comm
 
 ## **Packages**
 
-Frontity packages are the ingredients of your Frontity project. They're **NPM packages** in charge of a specific portion of logic required by the project (routing, source, HTML render,.. ).
+Frontity packages are the ingredients of your Frontity project. They're **NPM packages** in charge of a specific portion of logic required by the project \(routing, source, HTML render,.. \).
 
 You can learn all about existing Frontity packages in the section entitled [**Frontity Packages**](frontity-packages/).
 
@@ -23,8 +23,6 @@ The included themes, namely `mars-theme` and `twentytwenty-theme`, are dealt wit
 ## **Plugins**
 
 Sometimes a **Frontity WordPress plugin** is required so everything works smoothly. You'll find everything you need to know about them in the [**WordPress Plugins**](frontity-plugins/) section
-
----
 
 By the way, we'd love to hear about what you're building with Frontity. Join us in our [**Community Forum**](https://community.frontity.org) and tell us about your project. You can also ask questions and get help and support from our growing community of users and developers there.
 

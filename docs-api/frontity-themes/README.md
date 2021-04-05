@@ -1,4 +1,4 @@
-# 🎨 Frontity Themes
+# 🎨 Themes
 
 With Frontity, you can build your own theme from scratch matching all your needs or use a ready-to-use one, which will make it much easier. You can even install a starter theme and keep working on top of that.
 
@@ -10,7 +10,6 @@ These are the current themes available for your Frontity project, explained in d
 
 - [@frontity/twentytwenty-theme](frontity-twentytwenty-theme.md)
 - [@frontity/mars-theme](frontity-mars-theme.md)
-
 
 ## **Third Party themes**
 
@@ -52,7 +51,6 @@ Copacetic Frontity Theme by Taylor White
 Fourothree Theme by 403Page Labs
 
 - [GitHub repository](https://github.com/403pagelabs/fourothree-theme)
-
 
 You can find all the Frontity themes looking for the tag [`frontity-theme`](https://www.npmjs.com/search?q=keywords:frontity-theme) at npm. In order to make your theme available to the community, we recommend you follow these [best practices](https://docs.frontity.org/guides/how-to-share-a-frontity-project).
 

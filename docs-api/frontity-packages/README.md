@@ -2,19 +2,18 @@
 description: API reference of Frontity and its packages.
 ---
 
-# 🍱 Frontity Packages
+# 🍱 Packages
 
 Frontity projects are built around the idea of packages that encapsulates logic that can be reused across projects. Frontity packages may be considered as the equivalent of WordPress plugins. They're the ingredients of the final Frontity project.
 
 ## How to use Frontity packages
 
-Frontity packages are available available via [npm](https://www.npmjs.com/search?q=keywords:frontity) and they can be installed as dependencies of your Frontity project (as with any other Node project).
+Frontity packages are available available via [npm](https://www.npmjs.com/search?q=keywords:frontity) and they can be installed as dependencies of your Frontity project \(as with any other Node project\).
 
-Frontity needs to know the packages we're going to use in the project and how do we want to use them. We can set this in the file `frontity.settings.js`, where we can define and configure the packages (by using Namespaces) for the Frontity project
+Frontity needs to know the packages we're going to use in the project and how do we want to use them. We can set this in the file `frontity.settings.js`, where we can define and configure the packages \(by using Namespaces\) for the Frontity project
 
 {% hint style="info" %}
-We're going to focus on the use of Frontity packages at a Frontity project level, but the same applies if you're creating a custom Frontity package.
-You can see more info about how to create your custom package [here](#)
+We're going to focus on the use of Frontity packages at a Frontity project level, but the same applies if you're creating a custom Frontity package. You can see more info about how to create your custom package [here](./)
 {% endhint %}
 
 ## Official Frontity Packages
@@ -29,13 +28,13 @@ A Frontity project is basically the sum of the **Core package** plus a selection
 The [full list of available packages](https://www.npmjs.com/search?q=keywords:frontity) include others created by the community. In this site we're going to document only the official `frontity` packages that has a public API
 {% endhint %}
 
-### [Core package](core-package/README.md)
+### [Core package](core-package/)
 
 Package that is the core of the Frontity framework and that provides main utilities of the framework
 
 - [`frontity`](core-package/frontity.md)
 
-### [Features packages](features-packages/README.md)
+### [Features packages](features-packages/)
 
 #### Source package
 
@@ -45,7 +44,7 @@ This package is in charge of getting data from Wordpress and make it accesible f
 
 #### Router package
 
-This package is in charge of managing (React) routes in a Frontity project.
+This package is in charge of managing \(React\) routes in a Frontity project.
 
 - [`@frontity/tiny-router`](features-packages/tiny-router.md)
 
@@ -55,23 +54,18 @@ This package is in charge of converting HTML to React
 
 - [`@frontity/html2react`](features-packages/html2react.md)
 
-#### SEO package
+#### SEO packages
 
-This package is designed to get automatically all the data that the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/)n exposes in the REST API
+These packages are designed to get automatically all the data from WordPress SEO plugins and render it \(along with the content\) in the final HTML
 
 - [`@frontity/head-tags`](features-packages/head-tags.md)
+- [`@frontity/yoast`](features-packages/yoast.md)
 
-#### Google Ad Manager package
+#### Ad Manager packages
 
-This package enables Frontity to integrate with Google Ad Manager.
+This package enables Frontity to integrate with Ad Managers like Google Ad Manager.
 
 - [`@frontity/google-ad-manager`](features-packages/google-ad-manager.md)
-
-#### Yoast package
-
-This package is designed to automatically get and render all the tags that the [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/) plugin for WordPress exposes in the REST API. It works with Yoast SEO version 14.0 or greater.
-
-- [`@frontity/yoast`](features-packages/yoast.md)
 
 #### Analytics packages
 
@@ -80,6 +74,12 @@ A set of official Analytics Frontity packages that you can use to easily add ana
 - [`@frontity/google-analytics`](features-packages/analytics/google-analytics.md)
 - [`@frontity/google-tag-manager-analytics`](features-packages/analytics/google-tag-manager-analytics.md)
 - [`@frontity/comscore-analytics`](features-packages/analytics/comscore-analytics.md)
+
+#### Comments packages
+
+Comments package that adds integration for WordPress native comments.
+
+- [`@frontity/wp-comments`](features-packages/wp-comments.md)
 
 ### Collections packages
 

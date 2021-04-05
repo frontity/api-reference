@@ -4,28 +4,24 @@ description: API reference of `@frontity/head-tags` package
 
 # @frontity/head-tags
 
-This package is designed to get automatically all the metadata that the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) exposes in the REST API (SEO metadata from plugins like Yoast SEO or All in One SEO), and **add them as meta tags in the `<head>` section of the rendered page**.
+This package is designed to get automatically all the metadata that the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) exposes in the REST API \(SEO metadata from plugins like Yoast SEO or All in One SEO\), and **add them as meta tags in the `<head>` section of the rendered page**.
 
 {% hint style="warning" %}
 This package won't work without [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) installed and activated in your WordPress backend, so make sure you have it before using this package.
 {% endhint %}
 
 {% hint style="info" %}
-If you are using Yoast SEO >v14.0 we recommend that you instead use the [@frontity/yoast](./yoast.md) package which does not require an additional plugin to be installed in WordPress.
+If you are using Yoast SEO &gt;v14.0 we recommend that you instead use the [@frontity/yoast](yoast.md) package which does not require an additional plugin to be installed in WordPress.
 {% endhint %}
 
 ## Table of Contents
 
-<!-- toc -->
-
-- [Installation](#installation)
-- [Settings](#settings)
-- [How to use](#how-to-use)
-- [API Reference](#api-reference)
-  - [State](#state)
-    - [`headTags.get`](#headtags-get)
-
-<!-- tocstop -->
+- [Installation](head-tags.md#installation)
+- [Settings](head-tags.md#settings)
+- [How to use](head-tags.md#how-to-use)
+- [API Reference](head-tags.md#api-reference)
+  - [State](head-tags.md#state)
+    - [`headTags.get`](head-tags.md#headtags-get)
 
 ## Installation
 
@@ -49,8 +45,7 @@ packages: [
 ```
 
 {% hint style="warning" %}
-If you have an existing project make sure your [@frontity/wp-source](frontity-head-tags.md) package is at least on the 1.5.0 version. If not, update it using this command:
-`> npm install @frontity/wp-source@latest`
+If you have an existing project make sure your [@frontity/wp-source](https://github.com/frontity/api-reference/tree/4a9494e83905e8dfdedb49a06a592026e6c27022/docs-api/frontity-packages/features-packages/frontity-head-tags.md) package is at least on the 1.5.0 version. If not, update it using this command: `> npm install @frontity/wp-source@latest`
 {% endhint %}
 
 ## Settings
@@ -64,11 +59,11 @@ It needs `@frontity/wp-source` installed and updated to at least the `1.5.0` ver
 
 ## How to use
 
-This package will automatically add all the meta tags defined in WordPress for the page (through plugins like Yoast SEO or All in One SEO) in the `<head>` section of the rendered page. So there are no additional steps to do. Just install the package and everything will work out of the box.
+This package will automatically add all the meta tags defined in WordPress for the page \(through plugins like Yoast SEO or All in One SEO\) in the `<head>` section of the rendered page. So there are no additional steps to do. Just install the package and everything will work out of the box.
 
 Remember that you'll need the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) installed in your WordPress. With that, this package will take care of
 
-If you want to access the metadata available for a specific link you can use the [`headTags.get`](#headtags-get) method
+If you want to access the metadata available for a specific link you can use the [`headTags.get`](head-tags.md#headtags-get) method
 
 ## API Reference
 

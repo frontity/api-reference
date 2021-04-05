@@ -1,22 +1,18 @@
-# `@frontity/google-analytics`
+# @frontity/google-analytics
 
 Analytics package to use [Google Analytics](https://analytics.google.com/) with Frontity
 
 ## Table of Contents
 
-<!-- toc -->
-
-- [Install](#install)
-- [Settings](#settings)
-- [Usage](#usage)
-  - [`actions.analytics.pageview`](#actions-analytics-pageview)
-  - [`actions.analytics.event`](#actions-analytics-event)
-
-<!-- tocstop -->
+- [Install](google-analytics.md#install)
+- [Settings](google-analytics.md#settings)
+- [Usage](google-analytics.md#usage)
+  - [`actions.analytics.pageview`](google-analytics.md#actions-analytics-pageview)
+  - [`actions.analytics.event`](google-analytics.md#actions-analytics-event)
 
 ## Install
 
-```sh
+```bash
 npm i @frontity/google-analytics
 ```
 
@@ -25,12 +21,12 @@ npm i @frontity/google-analytics
 The [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package is **`googleAnalytics`**
 
 Every Google Analytics account has a [Tracking ID](https://support.google.com/analytics/answer/7372977?hl=en).  
-To connect the package with a specific account (or accounts) we can set the following properties in the `frontity.settings.js`:
+To connect the package with a specific account \(or accounts\) we can set the following properties in the `frontity.settings.js`:
 
 - `state.googleAnalytics.trackingId`: to specify just one _tracking ID_
 - `state.googleAnalytics.trackingIds`: to specify a list of tracking ID's
 
-```js
+```javascript
 export default {
   packages: [
     {
@@ -45,7 +41,7 @@ export default {
 };
 ```
 
-```js
+```javascript
 export default {
   packages: [
     {
@@ -67,13 +63,13 @@ This `@frontity/google-analytics` package can co-exist with some other `analytic
 - `actions.analytics.pageview()` will take into account settings in `state.analytics.pageviews`
 - `actions.analytics.event()` will take into account settings in `state.analytics.events`
 
-> Read more [here](README.md#how-to-use) about how to use Analytic packages
+> Read more [here](./#how-to-use) about how to use Analytic packages
 
-#### `actions.analytics.pageview`
+### `actions.analytics.pageview`
 
-If `@frontity/google-analytics` is configured and enabled for _pageviews_ in `state.analytics.pageviews`, every time a link changes (or every time `action.router.set(link)` is launched) a tracking for that page will be sent to Google Analytics by using internally `actions.analytics.pageview()`
+If `@frontity/google-analytics` is configured and enabled for _pageviews_ in `state.analytics.pageviews`, every time a link changes \(or every time `action.router.set(link)` is launched\) a tracking for that page will be sent to Google Analytics by using internally `actions.analytics.pageview()`
 
-#### `actions.analytics.event`
+### `actions.analytics.event`
 
 If `@frontity/google-analytics` is configured and enabled for _events_ in `state.analytics.events`, every time you call the method `actions.analytics.event()` from any of your React components, the proper tracking info will be sent to Google Analytics.
 
@@ -93,4 +89,4 @@ The `payload` object has to have the following format:
 | `value`        | number | no       | The value of this property is mapped to the [`eventValue`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#eventValue) field of `analytics.js` events.       |
 | `[key]`        | any    | no       | Any other property specified in [`analytics.js` field reference](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference).                                           |
 
-These values will be transfomed (by this package) into the proper format before sending the data to Google Analytics
+These values will be transfomed \(by this package\) into the proper format before sending the data to Google Analytics

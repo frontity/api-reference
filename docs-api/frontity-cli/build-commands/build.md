@@ -1,4 +1,4 @@
-# `build`
+# build
 
 Builds the project for production.
 
@@ -12,12 +12,12 @@ The [`frontity serve`](../run-commands/serve.md) command will use the files gene
 
 ### **`[options]`**
 
-|                      Option                      | Description                                                                                                                                                                                                |
-| :----------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|    [`--development`](#the-development-option)    | Builds the project for development. Related environment variable: [`FRONTITY_BUILD_DEVELOPMENT`](#frontity_build_development)                                                                              |
-|    [`--target <target>`](#the-target-option)     | Builds the project                                                                                                                                                                                         | Create bundles with "es5", "module" or "both". Default target is "both". Related environment variable: [`FRONTITY_BUILD_TARGET`](#frontity_build_target) |
-| [`--publicPath <path>`](#the-public-path-option) | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is "/static/". Related environment variable: [`FRONTITY_BUILD_PUBLIC_PATH`](#frontity_build_public_path) |
-|                     `--help`                     | Output usage information                                                                                                                                                                                   |
+|                          Option                          | Description                                                                                                                                                                                                        |                                                                                                                                                                  |
+| :------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    [`--development`](build.md#the-development-option)    | Builds the project for development. Related environment variable: [`FRONTITY_BUILD_DEVELOPMENT`](build.md#frontity_build_development)                                                                              |                                                                                                                                                                  |
+|    [`--target <target>`](build.md#the-target-option)     | Builds the project                                                                                                                                                                                                 | Create bundles with "es5", "module" or "both". Default target is "both". Related environment variable: [`FRONTITY_BUILD_TARGET`](build.md#frontity_build_target) |
+| [`--publicPath <path>`](build.md#the-public-path-option) | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is "/static/". Related environment variable: [`FRONTITY_BUILD_PUBLIC_PATH`](build.md#frontity_build_public_path) |                                                                                                                                                                  |
+|                         `--help`                         | Output usage information                                                                                                                                                                                           |                                                                                                                                                                  |
 
 **Examples**
 
@@ -45,7 +45,7 @@ The target option allows to decide what features will be transpiled with babel.
 
 With `--target es5`, the support of the following browsers as the minimum is:
 
-```
+```text
 es5: {
     browsers: [
       "and_chr >= 67",
@@ -96,7 +96,7 @@ npx frontity build --public-path="/other/folder"
 
 Create bundles with `es5`, `module` or `both`. Default target is `both`.
 
-If detected, and no `--target` option is defined for [`build`](#build) Frontity command, this environment variable will be applied.
+If detected, and no `--target` option is defined for [`build`](build.md#build) Frontity command, this environment variable will be applied.
 
 _Example:_
 
@@ -119,7 +119,7 @@ FRONTITY_BUILD_DEVELOPMENT=true
 
 Set the public path for static assets. Default path is `/static/`.
 
-If detected, and no [`--public-path`](#the-publicpath-option) flag is defined for [`build`](#build) Frontity command, this environment variable value will be applied.
+If detected, and no [`--public-path`](build.md#the-publicpath-option) flag is defined for [`build`](build.md#build) Frontity command, this environment variable value will be applied.
 
 _Example:_
 

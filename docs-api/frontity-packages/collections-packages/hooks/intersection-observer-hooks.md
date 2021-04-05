@@ -1,21 +1,37 @@
 # Intersection Observer Hooks
 
+These hooks helps you to track when an element enters or leaves the viewport.
+
 ## Table of Contents
 
 <!-- toc -->
 
 - [`useInView`](#useinview)
+  - [Usage](#usage)
   - [Parameters](#parameters)
   - [Return value](#return-value)
-  - [Usage](#usage)
+  - [Demo](#demo)
 
 <!-- tocstop -->
 
 ## `useInView`
 
-It tracks when an element enters or leaves the viewport.
+This hook just wraps the [`react-intersection-observer`](https://github.com/thebuilder/react-intersection-observer) library which uses internally the [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) API. As some old browsers don't support it, `useInView` also returns a `supported` prop indicating if it's supported or not.
 
-The hook just wraps the [`react-intersection-observer`](https://github.com/thebuilder/react-intersection-observer) library which uses internally the [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) API. As some old browsers don't support it, `useInView` also returns a `supported` prop indicating if it's supported or not.
+### Usage
+
+```javascript
+import useInView from "@frontity/hooks/use-in-view";
+
+const MyLazyElement = ({ children }) => {
+  // Get the reference and the visibility status.
+  const { ref, inView } = useInView({ triggerOnce: true });
+
+  // Pass the reference to the container and render `children` if
+  // the container is visible, or a placeholder otherwise.
+  return <div ref={ref}>{inView ? children : <MyPlaceholder />}</div>;
+};
+```
 
 ### Parameters
 
@@ -38,17 +54,10 @@ An object with the following properties:
 | **`inView`**    | boolean         | Boolean indicating if the element is visible. The value is always `true` if _`supported`_ is `false`.                                              |
 | **`supported`** | boolean         | Boolean indicating if [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) is supported by the browser. |
 
-### Usage
+{% hint style="info" %}
+Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
+{% endhint %}
 
-```javascript
-import useInView from "@frontity/hooks/use-in-view";
+### Demo
 
-const MyLazyElement = ({ children }) => {
-  // Get the reference and the visibility status.
-  const { ref, inView } = useInView({ triggerOnce: true });
-
-  // Pass the reference to the container and render `children` if
-  // the container is visible, or a placeholder otherwise.
-  return <div ref={ref}>{inView ? children : <MyPlaceholder />}</div>;
-};
-```
+This [demo project](https://github.com/frontity-demos/frontity-examples/blob/master/intersection-observer-hooks/README.md) shows how to use the Intersection Observer Hook `useInView` available in the `@frontity/hooks` package or directly implemented in some components available at `@frontity/components`
