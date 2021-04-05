@@ -5,8 +5,7 @@ Three React hooks were implemented. Two for general use:
 - `useArchiveInfiniteScroll`
 - `usePostTypeInfiniteScroll`
 
-And a basic one for implementing custom infinite scroll hooks (used internally
-by the previous two hooks):
+And a basic one for implementing custom infinite scroll hooks (used internally by the previous two hooks):
 
 - `useInfiniteScroll`
 
@@ -14,9 +13,7 @@ by the previous two hooks):
 `useInfiniteScroll` is not intented to be used directly by theme developers unless they are creating their own infinite scroll logic.
 {% endhint %}
 
-The main idea behind these hooks is that they return a list of `Wrapper`
-components, one for each entity listed while scrolling, that handle both the
-route updating and fetching of the next entity.
+The main idea behind these hooks is that they return a list of `Wrapper` components, one for each entity listed while scrolling, that handle both the route updating and fetching of the next entity.
 
 ## Table of Contents
 
@@ -34,16 +31,7 @@ route updating and fetching of the next entity.
   - [Parameters](#parameters)
   - [Return value](#return-value)
   - [Usage](#usage)
-- [More things added](#more-things-added)
-  - [`actions.source.updateState`](#actions-source-updatestate)
-    - [Parameters](#parameters)
-
-* [Out of Scope](#out-of-scope)
-* [API changes](#api-changes)
-  - [Backward compatible changes](#backward-compatible-changes)
-  - [Breaking changes](#breaking-changes)
-  - [Deprecated APIs](#deprecated-apis)
-* [Technical explanation](#technical-explanation)
+- [Demo](#demo)
 
 <!-- tocstop -->
 
@@ -152,7 +140,7 @@ The hook receives options to set a limit of pages shown automatically, to disabl
 
 `useArchiveInfiniteScroll` is designed to be used inside an `Archive` component. That component would render all the archive pages from the `pages` returned by the hook.
 
-Apart from that list, it returns a set of boolean values to know if the next pages is being fetched, if the limit has been reached or if the next page returned an error, and a function to fetch the next page manually.
+In addition to the above, the hook returns a set of boolean values that indicate if the next page is being fetched, if the limit has been reached, or if the next page returned an error, and a function that allows the next page to be fetched manually.
 
 ### Parameters
 
@@ -177,7 +165,7 @@ An object with the following properties:
 | **`pages`**      | Array of page props | An array of the existing pages. Users should iterate over this array in their own layout. The content of each element of this array is explained below.                                                                                  |
 | **`isFetching`** | boolean             | If it's fetching the next page. Useful to add a loader.                                                                                                                                                                                  |
 | **`isLimit`**    | boolean             | If it has reached the limit of pages and it should switch to manual mode.                                                                                                                                                                |
-| **`isError`**    | boolean             | If the next page returned an error. Useful to try again.                                                                                                                                                                                 |
+| **`isError`**    | boolean             | If the next page returned an error. Useful to provide functionality (e.g. a button) to enable the user to try again.                                                                                                                     |
 | **`fetchNext`**  | function            | A function that fetches the next page. Useful when the limit has been reached (`isLimit === true`) and the user pushes a button to get the next page or when there has been an error fetching the last page and the user wants to retry. |
 
 Each element of the `pages` array has the following structure:
@@ -245,7 +233,7 @@ export default connect(Archive);
 
 Hook that implements the logic needed to include infinite scroll in a post type view (i.e. posts, pages, galleries, etc.).
 
-This hook is more complex than the previous one, as it works getting the post type entities from the specified archive and thus it doesn't fetch the next post but the next page of posts.
+This hook is more complex than the previous one, as it works by getting the post type entities from the specified archive and thus it doesn't fetch the next post but the next page of posts.
 
 It recevies an `archive` and a `fallback` prop ―both links―, to specify the source of the post entities. If none of them is specified, `state.source.postsPage` is used. When the penultimate post of the first page is
 rendered, the next page of the archive is fetched. A list of the fetched pages is stored in the browser history state along with the list of posts.

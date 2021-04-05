@@ -100,7 +100,7 @@ const Link = ({ actions, children, link }) => {
 
 #### `actions.router.updateState()`
 
-Action that replaces the value of `state.router.state` with the give object. The same object is stored in the browser history state using the
+Action that replaces the value of `state.router.state` with the given object. The same object is stored in the browser history state using the
 [`history.replaceState()`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState)
 function.
 
