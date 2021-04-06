@@ -35,22 +35,26 @@ Twenty Nineteen Frontity Theme by Imran Sayed and Smit Patadiya:
 - [Live demo](https://twentynineteen.frontity.org/)
 - [GitHub repository](https://github.com/imranhsayed/frontity-twentynineteen)
 
-Frontity Dimension Theme by Matnard
+Frontity Dimension Theme by Matnard:
 
 - [Live demo](https://dimension.matnard.vercel.app/)
 - [GitHub repository](https://github.com/Matnard/frontity-dimension-theme)
 
-Forgotten Developer - A terminal-like theme by Divaksh Jain
+Forgotten Developer - A terminal-like theme by Divaksh Jain:
 
 - [GitHub repository](https://github.com/Divaksh/forgotten-developer)
 
-Copacetic Frontity Theme by Taylor White
+Copacetic Frontity Theme by Taylor White:
 
 - [GitHub repository](https://github.com/taylorchasewhite/tcw-frontity/)
 
-Fourothree Theme by 403Page Labs
+Fourothree Theme by 403Page Labs:
 
 - [GitHub repository](https://github.com/403pagelabs/fourothree-theme)
+
+AG Tech - Frontity Theme by Aamodt Group:
+
+- [GitHub repository](https://github.com/aamodtgroup/aamodtgroup)
 
 You can find all the Frontity themes looking for the tag [`frontity-theme`](https://www.npmjs.com/search?q=keywords:frontity-theme) at npm. In order to make your theme available to the community, we recommend you follow these [best practices](https://docs.frontity.org/guides/how-to-share-a-frontity-project).
 

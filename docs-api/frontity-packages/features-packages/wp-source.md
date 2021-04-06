@@ -24,9 +24,7 @@ This package is in charge of getting the data from self-hosted WordPress or Word
     - [`state.source.postEndpoint`](wp-source.md#state-source-postendpoint)
   - [Custom requests](wp-source.md#custom-requests)
     - [`state.source.params`](wp-source.md#state-source-params)
-  - [Custom Post Types](wp-source.md#custom-post-types)
     - [`state.source.postTypes`](wp-source.md#state-source-posttypes)
-    - [`state.source.taxonomies`](wp-source.md#state-source-taxonomies)
 - [How to use](wp-source.md#how-to-use)
 - [API Reference](wp-source.md#api-reference)
   - [Actions](wp-source.md#actions)
@@ -232,6 +230,35 @@ module.exports = {
 ```
 
 and then you visit a URL \(or use `actions.source.fetch`\), the query part of the HTTP call to the REST API will be `per_page=5&type[]=post&type[]=page`.
+
+#### `state.source.auth`
+
+This option is a property which can hold authentication information. This could be a JWT token or a Basic Authentication string, or another type of authentication.
+
+Values can be passed to `state.source.auth` in a variety ways, e.g. via `frontity.settings.js` or by setting it in the way that any other piece of frontity state is.
+
+```js
+// frontity.settings.js
+const state = {
+  source: {
+    auth: "Basic YWFhOmJiYg",
+  },
+};
+```
+
+Additionally the value of `state.source.auth` can be set via a **query string**. If a `frontity_source_auth` [Frontity Query Option](https://docs.frontity.org/guides/frontity-query-options) param is present in the URL `state.source.auth` will use its value. Values passed in this way will be removed from the `initialLink` URL and added to `state.frontity.options`.
+
+> Note that the Frontity Query Option parameters are camelCased when they are added to `state.frontity.options`, so the `frontity_source_auth` query string param will become `state.frontity.options.sourceAuth` once added.
+
+The value of `state.source.auth` can also be set from an **environmental variable**. If frontity detects a `FRONTITY_SOURCE_AUTH` environmental variable, it will pass its value to `state.source.auth`.
+
+> Note that the value passed from the URL query string takes precedence over the value from the env variable.
+
+> Frontity loads environmental variables from .env files using the [https://github.com/motdotla/dotenv/](https://github.com/motdotla/dotenv/) package.
+
+This value can be used in the `auth` property of [`libraries.source.api.get`](#libraries-source-api-get).
+
+Crucially, `state.source.auth` is **removed in the `afterSSR()` action**, so if `state.source.auth` is present in the state on the server its value will not be sent to the client, thus confidential credentials are not revealed client-side.
 
 ### Custom Post Types
 
@@ -641,13 +668,25 @@ Request entity from the WordPress REST API.
 
 **Arguments**
 
-| Name                       | Type    | Required | Description                                                                                                                         |
+<<<<<<< HEAD
+| Name | Type | Required | Description |
 | :------------------------- | :------ | :------- | :---------------------------------------------------------------------------------------------------------------------------------- |
-| _`options`_                | object  | yes      | options object                                                                                                                      |
-| _`options`_.**`endpoint`** | string  | yes      | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\). |
-| _`options`_.`params`       | object  | no       | Any parameter that will be included in the query params.                                                                            |
-| _`options`_.`api`          | string  | no       | Overrides the value set with `api.set.`                                                                                             |
-| _`options`_.`isWpCom`      | boolean | no       | Overrides the value set with `api.set.`                                                                                             |
+| _`options`_ | object | yes | options object |
+| _`options`_.**`endpoint`** | string | yes | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\). |
+| _`options`_.`params` | object | no | Any parameter that will be included in the query params. |
+| _`options`_.`api` | string | no | Overrides the value set with `api.set.` |
+| _`options`_.`isWpCom` | boolean | no | Overrides the value set with `api.set.` |
+=======
+| Name | Type | Required | Description |
+| :------------------------- | :------ | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _`options`_ | object | yes | options object |
+| _`options`_.**`endpoint`** | string | yes | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\). |
+| _`options`_.`params` | object | no | Any parameter that will be included in the query params. |
+| _`options`_.`auth` | string | no | Allows the Authorization header on the fetch() request to be set. If not specified, will use the value from [`state.source.auth`](wp-source.md#state-source-auth) if that value is present in the state. |
+| _`options`_.`api` | string | no | Overrides the value set with `api.set.` |
+| _`options`_.`isWpCom` | boolean | no | Overrides the value set with `api.set.` |
+
+> > > > > > > master
 
 **Return value**
 
@@ -691,13 +730,24 @@ Add entities to the Frontity state.
 
 **Arguments**
 
-| Name                       | Type    | Required | Description                                                                                                                                                                                                             |
+<<<<<<< HEAD
+| Name | Type | Required | Description |
 | :------------------------- | :------ | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _`options`_                | object  | yes      | Options object                                                                                                                                                                                                          |
-| _`options`_.**`response`** | oject   | yes      | The response object returned by `api.get().`                                                                                                                                                                            |
-| _`options`_.**`state`**    | object  | yes      | The tate object from the Frontity store.                                                                                                                                                                                |
-| _`options`_.`subdirectory` | strin   | no       | Domain's subdirectory where your Frontity site is accessible. When this options is passed, this subdirectory is added to the entities' links. &lt;/br&gt; Default Value is value defined in `state.source.subdirectory` |
-| _`options`_.`force`        | boolean | no       | Value indicating if the entities should be overwritten &lt;/br&gt; Default Value is `false`                                                                                                                             |
+| _`options`_ | object | yes | Options object |
+| _`options`_.**`response`** | oject | yes | The response object returned by `api.get().` |
+| _`options`_.**`state`** | object | yes | The tate object from the Frontity store. |
+| _`options`_.`subdirectory` | strin | no | Domain's subdirectory where your Frontity site is accessible. When this options is passed, this subdirectory is added to the entities' links. &lt;/br&gt; Default Value is value defined in `state.source.subdirectory` |
+| _`options`_.`force` | boolean | no | Value indicating if the entities should be overwritten &lt;/br&gt; Default Value is `false` |
+=======
+| Name | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| _`options`_ | object | yes | Options object |
+| _`options`_.**`response`** | oject | yes | The response object returned by `api.get().` |
+| _`options`_.**`state`** | object | yes | The state object from the Frontity store. |
+| _`options`_.`subdirectory` | strin | no | Domain's subdirectory where your Frontity site is accessible. When this options is passed, this subdirectory is added to the entities' links. &lt;/br&gt; Default Value is value defined in `state.source.subdirectory` |
+| _`options`_.`force` | boolean | no | Value indicating if the entities should be overwritten &lt;/br&gt; Default Value is `false` |
+
+> > > > > > > master
 
 **Return value**
 
@@ -776,7 +826,7 @@ libraries.source.handlers.push({
     });
 
     // 3. add link to data
-    Object.assign(state.source.datalink, {
+    Object.assign(state.source.data[link], {
       id: product.id,
       type: product.type,
       isPostType: true,
