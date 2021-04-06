@@ -8,43 +8,44 @@ This package is in charge of getting the data from self-hosted WordPress or Word
 
 ## Table of Contents
 
-* [Installation](wp-source.md#installation)
-* [Settings](wp-source.md#settings)
-  * [REST API](wp-source.md#rest-api-settings)
-    * [`state.source.url`](wp-source.md#state-source-url)
-    * [`state.source.api`](wp-source.md#state-source-api)
-    * [`state.wpSource.isWpCom`](wp-source.md#state-wpsource-iswpcom)
-    * [`state.wpSource.prefix`](wp-source.md#state-wpsource-prefix)
-  * [Custom paths](wp-source.md#custom-paths)
-    * [`state.source.subdirectory`](wp-source.md#state-source-subdirectory)
-    * [`state.source.homepage`](wp-source.md#state-source-homepage)
-    * [`state.source.postsPage`](wp-source.md#state-source-postspage)
-    * [`state.source.categoryBase`](wp-source.md#state-source-categorybase)
-    * [`state.source.tagBase`](wp-source.md#state-source-tagbase)
-    * [`state.source.postEndpoint`](wp-source.md#state-source-postendpoint)
-  * [Custom requests](wp-source.md#custom-requests)
-    * [`state.source.params`](wp-source.md#state-source-params)
-  * [Custom Post Types](wp-source.md#custom-post-types)
-    * [`state.source.postTypes`](wp-source.md#state-source-posttypes)
-    * [`state.source.taxonomies`](wp-source.md#state-source-taxonomies)
-* [How to use](wp-source.md#how-to-use)
-* [API Reference](wp-source.md#api-reference)
-  * [Actions](wp-source.md#actions)
-    * [`actions.source.fetch()`](wp-source.md#actions-source-fetch)
-  * [State](wp-source.md#state)
-    * [`state.source.get()`](wp-source.md#state-source-get)
-    * [`state.source[taxonomy][id]`](wp-source.md#state-source-taxonomy-id)
-    * [`state.source[type][id]`](wp-source.md#state-source-type-id)
-    * [`state.source.author[id]`](wp-source.md#state-source-author-id)
-  * [Libraries](wp-source.md#libraries)
-    * [`libraries.source.api.init()`](wp-source.md#libraries-source-api-init)
-    * [`libraries.source.api.get()`](wp-source.md#libraries-source-api-get)
-    * [`libraries.source.populate()`](wp-source.md#libraries-source-populate)
-    * [`libraries.source.handlers`](wp-source.md#libraries-source-handlers)
-    * [`libraries.source.redirections`](wp-source.md#libraries-source-redirections)
-    * [`libraries.source.parse()`](wp-source.md#libraries-source-parse)
-    * [`libraries.source.stringify()`](wp-source.md#libraries-source-stringify)
-    * [`libraries.source.normalize()`](wp-source.md#libraries-source-normalize)
+- [Installation](wp-source.md#installation)
+- [Settings](wp-source.md#settings)
+  - [REST API](wp-source.md#rest-api-settings)
+    - [`state.source.url`](wp-source.md#state-source-url)
+    - [`state.source.api`](wp-source.md#state-source-api)
+    - [`state.wpSource.isWpCom`](wp-source.md#state-wpsource-iswpcom)
+    - [`state.wpSource.prefix`](wp-source.md#state-wpsource-prefix)
+  - [Custom paths](wp-source.md#custom-paths)
+    - [`state.source.subdirectory`](wp-source.md#state-source-subdirectory)
+    - [`state.source.homepage`](wp-source.md#state-source-homepage)
+    - [`state.source.postsPage`](wp-source.md#state-source-postspage)
+    - [`state.source.categoryBase`](wp-source.md#state-source-categorybase)
+    - [`state.source.tagBase`](wp-source.md#state-source-tagbase)
+    - [`state.source.postEndpoint`](wp-source.md#state-source-postendpoint)
+  - [Custom requests](wp-source.md#custom-requests)
+    - [`state.source.params`](wp-source.md#state-source-params)
+    - [`state.source.auth`](wp-source.md#state-source-auth)
+  - [Custom Post Types](wp-source.md#custom-post-types)
+    - [`state.source.postTypes`](wp-source.md#state-source-posttypes)
+    - [`state.source.taxonomies`](wp-source.md#state-source-taxonomies)
+- [How to use](wp-source.md#how-to-use)
+- [API Reference](wp-source.md#api-reference)
+  - [Actions](wp-source.md#actions)
+    - [`actions.source.fetch()`](wp-source.md#actions-source-fetch)
+  - [State](wp-source.md#state)
+    - [`state.source.get()`](wp-source.md#state-source-get)
+    - [`state.source[taxonomy][id]`](wp-source.md#state-source-taxonomy-id)
+    - [`state.source[type][id]`](wp-source.md#state-source-type-id)
+    - [`state.source.author[id]`](wp-source.md#state-source-author-id)
+  - [Libraries](wp-source.md#libraries)
+    - [`libraries.source.api.init()`](wp-source.md#libraries-source-api-init)
+    - [`libraries.source.api.get()`](wp-source.md#libraries-source-api-get)
+    - [`libraries.source.populate()`](wp-source.md#libraries-source-populate)
+    - [`libraries.source.handlers`](wp-source.md#libraries-source-handlers)
+    - [`libraries.source.redirections`](wp-source.md#libraries-source-redirections)
+    - [`libraries.source.parse()`](wp-source.md#libraries-source-parse)
+    - [`libraries.source.stringify()`](wp-source.md#libraries-source-stringify)
+    - [`libraries.source.normalize()`](wp-source.md#libraries-source-normalize)
 
 ## Installation
 
@@ -233,17 +234,46 @@ module.exports = {
 
 and then you visit a URL \(or use `actions.source.fetch`\), the query part of the HTTP call to the REST API will be `per_page=5&type[]=post&type[]=page`.
 
+#### `state.source.auth`
+
+This option is a property which can hold authentication information. This could be a JWT token or a Basic Authentication string, or another type of authentication.
+
+Values can be passed to `state.source.auth` in a variety ways, e.g. via `frontity.settings.js` or by setting it in the way that any other piece of frontity state is.
+
+```js
+// frontity.settings.js
+const state = {
+  source: {
+    auth: "Basic YWFhOmJiYg",
+  },
+};
+```
+
+Additionally the value of `state.source.auth` can be set via a **query string**. If a `frontity_source_auth` [Frontity Query Option](https://docs.frontity.org/guides/frontity-query-options) param is present in the URL `state.source.auth` will use its value. Values passed in this way will be removed from the `initialLink` URL and added to `state.frontity.options`.
+
+> Note that the Frontity Query Option parameters are camelCased when they are added to `state.frontity.options`, so the `frontity_source_auth` query string param will become `state.frontity.options.sourceAuth` once added.
+
+The value of `state.source.auth` can also be set from an **environmental variable**. If frontity detects a `FRONTITY_SOURCE_AUTH` environmental variable, it will pass its value to `state.source.auth`.
+
+> Note that the value passed from the URL query string takes precedence over the value from the env variable.
+
+> Frontity loads environmental variables from .env files using the [https://github.com/motdotla/dotenv/](https://github.com/motdotla/dotenv/) package.
+
+This value can be used in the `auth` property of [`libraries.source.api.get`](#libraries-source-api-get).
+
+Crucially, `state.source.auth` is **removed in the `afterSSR()` action**, so if `state.source.auth` is present in the state on the server its value will not be sent to the client, thus confidential credentials are not revealed client-side.
+
 ### Custom Post Types
 
 #### `state.source.postTypes`
 
 This option allows you to show the Custom Post Types you create at WordPress when accessing their URLs. It is an array of objects, each object being a different CPT. It has three arguments:
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| **`type`** | string | yes | The slug you configured for your Custom Post Type |
-| **`endpoint`** | string | yes | REST API endpoint from where this post type can be fetched. |
-| `archive` | string | no | the URL of the archive of this Custom Post Type, where all of them are listed. |
+| Name           | Type   | Required | Description                                                                    |
+| :------------- | :----- | :------- | :----------------------------------------------------------------------------- |
+| **`type`**     | string | yes      | The slug you configured for your Custom Post Type                              |
+| **`endpoint`** | string | yes      | REST API endpoint from where this post type can be fetched.                    |
+| `archive`      | string | no       | the URL of the archive of this Custom Post Type, where all of them are listed. |
 
 Differentiating `type` and `endpoint` may be confusing as they are usually the same. You can confirm you are doing it correctly going to the CPT `endpoint` :
 
@@ -265,12 +295,12 @@ postTypes: [
 
 Similar to `postTypes`setting, this one allows you to show the lists of posts of a Custom Taxonomies you create at WordPress when accessing their URLs. It is an array of objects, each object being a different Custom Taxonomy. It has four arguments:
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| **`taxonomy`** | string | yes | Taxonomy slug. The slug you configured for your Custom Taxonomy. |
-| **`endpoint`** | string | yes | REST API endpoint from where this post type can be fetched. |
-| `postTypeEndpoint` | string | no | REST API endpoint from which posts of this taxonomy can be fetched. If the Custom Taxonomy is meant to load Custom Post Types instead, you have to add its endpoint here. To clarify, although optional for posts in the case of a Custom Post Type this argument is **required**.   Default value is `posts` |
-| `params` | object | no | Extra params to be used while fetching the list of posts. |
+| Name               | Type   | Required | Description                                                                                                                                                                                                                                                                                                 |
+| :----------------- | :----- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`taxonomy`**     | string | yes      | Taxonomy slug. The slug you configured for your Custom Taxonomy.                                                                                                                                                                                                                                            |
+| **`endpoint`**     | string | yes      | REST API endpoint from where this post type can be fetched.                                                                                                                                                                                                                                                 |
+| `postTypeEndpoint` | string | no       | REST API endpoint from which posts of this taxonomy can be fetched. If the Custom Taxonomy is meant to load Custom Post Types instead, you have to add its endpoint here. To clarify, although optional for posts in the case of a Custom Post Type this argument is **required**. Default value is `posts` |
+| `params`           | object | no       | Extra params to be used while fetching the list of posts.                                                                                                                                                                                                                                                   |
 
 gain, dfferentiating `taxonomy` and `endpoint`may be confusing as they usually are the same too. You can confirm you are doing it correctly by going to the Custom Taxonomy `endpoint` :
 
@@ -359,8 +389,8 @@ export default connect(CategoryNature);
 
 If you want to know more about how to use the `wp-source` package, here you have some videos where Frontity DevRel team talks about it:
 
-* 📺 [Frontity Talks 2020-01 - wp-source & CSS In JS \[1:36\]](https://www.youtube.com/watch?v=e-_66W8pfdY&t=96s)
-* 📺 [Frontity Talks 2020-02 - Pagination example & wp-source \(state & fetch\) \[17:53\]](https://www.youtube.com/watch?v=eW5xZlpcqQk&t=1073s)
+- 📺 [Frontity Talks 2020-01 - wp-source & CSS In JS \[1:36\]](https://www.youtube.com/watch?v=e-_66W8pfdY&t=96s)
+- 📺 [Frontity Talks 2020-02 - Pagination example & wp-source \(state & fetch\) \[17:53\]](https://www.youtube.com/watch?v=eW5xZlpcqQk&t=1073s)
 
 ## API Reference
 
@@ -380,8 +410,8 @@ This action fetches all entities related to a `link`, i.e. the pathname of a URL
 
 It populates the state with both:
 
-* An entry in `state.source.data` with information about that link.
-* Normalized entities in relevant part of the state, like `state.source.post`, `state.source.category` or `state.source.author` and so on.
+- An entry in `state.source.data` with information about that link.
+- Normalized entities in relevant part of the state, like `state.source.post`, `state.source.category` or `state.source.author` and so on.
 
 **Syntax**
 
@@ -391,16 +421,16 @@ It populates the state with both:
 
 **Arguments**
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| _**`link`**_ | string | yes | Link representing a REST API endpoint or custom handler |
-| _`options`_ | object | no | REST API endpoint from where this post type can be fetched. |
-| _`options`_.`force` | boolean | - | The entities should be fetched again. |
+| Name                | Type    | Required | Description                                                 |
+| :------------------ | :------ | :------- | :---------------------------------------------------------- |
+| _**`link`**_        | string  | yes      | Link representing a REST API endpoint or custom handler     |
+| _`options`_         | object  | no       | REST API endpoint from where this post type can be fetched. |
+| _`options`_.`force` | boolean | -        | The entities should be fetched again.                       |
 
 **Return value**
 
-| Type | Description |
-| :--- | :--- |
+| Type      | Description                                                                                                |
+| :-------- | :--------------------------------------------------------------------------------------------------------- |
 | `Promise` | it doesn't return data but a promise that is resolved when the action is finished \(and state is updated\) |
 
 All received data are populated in `state.source` and are accessible using the methods explained in the next section.
@@ -426,8 +456,8 @@ const somePost = state.source.get("/some-post"); // <- The data will exist.
 
 In React components, you won't need to use `async/await` with `fetch` because:
 
-* [`useEffect` doesn't directly accept `async` functions](https://reactjs.org/docs/hooks-reference.html#useeffect) although [it can contain `async`](https://www.robinwieruch.de/react-hooks-fetch-data) functions
-* They re-render when the `state` accessed changes.
+- [`useEffect` doesn't directly accept `async` functions](https://reactjs.org/docs/hooks-reference.html#useeffect) although [it can contain `async`](https://www.robinwieruch.de/react-hooks-fetch-data) functions
+- They re-render when the `state` accessed changes.
 
 ```javascript
 const SomePost = ({ actions, state }) => {
@@ -465,14 +495,14 @@ Returns an object that gives you info about the type of that link and related en
 
 **Arguments**
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| _**`link`**_ | string | yes | Link representing a REST API endpoint or custom handler |
+| Name         | Type   | Required | Description                                             |
+| :----------- | :----- | :------- | :------------------------------------------------------ |
+| _**`link`**_ | string | yes      | Link representing a REST API endpoint or custom handler |
 
 **Return value**
 
-| Type | Description |
-| :--- | :--- |
+| Type   | Description                                        |
+| :----- | :------------------------------------------------- |
 | object | Info about the type of data represented in the URL |
 
 Fr exampe:
@@ -519,22 +549,22 @@ will return something like
 
 The information to distinguish each type of link is based on the [WP Template Hierarchy](https://wphierarchy.com/) and is as follows:
 
-* archives: `isArchive`
-  * taxonomy: `isTaxonomy`
-    * category: `isCategory`
-    * tag: `isTag`
-    * deal: `isDeal`
-  * author: `isAuthor`
-  * postTypeArchive: `isPostTypeArchive`
-    * post: `isHome`, `isPostArchive` \(`isFrontPage` optional\)
-    * product: `isProductArchive`
-  * date: `isDate`
-* postTypes: `isPostType`
-  * post: `isPost`
-  * page: `isPage` \(`isFrontPage` optional\)
-  * product: `isProduct`
-  * media: `isMedia`, `isAttachment`
-* 404: `is404`
+- archives: `isArchive`
+  - taxonomy: `isTaxonomy`
+    - category: `isCategory`
+    - tag: `isTag`
+    - deal: `isDeal`
+  - author: `isAuthor`
+  - postTypeArchive: `isPostTypeArchive`
+    - post: `isHome`, `isPostArchive` \(`isFrontPage` optional\)
+    - product: `isProductArchive`
+  - date: `isDate`
+- postTypes: `isPostType`
+  - post: `isPost`
+  - page: `isPage` \(`isFrontPage` optional\)
+  - product: `isProduct`
+  - media: `isMedia`, `isAttachment`
+- 404: `is404`
 
 Additionally, if calling `get()` has returned a status code higher than `400`, we add information about the error to the state. For example, if an error code was `500`, the state will include the following properties:
 
@@ -553,11 +583,11 @@ Additionally, if calling `get()` has returned a status code higher than `400`, w
 
 Properties added to each type are also based on the [WP REST API](https://developer.wordpress.org/rest-api/reference/):
 
-* taxonomy: `taxonomy`, `id`
-* author: `id`
-* postTypeArchive: `type`
-* date: `year`, `month`, `date`
-* postType: `type`, `id`
+- taxonomy: `taxonomy`, `id`
+- author: `id`
+- postTypeArchive: `type`
+- date: `year`, `month`, `date`
+- postType: `type`, `id`
 
 #### `state.source[taxonomy][id]`
 
@@ -605,11 +635,11 @@ Set the URL to the WordPress REST API.
 
 **Arguments**
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| _`options`_ | object | yes | options object |
-| _`options`_.**`api`** | string | yes | URL pointing to a valid WP REST API. |
-| _`options`_.`isWpCom` | boolean | no | if the WP REST route is from a WordPress.com hosted site. |
+| Name                  | Type    | Required | Description                                               |
+| :-------------------- | :------ | :------- | :-------------------------------------------------------- |
+| _`options`_           | object  | yes      | options object                                            |
+| _`options`_.**`api`** | string  | yes      | URL pointing to a valid WP REST API.                      |
+| _`options`_.`isWpCom` | boolean | no       | if the WP REST route is from a WordPress.com hosted site. |
 
 **Example**
 
@@ -641,18 +671,19 @@ Request entity from the WordPress REST API.
 
 **Arguments**
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| _`options`_ | object | yes | options object |
-| _`options`_.**`endpoint`** | string | yes | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\). |
-| _`options`_.`params` | object | no | Any parameter that will be included in the query params. |
-| _`options`_.`api` | string | no | Overrides the value set with `api.set.` |
-| _`options`_.`isWpCom` | boolean | no | Overrides the value set with `api.set.` |
+| Name                       | Type    | Required | Description                                                                                                                                                                                              |
+| :------------------------- | :------ | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _`options`_                | object  | yes      | options object                                                                                                                                                                                           |
+| _`options`_.**`endpoint`** | string  | yes      | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\).                                                                      |
+| _`options`_.`params`       | object  | no       | Any parameter that will be included in the query params.                                                                                                                                                 |
+| _`options`_.`auth`         | string  | no       | Allows the Authorization header on the fetch() request to be set. If not specified, will use the value from [`state.source.auth`](wp-source.md#state-source-auth) if that value is present in the state. |
+| _`options`_.`api`          | string  | no       | Overrides the value set with `api.set.`                                                                                                                                                                  |
+| _`options`_.`isWpCom`      | boolean | no       | Overrides the value set with `api.set.`                                                                                                                                                                  |
 
 **Return value**
 
-| Type | Description |
-| :--- | :--- |
+| Type      | Description                                                                                                |
+| :-------- | :--------------------------------------------------------------------------------------------------------- |
 | `Promise` | it doesn't return data but a promise that is resolved when the action is finished \(and state is updated\) |
 
 For more info, visit the [WP REST API reference](https://developer.wordpress.org/rest-api/reference).
@@ -701,8 +732,8 @@ Add entities to the Frontity state.
 
 **Return value**
 
-| Type | Description |
-| :--- | :--- |
+| Type    | Description                                                                                  |
+| :------ | :------------------------------------------------------------------------------------------- |
 | `Array` | An array of objects with attributes `type`, `id` and `link` representing the added entities. |
 
 Entities are normally never overwritten. So, if an entity already exists in the state and a new one is fetched, the one in the state will prevail. If you want to overwrite them, `populate` should be called with `force: true`.
@@ -724,12 +755,12 @@ Handlers are objects that associate a path pattern with a function that gets the
 
 A handler is defined by an object with the following properties:
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| **`name`** | string | yes | Identifier of the handler. |
-| **`priority`** | number | yes | Number that lets `fetch` to know in which order handlers should be evaluated. |
-| **`pattern`** | regExp | yes | Pattern which paths are compared with. We use [path-to-regexp](https://github.com/pillarjs/path-to-regexp) under the hood, so check its documentation to know how to write patterns. |
-| **`func`** | function | yes | Asynchronous function that retrieves entities and adds all info to the state. |
+| Name           | Type     | Required | Description                                                                                                                                                                          |
+| :------------- | :------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`name`**     | string   | yes      | Identifier of the handler.                                                                                                                                                           |
+| **`priority`** | number   | yes      | Number that lets `fetch` to know in which order handlers should be evaluated.                                                                                                        |
+| **`pattern`**  | regExp   | yes      | Pattern which paths are compared with. We use [path-to-regexp](https://github.com/pillarjs/path-to-regexp) under the hood, so check its documentation to know how to write patterns. |
+| **`func`**     | function | yes      | Asynchronous function that retrieves entities and adds all info to the state.                                                                                                        |
 
 **The func property**
 
@@ -737,18 +768,18 @@ A handler is defined by an object with the following properties:
 
 The `func` property defined will receive an object with the following properties
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `link` | string | The link that are being fetched. |
-| `params` | string | values obtained from the pattern after a match |
-| `state` | object | Frontity state. |
-| `libraries` | objet | Frotity libraries. |
-| `force` | boolean | f the etities should be fetched again. Internally, this parameter will be passed to the `actions.source.fetch` call. |
+| Name        | Type    | Description                                                                                                          |
+| :---------- | :------ | :------------------------------------------------------------------------------------------------------------------- |
+| `link`      | string  | The link that are being fetched.                                                                                     |
+| `params`    | string  | values obtained from the pattern after a match                                                                       |
+| `state`     | object  | Frontity state.                                                                                                      |
+| `libraries` | objet   | Frotity libraries.                                                                                                   |
+| `force`     | boolean | f the etities should be fetched again. Internally, this parameter will be passed to the `actions.source.fetch` call. |
 
 **Return**
 
-| Type | Description |
-| :--- | :--- |
+| Type      | Description                      |
+| :-------- | :------------------------------- |
 | `Promise` | Promise resolving to custom data |
 
 `libraries.source.handlers` is an array., so **to add new handlers we can use `libraries.source.handlers.push()`**
@@ -792,12 +823,12 @@ Redirections are objects that associate a path pattern with a function that retu
 
 A redirection is defined by an object with the following properties:
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| **`name`** | string | yes | Identifier of the redirection. |
-| **`priority`** | number | yes | Let `fetch` to know in which order redirections should be evaluated. |
-| **`pattern`** | regExp | yes | Pattern which paths are compared with. We use [path-to-regexp](https://github.com/pillarjs/path-to-regexp) under the hood, so check its documentation to know how to write patterns. |
-| **`func`** | function | yes | Function that returns a new path. It receives an object with the params obtained after a match. |
+| Name           | Type     | Required | Description                                                                                                                                                                          |
+| :------------- | :------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`name`**     | string   | yes      | Identifier of the redirection.                                                                                                                                                       |
+| **`priority`** | number   | yes      | Let `fetch` to know in which order redirections should be evaluated.                                                                                                                 |
+| **`pattern`**  | regExp   | yes      | Pattern which paths are compared with. We use [path-to-regexp](https://github.com/pillarjs/path-to-regexp) under the hood, so check its documentation to know how to write patterns. |
+| **`func`**     | function | yes      | Function that returns a new path. It receives an object with the params obtained after a match.                                                                                      |
 
 **The func property**
 
@@ -805,15 +836,15 @@ A redirection is defined by an object with the following properties:
 
 The `func` property defined will receive an object with the following properties
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
+| Name   | Type   | Description                     |
+| :----- | :----- | :------------------------------ |
 | `slug` | string | The link that is being fetched. |
 
 **Return**
 
-| Type | Description |
-| :--- | :--- |
-| string | a new path |
+| Type   | Description |
+| :----- | :---------- |
+| string | a new path  |
 
 **Example**
 
@@ -839,19 +870,19 @@ Utility for parsing links.
 
 **Arguments**
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| _`link`_ | string | yes | any link that points to entities in your site \(links, custom lists, etc.\) |
+| Name     | Type   | Required | Description                                                                 |
+| :------- | :----- | :------- | :-------------------------------------------------------------------------- |
+| _`link`_ | string | yes      | any link that points to entities in your site \(links, custom lists, etc.\) |
 
 **Return value**
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| _`resultParse`_ | object | Options object |
-| _`resultParse`_.`path` | string | athname without the page |
-| _`resultParse`_.`page` | number | The page number |
+| Name                    | Type   | Description                  |
+| :---------------------- | :----- | :--------------------------- |
+| _`resultParse`_         | object | Options object               |
+| _`resultParse`_.`path`  | string | athname without the page     |
+| _`resultParse`_.`page`  | number | The page number              |
 | _`resultParse`_.`query` | string | Object with query parameters |
-| _`resultParse`_.`hash` | string | The hash value \(with `#`\). |
+| _`resultParse`_.`hash`  | string | The hash value \(with `#`\). |
 
 #### `libraries.source.stringify()`
 
@@ -865,17 +896,17 @@ Utility for building links from its attributes.
 
 **Arguments**
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| **`path`** | string | yes | pathname without the page |
-| _`page`_ | number | no | The page number |
-| _`query`_ | object | no | Object with query parameters |
-| _`hash`_ | string | o | Thehash value \(with `#`\). |
+| Name       | Type   | Required | Description                  |
+| :--------- | :----- | :------- | :--------------------------- |
+| **`path`** | string | yes      | pathname without the page    |
+| _`page`_   | number | no       | The page number              |
+| _`query`_  | object | no       | Object with query parameters |
+| _`hash`_   | string | o        | Thehash value \(with `#`\).  |
 
 **Return value**
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
+| Name     | Type   | Description     |
+| :------- | :----- | :-------------- |
 | _`link`_ | string | Normalized link |
 
 #### `libraries.source.normalize()`
@@ -888,17 +919,16 @@ Utility for building links from its attributes.
 
 **Arguments**
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| **`link`** | string | yes | Any link that points to entities in your site \(links, custom lists, etc.\) |
+| Name       | Type   | Required | Description                                                                 |
+| :--------- | :----- | :------- | :-------------------------------------------------------------------------- |
+| **`link`** | string | yes      | Any link that points to entities in your site \(links, custom lists, etc.\) |
 
 **Return value**
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
+| Name     | Type   | Description     |
+| :------- | :----- | :-------------- |
 | _`link`_ | string | Normalized link |
 
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
-
