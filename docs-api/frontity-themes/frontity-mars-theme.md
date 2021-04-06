@@ -43,11 +43,11 @@ Here you have an example of a possible configuration \(each setting is explained
 
 All the settings that can be set under `state.theme` and their description:
 
-| Key | Description | Default value |
-| :--- | :--- | :--- |
-| menu | Menu links to display in the header | \[\] |
-| featuredMedia.showOnList | Whether to show featured image on list view | true |
-| featuredMedia.showOnPost | Whether to show featured media on post view | true |
+| Key                      | Description                                 | Default value |
+| :----------------------- | :------------------------------------------ | :------------ |
+| menu                     | Menu links to display in the header         | \[\]          |
+| featuredMedia.showOnList | Whether to show featured image on list view | true          |
+| featuredMedia.showOnPost | Whether to show featured media on post view | true          |
 
 ## API Reference
 
@@ -66,4 +66,3 @@ It changes `state.theme.isMobileMenuOpen` to `false`, so it closes the mobile me
 ### Libraries
 
 This theme doesn't have its own libraries, but it includes the image and iframe processor of [@frontity/html2react](frontity-mars-theme.md), so all the `<img>` tags are converted into the [`<Image />` component](frontity-mars-theme.md) and the &lt;iframe&gt; tags into the [`<Iframe />` component](frontity-mars-theme.md).
-

@@ -73,19 +73,19 @@ Here you have an example of a possible configuration \(each setting is explained
 
 All the settings that can be set under `state.theme` and their description:
 
-| Key | Description | Default value |
-| :--- | :--- | :--- |
-| menu | Menu links to display in the header | \[\] |
-| colors.primary | Used throughout most of the application to style links and other common elements. | `#cd2653` |
-| colors.headerBg | Color of the header background. | `#ffffff` |
-| colors.footerBg | Color of the footer background. | `#ffffff` |
-| colors.bodyBg | Color of the body background. | `#f5efe0` |
-| showSearchInHeader | Whether to show the search button in page header | true |
-| showAllContentOnArchive | Whether to show all post content or only excerpt in archive view | false |
-| featuredMedia.showOnArchive | Whether to show featured image on archive view | true |
-| featuredMedia.showOnPost | Whether to show featured media on post view | true |
-| autoPreFetch | Whether to auto-fetch links on a page.  Possible values:  - `no` → don't auto-tech any links  - `all` → auto-fetch all the links of the page  - `in-view` → auto-fetch just the links that are in-view  - `hover` → auto-fetch links when hover | no |
-| fontSets | Which font set to use:  - `us-ascii`  - `latin`  - `all` | `all` |
+| Key                         | Description                                                                                                                                                                                                                                | Default value |
+| :-------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------ |
+| menu                        | Menu links to display in the header                                                                                                                                                                                                        | \[\]          |
+| colors.primary              | Used throughout most of the application to style links and other common elements.                                                                                                                                                          | `#cd2653`     |
+| colors.headerBg             | Color of the header background.                                                                                                                                                                                                            | `#ffffff`     |
+| colors.footerBg             | Color of the footer background.                                                                                                                                                                                                            | `#ffffff`     |
+| colors.bodyBg               | Color of the body background.                                                                                                                                                                                                              | `#f5efe0`     |
+| showSearchInHeader          | Whether to show the search button in page header                                                                                                                                                                                           | true          |
+| showAllContentOnArchive     | Whether to show all post content or only excerpt in archive view                                                                                                                                                                           | false         |
+| featuredMedia.showOnArchive | Whether to show featured image on archive view                                                                                                                                                                                             | true          |
+| featuredMedia.showOnPost    | Whether to show featured media on post view                                                                                                                                                                                                | true          |
+| autoPreFetch                | Whether to auto-fetch links on a page. Possible values: - `no` → don't auto-tech any links - `all` → auto-fetch all the links of the page - `in-view` → auto-fetch just the links that are in-view - `hover` → auto-fetch links when hover | no            |
+| fontSets                    | Which font set to use: - `us-ascii` - `latin` - `all`                                                                                                                                                                                      | `all`         |
 
 ## API Reference
 
@@ -110,4 +110,3 @@ It changes `state.theme.isSearchModalOpen` to `false`, so it closes the search b
 ### Libraries
 
 This theme doesn't have its own libraries, but it includes the image processor of [@frontity/html2react](frontity-twentytwenty-theme.md), so all the `<img>` tags are converted into the [`<Image />` component](frontity-twentytwenty-theme.md).
-

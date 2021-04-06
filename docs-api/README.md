@@ -29,4 +29,3 @@ By the way, we'd love to hear about what you're building with Frontity. Join us 
 {% hint style="info" %}
 **Subscribe** to our newsletter [here](https://frontity.org/#newsletter) to **get notified** of the latest news and updates.
 {% endhint %}
-

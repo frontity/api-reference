@@ -4,11 +4,11 @@
 
 ## Table of Contents
 
-* [Install](comscore-analytics.md#install)
-* [Settings](comscore-analytics.md#settings)
-* [Usage](comscore-analytics.md#usage)
-  * [`actions.analytics.pageview`](comscore-analytics.md#actions-analytics-pageview)
-  * [`actions.analytics.event`](comscore-analytics.md#actions-analytics-event)
+- [Install](comscore-analytics.md#install)
+- [Settings](comscore-analytics.md#settings)
+- [Usage](comscore-analytics.md#usage)
+  - [`actions.analytics.pageview`](comscore-analytics.md#actions-analytics-pageview)
+  - [`actions.analytics.event`](comscore-analytics.md#actions-analytics-event)
 
 ## Install
 
@@ -23,8 +23,8 @@ The [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this
 Every Comscore account has a [Tracking ID](comscore-analytics.md).  
 To connect the package with a specific account \(or accounts\) we can set the following properties in the `frontity.settings.js`:
 
-* `state.comscoreAnalytics.trackingId`: to specify just one _tracking ID_
-* `state.comscoreAnalytics.trackingIds`: to specify a list of _tracking ID's_
+- `state.comscoreAnalytics.trackingId`: to specify just one _tracking ID_
+- `state.comscoreAnalytics.trackingIds`: to specify a list of _tracking ID's_
 
 ```javascript
 export default {
@@ -60,8 +60,8 @@ export default {
 
 This `@frontity/comscore-analytics` package can co-exist with some other `analytics` packages. Once we have properly installed and configured these `analytics` packages, their actions will be centralized by the `analytics` namespace
 
-* `actions.analytics.pageview` will take into account settings in `state.analytics.pageviews`
-* `actions.analytics.event` will take into account settings in `state.analytics.events`
+- `actions.analytics.pageview` will take into account settings in `state.analytics.pageviews`
+- `actions.analytics.event` will take into account settings in `state.analytics.events`
 
 > Read more [here](./#how-to-use) about how to use Analytic packages
 
@@ -72,4 +72,3 @@ If `@frontity/comscore-analytics` is configured [and enabled for _pageviews_](co
 ### `actions.analytics.event`
 
 This package doesn't actually track events for Comscore so any call of the method `actions.analytics.event()` will have no effect for this service
-
