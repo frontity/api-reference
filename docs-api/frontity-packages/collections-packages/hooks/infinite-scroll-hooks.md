@@ -239,7 +239,7 @@ This hook is more complex than the previous one, as it works by getting the post
 It recevies an `archive` and a `fallback` prop ―both links―, to specify the source of the post entities. If none of them is specified, `state.source.postsPage` is used. When the penultimate post of the first page is
 rendered, the next page of the archive is fetched. A list of the fetched pages is stored in the browser history state along with the list of posts.
 
-The `limit` prop in this case stands for the number of posts being shown, not the number of fetched pages (case of `useArchiveInfiniteScroll`). In the same way, the `fetchNext` shows the next post, and only fetches the next page of posts if needed.
+The `limit` prop in this case stands for the number of posts being shown, not the number of fetched pages (as in the case of `useArchiveInfiniteScroll`). In the same way, the `fetchNext` shows the next post, and only fetches the next page of posts if needed.
 
 ### Parameters
 
