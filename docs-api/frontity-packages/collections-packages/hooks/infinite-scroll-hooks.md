@@ -67,13 +67,13 @@ The IntersectionOptions type refers to the type of the the parameters received b
 
 ### Return value
 
-| Name              | Type      | Description                                                                                      |
-| :---------------- | :-------- | :----------------------------------------------------------------------------------------------- |
-| **`supported`**   | boolean   | Boolean indicating if the Intersection Observer is supported or not by the browser.              |
-| **`routeRef`**    | React.Ref | The ref that should be attached to the element used to trigger `actions.router.set`.             |
-| **`fetchRef`**    | React.Ref | The ref that should be attached to the element used to trigger `actions.source.fetch`.           |
-| **`routeInView`** | boolean   | Boolean that indicates when the element used to trigger `actions.router.set` is in the screen.   |
-| **`fetchInView`** | boolean   | Boolean that indicates when the element used to trigger `actions.source.fetch` is in the screen. |
+| Name              | Type        | Description                                                                                                                                                                  |
+| :---------------- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`supported`**   | `boolean`   | Boolean indicating if the Intersection Observer is supported or not by the browser. In the case `supported` is `false`, all the other returned properties will be undefined. |
+| **`routeRef`**    | `React.Ref` | The ref that should be attached to the element used to trigger `actions.router.set`.                                                                                         |
+| **`fetchRef`**    | `React.Ref` | The ref that should be attached to the element used to trigger `actions.source.fetch`.                                                                                       |
+| **`routeInView`** | `boolean`   | Boolean that indicates when the element used to trigger `actions.router.set` is in the screen.                                                                               |
+| **`fetchInView`** | `boolean`   | Boolean that indicates when the element used to trigger `actions.source.fetch` is in the screen.                                                                             |
 
 ### Usage
 
@@ -146,36 +146,37 @@ In addition to the above, the hook returns a set of boolean values that indicate
 
 It accepts an optional object with the following props:
 
-| Name                     | Type                | Default    | Required | Description                                                                                                                                                                                                              |
-| :----------------------- | :------------------ | :--------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`active`**             | boolean             | `true`     | no       | A boolean indicating if this hook should be active or not. It can be useful in situations where users want to share the same component for different types of Archives, but avoid doing infinite scroll in some of them. |
-| **`limit`**              | number              | `infinite` | no       | The number of pages that the hook should load automatically before switching to manual fetching.                                                                                                                         |
-| **`fetchInViewOptions`** | IntersectionOptions | -          | no       | The intersection observer options for fetching.                                                                                                                                                                          |
-| **`routeInViewOptions`** | IntersectionOptions | -          | no       | The intersection observer options for routing.                                                                                                                                                                           |
+| Name                     | Type                                                                                                      | Default                                                                                                 | Required | Description                                                                                                                                                                                                              |
+| :----------------------- | :-------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`active`**             | `boolean`                                                                                                 | `true`                                                                                                  | no       | A boolean indicating if this hook should be active or not. It can be useful in situations where users want to share the same component for different types of Archives, but avoid doing infinite scroll in some of them. |
+| **`limit`**              | `number`                                                                                                  | [`Infinity`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity) | no       | The number of pages that the hook should load automatically before switching to manual fetching.                                                                                                                         |
+| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -                                                                                                       | no       | The intersection observer options for fetching.                                                                                                                                                                          |
+| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -                                                                                                       | no       | The intersection observer options for routing.                                                                                                                                                                           |
 
-> NOTE: The IntersectionOptions type refers to the type of the the parameters
-> received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
+{% hint style="info" %}
+The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
+{% endhint %}
 
 ### Return value
 
 An object with the following properties:
 
-| Name             | Type                | Description                                                                                                                                                                                                                              |
-| :--------------- | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`pages`**      | Array of page props | An array of the existing pages. Users should iterate over this array in their own layout. The content of each element of this array is explained below.                                                                                  |
-| **`isFetching`** | boolean             | If it's fetching the next page. Useful to add a loader.                                                                                                                                                                                  |
-| **`isLimit`**    | boolean             | If it has reached the limit of pages and it should switch to manual mode.                                                                                                                                                                |
-| **`isError`**    | boolean             | If the next page returned an error. Useful to provide functionality (e.g. a button) to enable the user to try again.                                                                                                                     |
-| **`fetchNext`**  | function            | A function that fetches the next page. Useful when the limit has been reached (`isLimit === true`) and the user pushes a button to get the next page or when there has been an error fetching the last page and the user wants to retry. |
+| Name             | Type                  | Description                                                                                                                                                                                                                              |
+| :--------------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`pages`**      | `Array` of page props | An array of the existing pages. Users should iterate over this array in their own layout. The content of each element of this array is explained below.                                                                                  |
+| **`isFetching`** | `boolean`             | If it's fetching the next page. Useful to add a loader.                                                                                                                                                                                  |
+| **`isLimit`**    | `boolean`             | If it has reached the limit of pages and it should switch to manual mode.                                                                                                                                                                |
+| **`isError`**    | `boolean`             | If the next page returned an error. Useful to provide functionality (e.g. a button) to enable the user to try again.                                                                                                                     |
+| **`fetchNext`**  | `function`            | A function that fetches the next page. Useful when the limit has been reached (`isLimit === true`) and the user pushes a button to get the next page or when there has been an error fetching the last page and the user wants to retry. |
 
 Each element of the `pages` array has the following structure:
 
-| Name          | Type     | Description                                                                                                  |
-| :------------ | :------- | :----------------------------------------------------------------------------------------------------------- |
-| **`key`**     | string   | A unique key to be used in the iteration.                                                                    |
-| **`link`**    | string   | The link of this page.                                                                                       |
-| **`isLast`**  | boolean  | If this page is the last page. Useful to add separators between pages, but avoid adding it for the last one. |
-| **`Wrapper`** | React.FC | The Wrapper component that should wrap the real `Archive` component.                                         |
+| Name          | Type       | Description                                                                                                  |
+| :------------ | :--------- | :----------------------------------------------------------------------------------------------------------- |
+| **`key`**     | `string`   | A unique key to be used in the iteration.                                                                    |
+| **`link`**    | `string`   | The link of this page.                                                                                       |
+| **`isLast`**  | `boolean`  | If this page is the last page. Useful to add separators between pages, but avoid adding it for the last one. |
+| **`Wrapper`** | `React.FC` | The Wrapper component that should wrap the real `Archive` component.                                         |
 
 ### Usage
 
@@ -244,38 +245,39 @@ The `limit` prop in this case stands for the number of posts being shown, not th
 
 It accepts an optional object with the following props:
 
-| Name                     | Type                | Default    | Required | Description                                                                                                                                                                                                              |
-| :----------------------- | :------------------ | :--------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`active`**             | boolean             | `true`     | no       | A boolean indicating if this hook should be active or not. It can be useful in situations where users want to share the same component for different types of Archives, but avoid doing infinite scroll in some of them. |
-| **`limit`**              | number              | `infinite` | no       | The number of posts that are rendered until the user interacts (e.g. clicking a button) in order to show the next post.                                                                                                  |
-| **`archive`**            | string              | -          | no       | The archive that should be used to get the next posts. If none is present, the previous link is used. If the previous link is not an archive, the homepage is used.                                                      |
-| **`fallback`**           | string              | -          | no       | The archive that should be used if the `archive` option is not present and the previous link is not an archive.                                                                                                          |
-| **`fetchInViewOptions`** | IntersectionOptions | -          | no       | The intersection observer options for fetching.                                                                                                                                                                          |
-| **`routeInViewOptions`** | IntersectionOptions | -          | no       | The intersection observer options for routing.                                                                                                                                                                           |
+| Name                     | Type                                                                                                      | Default                                                                                                 | Required | Description                                                                                                                                                                                                              |
+| :----------------------- | :-------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`active`**             | `boolean`                                                                                                 | `true`                                                                                                  | no       | A boolean indicating if this hook should be active or not. It can be useful in situations where users want to share the same component for different types of Archives, but avoid doing infinite scroll in some of them. |
+| **`limit`**              | `number`                                                                                                  | [`Infinity`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity) | no       | The number of posts that are rendered until the user interacts (e.g. clicking a button) in order to show the next post.                                                                                                  |
+| **`archive`**            | `string`                                                                                                  | -                                                                                                       | no       | The archive that should be used to get the next posts. If none is present, the previous link is used. If the previous link is not an archive, the homepage is used.                                                      |
+| **`fallback`**           | `string`                                                                                                  | -                                                                                                       | no       | The archive that should be used if the `archive` option is not present and the previous link is not an archive.                                                                                                          |
+| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -                                                                                                       | no       | The intersection observer options for fetching.                                                                                                                                                                          |
+| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -                                                                                                       | no       | The intersection observer options for routing.                                                                                                                                                                           |
 
-> NOTE: The IntersectionOptions type refers to the type of the the parameters
-> received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
+{% hint style="info" %}
+The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
+{% endhint %}
 
 ### Return value
 
 The output of these hooks is pretty similar to the previous one's:
 
-| Name             | Type                | Description                                                                                                                                                                                                                              |
-| :--------------- | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`posts`**      | Array of post props | An array of the existing posts. Users should iterate over this array in their own layout. The content of each element of this array is explained below.                                                                                  |
-| **`isFetching`** | boolean             | If it's fetching the next post. Useful to add a loader.                                                                                                                                                                                  |
-| **`isLimit`**    | boolean             | If it has reached the limit of posts and it should switch to manual mode.                                                                                                                                                                |
-| **`isError`**    | boolean             | If the next post fetched returned an error. Useful to provide functionality (e.g. a button) to enable the user to try again.                                                                                                             |
-| **`fetchNext`**  | function            | A function that fetches the next post. Useful when the limit has been reached (`isLimit === true`) and the user pushes a button to get the next post or when there has been an error fetching the last post and the user wants to retry. |
+| Name             | Type                  | Description                                                                                                                                                                                                                              |
+| :--------------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`posts`**      | `Array` of post props | An array of the existing posts. Users should iterate over this array in their own layout. The content of each element of this array is explained below.                                                                                  |
+| **`isFetching`** | `boolean`             | If it's fetching the next post. Useful to add a loader.                                                                                                                                                                                  |
+| **`isLimit`**    | `boolean`             | If it has reached the limit of posts and it should switch to manual mode.                                                                                                                                                                |
+| **`isError`**    | `boolean`             | If the next post fetched returned an error. Useful to provide functionality (e.g. a button) to enable the user to try again.                                                                                                             |
+| **`fetchNext`**  | `function`            | A function that fetches the next post. Useful when the limit has been reached (`isLimit === true`) and the user pushes a button to get the next post or when there has been an error fetching the last post and the user wants to retry. |
 
 Each element of the `posts` array has the following structure:
 
-| Name          | Type     | Description                                                                                                  |
-| :------------ | :------- | :----------------------------------------------------------------------------------------------------------- |
-| **`key`**     | string   | A unique key to be used in the iteration.                                                                    |
-| **`link`**    | string   | The link of this page.                                                                                       |
-| **`isLast`**  | boolean  | If this post is the last post. Useful to add separators between posts, but avoid adding it for the last one. |
-| **`Wrapper`** | React.FC | The Wrapper component that should wrap the real `Post` component.                                            |
+| Name          | Type       | Description                                                                                                  |
+| :------------ | :--------- | :----------------------------------------------------------------------------------------------------------- |
+| **`key`**     | `string`   | A unique key to be used in the iteration.                                                                    |
+| **`link`**    | `string`   | The link of this page.                                                                                       |
+| **`isLast`**  | `boolean`  | If this post is the last post. Useful to add separators between posts, but avoid adding it for the last one. |
+| **`Wrapper`** | `React.FC` | The Wrapper component that should wrap the real `Post` component.                                            |
 
 ### Usage
 
