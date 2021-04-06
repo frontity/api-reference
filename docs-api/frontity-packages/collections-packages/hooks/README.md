@@ -39,5 +39,6 @@ These are the hooks available from the package `@frontity/hooks`
 - **Intersection Observer Hooks**
   - `useInView`
 - **Infinite Scroll Hooks**
+  - `useInfiniteScroll`
   - `useArchiveInfiniteScroll`
   - `usePostTypeInfiniteScroll`

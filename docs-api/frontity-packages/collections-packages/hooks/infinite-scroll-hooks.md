@@ -1,11 +1,11 @@
 # Infinite Scroll Hooks
 
-Three React hooks were implemented. Two for general use:
+The recommended hooks to use for a Infinite Scroll behaviour are:
 
 - `useArchiveInfiniteScroll`
 - `usePostTypeInfiniteScroll`
 
-And a basic one for implementing custom infinite scroll hooks (used internally by the previous two hooks):
+There's also another one available for implementing custom infinite scroll hooks (used internally by the previous two hooks):
 
 - `useInfiniteScroll`
 
@@ -54,12 +54,12 @@ entity pointed by `currentLink`.
 
 It requires an object with the following props:
 
-| Name                     | Type                | Default | Required | Description                                                                 |
-| :----------------------- | :------------------ | :------ | :------- | :-------------------------------------------------------------------------- |
-| **`currentLink`**        | string              | -       | yes      | The current link that should be used to start the infinite scroll.          |
-| **`nextLink`**           | string              | -       | no       | The next link that should be fetched and loaded once the user scrolls down. |
-| **`fetchInViewOptions`** | IntersectionOptions | -       | no       | The intersection observer options for fetching.                             |
-| **`routeInViewOptions`** | IntersectionOptions | -       | no       | The intersection observer options for routing.                              |
+| Name                     | Type                                                                                                      | Default | Required | Description                                                                 |
+| :----------------------- | :-------------------------------------------------------------------------------------------------------- | :------ | :------- | :-------------------------------------------------------------------------- |
+| **`currentLink`**        | `string`                                                                                                  | -       | yes      | The current link that should be used to start the infinite scroll.          |
+| **`nextLink`**           | `string`                                                                                                  | -       | no       | The next link that should be fetched and loaded once the user scrolls down. |
+| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -       | no       | The intersection observer options for fetching.                             |
+| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -       | no       | The intersection observer options for routing.                              |
 
 {% hint style="info" %}
 The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
@@ -238,7 +238,7 @@ This hook is more complex than the previous one, as it works by getting the post
 It recevies an `archive` and a `fallback` prop ―both links―, to specify the source of the post entities. If none of them is specified, `state.source.postsPage` is used. When the penultimate post of the first page is
 rendered, the next page of the archive is fetched. A list of the fetched pages is stored in the browser history state along with the list of posts.
 
-The `limit` prop in this case stands for the number of posts being shown, not the number of fetched pages. In the same way, the `fetchNext` shows the next post, and only fetches the next page of posts if needed.
+The `limit` prop in this case stands for the number of posts being shown, not the number of fetched pages (case of `useArchiveInfiniteScroll`). In the same way, the `fetchNext` shows the next post, and only fetches the next page of posts if needed.
 
 ### Parameters
 
@@ -247,7 +247,7 @@ It accepts an optional object with the following props:
 | Name                     | Type                | Default    | Required | Description                                                                                                                                                                                                              |
 | :----------------------- | :------------------ | :--------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`active`**             | boolean             | `true`     | no       | A boolean indicating if this hook should be active or not. It can be useful in situations where users want to share the same component for different types of Archives, but avoid doing infinite scroll in some of them. |
-| **`limit`**              | number              | `infinite` | no       | The number of pages that the hook should load automatically before switching to manual fetching.                                                                                                                         |
+| **`limit`**              | number              | `infinite` | no       | The number of posts that are rendered until the user interacts (e.g. clicking a button) in order to show the next post.                                                                                                  |
 | **`archive`**            | string              | -          | no       | The archive that should be used to get the next posts. If none is present, the previous link is used. If the previous link is not an archive, the homepage is used.                                                      |
 | **`fallback`**           | string              | -          | no       | The archive that should be used if the `archive` option is not present and the previous link is not an archive.                                                                                                          |
 | **`fetchInViewOptions`** | IntersectionOptions | -          | no       | The intersection observer options for fetching.                                                                                                                                                                          |
@@ -265,7 +265,7 @@ The output of these hooks is pretty similar to the previous one's:
 | **`posts`**      | Array of post props | An array of the existing posts. Users should iterate over this array in their own layout. The content of each element of this array is explained below.                                                                                  |
 | **`isFetching`** | boolean             | If it's fetching the next post. Useful to add a loader.                                                                                                                                                                                  |
 | **`isLimit`**    | boolean             | If it has reached the limit of posts and it should switch to manual mode.                                                                                                                                                                |
-| **`isError`**    | boolean             | If the next page returned an error. Useful to try again.                                                                                                                                                                                 |
+| **`isError`**    | boolean             | If the next post fetched returned an error. Useful to provide functionality (e.g. a button) to enable the user to try again.                                                                                                             |
 | **`fetchNext`**  | function            | A function that fetches the next post. Useful when the limit has been reached (`isLimit === true`) and the user pushes a button to get the next post or when there has been an error fetching the last post and the user wants to retry. |
 
 Each element of the `posts` array has the following structure:
