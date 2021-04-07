@@ -10,7 +10,7 @@ There's also another one available for implementing custom infinite scroll hooks
 - `useInfiniteScroll`
 
 {% hint style="danger" %}
-`useInfiniteScroll` is not intented to be used directly by theme developers unless they are creating their own infinite scroll logic.
+`useInfiniteScroll` is not intented to be used directly by theme developers unless they are creating their own infinite scroll logic. Use `useArchiveInfiniteScroll` or `usePostTypeInfiniteScroll` instead.
 {% endhint %}
 
 The main idea behind these hooks is that they return a list of `Wrapper` components, one for each entity listed while scrolling, that handle both the route updating and fetching of the next entity.
@@ -19,10 +19,7 @@ The main idea behind these hooks is that they return a list of `Wrapper` compone
 
 <!-- toc -->
 
-- [`useInfiniteScroll`](#useinfinitescroll)
-  - [Parameters](#parameters)
-  - [Return value](#return-value)
-  - [Usage](#usage)
+
 - [`useArchiveInfiniteScroll`](#usearchiveinfinitescroll)
   - [Parameters](#parameters)
   - [Return value](#return-value)
@@ -32,105 +29,12 @@ The main idea behind these hooks is that they return a list of `Wrapper` compone
   - [Return value](#return-value)
   - [Usage](#usage)
 - [Demo](#demo)
+- [`useInfiniteScroll`](#useinfinitescroll)
+  - [Parameters](#parameters)
+  - [Return value](#return-value)
+  - [Usage](#usage)
 
 <!-- tocstop -->
-
-## `useInfiniteScroll`
-
-This is the core hook with the basic logic to build an infinite scroll hook.
-
-It basically receives two links, `currentLink` and `nextLink`, and returns two React refs that should be attached to react elements. The hook uses `useInView` internally to track the visibility of those elements and trigger an `actions.router.set` to update the current link or an `actions.source.fetch` to fetch the next entity. You can pass options for these `useInView` hooks as well, using the `fetchInViewOptions` and the `routeInViewOptions` params.
-
-`useInfiniteScroll` also keeps a record of the fetched & ready entities in the browser history state, in order to restore the list when you go back and forward while navigating. That record is accessible from the browser history state under the `infiniteScroll.links` array.
-
-{% hint style="info" %}
-Note: the history state is also accessible from the Frontity state, in `state.router.state`.
-{% endhint %}
-
-It was designed to be used inside a `Wrapper` component that would wrap the
-entity pointed by `currentLink`.
-
-### Parameters
-
-It requires an object with the following props:
-
-| Name                     | Type                                                                                                      | Default | Required | Description                                                                 |
-| :----------------------- | :-------------------------------------------------------------------------------------------------------- | :------ | :------- | :-------------------------------------------------------------------------- |
-| **`currentLink`**        | `string`                                                                                                  | -       | yes      | The current link that should be used to start the infinite scroll.          |
-| **`nextLink`**           | `string`                                                                                                  | -       | no       | The next link that should be fetched and loaded once the user scrolls down. |
-| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -       | no       | The intersection observer options for fetching.                             |
-| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -       | no       | The intersection observer options for routing.                              |
-
-{% hint style="info" %}
-The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
-{% endhint %}
-
-### Return value
-
-| Name              | Type        | Description                                                                                                                                                                  |
-| :---------------- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`supported`**   | `boolean`   | Boolean indicating if the Intersection Observer is supported or not by the browser. In the case `supported` is `false`, all the other returned properties will be undefined. |
-| **`routeRef`**    | `React.Ref` | The ref that should be attached to the element used to trigger `actions.router.set`.                                                                                         |
-| **`fetchRef`**    | `React.Ref` | The ref that should be attached to the element used to trigger `actions.source.fetch`.                                                                                       |
-| **`routeInView`** | `boolean`   | Boolean that indicates when the element used to trigger `actions.router.set` is in the screen.                                                                               |
-| **`fetchInView`** | `boolean`   | Boolean that indicates when the element used to trigger `actions.source.fetch` is in the screen.                                                                             |
-
-### Usage
-
-{% hint style="info" %}
-Note: this is just an example to illustrate how the `useInfiniteScroll` works. For better examples, see the `useArchiveInfiniteScroll` and the `usePostTypeInfiniteScroll` implementation.
-{% endhint %}
-
-```javascript
-import { useConnect, connect, css } from "frontity";
-import useInfiniteScroll from "../use-infinite-scroll";
-import { isArchive, isError } from "@frontity/source";
-
-export const wrapperGenerator = ({
-  link,
-  fetchInViewOptions,
-  routeInViewOptions,
-}) => {
-  const Wrapper = ({ children }) => {
-    const { state } = useConnect();
-
-    const current = state.source.get(link);
-    const next =
-      isArchive(current) && current.next
-        ? state.source.get(current.next)
-        : null;
-
-    const { supported, fetchRef, routeRef } = useInfiniteScroll({
-      currentLink: link,
-      nextLink: next?.link,
-      fetchInViewOptions,
-      routeInViewOptions,
-    });
-
-    if (!current.isReady || isError(current)) return null;
-    if (!supported) return children;
-
-    const container = css`
-      position: relative;
-    `;
-
-    const fetcher = css`
-      position: absolute;
-      width: 100%;
-      bottom: 0;
-    `;
-
-    return (
-      <div css={container} ref={routeRef}>
-        {children}
-        {<div css={fetcher} ref={fetchRef} />}
-      </div>
-    );
-  };
-
-  return connect(Wrapper);
-};
-```
 
 ## `useArchiveInfiniteScroll`
 
@@ -181,8 +85,8 @@ Each element of the `pages` array has the following structure:
 ### Usage
 
 ````javascript
-import { connect, useConnect } from "frontity";
-import { useArchiveInfiniteScroll } from "@frontity/hooks";
+import { connect } from "frontity";
+import useArchiveInfiniteScroll from "@frontity/hooks/use-archive-infinite-scroll";
 import ArchivePage from "./archive-page";
 
 /**
@@ -282,8 +186,8 @@ Each element of the `posts` array has the following structure:
 ### Usage
 
 ````js
-import { connect, useConnect } from "frontity";
-import { usePostTypeInfiniteScroll } from "@frontity/hooks";
+import { connect } from "frontity";
+import usePostTypeInfiniteScroll from "@frontity/hooks/use-post-type-infinite-scroll";
 import PostTypeEntity from "./post-type-entity";
 
 /**
@@ -338,6 +242,108 @@ This short video demonstrates the usage of the Infinite Scroll Hooks avalable at
 {% embed url="https://www.youtube.com/watch?v=30E3lG3-onU" %}
 
 The project used in the video is available [here](https://github.com/frontity-demos/frontity-examples/tree/master/infinite-scroll-hooks).
+
+## `useInfiniteScroll`
+
+
+{% hint style="danger" %}
+`useInfiniteScroll` is not intented to be used directly by theme developers unless they are creating their own infinite scroll logic. Use `useArchiveInfiniteScroll` or `usePostTypeInfiniteScroll` instead.
+{% endhint %}
+
+This is the core hook with the basic logic to build an infinite scroll hook.
+
+It basically receives two links, `currentLink` and `nextLink`, and returns two React refs that should be attached to react elements. The hook uses `useInView` internally to track the visibility of those elements and trigger an `actions.router.set` to update the current link or an `actions.source.fetch` to fetch the next entity. You can pass options for these `useInView` hooks as well, using the `fetchInViewOptions` and the `routeInViewOptions` params.
+
+`useInfiniteScroll` also keeps a record of the fetched & ready entities in the browser history state, in order to restore the list when you go back and forward while navigating. That record is accessible from the browser history state under the `infiniteScroll.links` array.
+
+{% hint style="info" %}
+Note: the history state is also accessible from the Frontity state, in `state.router.state`.
+{% endhint %}
+
+It was designed to be used inside a `Wrapper` component that would wrap the
+entity pointed by `currentLink`.
+
+### Parameters
+
+It requires an object with the following props:
+
+| Name                     | Type                                                                                                      | Default | Required | Description                                                                 |
+| :----------------------- | :-------------------------------------------------------------------------------------------------------- | :------ | :------- | :-------------------------------------------------------------------------- |
+| **`currentLink`**        | `string`                                                                                                  | -       | yes      | The current link that should be used to start the infinite scroll.          |
+| **`nextLink`**           | `string`                                                                                                  | -       | no       | The next link that should be fetched and loaded once the user scrolls down. |
+| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -       | no       | The intersection observer options for fetching.                             |
+| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -       | no       | The intersection observer options for routing.                              |
+
+{% hint style="info" %}
+The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
+{% endhint %}
+
+### Return value
+
+| Name              | Type        | Description                                                                                                                                                                  |
+| :---------------- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`supported`**   | `boolean`   | Boolean indicating if the Intersection Observer is supported or not by the browser. In the case `supported` is `false`, all the other returned properties will be undefined. |
+| **`routeRef`**    | `React.Ref` | The ref that should be attached to the element used to trigger `actions.router.set`.                                                                                         |
+| **`fetchRef`**    | `React.Ref` | The ref that should be attached to the element used to trigger `actions.source.fetch`.                                                                                       |
+| **`routeInView`** | `boolean`   | Boolean that indicates when the element used to trigger `actions.router.set` is in the screen.                                                                               |
+| **`fetchInView`** | `boolean`   | Boolean that indicates when the element used to trigger `actions.source.fetch` is in the screen.                                                                             |
+
+### Usage
+
+{% hint style="info" %}
+Note: this is just an example to illustrate how the `useInfiniteScroll` works. For better examples, see the `useArchiveInfiniteScroll` and the `usePostTypeInfiniteScroll` implementation.
+{% endhint %}
+
+```javascript
+import { useConnect, connect, css } from "frontity";
+import useInfiniteScroll from "@frontity/hooks/use-infinite-scroll";
+import { isArchive, isError } from "@frontity/source";
+
+export const wrapperGenerator = ({
+  link,
+  fetchInViewOptions,
+  routeInViewOptions,
+}) => {
+  const Wrapper = ({ children }) => {
+    const { state } = useConnect();
+
+    const current = state.source.get(link);
+    const next =
+      isArchive(current) && current.next
+        ? state.source.get(current.next)
+        : null;
+
+    const { supported, fetchRef, routeRef } = useInfiniteScroll({
+      currentLink: link,
+      nextLink: next?.link,
+      fetchInViewOptions,
+      routeInViewOptions,
+    });
+
+    if (!current.isReady || isError(current)) return null;
+    if (!supported) return children;
+
+    const container = css`
+      position: relative;
+    `;
+
+    const fetcher = css`
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    `;
+
+    return (
+      <div css={container} ref={routeRef}>
+        {children}
+        {<div css={fetcher} ref={fetchRef} />}
+      </div>
+    );
+  };
+
+  return connect(Wrapper);
+};
+```
 
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
