@@ -19,7 +19,7 @@ In other words, it allows to build a **React frontend** for a headless WordPress
 
 This repository contains:
 
-- [Documentation](https://github.com/frontity/api-reference/tree/master) - the source docs of the [API Reference site for Frontity](https://api.frontity.org/)
+- [Documentation](https://github.com/frontity/api-reference/tree/master/docs-api) - the source docs of the [API Reference site for Frontity](https://api.frontity.org/)
 
 ## How to Contribute
 
