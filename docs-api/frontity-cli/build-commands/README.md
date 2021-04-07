@@ -2,7 +2,7 @@
 
 These commands will allow you generate the code that can be used to run or analyze a Frontity project
 
-* [`build`](build.md)
+- [`build`](build.md)
 
 ## The Build process
 
@@ -38,8 +38,8 @@ You can directly execute this `server.js` by using the command [`npx frontity se
 
 So, easy way of executing a Frontity project in any Node.js server
 
-* launch remotely `npx frontity build` to generate the `build` folder
-* launch remotely `npx frontity serve` to launch a web server that makes use of the `server.js` generated in the previous step
+- launch remotely `npx frontity build` to generate the `build` folder
+- launch remotely `npx frontity serve` to launch a web server that makes use of the `server.js` generated in the previous step
 
 #### using `server.js` as a middleware
 
@@ -84,4 +84,3 @@ Inside that `build` folder there is a `.html` file generated at `analyze/module-
 ![](../../.gitbook/assets/bundle-analyzer.gif)
 
 This report shows you the modules included on each bundle and the size of each one, so you can analyze them and maybe decide using other modules \(or not including a specific module at all\) to reduce the size of the final bundle
-

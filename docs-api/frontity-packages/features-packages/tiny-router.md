@@ -8,15 +8,20 @@ This package is in charge of managing \(React\) routes in a Frontity project.
 
 ## Table of Contents
 
-* [Installation](tiny-router.md#installation)
-* [Settings](tiny-router.md#settings)
-  * [`state.router.autoFetch`](tiny-router.md#state-router-autofetch)
-* [API Reference](tiny-router.md#api-reference)
-  * [Actions](tiny-router.md#actions)
-    * [`actions.router.set()`](tiny-router.md#actions-router-set)
-  * [State](tiny-router.md#state)
-    * [`state.router.link`](tiny-router.md#state-router-link)
-    * [`state.router.state`](tiny-router.md#state-router-state)
+<!-- toc -->
+
+- [Installation](#installation)
+- [Settings](#settings)
+  - [`state.router.autoFetch`](#state-router-autofetch)
+- [API Reference](#api-reference)
+  - [Actions](#actions)
+    - [`actions.router.set()`](#actions-router-set)
+    - [`actions.router.updateState()`](#actions-router-updatestate)
+  - [State](#state)
+    - [`state.router.link`](#state-router-link)
+    - [`state.router.state`](#state-router-state)
+
+<!-- tocstop -->
 
 ## Installation
 
@@ -67,12 +72,12 @@ actions.router.set = async (link: string, options: {
 
 **Arguments**
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| _**`link`**_ | string | yes | The URL that will replace the current one. _`link` is short for permalink_.   Examples: |
-| _`options`_ | object | no | Options object |
-| _`options`_.`method` | string | - | The method used in the action. Possible values: `"push"` corresponds to [`window.history.pushState`](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) and `"replace"` to [`window.history.replaceState`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState) &lt;/br&gt; Default Value is `"push"` |
-| _`options`_.`state` | object | - | An object that will be saved in `window.history.state`. This object is recovered when the user go back and forward using the browser buttons. |
+| Name                 | Type   | Required | Description                                                                                                                                                                                                                                                                                                                              |
+| :------------------- | :----- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _**`link`**_         | string | yes      | The URL that will replace the current one. _`link` is short for permalink_. Examples:                                                                                                                                                                                                                                                    |
+| _`options`_          | object | no       | Options object                                                                                                                                                                                                                                                                                                                           |
+| _`options`_.`method` | string | -        | The method used in the action. Possible values: `"push"` corresponds to [`window.history.pushState`](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) and `"replace"` to [`window.history.replaceState`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState) &lt;/br&gt; Default Value is `"push"` |
+| _`options`_.`state`  | object | -        | An object that will be saved in `window.history.state`. This object is recovered when the user go back and forward using the browser buttons.                                                                                                                                                                                            |
 
 **Examples**
 
@@ -93,6 +98,18 @@ const Link = ({ actions, children, link }) => {
 };
 ```
 
+#### `actions.router.updateState()`
+
+Action that replaces the value of `state.router.state` with the given object. The same object is stored in the browser history state using the
+[`history.replaceState()`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState)
+function.
+
+**Arguments**
+
+| Name               | Type   | Required | Description                             |
+| :----------------- | :----- | :------- | :-------------------------------------- |
+| **`historyState`** | object | yes      | The object to set as the history state. |
+
 ### State
 
 Tiny router has the following state:
@@ -103,12 +120,12 @@ This is the path the site is in. For example, `/category/nature/`.
 
 These are some examples of links:
 
-* `/`: You are in the home, path is `/` and page is `1`.
-* `/page/2`: You are in the page 2 of the home, path is `/` and page is `2`.
-* `/category/nature:` You are in the category `nature`, path is `/` and page is `1`.
-* `/category/nature/page/2`: You are in page 2 of category `nature`, path is `/` and page is `2`.
-* `/some-post`: You are a post, path is `/some-post`.
-* `/some-page`: You are in a page, path is `/some-page`.
+- `/`: You are in the home, path is `/` and page is `1`.
+- `/page/2`: You are in the page 2 of the home, path is `/` and page is `2`.
+- `/category/nature:` You are in the category `nature`, path is `/` and page is `1`.
+- `/category/nature/page/2`: You are in page 2 of category `nature`, path is `/` and page is `2`.
+- `/some-post`: You are a post, path is `/some-post`.
+- `/some-page`: You are in a page, path is `/some-page`.
 
 #### `state.router.state`
 
@@ -117,4 +134,3 @@ This is the object that was saved in [`window.history.state`](https://developer.
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
-

@@ -24,10 +24,7 @@ This package is in charge of getting the data from self-hosted WordPress or Word
     - [`state.source.postEndpoint`](wp-source.md#state-source-postendpoint)
   - [Custom requests](wp-source.md#custom-requests)
     - [`state.source.params`](wp-source.md#state-source-params)
-    - [`state.source.auth`](wp-source.md#state-source-auth)
-  - [Custom Post Types](wp-source.md#custom-post-types)
     - [`state.source.postTypes`](wp-source.md#state-source-posttypes)
-    - [`state.source.taxonomies`](wp-source.md#state-source-taxonomies)
 - [How to use](wp-source.md#how-to-use)
 - [API Reference](wp-source.md#api-reference)
   - [Actions](wp-source.md#actions)
@@ -671,14 +668,25 @@ Request entity from the WordPress REST API.
 
 **Arguments**
 
-| Name                       | Type    | Required | Description                                                                                                                                                                                              |
+<<<<<<< HEAD
+| Name | Type | Required | Description |
+| :------------------------- | :------ | :------- | :---------------------------------------------------------------------------------------------------------------------------------- |
+| _`options`_ | object | yes | options object |
+| _`options`_.**`endpoint`** | string | yes | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\). |
+| _`options`_.`params` | object | no | Any parameter that will be included in the query params. |
+| _`options`_.`api` | string | no | Overrides the value set with `api.set.` |
+| _`options`_.`isWpCom` | boolean | no | Overrides the value set with `api.set.` |
+=======
+| Name | Type | Required | Description |
 | :------------------------- | :------ | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _`options`_                | object  | yes      | options object                                                                                                                                                                                           |
-| _`options`_.**`endpoint`** | string  | yes      | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\).                                                                      |
-| _`options`_.`params`       | object  | no       | Any parameter that will be included in the query params.                                                                                                                                                 |
-| _`options`_.`auth`         | string  | no       | Allows the Authorization header on the fetch() request to be set. If not specified, will use the value from [`state.source.auth`](wp-source.md#state-source-auth) if that value is present in the state. |
-| _`options`_.`api`          | string  | no       | Overrides the value set with `api.set.`                                                                                                                                                                  |
-| _`options`_.`isWpCom`      | boolean | no       | Overrides the value set with `api.set.`                                                                                                                                                                  |
+| _`options`_ | object | yes | options object |
+| _`options`_.**`endpoint`** | string | yes | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\). |
+| _`options`_.`params` | object | no | Any parameter that will be included in the query params. |
+| _`options`_.`auth` | string | no | Allows the Authorization header on the fetch() request to be set. If not specified, will use the value from [`state.source.auth`](wp-source.md#state-source-auth) if that value is present in the state. |
+| _`options`_.`api` | string | no | Overrides the value set with `api.set.` |
+| _`options`_.`isWpCom` | boolean | no | Overrides the value set with `api.set.` |
+
+> > > > > > > master
 
 **Return value**
 
@@ -722,6 +730,15 @@ Add entities to the Frontity state.
 
 **Arguments**
 
+<<<<<<< HEAD
+| Name | Type | Required | Description |
+| :------------------------- | :------ | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _`options`_ | object | yes | Options object |
+| _`options`_.**`response`** | oject | yes | The response object returned by `api.get().` |
+| _`options`_.**`state`** | object | yes | The tate object from the Frontity store. |
+| _`options`_.`subdirectory` | strin | no | Domain's subdirectory where your Frontity site is accessible. When this options is passed, this subdirectory is added to the entities' links. &lt;/br&gt; Default Value is value defined in `state.source.subdirectory` |
+| _`options`_.`force` | boolean | no | Value indicating if the entities should be overwritten &lt;/br&gt; Default Value is `false` |
+=======
 | Name | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
 | _`options`_ | object | yes | Options object |
@@ -729,6 +746,8 @@ Add entities to the Frontity state.
 | _`options`_.**`state`** | object | yes | The state object from the Frontity store. |
 | _`options`_.`subdirectory` | strin | no | Domain's subdirectory where your Frontity site is accessible. When this options is passed, this subdirectory is added to the entities' links. &lt;/br&gt; Default Value is value defined in `state.source.subdirectory` |
 | _`options`_.`force` | boolean | no | Value indicating if the entities should be overwritten &lt;/br&gt; Default Value is `false` |
+
+> > > > > > > master
 
 **Return value**
 
