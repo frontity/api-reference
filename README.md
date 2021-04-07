@@ -1,10 +1,14 @@
-# Frontity Documentation
+# Frontity Documentation: API Reference
 
-[![Check Markdown links](https://github.com/frontity/docs/workflows/Check%20Markdown%20links/badge.svg)](https://github.com/frontity/docs/actions?query=workflow%3A%22Check+Markdown+links%22)
+Our documentation is distributed across three separate sites:
 
-This is the public documentation for **Frontity**
+| Docs Site                                              | Repository                                        | Description                       |
+| ------------------------------------------------------ | ------------------------------------------------- | --------------------------------- |
+| [docs.frontity.org](https://docs.frontity.org)         | https://github.com/frontity/docs                  | Introduction, concepts and guides |
+| [**api.frontity.org**](https://api.frontity.org)       | https://github.com/frontity/api-reference         | API Reference                     |
+| [tutorial.frontity.org](https://tutorial.frontity.org) | https://github.com/frontity/step-by-step-tutorial | Step by Step guide                |
 
-You can view this documentation at [Frontity Docs](https://docs.frontity.org/).
+This repo corresponds to the documentation available at [**api.frontity.org**](https://api.frontity.org), where you will find all the details of the API provided by Frontity core and Frontity packages
 
 ## What is Frontity?
 
@@ -15,8 +19,7 @@ In other words, it allows to build a **React frontend** for a headless WordPress
 
 This repository contains:
 
-- [Documentation](https://github.com/frontity/docs/tree/master) - the source docs of the [documentation site for Frontity](https://docs.frontity.org/)
-- [Contributing Guidelines](https://github.com/frontity/docs/tree/master/CONTRIBUTING.md) - a guide on how to contribute to the Frontity documentation
+- [Documentation](https://github.com/frontity/api-reference/tree/master) - the source docs of the [API Reference site for Frontity](https://api.frontity.org/)
 
 ## How to Contribute
 
