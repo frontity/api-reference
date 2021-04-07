@@ -24,6 +24,8 @@ This package is in charge of getting the data from self-hosted WordPress or Word
     - [`state.source.postEndpoint`](wp-source.md#state-source-postendpoint)
   - [Custom requests](wp-source.md#custom-requests)
     - [`state.source.params`](wp-source.md#state-source-params)
+    - [`state.source.auth`](wp-source.md#state-source-auth)
+  - [Custom Post Types](wp-source.md#custom-post-types)
     - [`state.source.postTypes`](wp-source.md#state-source-posttypes)
 - [How to use](wp-source.md#how-to-use)
 - [API Reference](wp-source.md#api-reference)
