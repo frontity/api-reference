@@ -1,6 +1,18 @@
 # Introduction
 
-Welcome to the API Reference site for Frontity. This is where you will find detailed technical descriptions for the CLI, packages and plugins available in Frontity
+Welcome to Frontity, and to our API Reference documentation.
+
+Our documentation is distributed across three separate sites:
+
+- [**docs.frontity.org**](https://docs.frontity.org) - Introduction, concepts and guides
+- [**api.frontity.org**](https://api.frontity.org) - API Reference
+- [**tutorial.frontity.org**](https://tutorial.frontity.org) - Step by Step guide
+
+This site (api.frontity.org) is where you will find detailed technical descriptions for the CLI, packages and plugins available in Frontity
+
+{% hint style="info" %}
+If you're new to Frontity check out our brand new [step-by-step tutorial](https://tutorial.frontity.org/). It's the quickest way to get up to speed with Frontity.
+{% endhint %}
 
 Let's kick things off by providing you with a roadmap so that you can find your way around the documentation and zero in on the information you need right now.
 
