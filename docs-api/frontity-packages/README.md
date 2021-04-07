@@ -86,4 +86,4 @@ Comments package that adds integration for WordPress native comments.
 These packages are collections or useful components or hooks that you can use in your Frontity project
 
 - [`@frontity/components`](collections-packages/components.md)
-- [`@frontity/hooks`](collections-packages/hooks.md)
+- [`@frontity/hooks`](collections-packages/hooks/README.md)

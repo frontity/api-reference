@@ -37,8 +37,8 @@ import useInView from "@frontity/hooks/use-in-view";
 These are the hooks available from the package `@frontity/hooks`
 
 - **Intersection Observer Hooks**
-  - `useInView`
+  - [`useInView`](intersection-observer-hooks.md#useinview)
 - **Infinite Scroll Hooks**
-  - `useInfiniteScroll`
-  - `useArchiveInfiniteScroll`
-  - `usePostTypeInfiniteScroll`
+  - [`useInfiniteScroll`](infinite-scroll-hooks.md#useinfinitescroll)
+  - [`useArchiveInfiniteScroll`](infinite-scroll-hooks.md#usearchiveinfinitescroll)
+  - [`usePostTypeInfiniteScroll`](infinite-scroll-hooks.md#useposttypeinfinitescroll)
