@@ -27,5 +27,5 @@ Sometimes a **Frontity WordPress plugin** is required so everything works smooth
 By the way, we'd love to hear about what you're building with Frontity. Join us in our [**Community Forum**](https://community.frontity.org) and tell us about your project. You can also ask questions and get help and support from our growing community of users and developers there.
 
 {% hint style="info" %}
-**Subscribe** to our newsletter [here](https://frontity.org/#newsletter) to **get notified** of the latest news and updates.
+**Subscribe** to our _newsletter_ [here](https://frontity.org/#newsletter) to **get notified** of the latest news and updates.
 {% endhint %}
