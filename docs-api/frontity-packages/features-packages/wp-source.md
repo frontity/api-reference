@@ -725,9 +725,9 @@ Add entities to the Frontity state.
 | Name                       | Type    | Required | Description                                                                                                                                                                                                             |
 | :------------------------- | :------ | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | _`options`_                | object  | yes      | Options object                                                                                                                                                                                                          |
-| _`options`_.**`response`** | oject   | yes      | The response object returned by `api.get().`                                                                                                                                                                            |
+| _`options`_.**`response`** | object  | yes      | The response object returned by `api.get().`                                                                                                                                                                            |
 | _`options`_.**`state`**    | object  | yes      | The state object from the Frontity store.                                                                                                                                                                               |
-| _`options`_.`subdirectory` | strin   | no       | Domain's subdirectory where your Frontity site is accessible. When this options is passed, this subdirectory is added to the entities' links. &lt;/br&gt; Default Value is value defined in `state.source.subdirectory` |
+| _`options`_.`subdirectory` | string  | no       | Domain's subdirectory where your Frontity site is accessible. When this options is passed, this subdirectory is added to the entities' links. &lt;/br&gt; Default Value is value defined in `state.source.subdirectory` |
 | _`options`_.`force`        | boolean | no       | Value indicating if the entities should be overwritten &lt;/br&gt; Default Value is `false`                                                                                                                             |
 
 **Return value**
@@ -773,7 +773,7 @@ The `func` property defined will receive an object with the following properties
 | `link`      | string  | The link that are being fetched.                                                                                     |
 | `params`    | string  | values obtained from the pattern after a match                                                                       |
 | `state`     | object  | Frontity state.                                                                                                      |
-| `libraries` | objet   | Frotity libraries.                                                                                                   |
+| `libraries` | object  | Frotity libraries.                                                                                                   |
 | `force`     | boolean | f the etities should be fetched again. Internally, this parameter will be passed to the `actions.source.fetch` call. |
 
 **Return**
@@ -901,7 +901,7 @@ Utility for building links from its attributes.
 | **`path`** | string | yes      | pathname without the page    |
 | _`page`_   | number | no       | The page number              |
 | _`query`_  | object | no       | Object with query parameters |
-| _`hash`_   | string | o        | Thehash value \(with `#`\).  |
+| _`hash`_   | string | no       | Thehash value \(with `#`\).  |
 
 **Return value**
 
