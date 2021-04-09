@@ -25,6 +25,7 @@ This package is in charge of getting the data from self-hosted WordPress or Word
   - [Custom requests](wp-source.md#custom-requests)
     - [`state.source.params`](wp-source.md#state-source-params)
     - [`state.source.auth`](wp-source.md#state-source-auth)
+    - [`state.source.redirections`](wp-source.md#state-source-redirections)
   - [Custom Post Types](wp-source.md#custom-post-types)
     - [`state.source.postTypes`](wp-source.md#state-source-posttypes)
     - [`state.source.taxonomies`](wp-source.md#state-source-taxonomies)
@@ -262,6 +263,31 @@ The value of `state.source.auth` can also be set from an **environmental variabl
 This value can be used in the `auth` property of [`libraries.source.api.get`](#libraries-source-api-get).
 
 Crucially, `state.source.auth` is **removed in the `afterSSR()` action**, so if `state.source.auth` is present in the state on the server its value will not be sent to the client, thus confidential credentials are not revealed client-side.
+
+#### `state.source.redirections`
+
+Via this `wp-source` package, Frontity have support for 3xx Redirections that are stored in the WordPress database. Such redirections can be added for example via the popular [Redirection plugin](https://wordpress.org/plugins/redirection/).
+
+Through the property `state.source.redirections` we can configure how we want to handle the redirections. This property can have one of the following values:
+
+- `"no"` - Does not handle the redirections at all. This is the **default**.
+
+- `"404"` - Only send the additional request to the WordPress instance if the original request has returned a 404 error. This is the scenario described above.
+
+- `"all"` - Always make an additional request to the WordPress instance to check if there exists a redirection. This means that for every single `actions.source.fetch()` there will be a parallel request to the WordPress server that is fired "just in case" the `actions.source.fetch()` returns a 404. If the `actions.source.fetch()` is successful, the result of fetching the redirection is discarded. If `actions.source.fetch()` fails, Fronity waits for the response from fetching the redirection and if that is successful, uses it's result.
+
+- `string` - A string that contains a regex pattern. **The string must start with `"RegExp:"`**. This pattern will be matched against the current route and if matched, Frontity will make an additional request to the WordPress instance to check if there exists a redirection. Note that the shorthand character classes will have to be escaped, so for example instead of `\d`, you will need to write `\\d`.
+
+- `string[]` - An array of strings, which can contain the `"404"` value as well as any number of strings starting with `"RegExp:/"` which represent regular expressions. An additional request will be sent to Wordpress to check for the redirection if any of the regular expressions match the current route. If the array also contains a `"404"`, an additional request will also be made if the original request has returned a 404 error.
+
+Some example valid values are:
+
+- `"no"`
+- `"all"`
+- `"404"`
+- `"RegExp:/some-post/(\\d*)"`
+- `"RegExp:/post-(\\w*)/(\\d*)"`
+- `["404", "RegExp:/some-post/", "RegExp:/another-post"]`
 
 ### Custom Post Types
 
