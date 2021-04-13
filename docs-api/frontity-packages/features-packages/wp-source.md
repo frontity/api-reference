@@ -266,7 +266,7 @@ Crucially, `state.source.auth` is **removed in the `afterSSR()` action**, so if 
 
 #### `state.source.redirections`
 
-Via this `wp-source` package, Frontity have support for 3xx Redirections that are stored in the WordPress database. Such redirections can be added for example via the popular [Redirection plugin](https://wordpress.org/plugins/redirection/).
+Via this `wp-source` package, Frontity has support for 3xx Redirections that are stored in the WordPress database. Such redirections can be added for example via the popular [Redirection plugin](https://wordpress.org/plugins/redirection/).
 
 Through the property `state.source.redirections` we can configure how we want to handle the redirections. This property can have one of the following values:
 
