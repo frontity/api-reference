@@ -274,7 +274,7 @@ Through the property `state.source.redirections` we can configure how we want to
 
 - [`"404"`](https://excalidraw.com/#json=6028309183856640,XnrvemlrnsAlg258Eplz2w) - Only send the additional request to the WordPress instance if the original request has returned a 404 error. This is the scenario described above.
 
-- [`"all"`](https://excalidraw.com/#json=5708889861390336,n2CfyouwrMndKDH-oLbsbA) - Always make an additional request to the WordPress instance to check if there exists a redirection. This means that for every single `actions.source.fetch()` there will be a parallel request to the WordPress server that is fired "just in case" the `actions.source.fetch()` returns a 404. If the `actions.source.fetch()` is successful, the result of fetching the redirection is discarded. If `actions.source.fetch()` fails, Fronity waits for the response from fetching the redirection and if that is successful, uses it's result.
+- [`"all"`](https://excalidraw.com/#json=5708889861390336,n2CfyouwrMndKDH-oLbsbA) - Always make an additional request to the WordPress instance to check if there exists a redirection. This means that for every single `actions.source.fetch()` there will be a parallel request to the WordPress server that is fired "just in case" the `actions.source.fetch()` returns a 404. If the `actions.source.fetch()` is successful, the result of fetching the redirection is discarded. If `actions.source.fetch()` fails, Fronity waits for the response from fetching the redirection and if that is successful, uses its result.
 
 - `string` - A string that contains a regex pattern. **The string must start with `"RegExp:"`**. This pattern will be matched against the current route and if matched, Frontity will make an additional request to the WordPress instance to check if there exists a redirection. Note that the shorthand character classes will have to be escaped, so for example instead of `\d`, you will need to write `\\d`.
 
@@ -288,6 +288,10 @@ Some example valid values are:
 - `"RegExp:/some-post/(\\d*)"`
 - `"RegExp:/post-(\\w*)/(\\d*)"`
 - `["404", "RegExp:/some-post/", "RegExp:/another-post"]`
+
+{% hint style="warning" %}
+Have a look at the guide [**Redirections with Frontity**](https://docs.frontity.org/guides/redirections-with-frontity) to learn more about this
+{% endhint %}
 
 ### Custom Post Types
 
