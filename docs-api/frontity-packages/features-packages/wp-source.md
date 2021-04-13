@@ -289,7 +289,7 @@ Some example valid values are:
 - `"RegExp:/post-(\\w*)/(\\d*)"`
 - `["404", "RegExp:/some-post/", "RegExp:/another-post"]`
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Have a look at the guide [**Redirections with Frontity**](https://docs.frontity.org/guides/redirections-with-frontity) to learn more about this
 {% endhint %}
 
