@@ -510,6 +510,15 @@ When `fetch` is called _again_ for the same `link` it does nothing, as all the e
 actions.source.fetch("/category/nature/", { force: true });
 ```
 
+{% hint style="info" %}
+The use of `actions.source.fetch()` is recommended over other isomorphic methods to fetch data such as `axios` or `superagent`, because:
+
+1. It does not increase the bundle size
+2. It prevents Frontity projects from having duplicated libraries doing the same job
+
+The use of `actions.source.fetch()` is also recommended over `window.fetch` because although `window.fetch` exists in the browser it is not isomorphic and doesn't exist in Node.
+{% endhint %}
+
 ### State
 
 #### `state.source.get()`
