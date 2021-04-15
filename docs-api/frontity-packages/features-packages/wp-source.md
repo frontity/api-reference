@@ -39,7 +39,6 @@ This package is in charge of getting the data from self-hosted WordPress or Word
     - [`state.source[type][id]`](wp-source.md#state-source-type-id)
     - [`state.source.author[id]`](wp-source.md#state-source-author-id)
   - [Libraries](wp-source.md#libraries)
-    - [`libraries.source.api.init()`](wp-source.md#libraries-source-api-init)
     - [`libraries.source.api.get()`](wp-source.md#libraries-source-api-get)
     - [`libraries.source.populate()`](wp-source.md#libraries-source-populate)
     - [`libraries.source.handlers`](wp-source.md#libraries-source-handlers)
@@ -652,42 +651,6 @@ source.author[4]
 ```
 
 ### Libraries
-
-#### `libraries.source.api.init()`
-
-Set the URL to the WordPress REST API.
-
-**Syntax**
-
-```typescript
-(options: object) => Promise;
-```
-
-**Arguments**
-
-| Name                  | Type    | Required | Description                                               |
-| :-------------------- | :------ | :------- | :-------------------------------------------------------- |
-| _`options`_           | object  | yes      | options object                                            |
-| _`options`_.**`api`** | string  | yes      | URL pointing to a valid WP REST API.                      |
-| _`options`_.`isWpCom` | boolean | no       | if the WP REST route is from a WordPress.com hosted site. |
-
-**Example**
-
-```javascript
-const { api } = libraries.source;
-
-// for wp.org
-api.init({
-  api: "https://test.frontity.io/wp-json",
-  isWpCom: false,
-});
-
-// for wp.com
-api.init({
-  api: "https://public-api.wordpress.com/wp/v2/sites/test.frontity.io",
-  isWpCom: false,
-});
-```
 
 #### `libraries.source.api.get()`
 
