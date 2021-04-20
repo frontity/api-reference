@@ -69,6 +69,22 @@ This `@frontity/google-tag-manager-analytics` package can co-exist with some oth
 
 If `@frontity/google-tag-manager-analytics` is configured configured and enabled for _pageviews_ in `state.analytics.pageviews`, every time a link changes \(or every time `action.router.set(link)` is launched\) a tracking for that page will be sent to Google Tag Manager.
 
+#### Sending `pageviews` to Google Analytics via Google Tag Manager
+
+In order to send pageviews to Google Analytics through Google Tag Manager in a Frontity project you have to create a Trigger listening to a **custom event named `pageview`**, instead of the _default `pageview`_ ([the default Event Type `pageview`, doesn't work properly in Isomorphic Apps](https://github.com/frontity/docs/issues/262#issuecomment-822417769)). This custom event is automatically send by `@frontity/google-tag-manager-analytics package`
+
+**Trigger**
+
+![](../../../.gitbook/assets/google-tag-manager-custom-event.png)
+
+**Tag**
+
+![](../../../.gitbook/assets/google-tag-manager-tag.png)
+
+{% hint style="info" %}
+In the [Feature Discussion of this package](https://community.frontity.org/t/google-tag-manager-package/1400) you have [the format sent internally](https://community.frontity.org/t/google-tag-manager-package/1400/18) just in case you need it for your [own customizations](https://github.com/frontity/docs/issues/262#issuecomment-822426997)
+{% endhint %}
+
 ### `actions.analytics.event`
 
 If `@frontity/google-tag-manager-analytics` is configured and enabled for _events_ in `state.analytics.events`, every time you call the method `actions.analytics.event()` from any of your React components, the proper tracking info will be sent to Google Tag Manager.
