@@ -30,7 +30,7 @@ Frontity's theme has the same pagination as the original WordPress theme. This w
 
 ## Demo
 
-![Homepage view in Twenty Twenty Frontity Theme.](../.gitbook/assets/screenshot-homepage-view-twentytwenty-frontity-theme.png)
+![Homepage view in Twenty Twenty Frontity Theme.](../.gitbook/assets/screenshot-homepage-view-twentytwenty-frontity-theme%20%282%29%20%281%29.png)
 
 You can check out all the features in this [**theme demo**](https://twentytwenty.frontity.org/), \_\*\*\_or even in our [Frontity blog](https://blog.frontity.org/).
 

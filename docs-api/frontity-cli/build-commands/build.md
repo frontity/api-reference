@@ -13,10 +13,10 @@ The [`frontity serve`](../run-commands/serve.md) command will use the files gene
 ### **`[options]`**
 
 | Option                                             | Description                                                                                                                                                                                                        |
-| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`--development`](build.md#the-development-option) | Builds the project for development. Related environment variable: [`FRONTITY_BUILD_DEVELOPMENT`](build.md#frontity_build_development)                                                                              |
-| [`--target `](build.md#the-target-option)          | Builds the project. Create bundles with "es5", "module" or "both". Default target is "both". Related environment variable: [`FRONTITY_BUILD_TARGET`](build.md#frontity_build_target)                               |
-| [`--publicPath `](build.md#the-public-path-option) | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is "/static/". Related environment variable: [`FRONTITY_BUILD_PUBLIC_PATH`](build.md#frontity_build_public_path) |
+| [`--target`](build.md#the-target-option)           | Builds the project. Create bundles with "es5", "module" or "both". Default target is "both". Related environment variable: [`FRONTITY_BUILD_TARGET`](build.md#frontity_build_target)                               |
+| [`--publicPath`](build.md#the-public-path-option)  | Set the [public path](https://webpack.js.org/guides/public-path/) for static assets. Default path is "/static/". Related environment variable: [`FRONTITY_BUILD_PUBLIC_PATH`](build.md#frontity_build_public_path) |
 | `--help`                                           | Output usage information                                                                                                                                                                                           |
 
 **Examples**

@@ -71,7 +71,7 @@ If `@frontity/google-tag-manager-analytics` is configured configured and enabled
 
 #### Sending `pageviews` to Google Analytics via Google Tag Manager
 
-In order to send pageviews to Google Analytics through Google Tag Manager in a Frontity project you have to create a Trigger listening to a **custom event named `pageview`**, instead of the _default `pageview`_ ([the default Event Type `pageview`, doesn't work properly in Isomorphic Apps](https://github.com/frontity/docs/issues/262#issuecomment-822417769)). This custom event is automatically send by `@frontity/google-tag-manager-analytics package`
+In order to send pageviews to Google Analytics through Google Tag Manager in a Frontity project you have to create a Trigger listening to a **custom event named `pageview`**, instead of the _default `pageview`_ \([the default Event Type `pageview`, doesn't work properly in Isomorphic Apps](https://github.com/frontity/docs/issues/262#issuecomment-822417769)\). This custom event is automatically send by `@frontity/google-tag-manager-analytics package`
 
 **Trigger**
 

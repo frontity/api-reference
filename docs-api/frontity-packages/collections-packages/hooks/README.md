@@ -8,13 +8,9 @@ This package is a collection of React hooks that have proven to be pretty useful
 
 ## Table of Contents
 
-<!-- toc -->
-
-- [Installation](#installation)
-- [How to use](#how-to-use)
-- [Hooks](#hooks)
-
-<!-- tocstop -->
+- [Installation](./#installation)
+- [How to use](./#how-to-use)
+- [Hooks](./#hooks)
 
 ## Installation
 

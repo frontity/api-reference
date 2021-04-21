@@ -4,15 +4,11 @@ These hooks helps you to track when an element enters or leaves the viewport.
 
 ## Table of Contents
 
-<!-- toc -->
-
-- [`useInView`](#useinview)
-  - [Usage](#usage)
-  - [Parameters](#parameters)
-  - [Return value](#return-value)
-  - [Demo](#demo)
-
-<!-- tocstop -->
+- [`useInView`](intersection-observer-hooks.md#useinview)
+  - [Usage](intersection-observer-hooks.md#usage)
+  - [Parameters](intersection-observer-hooks.md#parameters)
+  - [Return value](intersection-observer-hooks.md#return-value)
+  - [Demo](intersection-observer-hooks.md#demo)
 
 ## `useInView`
 

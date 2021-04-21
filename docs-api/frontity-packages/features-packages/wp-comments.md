@@ -172,7 +172,7 @@ The submission status will be stored under under [`state.comments.forms[postId]`
 }
 ```
 
-![](../../.gitbook/assets/send-comments-wpcomments.png)
+![](../../.gitbook/assets/send-comments-wpcomments%20%281%29.png)
 
 {% hint style="info" %}
 Take a look at this [diagram](https://excalidraw.com/#json=6174729664724992,A-DM-LUhTX896Q3e_NW5vQ) to learn more about this.

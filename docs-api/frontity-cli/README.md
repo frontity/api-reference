@@ -65,7 +65,7 @@ If the CLI cannot find any of these environmental variables, it will prompt for 
 
 This is the scheme followed by the CLI to get the name of the package
 
-![](../.gitbook/assets/no-prompt.png)
+![](../.gitbook/assets/no-prompt%20%283%29.png)
 
 ## A typical workflow with Frontity commands
 

@@ -543,7 +543,7 @@ state.frontity.debug = true;
 
 If you want to do this on the console, remember that you need to access the `state` using `frontity.state`, like this:
 
-![Debug mode in the console](../../.gitbook/assets/frontity-debug-in-console%20%282%29.png)
+![Debug mode in the console](../../.gitbook/assets/frontity-debug-in-console%20%286%29%20%283%29.png)
 
 ### `fetch`
 

@@ -171,7 +171,7 @@ This option allows you to show a specific page when accessing the homepage of yo
 
 You have to configure your WordPress with the same setting.
 
-![](../../.gitbook/assets/screen-shot-2019-08-30-at-13.08.35%20%283%29%20%281%29%20%281%29%20%2818%29.png)
+![](../../.gitbook/assets/screen-shot-2019-08-30-at-13.08.35%20%283%29%20%281%29%20%281%29%20%2810%29.png)
 
 {% hint style="warning" %}
 As this option overrides the `/` route, you should set `state.source.postsPage` as well in order to be able to access the posts archive in a different route.
@@ -183,7 +183,7 @@ This option allows you to show the posts archive when accessing a specific URL o
 
 You have to configure your WordPress with the same setting.
 
-![](../../.gitbook/assets/screen-shot-2019-08-30-at-13.08.35%20%283%29%20%281%29%20%281%29%20%2832%29.png)
+![](../../.gitbook/assets/screen-shot-2019-08-30-at-13.08.35%20%283%29%20%281%29%20%281%29%20%2859%29.png)
 
 #### `state.source.categoryBase`
 
@@ -240,7 +240,7 @@ This option is a property which can hold authentication information. This could 
 
 Values can be passed to `state.source.auth` in a variety ways, e.g. via `frontity.settings.js` or by setting it in the way that any other piece of frontity state is.
 
-```js
+```javascript
 // frontity.settings.js
 const state = {
   source: {
@@ -256,10 +256,10 @@ Additionally the value of `state.source.auth` can be set via a **query string**.
 The value of `state.source.auth` can also be set from an **environmental variable**. If frontity detects a `FRONTITY_SOURCE_AUTH` environmental variable, it will pass its value to `state.source.auth`.
 
 > Note that the value passed from the URL query string takes precedence over the value from the env variable.
-
+>
 > Frontity loads environmental variables from .env files using the [https://github.com/motdotla/dotenv/](https://github.com/motdotla/dotenv/) package.
 
-This value can be used in the `auth` property of [`libraries.source.api.get`](#libraries-source-api-get).
+This value can be used in the `auth` property of [`libraries.source.api.get`](wp-source.md#libraries-source-api-get).
 
 Crucially, `state.source.auth` is **removed in the `afterSSR()` action**, so if `state.source.auth` is present in the state on the server its value will not be sent to the client, thus confidential credentials are not revealed client-side.
 
@@ -270,13 +270,9 @@ Via this `wp-source` package, Frontity has support for 3xx Redirections that are
 Through the property `state.source.redirections` we can configure how we want to handle the redirections. This property can have one of the following values:
 
 - `"no"` - Does not handle the redirections at all. This is the **default**.
-
 - [`"404"`](https://docs.frontity.org/guides/redirections-with-frontity#404) - Only send the additional request to the WordPress instance if the original request has returned a 404 error.
-
 - [`"all"`](https://docs.frontity.org/guides/redirections-with-frontity#all) - Always make an additional request to the WordPress instance to check if there exists a redirection. This means that for every single `actions.source.fetch()` there will be a parallel request to the WordPress server that is fired "just in case" the `actions.source.fetch()` returns a 404. If the `actions.source.fetch()` is successful, the result of fetching the redirection is discarded. If `actions.source.fetch()` fails, Fronity waits for the response from fetching the redirection and if that is successful, uses its result.
-
 - `string` - A string that contains a regex pattern. **The string must start with `"RegExp:"`**. This pattern will be matched against the current route and if matched, Frontity will make an additional request to the WordPress instance to check if there exists a redirection. Note that the shorthand character classes will have to be escaped, so for example instead of `\d`, you will need to write `\\d`.
-
 - `string[]` - An array of strings, which can contain the `"404"` value as well as any number of strings starting with `"RegExp:/"` which represent regular expressions. An additional request will be sent to Wordpress to check for the redirection if any of the regular expressions match the current route. If the array also contains a `"404"`, an additional request will also be made if the original request has returned a 404 error.
 
 Some example valid values are:
@@ -306,7 +302,7 @@ This option allows you to show the Custom Post Types you create at WordPress whe
 
 Differentiating `type` and `endpoint` may be confusing as they are usually the same. You can confirm you are doing it correctly going to the CPT `endpoint` :
 
-![](../../.gitbook/assets/https___test_frontity_io__rest_route__wp_v2_movies%20%282%29%20%281%29%20%282%29.png)
+![](../../.gitbook/assets/https___test_frontity_io__rest_route__wp_v2_movies%20%282%29%20%281%29%20%282%29%20%283%29%20%289%29.png)
 
 So in this case, the settings would be:
 
@@ -333,7 +329,7 @@ Similar to `postTypes`setting, this one allows you to show the lists of posts of
 
 gain, dfferentiating `taxonomy` and `endpoint`may be confusing as they usually are the same too. You can confirm you are doing it correctly by going to the Custom Taxonomy `endpoint` :
 
-![](../../.gitbook/assets/https___test_frontity_io__rest_route__wp_v2_actor%20%282%29%20%281%29%20%282%29.png)
+![](../../.gitbook/assets/https___test_frontity_io__rest_route__wp_v2_actor%20%282%29%20%281%29%20%282%29%20%283%29%20%282%29.png)
 
 Note that in this case `taxonomy`and `endpoint`are different. In the next example, we will fetch CPT "movies" instead of "posts", and add some params. It would be something like this:
 
@@ -673,14 +669,14 @@ Request entity from the WordPress REST API.
 
 **Arguments**
 
-| Name                       | Type    | Required | Description                                                                                                                                                                                              |
-| :------------------------- | :------ | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _`options`_                | object  | yes      | options object                                                                                                                                                                                           |
-| _`options`_.**`endpoint`** | string  | yes      | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\).                                                                      |
-| _`options`_.`params`       | object  | no       | Any parameter that will be included in the query params.                                                                                                                                                 |
-| _`options`_.`auth`         | string  | no       | Allows the Authorization header on the fetch() request to be set. If not specified, will use the value from [`state.source.auth`](wp-source.md#state-source-auth) if that value is present in the state. |
-| _`options`_.`api`          | string  | no       | Overrides the value set with `api.set.`                                                                                                                                                                  |
-| _`options`_.`isWpCom`      | boolean | no       | Overrides the value set with `api.set.`                                                                                                                                                                  |
+| Name                       | Type    | Required | Description                                                                                                                                                                                                |
+| :------------------------- | :------ | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _`options`_                | object  | yes      | options object                                                                                                                                                                                             |
+| _`options`_.**`endpoint`** | string  | yes      | Name of the endpoint if is a `/wp/v2` endpoint \(e.g. `posts`\), or the full path of other REST endpoints \(e.g. `/acf/v3/posts`\).                                                                        |
+| _`options`_.`params`       | object  | no       | Any parameter that will be included in the query params.                                                                                                                                                   |
+| _`options`_.`auth`         | string  | no       | Allows the Authorization header on the fetch\(\) request to be set. If not specified, will use the value from [`state.source.auth`](wp-source.md#state-source-auth) if that value is present in the state. |
+| _`options`_.`api`          | string  | no       | Overrides the value set with `api.set.`                                                                                                                                                                    |
+| _`options`_.`isWpCom`      | boolean | no       | Overrides the value set with `api.set.`                                                                                                                                                                    |
 
 **Return value**
 

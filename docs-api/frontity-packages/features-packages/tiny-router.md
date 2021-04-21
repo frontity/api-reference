@@ -8,20 +8,16 @@ This package is in charge of managing \(React\) routes in a Frontity project.
 
 ## Table of Contents
 
-<!-- toc -->
-
-- [Installation](#installation)
-- [Settings](#settings)
-  - [`state.router.autoFetch`](#state-router-autofetch)
-- [API Reference](#api-reference)
-  - [Actions](#actions)
-    - [`actions.router.set()`](#actions-router-set)
-    - [`actions.router.updateState()`](#actions-router-updatestate)
-  - [State](#state)
-    - [`state.router.link`](#state-router-link)
-    - [`state.router.state`](#state-router-state)
-
-<!-- tocstop -->
+- [Installation](tiny-router.md#installation)
+- [Settings](tiny-router.md#settings)
+  - [`state.router.autoFetch`](tiny-router.md#state-router-autofetch)
+- [API Reference](tiny-router.md#api-reference)
+  - [Actions](tiny-router.md#actions)
+    - [`actions.router.set()`](tiny-router.md#actions-router-set)
+    - [`actions.router.updateState()`](tiny-router.md#actions-router-updatestate)
+  - [State](tiny-router.md#state)
+    - [`state.router.link`](tiny-router.md#state-router-link)
+    - [`state.router.state`](tiny-router.md#state-router-state)
 
 ## Installation
 
@@ -100,9 +96,7 @@ const Link = ({ actions, children, link }) => {
 
 #### `actions.router.updateState()`
 
-Action that replaces the value of `state.router.state` with the given object. The same object is stored in the browser history state using the
-[`history.replaceState()`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState)
-function.
+Action that replaces the value of `state.router.state` with the given object. The same object is stored in the browser history state using the [`history.replaceState()`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState) function.
 
 **Arguments**
 
