@@ -29,11 +29,12 @@ These packages are designed to get automatically all the data from WordPress SEO
 - [`@frontity/head-tags`](head-tags.md)
 - [`@frontity/yoast`](yoast.md)
 
-## Ad Manager packages
+## Ad packages
 
-This package enables Frontity to integrate with Ad Managers like Google Ad Manager.
+These packages allows you to insert Ads in your Frontity projects from services such as Google Ad Manager.
 
 - [`@frontity/google-ad-manager`](google-ad-manager.md)
+- [`@frontity/smart-adserver`](smart-ads.md)
 
 ## Analytics packages
 

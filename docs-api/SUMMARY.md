@@ -21,6 +21,7 @@
     - [@frontity/head-tags](frontity-packages/features-packages/head-tags.md)
     - [@frontity/yoast](frontity-packages/features-packages/yoast.md)
     - [@frontity/google-ad-manager](frontity-packages/features-packages/google-ad-manager.md)
+    - [@frontity/smart-adserver](frontity-packages/features-packages/smart-ads.md)
     - [analytics packages](frontity-packages/features-packages/analytics/README.md)
       - [@frontity/google-analytics](frontity-packages/features-packages/analytics/google-analytics.md)
       - [@frontity/google-tag-manager-analytics](frontity-packages/features-packages/analytics/google-tag-manager-analytics.md)
