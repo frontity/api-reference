@@ -20,26 +20,26 @@ The `frontity` commands you have available are:
 
 These commands will allow you to either create a Frontity project or a Frontity package
 
-- [`create`](create-commands/create.md)
-- [`create-package`](create-commands/create-package.md)
+* [`create`](create-commands/create.md)
+* [`create-package`](create-commands/create-package.md)
 
 ### [Run commands](run-commands/)
 
 These commands will allow you run a Frontity project in development or production mode
 
-- [`dev`](run-commands/dev.md)
-- [`serve`](run-commands/serve.md)
+* [`dev`](run-commands/dev.md)
+* [`serve`](run-commands/serve.md)
 
 ### [Build commands](build-commands/)
 
 These commands will allow you generate the code that can be used to run or analyze a Frontity project
 
-- [`build`](build-commands/build.md)
+* [`build`](build-commands/build.md)
 
 ### [Extra commands](extra-commands.md)
 
-- [`subscribe`](extra-commands.md#subscribe)
-- [`info`](extra-commands.md#info)
+* [`subscribe`](extra-commands.md#subscribe)
+* [`info`](extra-commands.md#info)
 
 {% hint style="info" %}
 You can also use `--help` with each one of these commands to get more info about them: `npx frontity dev --help`
@@ -65,7 +65,7 @@ If the CLI cannot find any of these environmental variables, it will prompt for 
 
 This is the scheme followed by the CLI to get the name of the package
 
-![](../.gitbook/assets/no-prompt.png)
+![](../.gitbook/assets/no-prompt%20%283%29.png)
 
 ## A typical workflow with Frontity commands
 
@@ -79,3 +79,4 @@ This is the scheme followed by the CLI to get the name of the package
 
 1. Generate a build of our project: `npx frontity build`
 2. Launch our project in production using the build generated before: `npx frontity serve`
+

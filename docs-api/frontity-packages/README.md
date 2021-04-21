@@ -32,7 +32,7 @@ The [full list of available packages](https://www.npmjs.com/search?q=keywords:fr
 
 Package that is the core of the Frontity framework and that provides main utilities of the framework
 
-- [`frontity`](core-package/frontity.md)
+* [`frontity`](core-package/frontity.md)
 
 ### [Features packages](features-packages/)
 
@@ -40,50 +40,51 @@ Package that is the core of the Frontity framework and that provides main utilit
 
 This package is in charge of getting data from Wordpress and make it accesible from React components
 
-- [`@frontity/wp-source`](features-packages/wp-source.md)
+* [`@frontity/wp-source`](features-packages/wp-source.md)
 
 #### Router package
 
 This package is in charge of managing \(React\) routes in a Frontity project.
 
-- [`@frontity/tiny-router`](features-packages/tiny-router.md)
+* [`@frontity/tiny-router`](features-packages/tiny-router.md)
 
 #### Render package
 
 This package is in charge of converting HTML to React
 
-- [`@frontity/html2react`](features-packages/html2react.md)
+* [`@frontity/html2react`](features-packages/html2react.md)
 
 #### SEO packages
 
 These packages are designed to get automatically all the data from WordPress SEO plugins and render it \(along with the content\) in the final HTML
 
-- [`@frontity/head-tags`](features-packages/head-tags.md)
-- [`@frontity/yoast`](features-packages/yoast.md)
+* [`@frontity/head-tags`](features-packages/head-tags.md)
+* [`@frontity/yoast`](features-packages/yoast.md)
 
 #### Ad Manager packages
 
 This package enables Frontity to integrate with Ad Managers like Google Ad Manager.
 
-- [`@frontity/google-ad-manager`](features-packages/google-ad-manager.md)
+* [`@frontity/google-ad-manager`](features-packages/google-ad-manager.md)
 
 #### Analytics packages
 
 A set of official Analytics Frontity packages that you can use to easily add analytics tracking in your project
 
-- [`@frontity/google-analytics`](features-packages/analytics/google-analytics.md)
-- [`@frontity/google-tag-manager-analytics`](features-packages/analytics/google-tag-manager-analytics.md)
-- [`@frontity/comscore-analytics`](features-packages/analytics/comscore-analytics.md)
+* [`@frontity/google-analytics`](features-packages/analytics/google-analytics.md)
+* [`@frontity/google-tag-manager-analytics`](features-packages/analytics/google-tag-manager-analytics.md)
+* [`@frontity/comscore-analytics`](features-packages/analytics/comscore-analytics.md)
 
 #### Comments packages
 
 Comments package that adds integration for WordPress native comments.
 
-- [`@frontity/wp-comments`](features-packages/wp-comments.md)
+* [`@frontity/wp-comments`](features-packages/wp-comments.md)
 
 ### Collections packages
 
 These packages are collections or useful components or hooks that you can use in your Frontity project
 
-- [`@frontity/components`](collections-packages/components.md)
-- [`@frontity/hooks`](collections-packages/hooks/README.md)
+* [`@frontity/components`](collections-packages/components.md)
+* [`@frontity/hooks`](collections-packages/hooks/)
+

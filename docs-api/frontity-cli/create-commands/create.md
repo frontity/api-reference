@@ -16,13 +16,13 @@ The _name_ of your Frontity project. It will also be the name of the folder that
 
 #### `[options]`
 
-|                     Option                      | Description                                                                                                                      |
-| :---------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------- |
-| [`--theme <theme>`](create.md#the-theme-option) | The theme to use                                                                                                                 |
-|                 `--typescript`                  | Adds support for TypeScript. Related environment variable: [`FRONTITY_CREATE_TYPESCRIPT`](create.md#frontity_create_typescript). |
-|                   `--use-cwd`                   | Generates the project in the current directory                                                                                   |
-|                  `--no-prompt`                  | Skips prompting the user for options. Related environment variable: [`FRONTITY_CREATE_NAME`](create.md#frontity_create_name).    |
-|                    `--help`                     | Output usage information                                                                                                         |
+| Option | Description |
+| :---: | :--- |
+| [`--theme <theme>`](create.md#the-theme-option) | The theme to use |
+| `--typescript` | Adds support for TypeScript. Related environment variable: [`FRONTITY_CREATE_TYPESCRIPT`](create.md#frontity_create_typescript). |
+| `--use-cwd` | Generates the project in the current directory |
+| `--no-prompt` | Skips prompting the user for options. Related environment variable: [`FRONTITY_CREATE_NAME`](create.md#frontity_create_name). |
+| `--help` | Output usage information |
 
 #### The `--theme` option
 
@@ -30,19 +30,19 @@ You can pick one of Frontity's "official" two themes \([`--theme @frontity/mars-
 
 ### Examples
 
-- Create a Frontity project named `my-awesome-project`
+* Create a Frontity project named `my-awesome-project`
 
 ```text
 npx frontity create my-awesome-project
 ```
 
-- Create a Frontity project named `my-awesome-project` using [Frontity Chakra theme](https://www.npmjs.com/package/frontity-chakra-theme)
+* Create a Frontity project named `my-awesome-project` using [Frontity Chakra theme](https://www.npmjs.com/package/frontity-chakra-theme)
 
 ```text
 npx frontity create --theme frontity-chakra-theme cool-project
 ```
 
-- If you leave out both of the arguments, the CLI will run an interactive shell asking for these inputs:
+* If you leave out both of the arguments, the CLI will run an interactive shell asking for these inputs:
 
 ```text
 > npx frontity create
@@ -96,3 +96,4 @@ _Example:_
 ```text
 FRONTITY_CREATE_TYPESCRIPT=true
 ```
+

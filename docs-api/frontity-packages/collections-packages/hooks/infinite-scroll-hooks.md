@@ -2,12 +2,12 @@
 
 The recommended hooks to use for a Infinite Scroll behaviour are:
 
-- `useArchiveInfiniteScroll`
-- `usePostTypeInfiniteScroll`
+* `useArchiveInfiniteScroll`
+* `usePostTypeInfiniteScroll`
 
-There's also another one available for implementing custom infinite scroll hooks (used internally by the previous two hooks):
+There's also another one available for implementing custom infinite scroll hooks \(used internally by the previous two hooks\):
 
-- `useInfiniteScroll`
+* `useInfiniteScroll`
 
 {% hint style="danger" %}
 `useInfiniteScroll` is not intented to be used directly by theme developers unless they are creating their own infinite scroll logic. Use `useArchiveInfiniteScroll` or `usePostTypeInfiniteScroll` instead.
@@ -17,28 +17,23 @@ The main idea behind these hooks is that they return a list of `Wrapper` compone
 
 ## Table of Contents
 
-<!-- toc -->
-
-
-- [`useArchiveInfiniteScroll`](#usearchiveinfinitescroll)
-  - [Parameters](#parameters)
-  - [Return value](#return-value)
-  - [Usage](#usage)
-- [`usePostTypeInfiniteScroll`](#useposttypeinfinitescroll)
-  - [Parameters](#parameters)
-  - [Return value](#return-value)
-  - [Usage](#usage)
-- [Demo](#demo)
-- [`useInfiniteScroll`](#useinfinitescroll)
-  - [Parameters](#parameters)
-  - [Return value](#return-value)
-  - [Usage](#usage)
-
-<!-- tocstop -->
+* [`useArchiveInfiniteScroll`](infinite-scroll-hooks.md#usearchiveinfinitescroll)
+  * [Parameters](infinite-scroll-hooks.md#parameters)
+  * [Return value](infinite-scroll-hooks.md#return-value)
+  * [Usage](infinite-scroll-hooks.md#usage)
+* [`usePostTypeInfiniteScroll`](infinite-scroll-hooks.md#useposttypeinfinitescroll)
+  * [Parameters](infinite-scroll-hooks.md#parameters)
+  * [Return value](infinite-scroll-hooks.md#return-value)
+  * [Usage](infinite-scroll-hooks.md#usage)
+* [Demo](infinite-scroll-hooks.md#demo)
+* [`useInfiniteScroll`](infinite-scroll-hooks.md#useinfinitescroll)
+  * [Parameters](infinite-scroll-hooks.md#parameters)
+  * [Return value](infinite-scroll-hooks.md#return-value)
+  * [Usage](infinite-scroll-hooks.md#usage)
 
 ## `useArchiveInfiniteScroll`
 
-This hook implements the logic needed to include infinite scroll in archives (i.e. categories, tags, the posts archive, etc.).
+This hook implements the logic needed to include infinite scroll in archives \(i.e. categories, tags, the posts archive, etc.\).
 
 The hook receives options to set a limit of pages shown automatically, to disable it, and also settings for the intersection observers that are passed to the `useInfiniteScroll` hooks used internally.
 
@@ -50,12 +45,12 @@ In addition to the above, the hook returns a set of boolean values that indicate
 
 It accepts an optional object with the following props:
 
-| Name                     | Type                                                                                                      | Default                                                                                                 | Required | Description                                                                                                                                                                                                              |
-| :----------------------- | :-------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`active`**             | `boolean`                                                                                                 | `true`                                                                                                  | no       | A boolean indicating if this hook should be active or not. It can be useful in situations where users want to share the same component for different types of Archives, but avoid doing infinite scroll in some of them. |
-| **`limit`**              | `number`                                                                                                  | [`Infinity`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity) | no       | The number of pages that the hook should load automatically before switching to manual fetching.                                                                                                                         |
-| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -                                                                                                       | no       | The intersection observer options for fetching.                                                                                                                                                                          |
-| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -                                                                                                       | no       | The intersection observer options for routing.                                                                                                                                                                           |
+| Name | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **`active`** | `boolean` | `true` | no | A boolean indicating if this hook should be active or not. It can be useful in situations where users want to share the same component for different types of Archives, but avoid doing infinite scroll in some of them. |
+| **`limit`** | `number` | [`Infinity`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity) | no | The number of pages that the hook should load automatically before switching to manual fetching. |
+| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | - | no | The intersection observer options for fetching. |
+| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | - | no | The intersection observer options for routing. |
 
 {% hint style="info" %}
 The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
@@ -65,26 +60,26 @@ The IntersectionOptions type refers to the type of the the parameters received b
 
 An object with the following properties:
 
-| Name             | Type                  | Description                                                                                                                                                                                                                              |
-| :--------------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`pages`**      | `Array` of page props | An array of the existing pages. Users should iterate over this array in their own layout. The content of each element of this array is explained below.                                                                                  |
-| **`isFetching`** | `boolean`             | If it's fetching the next page. Useful to add a loader.                                                                                                                                                                                  |
-| **`isLimit`**    | `boolean`             | If it has reached the limit of pages and it should switch to manual mode.                                                                                                                                                                |
-| **`isError`**    | `boolean`             | If the next page returned an error. Useful to provide functionality (e.g. a button) to enable the user to try again.                                                                                                                     |
-| **`fetchNext`**  | `function`            | A function that fetches the next page. Useful when the limit has been reached (`isLimit === true`) and the user pushes a button to get the next page or when there has been an error fetching the last page and the user wants to retry. |
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| **`pages`** | `Array` of page props | An array of the existing pages. Users should iterate over this array in their own layout. The content of each element of this array is explained below. |
+| **`isFetching`** | `boolean` | If it's fetching the next page. Useful to add a loader. |
+| **`isLimit`** | `boolean` | If it has reached the limit of pages and it should switch to manual mode. |
+| **`isError`** | `boolean` | If the next page returned an error. Useful to provide functionality \(e.g. a button\) to enable the user to try again. |
+| **`fetchNext`** | `function` | A function that fetches the next page. Useful when the limit has been reached \(`isLimit === true`\) and the user pushes a button to get the next page or when there has been an error fetching the last page and the user wants to retry. |
 
 Each element of the `pages` array has the following structure:
 
-| Name          | Type       | Description                                                                                                  |
-| :------------ | :--------- | :----------------------------------------------------------------------------------------------------------- |
-| **`key`**     | `string`   | A unique key to be used in the iteration.                                                                    |
-| **`link`**    | `string`   | The link of this page.                                                                                       |
-| **`isLast`**  | `boolean`  | If this page is the last page. Useful to add separators between pages, but avoid adding it for the last one. |
-| **`Wrapper`** | `React.FC` | The Wrapper component that should wrap the real `Archive` component.                                         |
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| **`key`** | `string` | A unique key to be used in the iteration. |
+| **`link`** | `string` | The link of this page. |
+| **`isLast`** | `boolean` | If this page is the last page. Useful to add separators between pages, but avoid adding it for the last one. |
+| **`Wrapper`** | `React.FC` | The Wrapper component that should wrap the real `Archive` component. |
 
 ### Usage
 
-````javascript
+```javascript
 import { connect } from "frontity";
 import useArchiveInfiniteScroll from "@frontity/hooks/use-archive-infinite-scroll";
 import ArchivePage from "./archive-page";
@@ -132,31 +127,30 @@ const Archive = () => {
 };
 
 export default connect(Archive);
-````
+```
 
 ## `usePostTypeInfiniteScroll`
 
-Hook that implements the logic needed to include infinite scroll in a post type view (i.e. posts, pages, galleries, etc.).
+Hook that implements the logic needed to include infinite scroll in a post type view \(i.e. posts, pages, galleries, etc.\).
 
 This hook is more complex than the previous one, as it works by getting the post type entities from the specified archive and thus it doesn't fetch the next post but the next page of posts.
 
-It recevies an `archive` and a `fallback` prop ―both links―, to specify the source of the post entities. If none of them is specified, `state.source.postsPage` is used. When the penultimate post of the first page is
-rendered, the next page of the archive is fetched. A list of the fetched pages is stored in the browser history state along with the list of posts.
+It recevies an `archive` and a `fallback` prop ―both links―, to specify the source of the post entities. If none of them is specified, `state.source.postsPage` is used. When the penultimate post of the first page is rendered, the next page of the archive is fetched. A list of the fetched pages is stored in the browser history state along with the list of posts.
 
-The `limit` prop in this case stands for the number of posts being shown, not the number of fetched pages (as in the case of `useArchiveInfiniteScroll`). In the same way, the `fetchNext` shows the next post, and only fetches the next page of posts if needed.
+The `limit` prop in this case stands for the number of posts being shown, not the number of fetched pages \(as in the case of `useArchiveInfiniteScroll`\). In the same way, the `fetchNext` shows the next post, and only fetches the next page of posts if needed.
 
 ### Parameters
 
 It accepts an optional object with the following props:
 
-| Name                     | Type                                                                                                      | Default                                                                                                 | Required | Description                                                                                                                                                                                                              |
-| :----------------------- | :-------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`active`**             | `boolean`                                                                                                 | `true`                                                                                                  | no       | A boolean indicating if this hook should be active or not. It can be useful in situations where users want to share the same component for different types of Archives, but avoid doing infinite scroll in some of them. |
-| **`limit`**              | `number`                                                                                                  | [`Infinity`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity) | no       | The number of posts that are rendered until the user interacts (e.g. clicking a button) in order to show the next post.                                                                                                  |
-| **`archive`**            | `string`                                                                                                  | -                                                                                                       | no       | The archive that should be used to get the next posts. If none is present, the previous link is used. If the previous link is not an archive, the homepage is used.                                                      |
-| **`fallback`**           | `string`                                                                                                  | -                                                                                                       | no       | The archive that should be used if the `archive` option is not present and the previous link is not an archive.                                                                                                          |
-| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -                                                                                                       | no       | The intersection observer options for fetching.                                                                                                                                                                          |
-| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -                                                                                                       | no       | The intersection observer options for routing.                                                                                                                                                                           |
+| Name | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **`active`** | `boolean` | `true` | no | A boolean indicating if this hook should be active or not. It can be useful in situations where users want to share the same component for different types of Archives, but avoid doing infinite scroll in some of them. |
+| **`limit`** | `number` | [`Infinity`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity) | no | The number of posts that are rendered until the user interacts \(e.g. clicking a button\) in order to show the next post. |
+| **`archive`** | `string` | - | no | The archive that should be used to get the next posts. If none is present, the previous link is used. If the previous link is not an archive, the homepage is used. |
+| **`fallback`** | `string` | - | no | The archive that should be used if the `archive` option is not present and the previous link is not an archive. |
+| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | - | no | The intersection observer options for fetching. |
+| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | - | no | The intersection observer options for routing. |
 
 {% hint style="info" %}
 The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
@@ -166,26 +160,26 @@ The IntersectionOptions type refers to the type of the the parameters received b
 
 The output of these hooks is pretty similar to the previous one's:
 
-| Name             | Type                  | Description                                                                                                                                                                                                                              |
-| :--------------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`posts`**      | `Array` of post props | An array of the existing posts. Users should iterate over this array in their own layout. The content of each element of this array is explained below.                                                                                  |
-| **`isFetching`** | `boolean`             | If it's fetching the next post. Useful to add a loader.                                                                                                                                                                                  |
-| **`isLimit`**    | `boolean`             | If it has reached the limit of posts and it should switch to manual mode.                                                                                                                                                                |
-| **`isError`**    | `boolean`             | If the next post fetched returned an error. Useful to provide functionality (e.g. a button) to enable the user to try again.                                                                                                             |
-| **`fetchNext`**  | `function`            | A function that fetches the next post. Useful when the limit has been reached (`isLimit === true`) and the user pushes a button to get the next post or when there has been an error fetching the last post and the user wants to retry. |
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| **`posts`** | `Array` of post props | An array of the existing posts. Users should iterate over this array in their own layout. The content of each element of this array is explained below. |
+| **`isFetching`** | `boolean` | If it's fetching the next post. Useful to add a loader. |
+| **`isLimit`** | `boolean` | If it has reached the limit of posts and it should switch to manual mode. |
+| **`isError`** | `boolean` | If the next post fetched returned an error. Useful to provide functionality \(e.g. a button\) to enable the user to try again. |
+| **`fetchNext`** | `function` | A function that fetches the next post. Useful when the limit has been reached \(`isLimit === true`\) and the user pushes a button to get the next post or when there has been an error fetching the last post and the user wants to retry. |
 
 Each element of the `posts` array has the following structure:
 
-| Name          | Type       | Description                                                                                                  |
-| :------------ | :--------- | :----------------------------------------------------------------------------------------------------------- |
-| **`key`**     | `string`   | A unique key to be used in the iteration.                                                                    |
-| **`link`**    | `string`   | The link of this page.                                                                                       |
-| **`isLast`**  | `boolean`  | If this post is the last post. Useful to add separators between posts, but avoid adding it for the last one. |
-| **`Wrapper`** | `React.FC` | The Wrapper component that should wrap the real `Post` component.                                            |
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| **`key`** | `string` | A unique key to be used in the iteration. |
+| **`link`** | `string` | The link of this page. |
+| **`isLast`** | `boolean` | If this post is the last post. Useful to add separators between posts, but avoid adding it for the last one. |
+| **`Wrapper`** | `React.FC` | The Wrapper component that should wrap the real `Post` component. |
 
 ### Usage
 
-````js
+```javascript
 import { connect } from "frontity";
 import usePostTypeInfiniteScroll from "@frontity/hooks/use-post-type-infinite-scroll";
 import PostTypeEntity from "./post-type-entity";
@@ -233,18 +227,17 @@ const PostType = () => {
 };
 
 export default connect(PostType);
-````
+```
 
 ## Demo
 
 This short video demonstrates the usage of the Infinite Scroll Hooks avalable at the `@frontity/hooks` package.
 
-{% embed url="https://www.youtube.com/watch?v=30E3lG3-onU" %}
+{% embed url="https://www.youtube.com/watch?v=30E3lG3-onU" caption="" %}
 
 The project used in the video is available [here](https://github.com/frontity-demos/frontity-examples/tree/master/infinite-scroll-hooks).
 
 ## `useInfiniteScroll`
-
 
 {% hint style="danger" %}
 `useInfiniteScroll` is not intented to be used directly by theme developers unless they are creating their own infinite scroll logic. Use `useArchiveInfiniteScroll` or `usePostTypeInfiniteScroll` instead.
@@ -260,19 +253,18 @@ It basically receives two links, `currentLink` and `nextLink`, and returns two R
 Note: the history state is also accessible from the Frontity state, in `state.router.state`.
 {% endhint %}
 
-It was designed to be used inside a `Wrapper` component that would wrap the
-entity pointed by `currentLink`.
+It was designed to be used inside a `Wrapper` component that would wrap the entity pointed by `currentLink`.
 
 ### Parameters
 
 It requires an object with the following props:
 
-| Name                     | Type                                                                                                      | Default | Required | Description                                                                 |
-| :----------------------- | :-------------------------------------------------------------------------------------------------------- | :------ | :------- | :-------------------------------------------------------------------------- |
-| **`currentLink`**        | `string`                                                                                                  | -       | yes      | The current link that should be used to start the infinite scroll.          |
-| **`nextLink`**           | `string`                                                                                                  | -       | no       | The next link that should be fetched and loaded once the user scrolls down. |
-| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -       | no       | The intersection observer options for fetching.                             |
-| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -       | no       | The intersection observer options for routing.                              |
+| Name | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **`currentLink`** | `string` | - | yes | The current link that should be used to start the infinite scroll. |
+| **`nextLink`** | `string` | - | no | The next link that should be fetched and loaded once the user scrolls down. |
+| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | - | no | The intersection observer options for fetching. |
+| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | - | no | The intersection observer options for routing. |
 
 {% hint style="info" %}
 The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
@@ -280,13 +272,13 @@ The IntersectionOptions type refers to the type of the the parameters received b
 
 ### Return value
 
-| Name              | Type        | Description                                                                                                                                                                  |
-| :---------------- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`supported`**   | `boolean`   | Boolean indicating if the Intersection Observer is supported or not by the browser. In the case `supported` is `false`, all the other returned properties will be undefined. |
-| **`routeRef`**    | `React.Ref` | The ref that should be attached to the element used to trigger `actions.router.set`.                                                                                         |
-| **`fetchRef`**    | `React.Ref` | The ref that should be attached to the element used to trigger `actions.source.fetch`.                                                                                       |
-| **`routeInView`** | `boolean`   | Boolean that indicates when the element used to trigger `actions.router.set` is in the screen.                                                                               |
-| **`fetchInView`** | `boolean`   | Boolean that indicates when the element used to trigger `actions.source.fetch` is in the screen.                                                                             |
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| **`supported`** | `boolean` | Boolean indicating if the Intersection Observer is supported or not by the browser. In the case `supported` is `false`, all the other returned properties will be undefined. |
+| **`routeRef`** | `React.Ref` | The ref that should be attached to the element used to trigger `actions.router.set`. |
+| **`fetchRef`** | `React.Ref` | The ref that should be attached to the element used to trigger `actions.source.fetch`. |
+| **`routeInView`** | `boolean` | Boolean that indicates when the element used to trigger `actions.router.set` is in the screen. |
+| **`fetchInView`** | `boolean` | Boolean that indicates when the element used to trigger `actions.source.fetch` is in the screen. |
 
 ### Usage
 
@@ -348,3 +340,4 @@ export const wrapperGenerator = ({
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
+

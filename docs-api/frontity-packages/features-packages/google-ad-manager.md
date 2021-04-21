@@ -8,15 +8,15 @@ This package enables Frontity to integrate with Google Ad Manager. It allows you
 
 ## Table of Contents
 
-- [Installation](google-ad-manager.md#installation)
-- [Settings](google-ad-manager.md#settings)
-  - [Object properties](google-ad-manager.md#object-properties)
-    - [The `props` property](google-ad-manager.md#the-props-property)
-- [Examples](google-ad-manager.md#examples)
-- [Usage](google-ad-manager.md#usage)
-  - [Using the `Slot & Fill` pattern](google-ad-manager.md#using-the-slot-fill-pattern)
-  - [Using the Ad component directly](google-ad-manager.md#using-the-ad-component-directly)
-- [Video](google-ad-manager.md#video)
+* [Installation](google-ad-manager.md#installation)
+* [Settings](google-ad-manager.md#settings)
+  * [Object properties](google-ad-manager.md#object-properties)
+    * [The `props` property](google-ad-manager.md#the-props-property)
+* [Examples](google-ad-manager.md#examples)
+* [Usage](google-ad-manager.md#usage)
+  * [Using the `Slot & Fill` pattern](google-ad-manager.md#using-the-slot-fill-pattern)
+  * [Using the Ad component directly](google-ad-manager.md#using-the-ad-component-directly)
+* [Video](google-ad-manager.md#video)
 
 ## Installation
 
@@ -55,25 +55,25 @@ export default {
 
 ### Object properties
 
-| Name          | Type   | Required | Description                                                                                                                                                                                |
-| :------------ | :----- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`slot`**    | string | yes      | The name of the slot as defined in your theme where you want the ad to go.                                                                                                                 |
-| **`library`** | string | yes      | The React component used to display the Ad. We can set this value to `"googleAdManager.GooglePublisherTag"` \(`GooglePublisherTag` component available in the `googleAdManager` package\). |
-| `priority`    | int    | no       | Assigns a priority in case more than one fill is assigned to that slot.                                                                                                                    |
-| **`props`**   | obj    | yes      | Props that will be passed to the `<Slot>` component _\(see table below\)_                                                                                                                  |
+| Name | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| **`slot`** | string | yes | The name of the slot as defined in your theme where you want the ad to go. |
+| **`library`** | string | yes | The React component used to display the Ad. We can set this value to `"googleAdManager.GooglePublisherTag"` \(`GooglePublisherTag` component available in the `googleAdManager` package\). |
+| `priority` | int | no | Assigns a priority in case more than one fill is assigned to that slot. |
+| **`props`** | obj | yes | Props that will be passed to the `<Slot>` component _\(see table below\)_ |
 
 #### The `props` property
 
 An object with props that will be passed to the `<Slot>` component.
 
-| Name                   | Type   | Required | Description                                                                                                                                                                                                |
-| :--------------------- | :----- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`id`**               | string | yes      | An `id` for Ad, used to generate the ID the `<div>` container will use.                                                                                                                                    |
-| **`unit`**             | string | yes      | The \(Google supplied\) adUnitPath code for the ad unit to be displayed. [_more info_](https://developers.google.com/publisher-tag/reference#googletag.slot-googletag.defineslotadunitpath,-size,-opt_div) |
-| **`size`**             | object | yes      | An array of integer values to specify the width and height \(in pixels\) to display the ad.                                                                                                                |
-| `targeting`            | object | no       | One or more keys, each with one or more associated values. [_more info_](https://developers.google.com/publisher-tag/guides/key-value-targeting).                                                          |
-| `data`                 | object | no       | Data object representing a link, passed automatically if the component is                                                                                                                                  |
-| \* rendered by a slot. |        |          |                                                                                                                                                                                                            |
+| Name | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| **`id`** | string | yes | An `id` for Ad, used to generate the ID the `<div>` container will use. |
+| **`unit`** | string | yes | The \(Google supplied\) adUnitPath code for the ad unit to be displayed. [_more info_](https://developers.google.com/publisher-tag/reference#googletag.slot-googletag.defineslotadunitpath,-size,-opt_div) |
+| **`size`** | object | yes | An array of integer values to specify the width and height \(in pixels\) to display the ad. |
+| `targeting` | object | no | One or more keys, each with one or more associated values. [_more info_](https://developers.google.com/publisher-tag/guides/key-value-targeting). |
+| `data` | object | no | Data object representing a link, passed automatically if the component is |
+| \* rendered by a slot. |  |  |  |
 
 ## Examples
 
@@ -199,3 +199,4 @@ export connect(MyComponent);
 This short video demonstrates the usage of the `@frontity/google-ad-manager` package.
 
 {% embed url="https://www.youtube.com/watch?v=Esm8cs0jMoY" caption="" %}
+
