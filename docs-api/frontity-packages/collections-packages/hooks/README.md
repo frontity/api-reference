@@ -8,9 +8,9 @@ This package is a collection of React hooks that have proven to be pretty useful
 
 ## Table of Contents
 
-* [Installation](./#installation)
-* [How to use](./#how-to-use)
-* [Hooks](./#hooks)
+- [Installation](./#installation)
+- [How to use](./#how-to-use)
+- [Hooks](./#hooks)
 
 ## Installation
 
@@ -32,10 +32,9 @@ import useInView from "@frontity/hooks/use-in-view";
 
 These are the hooks available from the package `@frontity/hooks`
 
-* [**Intersection Observer Hooks**](intersection-observer-hooks.md)
-  * [`useInView`](intersection-observer-hooks.md#useinview)
-* [**Infinite Scroll Hooks**](infinite-scroll-hooks.md)
-  * [`useInfiniteScroll`](infinite-scroll-hooks.md#useinfinitescroll)
-  * [`useArchiveInfiniteScroll`](infinite-scroll-hooks.md#usearchiveinfinitescroll)
-  * [`usePostTypeInfiniteScroll`](infinite-scroll-hooks.md#useposttypeinfinitescroll)
-
+- [**Intersection Observer Hooks**](intersection-observer-hooks.md)
+  - [`useInView`](intersection-observer-hooks.md#useinview)
+- [**Infinite Scroll Hooks**](infinite-scroll-hooks.md)
+  - [`useInfiniteScroll`](infinite-scroll-hooks.md#useinfinitescroll)
+  - [`useArchiveInfiniteScroll`](infinite-scroll-hooks.md#usearchiveinfinitescroll)
+  - [`usePostTypeInfiniteScroll`](infinite-scroll-hooks.md#useposttypeinfinitescroll)

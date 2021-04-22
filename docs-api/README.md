@@ -4,9 +4,9 @@ Welcome to Frontity, and to our API Reference documentation.
 
 Our documentation is distributed across three separate sites:
 
-* [**docs.frontity.org**](https://docs.frontity.org) - Introduction, concepts and guides
-* [**api.frontity.org**](https://api.frontity.org) - API Reference
-* [**tutorial.frontity.org**](https://tutorial.frontity.org) - Step by Step guide
+- [**docs.frontity.org**](https://docs.frontity.org) - Introduction, concepts and guides
+- [**api.frontity.org**](https://api.frontity.org) - API Reference
+- [**tutorial.frontity.org**](https://tutorial.frontity.org) - Step by Step guide
 
 This site \(api.frontity.org\) is where you will find detailed technical descriptions for the CLI, packages and plugins available in Frontity
 
@@ -41,4 +41,3 @@ By the way, we'd love to hear about what you're building with Frontity. Join us 
 {% hint style="info" %}
 **Subscribe** to our _newsletter_ [here](https://frontity.org/#newsletter) to **get notified** of the latest news and updates.
 {% endhint %}
-
