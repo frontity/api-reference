@@ -10,7 +10,7 @@ Have a look at this episode of Frontity Talks where we talk about the `mars-them
 
 ## Demo
 
-![](../.gitbook/assets/screenshot-mars-theme-demo.png)
+![](https://frontity.org/wp-content/uploads/2021/04/screenshot-mars-theme-demo.png)
 
 You can check out all the features in this [**theme demo**](https://mars.frontity.org/)**.**
 

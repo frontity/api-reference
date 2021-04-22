@@ -51,7 +51,7 @@ The Frontity CLI allows parametrization via arguments or environment variables t
 
 If some of these arguments or environment variables are detected the proper values will be set and applied in the execution of the command
 
-![](../.gitbook/assets/cli-environment-variables.png)
+![](https://frontity.org/wp-content/uploads/2021/04/cli-environment-variables.png)
 
 ### `--no-prompt`
 
@@ -65,7 +65,7 @@ If the CLI cannot find any of these environmental variables, it will prompt for 
 
 This is the scheme followed by the CLI to get the name of the package
 
-![](../.gitbook/assets/no-prompt.png)
+![](https://frontity.org/wp-content/uploads/2021/04/no-prompt.png)
 
 ## A typical workflow with Frontity commands
 

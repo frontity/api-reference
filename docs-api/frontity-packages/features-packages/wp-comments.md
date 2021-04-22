@@ -125,7 +125,7 @@ With each ID we can get the details from the state at [`state.source.comment[id]
 }"
 ```
 
-![](../../.gitbook/assets/handler-comments-id.png)
+![](../https://frontity.org/wp-content/uploads/2021/04/handler-comments-id.png)
 
 {% hint style="info" %}
 Take a look at this [diagram](https://excalidraw.com/#json=6489116225044480,z_EpwQgSmtB5DyqfPbce_Q) to learn more about this.
@@ -172,7 +172,7 @@ The submission status will be stored under under [`state.comments.forms[postId]`
 }
 ```
 
-![](../../.gitbook/assets/send-comments-wpcomments.png)
+![](../https://frontity.org/wp-content/uploads/2021/04/send-comments-wpcomments.png)
 
 {% hint style="info" %}
 Take a look at this [diagram](https://excalidraw.com/#json=6174729664724992,A-DM-LUhTX896Q3e_NW5vQ) to learn more about this.
