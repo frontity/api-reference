@@ -31,21 +31,31 @@ Embedded Mode offers several advantages over Decoupled Mode.
 Installation is a three step process: Download → Install → Activate.
 
 1. **Download** the zip file from [here](https://github.com/frontity/frontity-embedded).
+
    ![](../.gitbook/assets/embedded-mode-img01.png)
 
 2. **Install** the plugin in WordPress:
 
    - In the WordPress admin select 'Plugins' and click 'Add New'
+
      ![](../.gitbook/assets/embedded-mode-img02.png)
+
    - Click 'Upload Plugin'
+
      ![](../.gitbook/assets/embedded-mode-img03.png)
+
    - Click 'Choose file' and navigate to the location of the .zip file that you downloaded earlier
+
      ![](../.gitbook/assets/embedded-mode-img04.png)
+
    - Click 'Install Now'
+
      ![](../.gitbook/assets/embedded-mode-img05.png)
+
    - The Frontity Embedded Mode plugin will appear in the plugins list.
 
 3. **Activate** the plugin by clicking on 'Activate'.
+
    ![](../.gitbook/assets/embedded-mode-img06.png)
 
 ## Configuration
