@@ -6,9 +6,9 @@ description: API reference of `@frontity/smart-adserver` package
 
 Smart Adserver is an ad serving network and they provide an API for displaying the ads which is described [here](https://support.smartadserver.com/s/article/Tagging-guide)
 
-The `@frontity/smart-adserver` package will load a third-party Smart Adserver library which adds certain properties on the global `window` object. Then you as the developer can then use those properties to make the "ad call" (which are basically API calls to the Smart Adserver).
+The `@frontity/smart-adserver` package will load a third-party Smart Adserver library which adds certain properties on the global `window` object. Then you as the developer can render the exposed `<SmartAd>` component, which will use those properties to make the "ad call" (which are basically API calls to the Smart Adserver).
 
-In response, the Smart Adserver dynamically loads some code which will modify the DOM to insert the ad in the place that was specified in the API call.
+In response, the Smart Adserver dynamically loads some code which will modify the DOM to insert the ad in the place that the `<SmartAd>` component was rendered.
 
 The package has 3 main components:
 
