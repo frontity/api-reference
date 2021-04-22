@@ -7,4 +7,3 @@ This is the list of the current plugins:
 {% page-ref page="rest-api-head-tags.md" %}
 
 Do you have a new idea, feel free to suggest it at [our community](https://community.frontity.org/).
-

@@ -16,12 +16,12 @@ If you are using Yoast SEO &gt;v14.0 we recommend that you instead use the [@fro
 
 ## Table of Contents
 
-* [Installation](head-tags.md#installation)
-* [Settings](head-tags.md#settings)
-* [How to use](head-tags.md#how-to-use)
-* [API Reference](head-tags.md#api-reference)
-  * [State](head-tags.md#state)
-    * [`headTags.get`](head-tags.md#headtags-get)
+- [Installation](head-tags.md#installation)
+- [Settings](head-tags.md#settings)
+- [How to use](head-tags.md#how-to-use)
+- [API Reference](head-tags.md#api-reference)
+  - [State](head-tags.md#state)
+    - [`headTags.get`](head-tags.md#headtags-get)
 
 ## Installation
 
@@ -52,8 +52,8 @@ If you have an existing project make sure your [@frontity/wp-source](https://git
 
 As it works automatically, It doesn't have settings itself, but it requires two Frontity parameters to work:
 
-* `state.frontity.url` : The URL of your site. Usually defined in the `frontity.settings.js` file.
-* `state.source.url` or `state.source.api`: The API where your project is pointing. Defined at [@frontity/wp-source](https://docs.frontity.org/api-reference-1/wordpress-source#settings) if you haven't changed your Source.
+- `state.frontity.url` : The URL of your site. Usually defined in the `frontity.settings.js` file.
+- `state.source.url` or `state.source.api`: The API where your project is pointing. Defined at [@frontity/wp-source](https://docs.frontity.org/api-reference-1/wordpress-source#settings) if you haven't changed your Source.
 
 It needs `@frontity/wp-source` installed and updated to at least the `1.5.0` version.
 
@@ -105,4 +105,3 @@ will return something like
 {% hint style="info" %}
 Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
 {% endhint %}
-
