@@ -2,7 +2,7 @@
 
 This plugin enables an **Embedded Mode** implementation of Frontity. It can be downloaded from [here](https://github.com/frontity/frontity-embedded).
 
-Embedded Mode can be contrasted with \*\*Decoupled Mode. In Decoupled Mode the primary domain points to the Frontity site, with the WordPress site being on a secondary domain or on a subdomain of the primary domain.
+Embedded Mode can be contrasted with **Decoupled Mode**. In Decoupled Mode the primary domain points to the Frontity site, with the WordPress site being on a secondary domain or on a subdomain of the primary domain.
 
 In Embedded Mode the primary domain points to the WordPress site, and the Frontity site can be on another domain including the default URL provided by a free hosting service such as [Vercel](https://docs.frontity.org/deployment/deploy-using-vercel).
 
