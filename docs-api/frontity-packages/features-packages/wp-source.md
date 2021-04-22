@@ -171,7 +171,7 @@ This option allows you to show a specific page when accessing the homepage of yo
 
 You have to configure your WordPress with the same setting.
 
-![](../https://frontity.org/wp-content/uploads/2021/04/homepage-displays-static-page.png)
+![](https://frontity.org/wp-content/uploads/2021/04/homepage-displays-static-page.png)
 
 {% hint style="warning" %}
 As this option overrides the `/` route, you should set `state.source.postsPage` as well in order to be able to access the posts archive in a different route.
@@ -183,7 +183,7 @@ This option allows you to show the posts archive when accessing a specific URL o
 
 You have to configure your WordPress with the same setting.
 
-![](../https://frontity.org/wp-content/uploads/2021/04/homepage-displays-static-page.png)
+![](https://frontity.org/wp-content/uploads/2021/04/homepage-displays-static-page.png)
 
 #### `state.source.categoryBase`
 
@@ -302,7 +302,7 @@ This option allows you to show the Custom Post Types you create at WordPress whe
 
 Differentiating `type` and `endpoint` may be confusing as they are usually the same. You can confirm you are doing it correctly going to the CPT `endpoint` :
 
-![](../https://frontity.org/wp-content/uploads/2021/04/https___test_frontity_io__rest_route__wp_v2_movies.png)
+![](https://frontity.org/wp-content/uploads/2021/04/https___test_frontity_io__rest_route__wp_v2_movies.png)
 
 So in this case, the settings would be:
 
@@ -329,7 +329,7 @@ Similar to `postTypes`setting, this one allows you to show the lists of posts of
 
 gain, dfferentiating `taxonomy` and `endpoint`may be confusing as they usually are the same too. You can confirm you are doing it correctly by going to the Custom Taxonomy `endpoint` :
 
-![](../https://frontity.org/wp-content/uploads/2021/04/https___test_frontity_io__rest_route__wp_v2_actor.png)
+![](https://frontity.org/wp-content/uploads/2021/04/https___test_frontity_io__rest_route__wp_v2_actor.png)
 
 Note that in this case `taxonomy`and `endpoint`are different. In the next example, we will fetch CPT "movies" instead of "posts", and add some params. It would be something like this:
 

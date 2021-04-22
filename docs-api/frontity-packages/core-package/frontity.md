@@ -543,7 +543,7 @@ state.frontity.debug = true;
 
 If you want to do this on the console, remember that you need to access the `state` using `frontity.state`, like this:
 
-![Debug mode in the console](../https://frontity.org/wp-content/uploads/2021/04/frontity-debug-in-console.png)
+![Debug mode in the console](https://frontity.org/wp-content/uploads/2021/04/frontity-debug-in-console.png)
 
 ### `fetch`
 
