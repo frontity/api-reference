@@ -13,7 +13,7 @@ In response, the Smart Adserver dynamically loads some code which will modify th
 The package has 3 main components:
 
 - _The "Root" component_. It includes the `<Head>` that loads the Smart Adserver library. When the user adds the `@frontity/smart-adserver` to their `frontity.settings.js` file, this library will be loaded automatically.
-- _The `SmartAd` component_. This component is exposed in `libraries.fills.SmartAd`. The users can just use this component directly to display ads by passing it relevant props. The component takes care of calling the Smart Adserver API and injecting the ad into the DOM in the relevant place
+- _The `SmartAd` component_. This component is exposed in `libraries.fills.SmartAdserver.SmartAd`. The users can just use this component directly to display ads by passing it relevant props. The component takes care of calling the Smart Adserver API and injecting the ad into the DOM in the relevant place
 - _Ability to specify the ads in `fills` in the `frontity.settings.js` file._ Ads can be placed in specific slots in a theme by using that approach.
 
 ## Table of Contents
