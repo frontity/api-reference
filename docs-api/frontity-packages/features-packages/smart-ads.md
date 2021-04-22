@@ -88,7 +88,6 @@ An object with props that will be passed to the `<Slot>` component.
 | **`formatId`** | number | yes      | The `id` of the format as defined in [SmartAds](https://support.smartadserver.com/s/article/Ad-API-reference); represents an ad slot on a page (medium rectangle, skyscraper...); [_more info_](https://support.smartadserver.com/s/article/Setting-up-inventory) |
 | **`callType`** | string | yes      | The type of the ad call. Possible values: `iframe` or `std`                                                                                                                                                                                                       |
 | **`tagId`**    | string | no       | The `id` of the container that will contain the ad. Default Value: `sas_${formatId}"`                                                                                                                                                                             |
-
 | **`width`** | number | no | The width of the ad. Used with callType `iframe`. |
 | **`height`** | number | no | The height of the ad. Used with callType `iframe`. |
 | **`minHeight`** | number | no | Minimum height of the container for the ad. Used with callType `std`. |
