@@ -351,6 +351,10 @@ taxonomies: [
 
 This package will automatically retrieve data from the related WordPress routes when accesing a React route.
 
+{% hint style="info" %}
+`@frontity/wp-source` package requires pretty permalinks to be enabled on the WordPress admin. For more info check the guide [WordPress requirements for Frontity](https://docs.frontity.org/guides/what-are-the-requisites-of-wordpress-for-frontity#have-pretty-permalinks-activated)
+{% endhint %}
+
 The data got from WordPress REST API is organized and normalized in the state. This "normalization" of the data means the data is organized in the state in a way so there's no duplicated data in it and there's only one source of truth.
 
 The state works with two main concepts: **links** and **entities**.
