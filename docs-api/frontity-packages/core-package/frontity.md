@@ -14,25 +14,84 @@ import { connect, styled, Head, ... } from "frontity";
 
 ## Table of Contents
 
-- [Overview](frontity.md#overview)
-  - [React](frontity.md#react)
-  - [CSS in JS](frontity.md#css-in-js)
-  - [Code Splitting](frontity.md#code-splitting)
-  - [`fetch` and `URL`](frontity.md#fetch-and-url)
-- [API Reference](frontity.md#api-reference)
-  - [`connect`](frontity.md#connect)
-  - [`useConnect`](frontity.md#useconnect)
-  - [`styled`](frontity.md#styled)
-  - [`css`](frontity.md#css)
-  - [`Global`](frontity.md#global)
-  - [`keyframes`](frontity.md#keyframes)
-  - [`loadable`](frontity.md#loadable)
-  - [`Head`](frontity.md#head)
-  - [`useFills`](frontity.md#usefills)
-  - [`fetch`](frontity.md#fetch)
-  - [`URL`](frontity.md#url)
-  - [`decode`](frontity.md#decode)
-  - [`Slot`](frontity.md#slot)
+<!-- toc -->
+
+- [Overview](#overview)
+  - [React](#react)
+  - [CSS in JS](#css-in-js)
+  - [Code Splitting](#code-splitting)
+  - [`fetch` and `URL`](#fetch-and-url)
+- [API Reference](#api-reference)
+  - [`connect`](#connect)
+    - [Syntax](#syntax)
+    - [Arguments](#arguments)
+    - [Return value](#return-value)
+    - [Example](#example)
+  - [`useConnect`](#useconnect)
+    - [Syntax](#syntax)
+    - [Return value](#return-value)
+    - [Example](#example)
+    - [Use Case of `{ injectProps: false }` with `connect`](#use-case-of-injectprops-false-with-connect)
+  - [`styled`](#styled)
+    - [Syntax](#syntax)
+    - [Arguments](#arguments)
+    - [Return value](#return-value)
+    - [Example](#example)
+  - [`css`](#css)
+    - [Syntax](#syntax)
+    - [Arguments](#arguments)
+    - [Return value](#return-value)
+    - [Example](#example)
+  - [`Global`](#global)
+    - [Syntax](#syntax)
+    - [Props](#props)
+    - [Example](#example)
+  - [`keyframes`](#keyframes)
+    - [Syntax](#syntax)
+    - [Arguments](#arguments)
+    - [Return value](#return-value)
+    - [Example](#example)
+  - [`loadable`](#loadable)
+    - [Syntax](#syntax)
+    - [Arguments](#arguments)
+    - [Return value](#return-value)
+    - [Example](#example)
+  - [`Head`](#head)
+    - [Syntax](#syntax)
+    - [Props](#props)
+    - [Example](#example)
+  - [`useFills`](#usefills)
+    - [Syntax](#syntax)
+    - [Arguments](#arguments)
+    - [Return value](#return-value)
+    - [Example](#example)
+    - [Debug mode](#debug-mode)
+  - [`fetch`](#fetch)
+    - [Syntax](#syntax)
+    - [Arguments](#arguments)
+    - [Return value](#return-value)
+    - [Example](#example)
+  - [`URL`](#url)
+    - [Syntax](#syntax)
+    - [Arguments](#arguments)
+    - [Return value](#return-value)
+    - [Example](#example)
+  - [`error` & `warn`](#error-warn)
+    - [`error`](#error)
+    - [`warn`](#warn)
+  - [`decode`](#decode)
+    - [Syntax](#syntax)
+    - [Arguments](#arguments)
+    - [Return value](#return-value)
+    - [Example](#example)
+  - [`Slot`](#slot)
+    - [Rationale](#rationale)
+    - [Syntax](#syntax)
+    - [Props](#props)
+    - [Examples](#examples)
+    - [Fills](#fills)
+
+<!-- tocstop -->
 
 ## Overview
 
@@ -613,6 +672,63 @@ const getApiPathname = ({ state }) => {
   return pathname;
 };
 ```
+
+### `error` & `warn`
+
+The `frontity` package exports an `error` and `warn` helpers to be used by package developers when they need to either throw an error or log a warn in the console.
+
+#### `error`
+
+This `error` method throws an error. In development, it adds a message that encourage users to visit the Frontity community if they need help.
+
+[**Example of `error` usage**](https://github.com/frontity/frontity/blob/27eb4e0847b002ff26845f5e3f231dc43a637f88/packages/wp-source/src/actions.ts#L203)
+
+```
+try {
+      new URL(api);
+    } catch (e) {
+      error("Add the URL of your WordPress REST API in state.source.api.");
+    }
+```
+
+##### Syntax
+
+```jsx
+error(((message: string), (options: ErrorOptions = {})));
+```
+
+##### Arguments
+
+| Name            | Type    | Required | Description                                                                                       |
+| :-------------- | :------ | :------- | :------------------------------------------------------------------------------------------------ |
+| _**message**_   | string  | yes      | The message that describes the error.                                                             |
+| _options_       | object  | no       | Options object.                                                                                   |
+| _options.throw_ | boolean | no       | Indicate if the function should throw or just log the error in the console using `console.error`. |
+
+#### `warn`
+
+Logs a warning in the console, adding a message that indicates users to visit the Frontity community if they need help. It's intended to be used by Frontity packages.
+
+[**Example of `warn` usage**](https://github.com/frontity/frontity/blob/27eb4e0847b002ff26845f5e3f231dc43a637f88/packages/components/switch.tsx#L29)
+
+```
+ ...
+ if (hasInvalidComponent) {
+    warn("Children of <Switch /> component should be a type of ReactNode");
+  }
+```
+
+##### Syntax
+
+```jsx
+warn((message: string));
+```
+
+##### Arguments
+
+| Name          | Type   | Required | Description                              |
+| :------------ | :----- | :------- | :--------------------------------------- |
+| _**message**_ | string | yes      | The message that describes the warning.. |
 
 ### `decode`
 
