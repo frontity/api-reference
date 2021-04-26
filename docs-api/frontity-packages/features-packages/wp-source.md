@@ -519,6 +519,16 @@ The use of `actions.source.fetch()` is recommended over other isomorphic methods
 The use of `actions.source.fetch()` is also recommended over `window.fetch` because although `window.fetch` exists in the browser it is not isomorphic and doesn't exist in Node.
 {% endhint %}
 
+##### Relationship with `state.router.autoFetch`
+
+Every time you go to a new link from the Client Side (by using `actions.router.set` for example) a new fetch should be done for that new link so the data of that link is properly populated to the state
+
+Thanks to the settings property `state.router.autoFetch` with a default value of true, every time you browse to a new page (Client Side Navigation) the fetch of the data in that page will we done automatically for you
+
+Have a look at this video to learn more about this
+
+{% embed url="https://youtu.be/odmg2Br1Zrw?t=25" caption="" %}
+
 ### State
 
 #### `state.source.get()`
