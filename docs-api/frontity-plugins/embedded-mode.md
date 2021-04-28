@@ -105,7 +105,7 @@ This ensures that Frontity will source it's assets from this location instead of
 If you've deployed Frontity to an external hosting service, for example Vercel, then you can use the `--public-path` option to point directly to the Vercel URL:
 
 ```bash
-> npx frontity build --public-path https://myfrontityapp.now.sh/static
+> npx frontity build --public-path https://myfrontityapp.vercel.app/static
 ```
 
 ## Local Development
