@@ -6,24 +6,24 @@ description: API reference of `@frontity/wp-comments` package
 
 Comments package that adds integration for WordPress native comments.
 
-* [Installation](wp-comments.md#installation)
-* [Settings](wp-comments.md#settings)
-  * [In WordPress](wp-comments.md#in-wordpress)
-  * [In Frontity](wp-comments.md#in-frontity)
-* [Usage](wp-comments.md#usage)
-  * [Getting comments of a post](wp-comments.md#getting-comments-of-a-post)
-  * [Sending new comments for a post](wp-comments.md#sending-new-comments-for-a-post)
-* [API Reference](wp-comments.md#api-reference)
-  * [Handlers](wp-comments.md#handlers)
-    * [`@comments/:id`](wp-comments.md#commentsid)
-  * [State](wp-comments.md#state)
-    * [`state.comments.forms[postId]`](wp-comments.md#state-comments-forms-postid)
-    * [`state.comments.forms[postId].fields`](wp-comments.md#state-comments-forms-postid-fields)
-    * [`state.source.comment[id]`](wp-comments.md#state-source-comment-id)
-  * [Actions](wp-comments.md#actions)
-    * [`actions.comments.updateFields()`](wp-comments.md#actions-comments-updatefields)
-    * [`actions.comments.submit()`](wp-comments.md#actions-comments-submit)
-* [Demo](wp-comments.md#demo)
+- [Installation](wp-comments.md#installation)
+- [Settings](wp-comments.md#settings)
+  - [In WordPress](wp-comments.md#in-wordpress)
+  - [In Frontity](wp-comments.md#in-frontity)
+- [Usage](wp-comments.md#usage)
+  - [Getting comments of a post](wp-comments.md#getting-comments-of-a-post)
+  - [Sending new comments for a post](wp-comments.md#sending-new-comments-for-a-post)
+- [API Reference](wp-comments.md#api-reference)
+  - [Handlers](wp-comments.md#handlers)
+    - [`@comments/:id`](wp-comments.md#commentsid)
+  - [State](wp-comments.md#state)
+    - [`state.comments.forms[postId]`](wp-comments.md#state-comments-forms-postid)
+    - [`state.comments.forms[postId].fields`](wp-comments.md#state-comments-forms-postid-fields)
+    - [`state.source.comment[id]`](wp-comments.md#state-source-comment-id)
+  - [Actions](wp-comments.md#actions)
+    - [`actions.comments.updateFields()`](wp-comments.md#actions-comments-updatefields)
+    - [`actions.comments.submit()`](wp-comments.md#actions-comments-submit)
+- [Demo](wp-comments.md#demo)
 
 ## Installation
 
@@ -125,7 +125,7 @@ With each ID we can get the details from the state at [`state.source.comment[id]
 }"
 ```
 
-![](../../.gitbook/assets/handler-comments-id.png)
+![](https://frontity.org/wp-content/uploads/2021/04/handler-comments-id.png)
 
 {% hint style="info" %}
 Take a look at this [diagram](https://excalidraw.com/#json=6489116225044480,z_EpwQgSmtB5DyqfPbce_Q) to learn more about this.
@@ -172,7 +172,7 @@ The submission status will be stored under under [`state.comments.forms[postId]`
 }
 ```
 
-![](../../.gitbook/assets/send-comments-wpcomments%20%281%29.png)
+![](https://frontity.org/wp-content/uploads/2021/04/send-comments-wpcomments.png)
 
 {% hint style="info" %}
 Take a look at this [diagram](https://excalidraw.com/#json=6174729664724992,A-DM-LUhTX896Q3e_NW5vQ) to learn more about this.
@@ -226,28 +226,28 @@ const Comments = connect(({ postId, state }) => {
 
 The `wp-comments` package stores a map of objects by post ID in `state.comments.forms`. Each of these objects represents one comment form. These objects are intended to be used as the state of React `<form>` components and contain the input values as well as the submission status. They have the following properties:
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| **`fields`** | [object](wp-comments.md#state-comments-forms-postid-fields) | Form fields with their values. |
-| `isSubmitting` | boolean | The comment hasn't been received by WP yet. |
-| `isSubmitted` | boolean | The comment has been received. |
-| `isError` | boolean | The request has failed. |
-| `errorMessage` | string | Failure reason. |
-| `errorCode` | string | The error code. Those are defined internally in the WordPress REST API. Example: `rest_comment_invalid_post_id` |
-| `errorStatusCode` | number | The HTTP status code that might have been received from the WordPress REST API. |
+| Name              | Type                                                        | Description                                                                                                     |
+| :---------------- | :---------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------- |
+| **`fields`**      | [object](wp-comments.md#state-comments-forms-postid-fields) | Form fields with their values.                                                                                  |
+| `isSubmitting`    | boolean                                                     | The comment hasn't been received by WP yet.                                                                     |
+| `isSubmitted`     | boolean                                                     | The comment has been received.                                                                                  |
+| `isError`         | boolean                                                     | The request has failed.                                                                                         |
+| `errorMessage`    | string                                                      | Failure reason.                                                                                                 |
+| `errorCode`       | string                                                      | The error code. Those are defined internally in the WordPress REST API. Example: `rest_comment_invalid_post_id` |
+| `errorStatusCode` | number                                                      | The HTTP status code that might have been received from the WordPress REST API.                                 |
 
 #### `state.comments.forms[postId].fields`
 
 The following map of fields, representing the current field values that have been input in the form rendered in the given post. The content of this property is updated using the [**`updateFields()`**](wp-comments.md#actions-comments-updatefields) action described later.
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `content` | string | yes | Content of the comment. |
-| `authorName` | string | no | Author's name. |
-| `author` | number | no | The ID of the author. |
-| `authorEmail` | string | no | Author's email. |
-| `authorURL` | string | no | URL of the author's site. |
-| `parent` | number | no | ID of the comment to which this one responds. Default Value: 0 |
+| Name          | Type   | Required | Description                                                    |
+| :------------ | :----- | :------- | :------------------------------------------------------------- |
+| `content`     | string | yes      | Content of the comment.                                        |
+| `authorName`  | string | no       | Author's name.                                                 |
+| `author`      | number | no       | The ID of the author.                                          |
+| `authorEmail` | string | no       | Author's email.                                                |
+| `authorURL`   | string | no       | URL of the author's site.                                      |
+| `parent`      | number | no       | ID of the comment to which this one responds. Default Value: 0 |
 
 {% hint style="info" %}
 See the section [**Sending new comments for a post**](wp-comments.md#sending-new-comments-for-a-post) to learn more.
@@ -303,10 +303,10 @@ These fields will be used by [`actions.comments.submit()`](wp-comments.md#action
 
 **Arguments**
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| _**`postId`**_ | number | yes | The ID of the post where the comment will be published. |
-| _`comment`_ | object | no | Object representing the fields of the comment to be updated. The fields of this object are the same than the ones at [`state.comments.forms[postId].fields`](wp-comments.md#state-comments-forms-postid-fields) |
+| Name           | Type   | Required | Description                                                                                                                                                                                                     |
+| :------------- | :----- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                                                                                         |
+| _`comment`_    | object | no       | Object representing the fields of the comment to be updated. The fields of this object are the same than the ones at [`state.comments.forms[postId].fields`](wp-comments.md#state-comments-forms-postid-fields) |
 
 ```javascript
 actions.comments.updateFields(60, {
@@ -334,10 +334,10 @@ Take into account that this action does not validate input. This means requests 
 
 **Arguments**
 
-| Name | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| _**`postId`**_ | number | yes | The ID of the post where the comment will be published. |
-| _`comment`_ | object | no | Object representing the comment. The fields of this object are the same than the ones at [`state.comments.forms[postId].fields`](wp-comments.md#state-comments-forms-postid-fields) |
+| Name           | Type   | Required | Description                                                                                                                                                                         |
+| :------------- | :----- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _**`postId`**_ | number | yes      | The ID of the post where the comment will be published.                                                                                                                             |
+| _`comment`_    | object | no       | Object representing the comment. The fields of this object are the same than the ones at [`state.comments.forms[postId].fields`](wp-comments.md#state-comments-forms-postid-fields) |
 
 ```javascript
 // Submit the comment to the post with ID 60
@@ -364,4 +364,3 @@ This short video demonstrates the usage of the `@frontity/wp-comments` package.
 {% embed url="https://www.youtube.com/watch?v=pG1532lStI8&t=7s" caption="" %}
 
 The project used in the video is available [here](https://github.com/frontity-demos/frontity-examples/blob/master/wp-comments/README.md).
-

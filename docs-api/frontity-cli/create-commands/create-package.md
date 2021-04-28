@@ -14,15 +14,15 @@ This argument sets the _name_ of your Frontity package. The `create-package` com
 
 ### **`[options]`**
 
-| Option | Description |
-| :---: | :--- |
-| `--namespace <value>` | Sets the [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package |
-| `--no-prompt` | Skips prompting the user for options. Related environment variable: [`FRONTITY_CREATE_PACKAGE_NAME`](create-package.md#frontity_create_package_name). |
-| `--open` | Output usage information |
+|        Option         | Description                                                                                                                                           |
+| :-------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--namespace <value>` | Sets the [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package                                                         |
+|     `--no-prompt`     | Skips prompting the user for options. Related environment variable: [`FRONTITY_CREATE_PACKAGE_NAME`](create-package.md#frontity_create_package_name). |
+|       `--open`        | Output usage information                                                                                                                              |
 
 ## Examples
 
-* Create a custom theme package named `my-custom-project`
+- Create a custom theme package named `my-custom-project`
 
 ```text
 >  npx frontity create-package my-custom-theme
@@ -51,4 +51,3 @@ FRONTITY_CREATE_NAME=test-project
 {% hint style="info" %}
 You can see a scheme of the whole workflow of using this `FRONTITY_CREATE_PACKAGE_NAME` environment variable in the [`--no-prompt`](../#no-prompt) section
 {% endhint %}
-
