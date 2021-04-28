@@ -28,7 +28,7 @@ Embedded Mode offers several advantages over Decoupled Mode.
 
 - Frontity still needs to be hosted on a separate node server/serverless function (albeit on any domain you like including default domains provided by the hosting provider)
 - WordPress still needs to go through it's [bootstrap process](https://wordpress.tv/2017/06/22/alain-schlesser-demystifying-the-wordpress-bootstrap-process/) on initial page load
-- more routing is involved (WordPress makes a call to Frontity which returns the HTML to WordPress) so **a caching plugin is a necessity\*\*\*\*** rather than simply a nice to have. (We recommend [Simple Cache](https://github.com/luisherranz/simple-cache))
+- more routing is involved (WordPress makes a call to Frontity which returns the HTML to WordPress) so **a caching plugin is a necessity\*\*\*\*** rather than simply a nice to have.
 
 ## Installation
 
