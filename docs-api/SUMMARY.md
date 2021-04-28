@@ -37,3 +37,4 @@
   - [@frontity/mars-theme](frontity-themes/frontity-mars-theme.md)
 - [🔌 WordPress Plugins](frontity-plugins/README.md)
   - [REST API - Head Tags](frontity-plugins/rest-api-head-tags.md)
+  - [Frontity Embedded Mode](frontity-plugins/embedded-mode.md)
