@@ -44,7 +44,7 @@ Installation is a three step process: Download → Install → Activate.
 
 The only configuration necessary is the URL of the Frontity server.This can be configured in a variety of ways.
 
-### Plugin settings page
+### 1. Plugin settings page
 
 Once the plugin has been activated a new 'Frontity Embedded Mode' option appears under 'Settings'.
 
@@ -54,7 +54,7 @@ Select this and enter the URL of the Frontity server in the input field. (During
 
 ![](../.gitbook/assets/embedded-mode-img02.png)
 
-### Environment Variable
+### 2. Environment Variable
 
 It is also possible to use an environment variable instead of changing the URL in the settings.
 
@@ -64,7 +64,7 @@ It is also possible to use an environment variable instead of changing the URL i
 
 > Note that the environment variable, if it exists, takes precedence over the setting configured in the settings page.
 
-### WordPress Constant
+### 3. WordPress Constant
 
 Lastly a PHP constant can be defined. This would usually be done in the `wp-config.php` file.
 
