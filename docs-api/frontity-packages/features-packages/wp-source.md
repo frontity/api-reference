@@ -110,6 +110,10 @@ export default {
 };
 ```
 
+{% hint style="info" %}
+If you are using [Embedded Mode](https://docs.frontity.org/architecture/embedded-mode) for your Frontity project, you do not normally have to set the `state.source.url` property as it will be the same as the `state.frontity.url` property.
+{% endhint %}
+
 #### `state.source.api`
 
 The URL of your WordPress REST API endpoint.
