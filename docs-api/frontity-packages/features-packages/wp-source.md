@@ -111,7 +111,7 @@ export default {
 ```
 
 {% hint style="info" %}
-If you are using [Embedded Mode](https://docs.frontity.org/architecture/embedded-mode) for your Frontity project, you do not normally have to set the `state.source.url` property as it will be the same as the `state.frontity.url` property.
+If you are using [Embedded Mode](https://docs.frontity.org/architecture/embedded-mode) for your Frontity project, and the `state.frontity.url` property is set, you do not have to also set the `state.source.url` property as this will be the same as the value in the `state.frontity.url` property.
 {% endhint %}
 
 #### `state.source.api`
