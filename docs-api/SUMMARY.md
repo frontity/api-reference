@@ -14,7 +14,7 @@
 - [🍱 Packages](frontity-packages/README.md)
   - [💙 Core package](frontity-packages/core-package/README.md)
     - [frontity](frontity-packages/core-package/frontity.md)
-  - [⚡️ Features packages](frontity-packages/features-packages/README.md)
+  - [⚡ Features packages](frontity-packages/features-packages/README.md)
     - [@frontity/wp-source](frontity-packages/features-packages/wp-source.md)
     - [@frontity/tiny-router](frontity-packages/features-packages/tiny-router.md)
     - [@frontity/html2react](frontity-packages/features-packages/html2react.md)
