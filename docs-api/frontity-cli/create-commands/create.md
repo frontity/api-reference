@@ -21,12 +21,13 @@ The _name_ of your Frontity project. It will also be the name of the folder that
 | [`--theme <theme>`](create.md#the-theme-option) | The theme to use                                                                                                                 |
 |                 `--typescript`                  | Adds support for TypeScript. Related environment variable: [`FRONTITY_CREATE_TYPESCRIPT`](create.md#frontity_create_typescript). |
 |                   `--use-cwd`                   | Generates the project in the current directory                                                                                   |
+|                   `--no-git`                    | `frontity create` initializes by default a git repository. This option skips this initialization.                                |
 |                  `--no-prompt`                  | Skips prompting the user for options. Related environment variable: [`FRONTITY_CREATE_NAME`](create.md#frontity_create_name).    |
 |                    `--help`                     | Output usage information                                                                                                         |
 
 #### The `--theme` option
 
-You can pick one of Frontity's "official" two themes \([`--theme @frontity/mars-theme`](https://github.com/frontity/frontity/tree/dev/packages/mars-theme) or [`--theme @frontity/twentytwenty-theme`](https://github.com/frontity/frontity/tree/dev/packages/twentytwenty-theme)\). But you can also use any custom theme as long as it's [published on npm](https://www.npmjs.com/search?q=keywords:frontity-theme). Just pass the theme name on the command-line like `--theme ThemesPackageNameInNPM`
+You can pick one of Frontity's "official" two themes ([`--theme @frontity/mars-theme`](https://github.com/frontity/frontity/tree/dev/packages/mars-theme) or [`--theme @frontity/twentytwenty-theme`](https://github.com/frontity/frontity/tree/dev/packages/twentytwenty-theme)). But you can also use any custom theme as long as it's [published on npm](https://www.npmjs.com/search?q=keywords:frontity-theme). Just pass the theme name on the command-line like `--theme ThemesPackageNameInNPM`
 
 ### Examples
 
