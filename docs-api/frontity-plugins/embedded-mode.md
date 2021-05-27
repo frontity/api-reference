@@ -1,6 +1,6 @@
 # Frontity Embedded Mode
 
-This plugin enables the **Embedded Mode** implementation of Frontity in a WordPress installation. You can download it from [here](https://github.com/frontity/frontity-embedded/archive/refs/heads/master.zip).
+This plugin enables the **[Embedded Mode](https://docs.frontity.org/architecture/embedded-mode)** implementation of Frontity in a WordPress installation. You can download it from [here](https://github.com/frontity/frontity-embedded/archive/refs/heads/master.zip).
 
 {% hint style="info" %}
 Have a look at the [_Frontity - Embedded Mode_ repository](https://github.com/frontity/frontity-embedded) to check the code of the plugin
@@ -31,9 +31,9 @@ This _Frontity Embedded Mode_ plugin replaces the active WordPress theme with th
 
 In Frontity there are two main modes of implementation: _Decoupled Mode_ and _Embedded Mode_
 
-In the _Decoupled Mode_ the primary domain points to the Frontity site, with the WordPress site being on a secondary domain or on a subdomain of the primary domain.
+In the _[Decoupled Mode](https://docs.frontity.org/architecture/decoupled-mode)_ the primary domain points to the Frontity site, with the WordPress site being on a secondary domain or on a subdomain of the primary domain.
 
-In the **Embedded Mode** the primary domain points to the WordPress site, and the Frontity site can be on another domain - including the default URL provided by a free hosting service such as [Vercel](https://docs.frontity.org/deployment/deploy-using-vercel).
+In the **[Embedded Mode](https://docs.frontity.org/architecture/embedded-mode)** the primary domain points to the WordPress site, and the Frontity site can be on another domain - including the default URL provided by a free hosting service such as [Vercel](https://docs.frontity.org/deployment/deploy-using-vercel).
 
 ### Features of the Embedded Mode
 
