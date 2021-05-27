@@ -26,9 +26,9 @@ Frontity packages are the ingredients of your Frontity project. They're **NPM pa
 
 You can learn all about existing Frontity packages in the section entitled [**Frontity Packages**](frontity-packages/).
 
-## Themes
+### Themes Packages
 
-In reality a Frontity theme is just a special instance of a Frontity package. Really **everything** is a package when you're working with Frontity.
+Theme are just a special instance of a Frontity package. Really **everything** is a package when you're working with Frontity.
 
 The included themes, namely `mars-theme` and `twentytwenty-theme`, are dealt with separately from the other packages under the [**Frontity Themes**](frontity-themes/) section.
 
