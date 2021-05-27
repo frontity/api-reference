@@ -28,13 +28,20 @@ A Frontity project is basically the sum of the **Core package** plus a selection
 The [full list of available packages](https://www.npmjs.com/search?q=keywords:frontity) include others created by the community. In this site we're going to document only the official `frontity` packages that has a public API
 {% endhint %}
 
-### [Core package](core-package/)
+### 💙 [Core package](core-package/)
 
 Package that is the core of the Frontity framework and that provides main utilities of the framework
 
 - [`frontity`](core-package/frontity.md)
 
-### [Features packages](features-packages/)
+### 🎨 [Themes packages](themes-packages/)
+
+Packages that contain the React project used to render the final output (both in client and server side)
+
+- [`@frontity/mars-theme`](themes-packages/frontity-mars-theme.md)
+- [`@frontity/twentytwenty-theme`](themes-packages/frontity-twentytwenty-theme.md)
+
+### ⚡️ [Features packages](features-packages/)
 
 #### Source package
 
@@ -82,7 +89,7 @@ Comments package that adds integration for WordPress native comments.
 
 - [`@frontity/wp-comments`](features-packages/wp-comments.md)
 
-### Collections packages
+### 📚 Collections packages
 
 These packages are collections or useful components or hooks that you can use in your Frontity project
 
