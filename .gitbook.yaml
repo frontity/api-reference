@@ -13,5 +13,8 @@ redirects:
     frontity-packages/frontity-html2react: ./frontity-packages/features-packages/html2react.md
     frontity-packages/frontity-components: ./frontity-packages/collections-packages/components.md
     frontity-packages/frontity-hooks: ./frontity-packages/collections-packages/hooks.md
+    frontity-themes: ./frontity-packages/themes-packages/README.md
+    frontity-themes/frontity-mars-theme: ./frontity-packages/themes-packages/frontity-mars-theme.md
+    frontity-themes/frontity-twentytwenty-theme: ./frontity-packages/themes-packages/frontity-twentytwenty-theme.md
 
     
