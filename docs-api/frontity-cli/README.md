@@ -45,6 +45,10 @@ These commands will allow you generate the code that can be used to run or analy
 You can also use `--help` with each one of these commands to get more info about them: `npx frontity dev --help`
 {% endhint %}
 
+{% hint style="info" %}
+Have a look at [this video](https://www.youtube.com/watch?v=3d7b-cy5cFY) to learn more about what Fronity does internally when these commands are executed.
+{% endhint %}
+
 ## Arguments & Environment Variables
 
 The Frontity CLI allows parametrization via arguments or environment variables to customize their execution.
