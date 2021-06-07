@@ -46,7 +46,7 @@ You can also use `--help` with each one of these commands to get more info about
 {% endhint %}
 
 {% hint style="info" %}
-Have a look at [this video](https://www.youtube.com/watch?v=3d7b-cy5cFY) to learn more about what Fronity does internally when these commands are executed.
+Have a look at [this video](https://www.youtube.com/watch?v=3d7b-cy5cFY) to learn more about what Frontity does internally when these commands are executed.
 {% endhint %}
 
 ## Arguments & Environment Variables
