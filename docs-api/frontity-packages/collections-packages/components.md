@@ -179,7 +179,7 @@ This `link` processor needs to be added to any theme that wants to uses this Cli
 
 ### Image
 
-`<Image />` is a React component that adds `lazy-loading` to the native WordPress images. Combined with [`@html2react/processors`](../features-packages/html2react#processors) , you can add this functionality and optimize your images pretty easy.
+`<Image />` is a React component that adds `lazy-loading` to the native WordPress images. Combined with [`@html2react/processors`](../features-packages/html2react.md#processors) , you can add this functionality and optimize your images pretty easy.
 
 ### Script
 
