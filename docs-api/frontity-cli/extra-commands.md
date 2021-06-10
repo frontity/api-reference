@@ -5,7 +5,7 @@
 
 ## Info
 
-Get environment information for debugging and issue reporting.
+Gets environment information for debugging and issue reporting.
 
 ```text
 npx frontity info [options]
@@ -21,9 +21,9 @@ npx frontity info [options]
 
 ### Examples
 
-- Display info about my specific environment
+- Display information about my specific environment.
 
-> When we ask in the [community forum](https://community.frontity.org/) about some issue we're having in development mode, it is very helpful to add this info to the post \(so the community can check things like OS, Node version and so on\)
+> When you ask in the [community forum](https://community.frontity.org/) about an issue you're having in development mode, it is very helpful to share this information so the community can check things like OS, Node version, etc.
 
 ```text
 > npx frontity info
@@ -53,7 +53,7 @@ npx frontity info [options]
 
 ## Subscribe
 
-Suscribe to Frontity newsleter.
+Subscribes to the Frontity newsletter.
 
 ```text
 npx frontity subscribe [options] [email]
@@ -69,4 +69,4 @@ npx frontity subscribe [options] [email]
 
 #### **`[email]`**
 
-The Frontity newsletter will be sent to this _email_
+The Frontity newsletter will be sent to this _email_ address.
