@@ -75,11 +75,11 @@ In order to send pageviews to Google Analytics through Google Tag Manager in a F
 
 **Trigger**
 
-![](../../https://frontity.org/wp-content/uploads/2021/04/google-tag-manager-custom-event.png)
+![](https://frontity.org/wp-content/uploads/2021/04/google-tag-manager-custom-event.png)
 
 **Tag**
 
-![](../../https://frontity.org/wp-content/uploads/2021/04/google-tag-manager-tag.png)
+![](https://frontity.org/wp-content/uploads/2021/04/google-tag-manager-tag.png)
 
 {% hint style="info" %}
 In the [Feature Discussion of this package](https://community.frontity.org/t/google-tag-manager-package/1400) you have [the format sent internally](https://community.frontity.org/t/google-tag-manager-package/1400/18) just in case you need it for your [own customizations](https://github.com/frontity/docs/issues/262#issuecomment-822426997)
