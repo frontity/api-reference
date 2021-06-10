@@ -45,7 +45,7 @@ packages: [
 ```
 
 {% hint style="warning" %}
-If you have an existing project make sure your [@frontity/wp-source](https://github.com/frontity/api-reference/tree/4a9494e83905e8dfdedb49a06a592026e6c27022/docs-api/frontity-packages/features-packages/frontity-head-tags.md) package is at least on the 1.5.0 version. If not, update it using this command: `> npm install @frontity/wp-source@latest`
+If you have an existing project make sure your [@frontity/wp-source](wp-source.md) package is at least on the 1.5.0 version. If not, update it using this command: `> npm install @frontity/wp-source@latest`.
 {% endhint %}
 
 ## Settings
@@ -53,7 +53,7 @@ If you have an existing project make sure your [@frontity/wp-source](https://git
 As it works automatically, It doesn't have settings itself, but it requires two Frontity parameters to work:
 
 - `state.frontity.url` : The URL of your site. Usually defined in the `frontity.settings.js` file.
-- `state.source.url` or `state.source.api`: The API where your project is pointing. Defined at [@frontity/wp-source](https://docs.frontity.org/api-reference-1/wordpress-source#settings) if you haven't changed your Source.
+- `state.source.url` or `state.source.api`: The API where your project is pointing. Defined at [@frontity/wp-source](wp-source.md#settings) if you haven't changed your Source.
 
 It needs `@frontity/wp-source` installed and updated to at least the `1.5.0` version.
 
@@ -61,9 +61,9 @@ It needs `@frontity/wp-source` installed and updated to at least the `1.5.0` ver
 
 This package will automatically add all the meta tags defined in WordPress for the page \(through plugins like Yoast SEO or All in One SEO\) in the `<head>` section of the rendered page. So there are no additional steps to do. Just install the package and everything will work out of the box.
 
-Remember that you'll need the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) installed in your WordPress. With that, this package will take care of
+Remember that you'll need the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/) installed in your WordPress. With that, this package will take care of the rest.
 
-If you want to access the metadata available for a specific link you can use the [`headTags.get`](head-tags.md#headtags-get) method
+If you want to access the metadata available for a specific link you can use the [`headTags.get`](head-tags.md#headtags-get) method.
 
 ## API Reference
 
@@ -102,6 +102,3 @@ will return something like
 ];
 ```
 
-{% hint style="info" %}
-Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
-{% endhint %}
