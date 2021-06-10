@@ -13,7 +13,7 @@ Frontity packages are available via [npm](https://www.npmjs.com/search?q=keyword
 Frontity needs to know the packages we're going to use in the project and how we want to use them. We can set this in the `frontity.settings.js` file, where we can define and configure the packages \(by using Namespaces\) for the Frontity project.
 
 {% hint style="info" %}
-We're going to focus on the use of Frontity packages at a Frontity project level, but the same applies if you're creating a custom Frontity package. You can see more info about how to create your custom package [here](./).
+We're going to focus on the use of Frontity packages at a Frontity project level, but the same applies if you're creating a custom Frontity package. You can see more info about how to create your custom package [here](../frontity-cli/create-commands/create-package).
 {% endhint %}
 
 ## Official Frontity Packages
