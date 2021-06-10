@@ -51,7 +51,7 @@ module.exports = {
 
 If you use an already created theme this package will already be configured so you don't need to do anything else.
 
-If you're creating a custom theme you'll have to [define the processors you want to use in the configuration of the package](html2react.md#loading-processors)
+If you're creating a custom theme you'll have to [define the processors you want to use in the configuration of the package](html2react.md#loading-processors).
 
 ## How to use
 
@@ -83,7 +83,7 @@ const Post = ({ state, libraries }) => {
 
 ## Processors
 
-Processors are the blocks of logic used by `html2react` to detect specific portions of HTML and return custom HTML or React components
+Processors are the blocks of logic used by `html2react` to detect specific portions of HTML and return custom HTML or React components.
 
 The `processors` field is an _array_ where you can push all the processors you want to use with `html2react`. You can check the default processors [here](html2react.md#default-processors).
 
@@ -117,8 +117,8 @@ A processor is an object with four properties: `name` , `priority` , `test`,and 
 | :-------------- | :------- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`name`**      | string   | yes      | the name of your processor                                                                                                                                                                                                                                                                                                                                                                                                         |
 | **`priority`**  | number   | yes      | A number that lets the package know in which order processors should be evaluated. The processors are evaluated in numeric order. For example, a processor with `priority` of `10` will be applied **before** a processor with a `priority` of `20`                                                                                                                                                                                |
-| **`test`**      | function | yes      | A function that evaluate each [node](https://github.com/frontity/api-reference/tree/5c8540768cdaaba9e65f4dc8032531eda7708051/docs-api/frontity-packages/features-packages/frontity-html2react.md#nodes), and if it returns `true`, this node will be passed down to the `processor` function                                                                                                                                       |
-| **`processor`** | function | yes      | A function to apply some logic to the [node](https://github.com/frontity/api-reference/tree/5c8540768cdaaba9e65f4dc8032531eda7708051/docs-api/frontity-packages/features-packages/frontity-html2react.md#nodes) that we want to modify. It could be substituting HTML tags for React component with some logic, as adding `lazy-loading` to images, or just modifying some attributes, like adding `target="_blank"` to the links. |
+| **`test`**      | function | yes      | A function that evaluate each [node](html2react.md#nodes), and if it returns `true`, this node will be passed down to the `processor` function                                                                                                                                       |
+| **`processor`** | function | yes      | A function to apply some logic to the [node](html2react.md#nodes) that we want to modify. It could be substituting HTML tags for React component with some logic, as adding `lazy-loading` to images, or just modifying some attributes, like adding `target="_blank"` to the links. |
 
 Both the `test` and the `processor` functions receive the same arguments `({ node, root, state, libraries })`
 
@@ -129,9 +129,9 @@ Both the `test` and the `processor` functions receive the same arguments `({ nod
 | `state`     | object | Access to Frontity's `state` . This could be useful to use some parts of the `state` inside your processor. For example, using your `state.theme.colors` |
 | `libraries` | object | Access to Frontity's `libraries`. As it happens with the `state`, sometimes could be useful to access your `libraries` as well                           |
 
-The **`test`** function _returns_ a boolean to indicate `processor` function should be executed \(the node matches the pattern\)
+The **`test`** function _returns_ a boolean to indicate `processor` function should be executed \(the node matches the pattern\).
 
-The **`processor`** function _returns_ a `node` object
+The **`processor`** function _returns_ a `node` object.
 
 #### Example
 
