@@ -419,7 +419,6 @@ export default connect(CategoryNature);
 ```
 
 {% hint style="info" %}
-
 If you want to know more about how to use the `wp-source` package, here you have some videos where Frontity DevRel team talks about it:
 
 - 📺 [Frontity Talks 2020-01 - wp-source & CSS In JS \[1:36\]](https://www.youtube.com/watch?v=e-_66W8pfdY&t=96s)
