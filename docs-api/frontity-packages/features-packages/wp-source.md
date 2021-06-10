@@ -56,7 +56,7 @@ npm i @frontity/wp-source
 ```
 
 {% hint style="info" %}
-Both of the starter themes \(`@frontity/mars-theme` & `@frontity/twentytwenty-theme`\) available when doing `npx frontity create` already include this `wp-source` package
+Both of the starter themes \(`@frontity/mars-theme` & `@frontity/twentytwenty-theme`\) available when doing `npx frontity create` already include this `wp-source` package.
 {% endhint %}
 
 ## Settings
@@ -85,7 +85,7 @@ These are the settings you can configure for this package in your `frontity.sett
 ### REST API settings
 
 {% hint style="info" %}
-We recommend you to check the guide [**Setting the URL of the WordPress data source**](https://docs.frontity.org/guides/setting-url-wordpress-source-data) to get a more practical explanation of how to properly set the URL of the WordPress data source by using the properties of this package and taking into account the different WordPress scenarios
+We recommend you to check the guide [**Setting the URL of the WordPress data source**](https://docs.frontity.org/guides/setting-url-wordpress-source-data) to get a more practical explanation of how to properly set the URL of the WordPress data source by using the properties of this package and taking into account the different WordPress scenarios.
 {% endhint %}
 
 #### `state.source.url` ![](https://img.shields.io/badge/REQUIRED-red.svg)
@@ -121,19 +121,19 @@ The URL of your WordPress REST API endpoint.
 {% hint style="info" %}
 From [version 1.10](https://github.com/frontity/frontity/blob/dev/packages/wp-source/CHANGELOG.md#1100) of the `@frontity/wp-source` package, the property `state.source.api` _should never be set manually by the end-users_ \(it will be computed from properties like `state.source.url` or `state.wpSource.isWpCom`\).
 
-Check the guide [Setting the URL of the WordPress data source](https://docs.frontity.org/guides/setting-url-wordpress-source-data) to understand the computed values of `state.source.api` for every WordPress scenario
+Check the guide [Setting the URL of the WordPress data source](https://docs.frontity.org/guides/setting-url-wordpress-source-data) to understand the computed values of `state.source.api` for every WordPress scenario.
 {% endhint %}
 
 #### `state.wpSource.isWpCom`
 
-Boolean value to indicate if the WordPress installation used as the source of data is a Personal or Premium WordPress.com plan
+Boolean value to indicate if the WordPress installation used as the source of data is a Personal or Premium WordPress.com plan.
 
-This value will be `false` by default and will be automatically computed to `true` if needed in most of the cases
+This value will be `false` by default and will be automatically computed to `true` if needed in most of the cases.
 
-This property only needs to be set manually to `true` if you're using a Personal or Premium WordPress.com plan
+This property only needs to be set manually to `true` if you're using a Personal or Premium WordPress.com plan.
 
 {% hint style="info" %}
-Check the guide [Setting the URL of the WordPress data source](https://docs.frontity.org/guides/setting-url-wordpress-source-data) to understand the value of this property depending on the WordPress scenario
+Check the guide [Setting the URL of the WordPress data source](https://docs.frontity.org/guides/setting-url-wordpress-source-data) to understand the value of this property depending on the WordPress scenario.
 {% endhint %}
 
 Example:
@@ -289,7 +289,7 @@ Some example valid values are:
 - `["404", "RegExp:/some-post/", "RegExp:/another-post"]`
 
 {% hint style="info" %}
-Have a look at the guide [**Redirections with Frontity**](https://docs.frontity.org/guides/redirections-with-frontity) to learn more about this
+Have a look at the guide [**Redirections with Frontity**](https://docs.frontity.org/guides/redirections-with-frontity) to learn more about this.
 {% endhint %}
 
 ### Custom Post Types
@@ -331,7 +331,7 @@ Similar to `postTypes`setting, this one allows you to show the lists of posts of
 | `postTypeEndpoint` | string | no       | REST API endpoint from which posts of this taxonomy can be fetched. If the Custom Taxonomy is meant to load Custom Post Types instead, you have to add its endpoint here. To clarify, although optional for posts in the case of a Custom Post Type this argument is **required**. Default value is `posts` |
 | `params`           | object | no       | Extra params to be used while fetching the list of posts.                                                                                                                                                                                                                                                   |
 
-gain, dfferentiating `taxonomy` and `endpoint`may be confusing as they usually are the same too. You can confirm you are doing it correctly by going to the Custom Taxonomy `endpoint` :
+Differentiating `taxonomy` and `endpoint`may be confusing as they usually are the same too. You can confirm you are doing it correctly by going to the Custom Taxonomy `endpoint` :
 
 ![](https://frontity.org/wp-content/uploads/2021/04/https___test_frontity_io__rest_route__wp_v2_actor.png)
 
@@ -356,7 +356,7 @@ taxonomies: [
 This package will automatically retrieve data from the related WordPress routes when accesing a React route.
 
 {% hint style="info" %}
-`@frontity/wp-source` package requires pretty permalinks to be enabled on the WordPress admin. For more info check the guide [WordPress requirements for Frontity](https://docs.frontity.org/guides/what-are-the-requisites-of-wordpress-for-frontity#have-pretty-permalinks-activated)
+The `@frontity/wp-source` package requires pretty permalinks to be enabled on the WordPress admin. For more info check the guide [WordPress requirements for Frontity](https://docs.frontity.org/guides/what-are-the-requisites-of-wordpress-for-frontity#have-pretty-permalinks-activated).
 {% endhint %}
 
 The data got from WordPress REST API is organized and normalized in the state. This "normalization" of the data means the data is organized in the state in a way so there's no duplicated data in it and there's only one source of truth.
@@ -419,22 +419,22 @@ export default connect(CategoryNature);
 ```
 
 {% hint style="info" %}
-If you want to know more about how to use the `wp-source` package, here you have some videos where Frontity DevRel team talks about it:
+If you want to know more about how to use the `wp-source` package, here you have some videos where the Frontity DevRel team talks about it:
 
 - 📺 [Frontity Talks 2020-01 - wp-source & CSS In JS \[1:36\]](https://www.youtube.com/watch?v=e-_66W8pfdY&t=96s)
 - 📺 [Frontity Talks 2020-02 - Pagination example & wp-source \(state & fetch\) \[17:53\]](https://www.youtube.com/watch?v=eW5xZlpcqQk&t=1073s)
-  {% endhint %}
+{% endhint %}
 
 ## API Reference
 
-The [`wp-source` package](https://github.com/frontity/frontity/tree/dev/packages/wp-source) implements the [interface defined in the `source` package](https://github.com/frontity/frontity/blob/dev/packages/source/types.ts) and [adds some extra API](https://github.com/frontity/frontity/blob/dev/packages/wp-source/types.ts)
+The [`wp-source` package](https://github.com/frontity/frontity/tree/dev/packages/wp-source) implements the [interface defined in the `source` package](https://github.com/frontity/frontity/blob/dev/packages/source/types.ts) and [adds some extra API](https://github.com/frontity/frontity/blob/dev/packages/wp-source/types.ts).
 
 ### Actions
 
 Actions don't return data. Data is always accessed via the state. That's because Frontity is following the [Flux pattern](https://facebook.github.io/flux/) \(like Redux\).
 
 {% hint style="info" %}
-Read more about actions [here](https://github.com/frontity/api-reference/tree/8691b0fddd587a90ca20f7ef71997ce6feb643c3/docs-api/frontity-packages/learning-frontity/actions.md)
+Read more about actions [here](https://docs.frontity.org/learning-frontity/actions).
 {% endhint %}
 
 #### `actions.source.fetch()`
@@ -525,11 +525,11 @@ The use of `actions.source.fetch()` is also recommended over `window.fetch` beca
 
 ##### Relationship with `state.router.autoFetch`
 
-Every time you go to a new link from the Client Side (by using `actions.router.set` for example) a new fetch should be done for that new link so the data of that link is properly populated to the state
+Every time you go to a new link from the Client Side (by using `actions.router.set` for example) a new fetch should be done for that new link so the data of that link is properly populated to the state.
 
-Thanks to the settings property `state.router.autoFetch` with a default value of true, every time you browse to a new page (Client Side Navigation) the fetch of the data in that page will we done automatically for you
+Thanks to the settings property `state.router.autoFetch` with a default value of true, every time you browse to a new page (Client Side Navigation) the fetch of the data in that page will we done automatically for you.
 
-Have a look at this video to learn more about this
+Have a look at this video to learn more about this:
 
 {% embed url="https://youtu.be/odmg2Br1Zrw?t=25" caption="" %}
 
@@ -557,13 +557,13 @@ Returns an object that gives you info about the type of that link and related en
 | :----- | :------------------------------------------------- |
 | object | Info about the type of data represented in the URL |
 
-Fr exampe:
+For exampe:
 
 ```javascript
 state.source.get("/category/nature/");
 ```
 
-will return something like
+will return something like:
 
 ```javascript
 {
@@ -945,6 +945,4 @@ Utility for building links from its attributes.
 | :------- | :----- | :-------------- |
 | _`link`_ | string | Normalized link |
 
-{% hint style="info" %}
-Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
-{% endhint %}
+
