@@ -140,7 +140,7 @@ By using `connect`:
 
 - Your components get optimized with _memo_, so they won't re-render whenever a parent component re-renders
 - Your components get reactive, so they will re-render when the parts of state they use are changed
-  {% endhint %}
+{% endhint %}
 
 #### Syntax
 
