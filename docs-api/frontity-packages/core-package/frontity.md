@@ -33,7 +33,7 @@ import { connect, styled, Head, ... } from "frontity";
   - [`useFills`](#usefills)
   - [`fetch`](#fetch)
   - [`URL`](#url)
-  - [`error` & `warn`](#error-warn)
+  - [`error` & `warn`](#error-and-warn)
     - [`error`](#error)
     - [`warn`](#warn)
   - [`decode`](#decode)
@@ -47,9 +47,9 @@ import { connect, styled, Head, ... } from "frontity";
 
 Use [**`connect`**](frontity.md#connect) to inject `state`, `actions` and `libraries` in your React components.
 
-If you are familiar with React hooks, you can use also [**`useConnect`**](frontity.md#useConnect) to do the same.
+If you are familiar with React hooks, you can use also [**`useConnect`**](frontity.md#useconnect) to do the same.
 
-Use the [**`Head`**](frontity.md#head) component whenever you want to add HTML tags inside the `<head>` of any of your site's pages. You can read more **Head** in the [Head page](https://github.com/frontity/api-reference/tree/5c8540768cdaaba9e65f4dc8032531eda7708051/docs-api/frontity-packages/learning-frontity/head.md) of our **Learning Frontity** section.
+Use the [**`Head`**](frontity.md#head) component whenever you want to add HTML tags inside the `<head>` of any of your site's pages. You can read more in the [Head page](https://docs.frontity.org/learning-frontity/head) of the **Core Concepts** section.
 
 Use the [**`Slot`**](frontity.md#slot) component whenever you want to add a 'placeholder' to your theme which will be filled with a **`Fill`**. Fills are added to the state in the `state.fills` namespace.
 
@@ -57,13 +57,13 @@ Use the [**`Slot`**](frontity.md#slot) component whenever you want to add a 'pla
 
 [**`styled`**](frontity.md#styled) creates new React components from HTML tags, or other React components, with styles attached to them. [**`css`**](frontity.md#css) lets you to add inline styles to an element if you don't want to create a new component. If you want to add styles for the whole app, use [**`Global`**](frontity.md#global). And [**`keyframes`**](frontity.md#keyframes) is used to define and use animations in your CSS.
 
-You can read more in the [Styles](https://github.com/frontity/api-reference/tree/5c8540768cdaaba9e65f4dc8032531eda7708051/docs-api/frontity-packages/learning-frontity/styles.md) page of our **Learning Frontity** section.
+You can read more in the [Styles](https://docs.frontity.org/learning-frontity/styles) page of the **Core Concepts** section of the docs.
 
 ### Code Splitting
 
 Use [**`loadable`**](frontity.md#loadable) in order to separate you code into different bundles that will be dynamically loaded at runtime. This helps you to reduce your page size.
 
-You can read more in the [Code Splitting](https://github.com/frontity/api-reference/tree/5c8540768cdaaba9e65f4dc8032531eda7708051/docs-api/frontity-packages/learning-frontity/code-splitting.md) page of our **Learning Frontity** section.
+You can read more in this [Code Splitting](https://docs.frontity.org/performance/code-splitting) page of the docs.
 
 ### `fetch` and `URL`
 
@@ -79,7 +79,7 @@ Also, that instance will re-render automatically whenever any value from the `st
 
 If you don't want to inject the Frontity state props in your connected components, you can use the `injectProps` option set to `false`. Components will still be reactive to changes in the state but without receiving more props.
 
-For these components to access the state use the [`useConnect`](frontity.md#useConnect) hook.
+For these components to access the state use the [`useConnect`](frontity.md#useconnect) hook.
 
 #### Syntax
 
@@ -408,7 +408,7 @@ const Component = () => <Button>Styling my theme</Button>;
 
 It's a function that loads a component asynchronously generating a different bundle for it. Frontity has integrated and configured [Loadable Components](https://www.smooth-code.com/open-source/loadable-components/docs/code-splitting/), in case you want to check its docs.
 
-You can also take a look at the [Code Splitting](https://github.com/frontity/api-reference/tree/5c8540768cdaaba9e65f4dc8032531eda7708051/docs-api/frontity-packages/learning-frontity/code-splitting.md) page inside the Learning Frontity section.
+You can also take a look at the [Code Splitting](https://docs.frontity.org/performance/code-splitting) page of the docs.
 
 #### Syntax
 
@@ -842,7 +842,7 @@ const Post = () => (
 
 #### Fills
 
-Fills are added to the `state`, to a common namespace called `fills`. Each fill consists of a configuration object that should be given a unique key and assigned to a namespace. To learn more about namespaces see [this section](https://github.com/frontity/docs/tree/86e298278ca553c95aea7d6313205cebf3e2747b/docs/learning-frontity/namespaces/README.md) of our docs.
+Fills are added to the `state`, to a common namespace called `fills`. Each fill consists of a configuration object that should be given a unique key and assigned to a namespace. To learn more about namespaces see [this section](https://docs.frontity.org/learning-frontity/namespaces) of the docs.
 
 More than one Fill can be hooked onto any single Slot, and these can be ordered according to a `priority` attribute assigned to the Fill.
 
