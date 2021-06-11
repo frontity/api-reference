@@ -1,6 +1,6 @@
 # Intersection Observer Hooks
 
-These hooks helps you to track when an element enters or leaves the viewport.
+These hooks help you track when an element enters or leaves the viewport.
 
 ## Table of Contents
 
@@ -50,10 +50,7 @@ An object with the following properties:
 | **`inView`**    | boolean         | Boolean indicating if the element is visible. The value is always `true` if _`supported`_ is `false`.                                              |
 | **`supported`** | boolean         | Boolean indicating if [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) is supported by the browser. |
 
-{% hint style="info" %}
-Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
-{% endhint %}
 
 ### Demo
 
-This [demo project](https://github.com/frontity-demos/frontity-examples/blob/master/intersection-observer-hooks/README.md) shows how to use the Intersection Observer Hook `useInView` available in the `@frontity/hooks` package or directly implemented in some components available at `@frontity/components`
+This [example project](https://github.com/frontity-demos/frontity-examples/blob/master/intersection-observer-hooks/README.md) shows how to use the Intersection Observer Hook `useInView` available in the `@frontity/hooks` package or directly implemented in some components available at `@frontity/components`.
