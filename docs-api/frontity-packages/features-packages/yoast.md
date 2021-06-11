@@ -13,7 +13,7 @@ Please note that this package will **not** work with versions of the Yoast SEO p
 {% hint style="info" %}
 If you have an earlier version of the Yoast SEO plugin \(i.e. &lt; 14.0\) installed in WordPress, or you have installed another SEO package that doesn't add head tags to the REST API, then you should use the [`@frontity/head-tags`](https://www.npmjs.com/package/@frontity/head-tags) package instead. In this case you will also need the [REST API Head Tags plugin](https://wordpress.org/plugins/rest-api-head-tags/).
 
-[See here](https://api.frontity.org/frontity-packages/features-packages/head-tags) for more information.
+See the [`@frontity/head-tags` documentation](https://api.frontity.org/frontity-packages/features-packages/head-tags) for more information.
 {% endhint %}
 
 ## Table of Contents
@@ -46,7 +46,7 @@ export default {
 
 ## Settings
 
-The [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package is **`yoast`**
+The [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package is **`yoast`**.
 
 #### `state.yoast.renderTags`
 
@@ -69,9 +69,9 @@ Even if "server" is selected, thereby causing the rest of the meta tags to only 
 
 Defaults to `false`.
 
-Used if you are using Frontity in decoupled mode. If you are using Frontity in [embedded mode](https://github.com/frontity/frontity-embedded) this property must be set to false.
+Used if you are using Frontity in [Decoupled Mode](https://docs.frontity.org/architecture/decoupled-mode). If you are using Frontity in [Embedded Mode](https://docs.frontity.org/architecture/embedded-mode) this property must be set to false.
 
-If you are using Frontity in decoupled mode this setting defines a set of properties to transform links present in the yoast_head field.
+If you are using Frontity in Decoupled Mode this setting defines a set of properties to transform links present in the yoast_head field.
 
 Example:
 
@@ -124,7 +124,7 @@ add_action( 'rest_api_init', function () {
 
 This snippet embeds the post types – i.e. the entities that contain the `yoast_meta` field for post/CPT archives – in the REST API responses. It adds the `type` property inside the `\_links` field of post entities when the `?_embed=true` query parameter is used.
 
-> note: Frontity always uses the `?_embed=true` query parameter when making requests to the WP REST API.
+> Note: Frontity always uses the `?_embed=true` query parameter when making requests to the WP REST API.
 
 ## Video
 
