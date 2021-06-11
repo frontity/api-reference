@@ -125,6 +125,3 @@ These are some examples of links:
 
 This is the object that was saved in [`window.history.state`](https://developer.mozilla.org/en-US/docs/Web/API/History/state) when the route was changed.
 
-{% hint style="info" %}
-Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
-{% endhint %}
