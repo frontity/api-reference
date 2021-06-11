@@ -18,11 +18,11 @@ This package is a collection of React components that have proven to be pretty u
     - [The `link` processor](components.md#the-link-processor)
   - [Image](components.md#image)
   - [Script](components.md#script)
-    - [Props](components.md#props)
-    - [Usage](components.md#usage)
+    - [Props](components.md#props-1)
+    - [Usage](components.md#usage-1)
   - [Iframe](components.md#iframe)
-    - [Props](components.md#props)
-    - [Usage](components.md#usage)
+    - [Props](components.md#props-2)
+    - [Usage](components.md#usage-2)
   - [Switch](components.md#switch)
 
 ## How to use
@@ -40,7 +40,7 @@ import Image from "@frontity/components/image";
 `<Link />` is a React component that you can use in your Frontity project to define links that works with the internal routing system. Under the hood, this component uses the `actions.router.set(link)` method from `@frontity/tiny-router` and creates an `<a/>` tag.
 
 {% hint style="info" %}
-This component requires having `state.source.url` properly configured. Have a look at the guide [Setting the URL of the WordPress data source](https://docs.frontity.org/guides/setting-url-wordpress-source-data) to learn more about this
+This component requires having `state.source.url` properly configured. Have a look at the guide [Setting the URL of the WordPress data source](https://docs.frontity.org/guides/setting-url-wordpress-source-data) to learn more about this.
 {% endhint %}
 
 #### Props
@@ -48,11 +48,11 @@ This component requires having `state.source.url` properly configured. Have a lo
 | Name           | Type     | Required | Default     | Description                                                                                                                                                                                                                                                                                                            |
 | :------------- | :------- | :------- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `link`         | string   | yes      | ---         | The URL to link to.                                                                                                                                                                                                                                                                                                    |
-| `target`       | string   | no       | `_self`     | The [target](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target) of the anchor. Possible values: `_self` or `_blank`                                                                                                                                                                                   |
+| `target`       | string   | no       | `_self`     | The [target](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target) of the anchor. Possible values: `_self` or `_blank`.                                                                                                                                                                                   |
 | `onClick`      | function | no       | `undefined` | The `onClick` handler. Can be used to pass an optional callback that will be invoked on click.                                                                                                                                                                                                                         |
 | `scroll`       | boolean  | no       | `true`      | Whether the browser should scroll up to the top upon navigating to a new page.                                                                                                                                                                                                                                         |
-| `prefetch`     | boolean  | no       | `true`      | Whether Frontity should automatically prefetch this link or not. The prefetching mode is controlled through [`state.theme.autoPrefetch`](https://github.com/frontity/api-reference/tree/5cb70b185de018562902d073a62bb934053a5445/docs-api/frontity-packages/collections-packages/frontity-components.md#auto-prefetch) |
-| `aria-current` | string   | no       | `undefined` | [Indicates the element that represents the current item within a container or set of related elements](https://www.w3.org/TR/wai-aria-1.1/#aria-current)                                                                                                                                                               |
+| `prefetch`     | boolean  | no       | `true`      | Whether Frontity should automatically prefetch this link or not. The prefetching mode is controlled through [`state.theme.autoPrefetch`](components.md#auto-prefetch). |
+| `aria-current` | string   | no       | `undefined` | [Indicates the element that represents the current item within a container or set of related elements](https://www.w3.org/TR/wai-aria-1.1/#aria-current).                                                                                                                                                               |
 
 All _"unknown"_ props passed to the Link are passed down to an anchor `</a>` tag.
 
@@ -104,7 +104,7 @@ The possible values for `state.theme.autoPrefetch` are:
 
 Using this `<Link />` component is optional. You can create your own `<Link />` component with your own logic.
 
-_Example of a custom `<Link />` component implementation_
+_Example of a custom `<Link />` component implementation_:
 
 ```jsx
 import React from "react";
@@ -160,7 +160,7 @@ The `<Link>` component created by the processor will be modelled on the `<a>` ta
 
 If the `href` attribute of the `<a>` tag is an absolute link on a different domain from the WordPress data source, i.e. it is a link to an external site, then that tag will remain as is and will not be replaced or converted.
 
-In order for this to work the `link` processor must be imported into the theme and included in the list of `html2react` processors. This would normally be done in the root level `index.js` of your theme. See [here](https://github.com/frontity/api-reference/tree/5cb70b185de018562902d073a62bb934053a5445/docs-api/frontity-packages/features-packages/html2reeact.md) and [here](https://docs.frontity.org/learning-frontity/libraries#array-of-processors-from-html-2-react) for more info.
+In order for this to work the `link` processor must be imported into the theme and included in the list of `html2react` processors. This would normally be done in the root level `index.js` of your theme. See the [`@frontity/html2react`](https://github.com/frontity/api-reference/tree/5cb70b185de018562902d073a62bb934053a5445/docs-api/frontity-packages/features-packages/html2react.md) documentation and [this page](https://docs.frontity.org/learning-frontity/libraries#array-of-processors-from-html-2-react) for more info.
 
 ```javascript
 import link from "@frontity/html2react/processors/link";
@@ -174,7 +174,7 @@ libraries: {
 ```
 
 {% hint style="info" %}
-This `link` processor needs to be added to any theme that wants to uses this Client-side navigation for embedded links in the content
+This `link` processor needs to be added to any theme that wants to uses this Client-side navigation for embedded links in the content.
 {% endhint %}
 
 ### Image
@@ -331,6 +331,3 @@ const Theme = ({ state }) => {
 };
 ```
 
-{% hint style="info" %}
-Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
-{% endhint %}
