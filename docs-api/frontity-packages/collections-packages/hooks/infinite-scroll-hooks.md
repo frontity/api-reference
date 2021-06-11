@@ -22,14 +22,14 @@ The main idea behind these hooks is that they return a list of `Wrapper` compone
   - [Return value](infinite-scroll-hooks.md#return-value)
   - [Usage](infinite-scroll-hooks.md#usage)
 - [`usePostTypeInfiniteScroll`](infinite-scroll-hooks.md#useposttypeinfinitescroll)
-  - [Parameters](infinite-scroll-hooks.md#parameters)
-  - [Return value](infinite-scroll-hooks.md#return-value)
-  - [Usage](infinite-scroll-hooks.md#usage)
+  - [Parameters](infinite-scroll-hooks.md#parameters-1)
+  - [Return value](infinite-scroll-hooks.md#return-value-1)
+  - [Usage](infinite-scroll-hooks.md#usage-1)
 - [Demo](infinite-scroll-hooks.md#demo)
 - [`useInfiniteScroll`](infinite-scroll-hooks.md#useinfinitescroll)
-  - [Parameters](infinite-scroll-hooks.md#parameters)
-  - [Return value](infinite-scroll-hooks.md#return-value)
-  - [Usage](infinite-scroll-hooks.md#usage)
+  - [Parameters](infinite-scroll-hooks.md#parameters-2)
+  - [Return value](infinite-scroll-hooks.md#return-value-2)
+  - [Usage](infinite-scroll-hooks.md#usage-2)
 
 ## `useArchiveInfiniteScroll`
 
@@ -49,11 +49,11 @@ It accepts an optional object with the following props:
 | :----------------------- | :-------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`active`**             | `boolean`                                                                                                 | `true`                                                                                                  | no       | A boolean indicating if this hook should be active or not. It can be useful in situations where users want to share the same component for different types of Archives, but avoid doing infinite scroll in some of them. |
 | **`limit`**              | `number`                                                                                                  | [`Infinity`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity) | no       | The number of pages that the hook should load automatically before switching to manual fetching.                                                                                                                         |
-| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -                                                                                                       | no       | The intersection observer options for fetching.                                                                                                                                                                          |
-| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -                                                                                                       | no       | The intersection observer options for routing.                                                                                                                                                                           |
+| **`fetchInViewOptions`** | [`IntersectionOptions`](intersection-observer-hooks.md#parameters) | -                                                                                                       | no       | The intersection observer options for fetching.                                                                                                                                                                          |
+| **`routeInViewOptions`** | [`IntersectionOptions`](intersection-observer-hooks.md#parameters) | -                                                                                                       | no       | The intersection observer options for routing.                                                                                                                                                                           |
 
 {% hint style="info" %}
-The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
+The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](intersection-observer-hooks.md#useinview).
 {% endhint %}
 
 ### Return value
@@ -149,11 +149,11 @@ It accepts an optional object with the following props:
 | **`limit`**              | `number`                                                                                                  | [`Infinity`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity) | no       | The number of posts that are rendered until the user interacts \(e.g. clicking a button\) in order to show the next post.                                                                                                |
 | **`archive`**            | `string`                                                                                                  | -                                                                                                       | no       | The archive that should be used to get the next posts. If none is present, the previous link is used. If the previous link is not an archive, the homepage is used.                                                      |
 | **`fallback`**           | `string`                                                                                                  | -                                                                                                       | no       | The archive that should be used if the `archive` option is not present and the previous link is not an archive.                                                                                                          |
-| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -                                                                                                       | no       | The intersection observer options for fetching.                                                                                                                                                                          |
-| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -                                                                                                       | no       | The intersection observer options for routing.                                                                                                                                                                           |
+| **`fetchInViewOptions`** | [`IntersectionOptions`](intersection-observer-hooks.md#parameters) | -                                                                                                       | no       | The intersection observer options for fetching.                                                                                                                                                                          |
+| **`routeInViewOptions`** | [`IntersectionOptions`](intersection-observer-hooks.md#parameters) | -                                                                                                       | no       | The intersection observer options for routing.                                                                                                                                                                           |
 
 {% hint style="info" %}
-The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
+The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](intersection-observer-hooks.md#useinview).
 {% endhint %}
 
 ### Return value
@@ -263,11 +263,11 @@ It requires an object with the following props:
 | :----------------------- | :-------------------------------------------------------------------------------------------------------- | :------ | :------- | :-------------------------------------------------------------------------- |
 | **`currentLink`**        | `string`                                                                                                  | -       | yes      | The current link that should be used to start the infinite scroll.          |
 | **`nextLink`**           | `string`                                                                                                  | -       | no       | The next link that should be fetched and loaded once the user scrolls down. |
-| **`fetchInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -       | no       | The intersection observer options for fetching.                             |
-| **`routeInViewOptions`** | [`IntersectionOptions`](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters) | -       | no       | The intersection observer options for routing.                              |
+| **`fetchInViewOptions`** | [`IntersectionOptions`](intersection-observer-hooks.md#parameters) | -       | no       | The intersection observer options for fetching.                             |
+| **`routeInViewOptions`** | [`IntersectionOptions`](intersection-observer-hooks.md#parameters) | -       | no       | The intersection observer options for routing.                              |
 
 {% hint style="info" %}
-The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](https://api.frontity.org/frontity-packages/collections-packages/hooks#parameters).
+The IntersectionOptions type refers to the type of the the parameters received by the [`useInView` hook](intersection-observer-hooks.md#useinview).
 {% endhint %}
 
 ### Return value
@@ -337,6 +337,3 @@ export const wrapperGenerator = ({
 };
 ```
 
-{% hint style="info" %}
-Still have questions? Ask [the community](https://community.frontity.org/)! We are here to help 😊
-{% endhint %}
