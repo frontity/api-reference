@@ -1,6 +1,6 @@
 # @frontity/twentytwenty-theme
 
-The **Twenty Twenty** default WordPress theme was included in WordPress 5.3 and we ported it over to Frontity so users can use it in a headless setup as well. You can check out its **code** and structure on our [GitHub repository](https://github.com/frontity/frontity/tree/dev/packages/twentytwenty-theme) and find it on [npm](https://www.npmjs.com/package/@frontity/twentytwenty-theme).
+The **Twenty Twenty** default WordPress theme was included in WordPress 5.3 and ported over to Frontity so you can use it in a headless setup as well. You can check out its **code** and structure on this [GitHub repository](https://github.com/frontity/frontity/tree/dev/packages/twentytwenty-theme) and find it on [npm](https://www.npmjs.com/package/@frontity/twentytwenty-theme).
 
 These are some of the key features included in this theme:
 
@@ -32,7 +32,7 @@ Frontity's theme has the same pagination as the original WordPress theme. This w
 
 ![Homepage view in Twenty Twenty Frontity Theme.](https://frontity.org/wp-content/uploads/2021/04/screenshot-homepage-view-twentytwenty-frontity-theme.png)
 
-You can check out all the features in this [**theme demo**](https://twentytwenty.frontity.org/), \_\*\*\_or even in our [Frontity blog](https://blog.frontity.org/).
+You can check out all the features in this [**theme demo**](https://twentytwenty.frontity.org/) or even in the [Frontity blog](https://frontity.org/blog/).
 
 ## Settings
 
@@ -109,4 +109,4 @@ It changes `state.theme.isSearchModalOpen` to `false`, so it closes the search b
 
 ### Libraries
 
-This theme doesn't have its own libraries, but it includes the image processor of [@frontity/html2react](frontity-twentytwenty-theme.md), so all the `<img>` tags are converted into the [`<Image />` component](frontity-twentytwenty-theme.md).
+This theme doesn't have its own libraries, but it includes the image processor of [@frontity/html2react](../features-packages/html2react.md), so all the `<img>` tags are converted into the [`<Image />` component](../collections-packages/components.md#image).
