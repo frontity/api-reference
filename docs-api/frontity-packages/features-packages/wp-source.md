@@ -179,6 +179,8 @@ You have to configure your WordPress with the same setting.
 
 {% hint style="warning" %}
 As this option overrides the `/` route, you should set `state.source.postsPage` as well in order to be able to access the posts archive in a different route.
+
+Have a look at [this video](https://www.loom.com/share/277c9bfb9b664764bcc900aad31f80ea) to learn more about this
 {% endhint %}
 
 #### `state.source.postsPage`
