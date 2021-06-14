@@ -40,7 +40,7 @@ This package is in charge of getting the data from self-hosted WordPress or Word
     - [`state.source.author[id]`](wp-source.md#state-source-author-id)
   - [Libraries](wp-source.md#libraries)
     - [`libraries.source.api.get()`](wp-source.md#libraries-source-api-get)
-    - [`libraries.source.populate()`](wp-source.md#libraries-source-populate)
+    - [`libraries.source.api.populate()`](wp-source.md#libraries-source-api-populate)
     - [`libraries.source.handlers`](wp-source.md#libraries-source-handlers)
     - [`libraries.source.redirections`](wp-source.md#libraries-source-redirections)
     - [`libraries.source.parse()`](wp-source.md#libraries-source-parse)
@@ -730,7 +730,7 @@ const postBeautiesGullfoss = await api.get({
 });
 ```
 
-#### `libraries.source.populate()`
+#### `libraries.source.api.populate()`
 
 Add entities to the Frontity state.
 
