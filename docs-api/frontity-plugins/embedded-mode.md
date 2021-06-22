@@ -48,6 +48,10 @@ Embedded Mode offers several **advantages** over Decoupled Mode.
   - _post/page preview_ remains available
   - the _admin bar_ is active for logged in users
 
+{% hint style="warning" %}
+In order to access post previews from the REST API revisions need to be activated. You can read more about revisions on the [official WordPress docs](https://wordpress.org/support/article/revisions/). And if you are using custom post types, remember to [add support for revisions](https://developer.wordpress.org/reference/functions/register_post_type/#supports) when you register them.
+{% endhint %}
+
 But there are some _things to be taken into account_ when using this Embedded Mode:
 
 - Frontity still needs to be hosted on a separate node server/serverless function (albeit on any domain you like including default domains provided by the hosting provider)
@@ -63,10 +67,6 @@ Installation is a three step process: Download → Install → Activate.
 2. **Install** the plugin by [uploading it to WordPress](https://wordpress.org/support/article/managing-plugins/#manual-upload-via-wordpress-admin)
 
 3. **Activate** the plugin by locating it in the Plugins list and clicking on 'Activate'.
-
-{% hint style="warning" %}
-In order to access post previews from the REST API, revisions need to be activated for all your custom post types. You can read more about revisions on the [official WordPress docs](https://wordpress.org/support/article/revisions/).
-{% endhint %}
 
 ## Settings
 
