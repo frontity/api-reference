@@ -64,6 +64,10 @@ Installation is a three step process: Download → Install → Activate.
 
 3. **Activate** the plugin by locating it in the Plugins list and clicking on 'Activate'.
 
+{% hint style="warning" %}
+In order to access post previews from the REST API, revisions need to be activated for all your custom post types. You can read more about revisions on the [official WordPress docs](https://wordpress.org/support/article/revisions/).
+{% endhint %}
+
 ## Settings
 
 The only configuration necessary for this _Frontity Embedded Mode_ plugin is to **set the URL of the Frontity server**. This can be configured in a variety of ways.
