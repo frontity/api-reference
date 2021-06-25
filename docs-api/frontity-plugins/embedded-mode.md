@@ -3,7 +3,7 @@
 This plugin enables the **[Embedded Mode](https://docs.frontity.org/architecture/embedded-mode)** implementation of Frontity in a WordPress installation. You can download it from [here](https://github.com/frontity/frontity-embedded/archive/refs/heads/master.zip).
 
 {% hint style="info" %}
-Have a look at the [_Frontity - Embedded Mode_ repository](https://github.com/frontity/frontity-embedded) to check the code of the plugin
+Take a look at the [_Frontity - Embedded Mode_ repository](https://github.com/frontity/frontity-embedded) to see the code for this plugin.
 {% endhint %}
 
 This _Frontity Embedded Mode_ plugin replaces the active WordPress theme with the Frontity installation. Frontity therefore effectively becomes the WordPress sites' theme. It works by substituting it's own [`template.php`](https://github.com/frontity/frontity-embedded/blob/master/includes/template.php) in place of any call made to the [WordPress template hierarchy](https://developer.wordpress.org/themes/basics/template-hierarchy/).
@@ -16,11 +16,11 @@ This _Frontity Embedded Mode_ plugin replaces the active WordPress theme with th
   - [Features of the Embedded Mode](#features-of-the-embedded-mode)
 - [Installation](#installation)
 - [Settings](#settings)
-  - [Plugin settings page](#plugin-settings-page)
-  - [Environment Variable](#environment-variable)
-  - [WordPress Constant](#wordpress-constant)
-- [Static Assets](#static-assets)
-  - [Examples](#examples)
+  - [Set the URL of the Frontity server](#set-the-url-of-the-frontity-server)
+    - [Editing the plugin’s settings page](#editing-the-plugins-settings-page)
+    - [Adding an environment variable](#adding-an-environment-variable)
+    - [Adding a WordPress constant](#adding-a-wordpress-constant)
+  - [Set the static assets public path](#set-the-static-assets-public-path)
     - [Frontity in the same WordPress server](#frontity-in-the-same-wordpress-server)
     - [Frontity in an external server](#frontity-in-an-external-server)
     - [Local Development](#local-development)
@@ -70,9 +70,20 @@ Installation is a three step process: Download → Install → Activate.
 
 ## Settings
 
-The only configuration necessary for this _Frontity Embedded Mode_ plugin is to **set the URL of the Frontity server**. This can be configured in a variety of ways.
+In order to use Frontity in embedded mode with this _Frontity Embedded Mode_ plugin you need to:
 
-### Plugin settings page
+- [Set the URL of the Frontity server](#set-the-url-of-the-frontity-server).
+- [Set the static assets public path of your Frontity deployment](#set-the-static-assets-public-path).
+
+### Set the URL of the Frontity server
+
+This can be configured in a variety of ways:
+
+- [Editing the plugin’s settings page](#editing-the-plugins-settings-page)
+- [Adding an environment variable](#adding-an-environment-variable)
+- [Adding a WordPress constant](#adding-a-wordpress-constant)
+
+#### Editing the plugin’s settings page
 
 Once the plugin has been activated a new 'Frontity Embedded Mode' option appears under 'Settings'.
 
@@ -82,7 +93,7 @@ Select this and enter the URL of the Frontity server in the input field. (During
 
 ![](../.gitbook/assets/embedded-mode-img02.png)
 
-### Environment Variable
+#### Adding an environment variable
 
 It is also possible to use an environment variable instead of changing the URL in the settings.
 
@@ -92,7 +103,7 @@ It is also possible to use an environment variable instead of changing the URL i
 
 > Note that the environment variable, if it exists, takes precedence over the setting configured in the settings page.
 
-### WordPress Constant
+#### Adding a WordPress constant
 
 Lastly a PHP constant can be defined. This would usually be done in the `wp-config.php` file.
 
@@ -102,7 +113,7 @@ define( 'FRONTITY_SERVER', 'https://myfrontityserver.com' );
 
 > Note that if the PHP constant exists, it takes precedence over both the environment variable and the settings page setting.
 
-## Static Assets
+### Set the static assets public path
 
 By default Frontity will look for static assets (such as images, fonts, .js or .css files, etc...) in the path `https://<YOUR-DOMAIN>/static`.
 
@@ -112,7 +123,7 @@ In addition it's not always possible to host the static assets with the Frontity
 
 Therefore, if required, it's possible to change the directory or URL where your static assets are stored **at build time**. To do this you can use the [`--public-path` option](https://api.frontity.org/frontity-cli/build-commands/build#the-public-path-option) of the `npx frontity build` command.
 
-### Examples
+The URL (or path) of the static assets will differ depending on the sceneario in which you're using this Embedded Mode plugin.
 
 #### Frontity in the same WordPress server
 
