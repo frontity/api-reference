@@ -3,7 +3,7 @@
 This plugin enables the **[Embedded Mode](https://docs.frontity.org/architecture/embedded-mode)** implementation of Frontity in a WordPress installation. You can download it from [here](https://github.com/frontity/frontity-embedded/archive/refs/heads/master.zip).
 
 {% hint style="info" %}
-Have a look at the [_Frontity - Embedded Mode_ repository](https://github.com/frontity/frontity-embedded) to check the code of the plugin
+Take a look at the [_Frontity - Embedded Mode_ repository](https://github.com/frontity/frontity-embedded) to see the code for this plugin.
 {% endhint %}
 
 This _Frontity Embedded Mode_ plugin replaces the active WordPress theme with the Frontity installation. Frontity therefore effectively becomes the WordPress sites' theme. It works by substituting it's own [`template.php`](https://github.com/frontity/frontity-embedded/blob/master/includes/template.php) in place of any call made to the [WordPress template hierarchy](https://developer.wordpress.org/themes/basics/template-hierarchy/).
@@ -66,7 +66,7 @@ Installation is a three step process: Download → Install → Activate.
 
 ## Settings
 
-In order to use this _Frontity Embedded Mode_ you need to:
+In order to use Frontity in embedded mode with this _Frontity Embedded Mode_ plugin you need to:
 
 - [Set the URL of the Frontity server](#set-the-url-of-the-frontity-server).
 - [Set the static assets public path of your Frontity deployment](#set-the-static-assets-public-path).
@@ -119,7 +119,7 @@ In addition it's not always possible to host the static assets with the Frontity
 
 Therefore, if required, it's possible to change the directory or URL where your static assets are stored **at build time**. To do this you can use the [`--public-path` option](https://api.frontity.org/frontity-cli/build-commands/build#the-public-path-option) of the `npx frontity build` command.
 
-The URL (or path) of the static assets will be different depending on the sceneario you're using this Embedded Mode plugin.
+The URL (or path) of the static assets will differ depending on the sceneario in which you're using this Embedded Mode plugin.
 
 #### Frontity in the same WordPress server
 
