@@ -55,7 +55,7 @@ In order to access post previews from the REST API revisions need to be activate
 But there are some _things to be taken into account_ when using this Embedded Mode:
 
 - Frontity still needs to be hosted on a separate node server/serverless function (albeit on any domain you like including default domains provided by the hosting provider)
-- WordPress still needs to go through it's [bootstrap process](https://wordpress.tv/2017/06/22/alain-schlesser-demystifying-the-wordpress-bootstrap-process/) on initial page load
+- WordPress still needs to go through its [bootstrap process](https://wordpress.tv/2017/06/22/alain-schlesser-demystifying-the-wordpress-bootstrap-process/) on initial page load
 - more routing is involved (WordPress makes a call to Frontity which returns the HTML to WordPress) so **a caching plugin is a necessity** rather than simply a nice to have.
 
 ## Installation
@@ -123,7 +123,7 @@ In addition it's not always possible to host the static assets with the Frontity
 
 Therefore, if required, it's possible to change the directory or URL where your static assets are stored **at build time**. To do this you can use the [`--public-path` option](https://api.frontity.org/frontity-cli/build-commands/build#the-public-path-option) of the `npx frontity build` command.
 
-The URL (or path) of the static assets will differ depending on the sceneario in which you're using this Embedded Mode plugin.
+The URL (or path) of the static assets will differ depending on the scenario in which you're using this Embedded Mode plugin.
 
 #### Frontity in the same WordPress server
 
