@@ -68,7 +68,7 @@ export default {
 
 ### Object properties
 
-To define a SmartAd using the [Slot & Fills](https://docs.frontity.org/learning-frontity/roots#fills) pattern we use [the standard _FilL_ properties](https://api.frontity.org/frontity-packages/core-package/frontity#fills)
+To define a SmartAd using the [Slot & Fills](https://api.frontity.org/frontity-packages/core-package/frontity#slot) pattern we use [the standard _FilL_ properties](https://api.frontity.org/frontity-packages/core-package/frontity#fills)
 
 | Name          | Type   | Required | Description                                                                                                                                                      |
 | :------------ | :----- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -148,7 +148,7 @@ module.exports = {
 
 ### Using the `Slot & Fill` pattern
 
-The recommended usage of this component is using the [Slot and Fill](https://docs.frontity.org/learning-frontity/roots#fills) pattern. The configuration of the fill\(s\) is done in the `state.fills.smartAdserver` namespace in `frontity.settings.js` as explained above.
+The recommended usage of this component is using the [Slot and Fill](https://api.frontity.org/frontity-packages/core-package/frontity#slot) pattern. The configuration of the fill\(s\) is done in the `state.fills.smartAdserver` namespace in `frontity.settings.js` as explained above.
 
 With this configuration we can then insert the Slots representing the Ads in any React component.
 
