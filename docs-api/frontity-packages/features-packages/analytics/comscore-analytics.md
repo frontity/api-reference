@@ -66,7 +66,7 @@ This `@frontity/comscore-analytics` package can co-exist with some other `analyt
 
 ### `actions.analytics.pageview`
 
-If `@frontity/comscore-analytics` is configured [and enabled for _pageviews_](comscore-analytics.md), every time a link changes \(or every time `action.router.set(link)` is launched\) a tracking for that page will be sent to Google Analytics
+If `@frontity/comscore-analytics` is configured [and enabled for _pageviews_](https://api.frontity.org/frontity-packages/features-packages/analytics#actions-analytics-pageview), every time a link changes \(or every time `action.router.set(link)` is launched\) a tracking for that page will be sent to Google Analytics
 
 ### `actions.analytics.event`
 
