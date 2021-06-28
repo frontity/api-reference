@@ -20,8 +20,7 @@ npm i @frontity/comscore-analytics
 
 The [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package is **`comscoreAnalytics`**
 
-Every Comscore account has a [Tracking ID](comscore-analytics.md).  
-To connect the package with a specific account \(or accounts\) we can set the following properties in the `frontity.settings.js`:
+Every Comscore account has a Tracking ID. To connect the package with a specific account \(or accounts\) we can set the following properties in the `frontity.settings.js`:
 
 - `state.comscoreAnalytics.trackingId`: to specify just one _tracking ID_
 - `state.comscoreAnalytics.trackingIds`: to specify a list of _tracking ID's_
