@@ -43,7 +43,7 @@ npm i @frontity/smart-adserver
 
 This package can be included in your `frontity.settings.js` file as one of the packages that will be part of your Frontity project.
 
-The [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package is **`smartAdserver`**. To use the [Slot and Fill](https://docs.frontity.org/learning-frontity/roots#fills) pattern with this package we should add a settings object to `state.fills` under the `smartAdserver` namespace.
+The [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package is **`smartAdserver`**. To use the [Slot and Fill](https://api.frontity.org/frontity-packages/core-package/frontity#slot) pattern with this package we should add a settings object to `state.fills` under the `smartAdserver` namespace.
 
 Each [fill](https://api.frontity.org/frontity-packages/core-package/frontity#fills) in the **`smartAdserver`** namespace is an object which should be assigned to an arbitrarily named key. The structure should be as follows:
 
@@ -68,7 +68,7 @@ export default {
 
 ### Object properties
 
-To define a SmartAd using the [Slot & Fills](https://docs.frontity.org/learning-frontity/roots#fills) pattern we use [the standard _FilL_ properties](https://api.frontity.org/frontity-packages/core-package/frontity#fills)
+To define a SmartAd using the [Slot & Fills](https://api.frontity.org/frontity-packages/core-package/frontity#slot) pattern we use [the standard _FilL_ properties](https://api.frontity.org/frontity-packages/core-package/frontity#fills)
 
 | Name          | Type   | Required | Description                                                                                                                                                      |
 | :------------ | :----- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -81,18 +81,18 @@ To define a SmartAd using the [Slot & Fills](https://docs.frontity.org/learning-
 
 An object with props that will be passed to the `<Slot>` component.
 
-| Name           | Type   | Required | Description                                                                                                                                                                                                                                                       |
-| :------------- | :----- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`siteId`**   | number | yes      | The `id` of the site as defined in [SmartAds](https://support.smartadserver.com/s/article/Ad-API-reference); represents a website or mobile application; [_more info_](https://support.smartadserver.com/s/article/Setting-up-inventory)                          |
-| **`pageId`**   | number | yes      | The `id` of the page as defined in [SmartAds](https://support.smartadserver.com/s/article/Ad-API-reference); represents a website or mobile application; [_more info_](https://support.smartadserver.com/s/article/Setting-up-inventory)                          |
-| **`formatId`** | number | yes      | The `id` of the format as defined in [SmartAds](https://support.smartadserver.com/s/article/Ad-API-reference); represents an ad slot on a page (medium rectangle, skyscraper...); [_more info_](https://support.smartadserver.com/s/article/Setting-up-inventory) |
-| **`callType`** | string | yes      | The type of the ad call. Possible values: `iframe` or `std`                                                                                                                                                                                                       |
-| **`tagId`**    | string | no       | The `id` of the container that will contain the ad. Default Value: `sas_${formatId}"`                                                                                                                                                                             |
-| **`width`** | number | no | The width of the ad. Used with callType `iframe`. |
-| **`height`** | number | no | The height of the ad. Used with callType `iframe`. |
-| **`minHeight`** | number | no | Minimum height of the container for the ad. Used with callType `std`. |
-| **`css`** | [style object](https://api.frontity.org/frontity-packages/core-package/frontity#css) | no | The optional styles that can be passed to the SmartAd component via `css` prop. They will be merged with the default styles of the SmartAd component. [_more info_](https://api.frontity.org/frontity-packages/core-package/frontity#css) |
-| **`target`** | string | no | Keyword targeting allows you to display ads only when specific keywords or key/value pairs are passed in the ad request. [_more info_](https://support.smartadserver.com/s/article/Using-keyword-targeting) |
+| Name            | Type                                                                                 | Required | Description                                                                                                                                                                                                                                                       |
+| :-------------- | :----------------------------------------------------------------------------------- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`siteId`**    | number                                                                               | yes      | The `id` of the site as defined in [SmartAds](https://support.smartadserver.com/s/article/Ad-API-reference); represents a website or mobile application; [_more info_](https://support.smartadserver.com/s/article/Setting-up-inventory)                          |
+| **`pageId`**    | number                                                                               | yes      | The `id` of the page as defined in [SmartAds](https://support.smartadserver.com/s/article/Ad-API-reference); represents a website or mobile application; [_more info_](https://support.smartadserver.com/s/article/Setting-up-inventory)                          |
+| **`formatId`**  | number                                                                               | yes      | The `id` of the format as defined in [SmartAds](https://support.smartadserver.com/s/article/Ad-API-reference); represents an ad slot on a page (medium rectangle, skyscraper...); [_more info_](https://support.smartadserver.com/s/article/Setting-up-inventory) |
+| **`callType`**  | string                                                                               | yes      | The type of the ad call. Possible values: `iframe` or `std`                                                                                                                                                                                                       |
+| **`tagId`**     | string                                                                               | no       | The `id` of the container that will contain the ad. Default Value: `sas_${formatId}"`                                                                                                                                                                             |
+| **`width`**     | number                                                                               | no       | The width of the ad. Used with callType `iframe`.                                                                                                                                                                                                                 |
+| **`height`**    | number                                                                               | no       | The height of the ad. Used with callType `iframe`.                                                                                                                                                                                                                |
+| **`minHeight`** | number                                                                               | no       | Minimum height of the container for the ad. Used with callType `std`.                                                                                                                                                                                             |
+| **`css`**       | [style object](https://api.frontity.org/frontity-packages/core-package/frontity#css) | no       | The optional styles that can be passed to the SmartAd component via `css` prop. They will be merged with the default styles of the SmartAd component. [_more info_](https://api.frontity.org/frontity-packages/core-package/frontity#css)                         |
+| **`target`**    | string                                                                               | no       | Keyword targeting allows you to display ads only when specific keywords or key/value pairs are passed in the ad request. [_more info_](https://support.smartadserver.com/s/article/Using-keyword-targeting)                                                       |
 
 ## Examples
 
@@ -148,7 +148,7 @@ module.exports = {
 
 ### Using the `Slot & Fill` pattern
 
-The recommended usage of this component is using the [Slot and Fill](https://docs.frontity.org/learning-frontity/roots#fills) pattern. The configuration of the fill\(s\) is done in the `state.fills.smartAdserver` namespace in `frontity.settings.js` as explained above.
+The recommended usage of this component is using the [Slot and Fill](https://api.frontity.org/frontity-packages/core-package/frontity#slot) pattern. The configuration of the fill\(s\) is done in the `state.fills.smartAdserver` namespace in `frontity.settings.js` as explained above.
 
 With this configuration we can then insert the Slots representing the Ads in any React component.
 
