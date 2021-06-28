@@ -1,6 +1,6 @@
 # @frontity/comscore-analytics
 
-[Comscore](https://www.comscore.com/) Analytics package for Frontity
+[Comscore](https://www.comscore.com/) Analytics package for Frontity.
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ npm i @frontity/comscore-analytics
 
 ## Settings
 
-The [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package is **`comscoreAnalytics`**
+The [namespace](https://docs.frontity.org/learning-frontity/namespaces) for this package is **`comscoreAnalytics`**.
 
 Every Comscore account has a Tracking ID. To connect the package with a specific account \(or accounts\) we can set the following properties in the `frontity.settings.js`:
 
@@ -57,17 +57,17 @@ export default {
 
 ## Usage
 
-This `@frontity/comscore-analytics` package can co-exist with some other `analytics` packages. Once we have properly installed and configured these `analytics` packages, their actions will be centralized by the `analytics` namespace
+This `@frontity/comscore-analytics` package can co-exist with some other `analytics` packages. Once we have properly installed and configured these `analytics` packages, their actions will be centralized by the `analytics` namespace.
 
 - `actions.analytics.pageview` will take into account settings in `state.analytics.pageviews`
 - `actions.analytics.event` will take into account settings in `state.analytics.events`
 
-> Read more [here](./#how-to-use) about how to use Analytic packages
+> Read more [here](./#how-to-use) about how to use Analytic packages.
 
 ### `actions.analytics.pageview`
 
-If `@frontity/comscore-analytics` is configured [and enabled for _pageviews_](https://api.frontity.org/frontity-packages/features-packages/analytics#actions-analytics-pageview), every time a link changes \(or every time `action.router.set(link)` is launched\) a tracking for that page will be sent to Google Analytics
+If `@frontity/comscore-analytics` is configured [and enabled for _pageviews_](https://api.frontity.org/frontity-packages/features-packages/analytics#actions-analytics-pageview), every time a link changes \(or every time `action.router.set(link)` is launched\) a tracking for that page will be sent to Google Analytics.
 
 ### `actions.analytics.event`
 
-This package doesn't actually track events for Comscore so any call of the method `actions.analytics.event()` will have no effect for this service
+This package doesn't actually track events for Comscore so any call of the method `actions.analytics.event()` will have no effect for this service.
