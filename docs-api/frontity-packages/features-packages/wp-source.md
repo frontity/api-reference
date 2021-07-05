@@ -777,7 +777,7 @@ A handler is defined by an object with the following properties:
 | :------------- | :------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`name`**     | string   | yes      | Identifier of the handler.                                                                                                                                                           |
 | **`priority`** | number   | yes      | Number that lets `fetch` to know in which order handlers should be evaluated.                                                                                                        |
-| **`pattern`**  | regExp   | yes      | Pattern which paths are compared with. We use [path-to-regexp](https://github.com/pillarjs/path-to-regexp) under the hood, so check its documentation to know how to write patterns. |
+| **`pattern`**  | regExp   | yes      | Pattern which paths are compared with. We use [path-to-regexp](https://github.com/pillarjs/path-to-regexp) under the hood, so check its documentation to know how to write patterns. If the pattern you are trying to match doesn't include a path, but only RegExp, you need to use the following syntax: `pattern: "RegExp:foo(?!bar)"` |
 | **`func`**     | function | yes      | Asynchronous function that retrieves entities and adds all info to the state.                                                                                                        |
 
 **The func property**
