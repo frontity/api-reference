@@ -25,7 +25,7 @@ These packages encapsulate the logic to apply the main features needed in a Word
 A Frontity project is basically the sum of the **Core package** plus a selection of **Features packages**. You can also use **Collections packages** to help speed up the development of your Frontity project.
 
 {% hint style="info" %}
-The [full list of available packages](https://www.npmjs.com/search?q=keywords:frontity) includes others created by the community. However, in this site we're going to document only the official `frontity` packages that have a public API.
+The [full list of packages](https://www.npmjs.com/search?q=keywords:frontity) includes others created by the community, such as [these themes](themes-packages#community-themes) and [these features packages](features-packages#community-packages). However, only the official `frontity` packages that have a public API are fully documented here.
 {% endhint %}
 
 ### 💙 [Core package](core-package/)
