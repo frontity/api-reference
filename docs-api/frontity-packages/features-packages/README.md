@@ -76,7 +76,7 @@ A package developed by Aamodt Group that adds support for the Gravity Forms plug
 
 ### Microsoft Clarity
 
-An analytics package crated by mtadros to use Microsoft Clarity with Frontity.
+An analytics package created by mtadros to use Microsoft Clarity with Frontity.
 
 - [`frontity-microsoft-clarity`](https://www.npmjs.com/package/frontity-microsoft-clarity)
 
