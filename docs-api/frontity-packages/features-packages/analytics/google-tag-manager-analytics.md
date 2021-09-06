@@ -67,7 +67,7 @@ This `@frontity/google-tag-manager-analytics` package can co-exist with some oth
 
 ### `actions.analytics.pageview`
 
-If `@frontity/google-tag-manager-analytics` is configured configured and enabled for _pageviews_ in `state.analytics.pageviews`, every time a link changes \(or every time `action.router.set(link)` is launched\) a tracking for that page will be sent to Google Tag Manager.
+If `@frontity/google-tag-manager-analytics` is configured and enabled for _pageviews_ in `state.analytics.pageviews`, every time a link changes \(or every time `action.router.set(link)` is launched\) a tracking for that page will be sent to Google Tag Manager.
 
 #### Sending `pageviews` to Google Analytics via Google Tag Manager
 
