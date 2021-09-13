@@ -77,8 +77,15 @@ Example:
 
 ```javascript
 {
-  ignore: "^(wp-(json|admin|content|includes))|feed|comments|xmlrpc",
-  base: "https://wp.mysite.com"
+  name: "@frontity/yoast",
+  state: {
+    yoast: {
+      transformLinks: {
+        ignore: "^(wp-(json|admin|content|includes))|feed|comments|xmlrpc",
+        base: "https://wp.mysite.com",
+      },
+    },
+  },
 }
 ```
 
