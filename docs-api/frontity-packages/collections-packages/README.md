@@ -4,3 +4,4 @@ These packages are collections of useful components or hooks that you can use to
 
 - [`@frontity/components`](components.md)
 - [`@frontity/hooks`](hooks/)
+- [`@aamodtgroup/frontity-contact-form-7`](https://www.npmjs.com/package/@aamodtgroup/frontity-contact-form-7)
